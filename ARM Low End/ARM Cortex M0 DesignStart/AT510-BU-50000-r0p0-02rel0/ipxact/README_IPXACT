@@ -1,0 +1,198 @@
+//===========================================================================
+//  The confidential and proprietary information contained in this file may
+//  only be used by a person authorised under and to the extent permitted
+//  by a subsisting licensing agreement from ARM Limited.
+//
+//                (C) COPYRIGHT 2009 ARM Limited
+//                    ALL RIGHTS RESERVED
+//
+//  This entire notice must be reproduced on all copies of this file
+//  and copies of this file may only be made by a person if such person is
+//  permitted to do so under the terms of a subsisting license agreement
+//  from ARM Limited.
+//
+//  SVN Information
+//
+//  Revision            : $Revision: 104893 $
+//  Release Information : Cortex-M0-AT510-r0p0-00rel0
+//
+// --------------------------------------------------------------------------
+//  Purpose : Cortex-M0 r0p0 IP-XACT Description README
+// --------------------------------------------------------------------------
+
+Cortex-M0 r0p0 IP-XACT description README
+=========================================
+
+This README file contains information about the ARM Cortex-M0 r0p0 IP-XACT
+descriptions.  You may find the document useful when using the IP-XACT
+descriptions in IP-XACT enabled design environments.
+
+The IP-XACT files in this release relate to the r0p0 version of the Cortex-M0
+processor and meet the IP-XACT 1.2 Specification.
+
+Vendor, Library and Version information
+---------------------------------------
+This release of the Cortex-M0 IP-XACT descriptions use the following vendor,
+library and version information:
+
+  Vendor:   arm.com
+  Library:  Cortex-M0
+  Version:  r0p0_0
+
+The deliverables also contain some supporting bus definitions which belong to
+other standard libraries, for example AMBA.
+
+Directory structure
+-------------------
+The IP-XACT descriptions are organised into the following directory structure:
+
+  ipxact/
+    busdefs/        : Bus definitions
+    channels/       : Channel components
+    components/     : Component definitions
+
+Within each of the subdirectories listed above, the IP-XACT XML files are
+further organised by vendor and library.
+
+
+Top-level components
+--------------------
+The Cortex-M0 IP-XACT descriptions are provided with two top-level components
+describing two different configurations of the Cortex-M0 RTL.
+
+  Component Name      Description
+  ------------------- ------------------------------------------------------
+  CORTEXM0            Cortex-M0 Processor
+  CORTEXM0INTEGRATION Cortex-M0 Integration Level (debug with Cortex-M0-DAP)
+
+Configuration options
+---------------------
+The Cortex-M0 processor descriptions support RTL configuration through
+top-level parameters.
+
+If using the Integration level, the JTAGnSW parameter is used to choose
+between JTAG and Serial Wire debug interfaces, as the DAP supports only one
+protocol in synthesis.
+
+The AHBSLV parameter is fixed to 1 in the descriptions; this sets the debug
+slave interface to be AHB-Lite compliant.
+
+The RAR parameter toggles the Reset All Registers feature. When RAR is used,
+all registers can be reset, incurring an area penalty. The design does not
+require all registers to have a reset, and these registers have no reset when
+RAR is 0.
+
+Bus interfaces
+--------------
+The following bus interfaces are used in the descriptions:
+
+  Interface                     Library           Description
+  ______________________        ________________  _____________________________
+  AHBLite                       AMBA3             AMBA3 AHB-Lite
+  interrupt                     busdef.interrupt  Interrupts
+  Onchip_SWJDP_Interface        CoreSight         CoreSight SWJ-DP Interface
+  SerialWire_and_JTAG_Interface CoreSight         External SWJ-DP Interface
+  dbg_pwr_bus                   CortexMCores      Power Handshake Bus
+  dbg_trigger_bus               CortexMCores      Debug Trigger Bus
+  srpg_bus                      CortexMCores      State Retention and
+                                                  Power Gating
+  sleep_bus                     CortexMCores      Sleep Bus
+  cm0_free_running_clk          Cortex-M0         Free Running Clock
+  cm0_system_clk                Cortex-M0         System-level Clock
+  cm0_proc_wicinterface         Cortex-M0         WIC Interface
+  cm0_debug_slave               Cortex-M0         Cortex-M0 debug interface
+  cm0_smp                       Cortex-M0         Cortex-M0 Supplementary
+                                                  Master Port
+
+Some bus interfaces are found on one of the processor or integration levels
+only.
+
+The SWJ-DP Interface used as the pinout is the same as on a standard CoreSight
+SWJ-DP, however Cortex-M0 DAP is synthesizable with either SW-DP or JTAG-DP
+only and this should be considered when connecting the integration level.
+
+The bus definition SerialWire_and_JTAG_Interface is included in this but is not
+referenced in any of the descriptions. The definition is provided to form part
+of a system-level interface for debugger connections. The actual ports used at
+system level in this interface can be specified according to the DAP
+configuration.
+
+  NOTE:
+  The interrupt interface on the Cortex-M0 processor is modelled using the
+  SPIRIT Consortium's standard interrupt bus interface.  You must obtain this
+  bus interface separately from the SPIRIT Consortium's public IP-XACT 1.2
+  deliverables.
+
+Channels
+--------
+A cm0_debugslave_channel component has been provided to allow connection to the
+processor's debug slave interface. This can be used to connect a Cortex-M0 DAP.
+
+
+Filesets and views
+------------------
+This release of the descriptions contains RTL fileset information for a generic
+implementation.
+
+All RTL files are referenced relative to a ${CM0_ROOT} environment variable
+which must be set to the Cortex-M0 deliverables root directory.
+
+Ad Hoc Signals
+--------------
+These signals are not part of any bus interface, and should be connected
+manually.
+
+Signals marked [I] are in the Integration level only, and those marked [P] are
+in the processor level only. Unmarked signals are common to both components.
+
+  PORESETn is the Power On Reset which resets the processor and all debug logic.
+  It is the only reset which can reset the Debug Port and must be connected to
+  appropriate reset logic.
+
+  LOCKUP is an output which indicates that the processor has locked up. This
+  status signal may be connected to a system watchdog, for example.
+
+  STCALIB is the SysTick calibration default value. An appropriate value should
+  be driven.
+
+  ECOREVNUM is for the engineering change order revision bits. It is a 28-bit
+  port which is a concatenation of the following:
+  Bits  [27:24] are the DAP DPIDR Revision field (Integration Level Only)
+  Bits  [23:20] are the DAP APIDR Revision field (Integration Level Only)
+  Bits  [19:0]  are the ECOREVNUM bits for the core
+  This port is used for post-implementation revision number changes, all bits
+  are tied to 0 by default.
+
+  IRQLATENCY is the interrupt latency value and should be driven with the
+  appropriate value. The default value is 0.
+
+  SYSRESETREQ indicates that the system has requested a reset.
+
+  STCLKEN is the SysTick FCLK clock enable.
+
+  SE is used to bypass architectural clock gating and is used for DFT only.
+  The value should be tied to 0 by default.
+
+  [I] RSTBYPASS is the reset bypass and should be driven low if not used.
+
+  [I] GATEHCLK is an output signalling that HCLK may be gated.
+
+  [I] WICSENSE can be used to interface with a second WIC outside the
+  integration level.
+
+
+ACG Model Cells
+---------------
+The architectural clock gating cell included in the fileset is cm0_acg, which
+is intended to be a generic model inferring clock gating, which may not be
+optimal for a specific implementation.
+
+This reference should be replaced with one to the library-specific model cell
+required for implementation.
+
+OVL Assertions
+--------------
+The Cortex-M0 RTL includes OVL assertions when the HDL define ARM_ASSERT_ON is
+set.  The IP-XACT descriptions represent the configuration with OVLs turned
+off, i.e.  ARM_ASSERT_ON is not defined.  The RTL filesets do not include the
+files and libraries used for OVL assertions.

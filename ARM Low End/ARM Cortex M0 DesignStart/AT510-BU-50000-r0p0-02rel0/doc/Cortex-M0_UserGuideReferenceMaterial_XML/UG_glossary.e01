@@ -1,0 +1,200 @@
+<?Fm Document UG_glossary.fm?>
+<glossary id = "CBAIFDIB">
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green NO_OVERRIDE show?>
+
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red NO_OVERRIDE hide?>
+
+
+<?Fm BoolCondExpr "" State 0?>
+
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_ON_FINAL?>
+
+<title>Glossary</title>
+<para>This glossary describes some of the terms used in technical
+documents from ARM.</para>
+<glossentry><glossterm>Aligned</glossterm>
+<glossdef><para>A data item stored at an address that is divisible
+by the number of bytes that defines the data size is said to be
+aligned. Aligned words and halfwords have addresses that are divisible
+by four and two respectively. The terms word-aligned and halfword-aligned therefore
+stipulate addresses that are divisible by four and two respectively.</para></glossdef></glossentry>
+<glossentry><glossterm>Base register</glossterm>
+<glossdef><para>In instruction descriptions, a register specified
+by a load or store instruction that is used to hold the base value
+for the instruction’s address calculation. Depending on the instruction
+and its addressing mode, an offset can be added to or subtracted
+from the base register value to form the address that is sent to
+memory.</para>
+<glossseealso>Index register</glossseealso></glossdef></glossentry>
+<glossentry><glossterm>Big-endian (BE)</glossterm>
+<glossdef><para>Byte ordering scheme in which bytes of decreasing
+significance in a data word are stored at increasing addresses in
+memory.</para>
+<glossseealso>Byte-invariant, Endianness, Little-endian</glossseealso></glossdef></glossentry>
+<glossentry><glossterm>Big-endian memory</glossterm>
+<glossdef><para>Memory in which:<itemizedlist><listitem><para>a
+byte or halfword at a word-aligned address is the most significant
+byte or halfword within the word at that address</para></listitem>
+<listitem><para>a byte at a halfword-aligned address is the most
+significant byte within the halfword at that address.</para></listitem></itemizedlist></para>
+<glossseealso>Little-endian memory</glossseealso></glossdef></glossentry>
+<glossentry><glossterm>Breakpoint</glossterm>
+<glossdef><para>A breakpoint is a mechanism provided by debuggers
+to identify an instruction at which program execution is to be halted.
+Breakpoints are inserted by the programmer to enable inspection
+of register contents, memory locations, variable values at fixed
+points in the program execution to test that the program is operating
+correctly. Breakpoints are removed after the program is successfully
+tested. </para></glossdef></glossentry>
+<glossentry><glossterm>Byte-invariant</glossterm>
+<glossdef><para>In a byte-invariant system, the address of each
+byte of memory remains unchanged when switching between little-endian
+and big-endian operation. When a data item larger than a byte is
+loaded from or stored to memory, the bytes making up that data item are
+arranged into the correct order depending on the endianness of the
+memory access. 
+An ARM byte-invariant implementation also supports unaligned halfword
+and word memory accesses. It expects multi-word accesses to be word-aligned.</para></glossdef></glossentry>
+<glossentry><glossterm>Cache</glossterm>
+<glossdef><para>A block of on-chip or off-chip fast access memory
+locations, situated between the processor and main memory, used
+for storing and retrieving copies of often used instructions, data,
+or instructions and data. This is done to greatly increase the average speed
+of memory accesses and so improve processor performance.</para></glossdef></glossentry>
+<glossentry><glossterm>Condition field</glossterm>
+<glossdef><para>A four-bit field in an instruction that specifies
+a condition under which the instruction can execute.</para></glossdef></glossentry>
+<glossentry role = "break"><glossterm>Conditional execution</glossterm>
+<glossdef><para>If the condition code flags indicate that the corresponding
+condition is true when the instruction starts executing, it executes
+normally. Otherwise, the instruction does nothing.</para></glossdef></glossentry>
+<glossentry><glossterm>Context</glossterm>
+<glossdef><para>The environment that each process operates in for
+a multitasking operating system. In ARM processors, this is limited
+to mean the physical address range that it can access in memory
+and the associated memory access permissions.</para></glossdef></glossentry>
+<glossentry><glossterm>Debugger</glossterm>
+<glossdef><para>A debugging system that includes a program, used
+to detect, locate, and correct software faults, together with custom
+hardware that supports software debugging.</para></glossdef></glossentry>
+<glossentry role = "break"><glossterm>Direct Memory Access (DMA)</glossterm>
+<glossdef><para>An operation that accesses main memory directly,
+without the processor performing any accesses to the data concerned.</para></glossdef></glossentry>
+<glossentry><glossterm>Endianness</glossterm>
+<glossdef><para>Byte ordering. The scheme that determines the order
+that successive bytes of a data word are stored in memory. An aspect
+of the system’s memory mapping.</para>
+<glossseealso>Little-endian and Big-endian</glossseealso></glossdef></glossentry>
+<glossentry><glossterm>Exception</glossterm>
+<glossdef><para>An event that interrupts program execution. When
+an exception occurs, the processor suspends the normal program flow
+and starts execution at the address indicated by the corresponding
+exception vector. The indicated address contains the first instruction
+of the handler for the exception.</para>
+<para>An exception can be an interrupt request, a fault, or a software-generated
+system exception. Faults include attempting an invalid memory access,
+attempting to execute an instruction in an invalid processor state,
+and attempting to execute an undefined instruction.</para></glossdef></glossentry>
+<glossentry><glossterm>Exception vector</glossterm>
+<glosssee>Interrupt vector</glosssee></glossentry>
+<glossentry><glossterm>Halfword</glossterm>
+<glossdef><para>A 16-bit data item.</para></glossdef></glossentry>
+<glossentry role = "break"><glossterm>Implementation-defined</glossterm>
+<glossdef><para>The behavior is not architecturally defined, but
+is defined and documented by individual implementations.</para></glossdef></glossentry>
+<glossentry role = "break"><glossterm>Implementation-specific</glossterm>
+<glossdef><para>The behavior is not architecturally defined, and
+does not have to be documented by individual implementations. Used
+when there are a number of implementation options available and
+the option chosen does not affect software compatibility.</para></glossdef></glossentry>
+<glossentry><glossterm>Index register</glossterm>
+<glossdef><para>In some load and store instruction descriptions,
+the value of this register is used as an offset to be added to or
+subtracted from the base register value to form the address that is
+sent to memory. Some addressing modes optionally enable the index
+register value to be shifted prior to the addition or subtraction.</para>
+<glossseealso>Base register</glossseealso></glossdef></glossentry>
+<glossentry role = "standard"><glossterm>Interrupt handler</glossterm>
+<glossdef><para>A program that control of the processor is passed
+to when an interrupt occurs.</para></glossdef></glossentry>
+<glossentry><glossterm>Interrupt vector</glossterm>
+<glossdef><para>One of a number of fixed addresses in low memory,
+or in high memory if high vectors are configured, that contains
+the first instruction of the corresponding interrupt handler.</para></glossdef></glossentry>
+<glossentry><glossterm>Little-endian (LE)</glossterm>
+<glossdef><para>Byte ordering scheme in which bytes of increasing
+significance in a data word are stored at increasing addresses in
+memory.</para>
+<glossseealso>Big-endian, Byte-invariant, Endianness</glossseealso></glossdef></glossentry>
+<glossentry role = "break"><glossterm>Little-endian memory</glossterm>
+<glossdef><para>Memory in which:<itemizedlist><listitem><para>a
+byte or halfword at a word-aligned address is the least significant
+byte or halfword within the word at that address</para></listitem>
+<listitem><para>a byte at a halfword-aligned address is the least
+significant byte within the halfword at that address.</para></listitem></itemizedlist></para>
+<glossseealso>Big-endian memory</glossseealso></glossdef></glossentry>
+<glossentry><glossterm>Read</glossterm>
+<glossdef><para>Reads are defined as memory operations that have
+the semantics of a load. Reads include the Thumb instructions <code>LDM</code>, <code>LDR</code>, <code>LDRSH</code>, <code>LDRH</code>, <code>LDRSB</code>, <code>LDRB</code>,
+and <code>POP</code>.</para></glossdef></glossentry>
+<glossentry><glossterm>Region</glossterm>
+<glossdef><para>A partition of memory space.</para></glossdef></glossentry>
+<glossentry><glossterm>Reserved</glossterm>
+<glossdef><para>A field in a control register or instruction format
+is reserved if the field is to be defined by the implementation,
+or produces Unpredictable results if the contents of the field are not
+zero. These fields are reserved for use in future extensions of
+the architecture or are implementation‑specific. All reserved bits
+not used by the implementation must be written as 0 and read as
+0.</para></glossdef></glossentry>
+<glossentry><glossterm>Thumb instruction</glossterm>
+<glossdef><para>One or two halfwords that specify an operation for
+a processor to perform. Thumb instructions must be halfword-aligned.</para></glossdef></glossentry>
+<glossentry><glossterm>Unaligned</glossterm>
+<glossdef><para>A data item stored at an address that is not divisible
+by the number of bytes that defines the data size is said to be
+unaligned. For example, a word stored at an address that is not divisible
+by four.</para></glossdef></glossentry>
+<glossentry><glossterm>Undefined </glossterm>
+<glossdef><para>Indicates an instruction that generates an Undefined
+instruction exception.</para></glossdef></glossentry>
+<glossentry><glossterm>Unpredictable</glossterm>
+<glossdef><para>You cannot rely on the behavior. Unpredictable behavior
+must not represent security holes. Unpredictable behavior must not
+halt or hang the processor, or any parts of the system.</para></glossdef></glossentry>
+<glossentry><glossterm>Warm reset</glossterm>
+<glossdef><para>Also known as a core reset. Initializes the majority
+of the processor excluding the debug controller and debug logic.
+This type of reset is useful if you are using the debugging features
+of a processor.</para></glossdef></glossentry>
+<glossentry><glossterm>WA</glossterm>
+<glosssee>Write-allocate</glosssee></glossentry>
+<glossentry><glossterm>WB</glossterm>
+<glosssee>Write-back</glosssee></glossentry>
+<glossentry><glossterm>Word</glossterm>
+<glossdef><para>A 32-bit data item.</para></glossdef></glossentry>
+<glossentry><glossterm>Write</glossterm>
+<glossdef><para>Writes are defined as operations that have the semantics
+of a store. Writes include the Thumb instructions <code>STM</code>, <code>STR</code>, <code>STRH</code>, <code>STRB</code>,
+and <code>PUSH</code>.</para></glossdef></glossentry>
+<glossentry><glossterm>Write-allocate (WA)</glossterm>
+<glossdef><para>In a write-allocate cache, a cache miss on storing
+data causes a cache line to be allocated into the cache.</para></glossdef></glossentry>
+<glossentry><glossterm>Write-back (WB)</glossterm>
+<glossdef><para>In a write-back cache, data is only written to main
+memory when it is forced out of the cache on line replacement following
+a cache miss. Otherwise, writes by the processor only update the
+cache. This is also known as copyback.</para></glossdef></glossentry>
+<glossentry><glossterm>Write buffer</glossterm>
+<glossdef><para>A block of high-speed memory, arranged as a FIFO
+buffer, between the data cache and main memory, whose purpose is
+to optimize stores to main memory.</para></glossdef></glossentry>
+<glossentry><glossterm>Write-through (WT)</glossterm>
+<glossdef><para>In a write-through cache, data is written to main
+memory at the same time as the cache is updated.</para></glossdef></glossentry>
+<glossentry><glossterm>WT</glossterm>
+<glosssee>Write-through</glosssee></glossentry></glossary>

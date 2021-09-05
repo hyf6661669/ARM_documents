@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    // =============================================================================
+    // This confidential and proprietary software may be used only as
+    // authorised by a licensing agreement from ARM Limited
+    //   (C) COPYRIGHT 2008-2009 ARM Limited
+    //       ALL RIGHTS RESERVED
+    // The entire notice above must be reproduced on all authorised
+    // copies and copies may only be made to the extent permitted
+    // by a licensing agreement from ARM Limited.
+    //
+    // =============================================================================
+    //
+    // Purpose :
+    //           Defines signals on the debug trigger interface on the Cortex-M
+    //           processors
+    //
+    // =============================================================================
+-->
+
+<spirit:busDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2" xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2/index.xsd">
+
+    <spirit:vendor>arm.com</spirit:vendor>
+    <spirit:library>CortexMCores</spirit:library>
+    <spirit:name>dbg_trigger_bus</spirit:name>
+    <spirit:version>r0p0_1</spirit:version>
+
+    <spirit:directConnection>true</spirit:directConnection>
+
+    <spirit:maxMasters>1</spirit:maxMasters>
+    <spirit:maxSlaves>1</spirit:maxSlaves>
+
+    <spirit:signals>
+
+        <!-- Clock -->
+        <spirit:signal>
+            <spirit:logicalName>CLK</spirit:logicalName>
+            <spirit:isClock>true</spirit:isClock>
+            <spirit:onSystem>
+                <spirit:group>dbg_clk</spirit:group>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onSystem>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onSlave>
+        </spirit:signal>
+
+        <!-- Resets -->
+        <spirit:signal>
+            <spirit:logicalName>RESETn</spirit:logicalName>
+            <spirit:isReset>true</spirit:isReset>
+            <spirit:onSystem>
+                <spirit:group>dbg_reset</spirit:group>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onSystem>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onSlave>
+        </spirit:signal>
+
+        <!-- Trigger signals -->
+        <spirit:signal>
+            <spirit:logicalName>EDBGRQ</spirit:logicalName>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onSlave>
+
+            <!-- Default of 0 results in tie-off when left unconnected on CPU -->
+            <spirit:defaultValue>
+                <spirit:value>0</spirit:value>
+            </spirit:defaultValue>
+        </spirit:signal>
+
+        <spirit:signal>
+            <spirit:logicalName>HALTED</spirit:logicalName>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onSlave>
+        </spirit:signal>
+
+        <spirit:signal>
+            <spirit:logicalName>DBGRESTART</spirit:logicalName>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onSlave>
+
+            <!-- Default of 0 results in tie-off when left unconnected on CPU -->
+            <spirit:defaultValue>
+                <spirit:value>0</spirit:value>
+            </spirit:defaultValue>
+        </spirit:signal>
+
+        <spirit:signal>
+            <spirit:logicalName>DBGRESTARTED</spirit:logicalName>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onSlave>
+        </spirit:signal>
+
+    </spirit:signals>
+
+</spirit:busDefinition>

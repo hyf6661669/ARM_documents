@@ -1,0 +1,7 @@
+DEFINE tsmc90g ../../../../design_kits/tsmc/t-n90-lo-sp-002-f1_1_6a_20060914/6X2Z/
+DEFINE cworst ./cworst
+DEFINE cbest ./cbest
+DEFINE rcworst ./rcworst
+DEFINE rcbest ./rcbest
+DEFINE typical ./typical
+

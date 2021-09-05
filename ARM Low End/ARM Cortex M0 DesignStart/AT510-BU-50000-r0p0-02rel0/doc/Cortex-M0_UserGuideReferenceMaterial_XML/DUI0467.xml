@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book SYSTEM "file:///C:/Program%20Files/Adobe/FrameMaker8/structure/ARM/DocBookExport/ARMdocbookx.dtd" [
+
+<!-- Begin Document Specific Declarations -->
+
+
+<!ENTITY bkc1 SYSTEM "UG_bookinfo.e01">
+<!ENTITY bkc2 SYSTEM "UG_preface.e01">
+<!ENTITY bkc3 SYSTEM "UG_introduction.e01">
+<!ENTITY bkc4 SYSTEM "UG_cortex_m0_processor.e01">
+<!ENTITY bkc5 SYSTEM "UG_cortex_m0_instruction_set.e01">
+<!ENTITY bkc6 SYSTEM "UG_cortex_m0_peripherals.e01">
+<!ENTITY bkc7 SYSTEM "UG_glossary.e01">
+
+<!-- End Document Specific Declarations -->
+
+]>
+<?Fm Book?><book status = "Final" security = "NonConfidential Restricted">&bkc1;<toc></toc>&bkc2;&bkc3;&bkc4;&bkc5;&bkc6;&bkc7;</book>

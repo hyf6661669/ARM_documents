@@ -1,0 +1,1409 @@
+<?Fm Document UG_cortex_m0_peripherals.fm?>
+<chapter id = "CIHFADFF">
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green NO_OVERRIDE show?>
+
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red NO_OVERRIDE hide?>
+
+
+<?Fm BoolCondExpr "" State 0?>
+
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_ON_FINAL?>
+
+
+<title>Cortex-M0 Peripherals<phrase condition = "Configurable">,
+Reference Material</phrase></title>
+<para>The following sections are the reference material for the
+ARM Cortex-M0 core peripherals descriptions in a User Guide:<itemizedlist
+    spacing = "compact"><listitem><para><xref xrefstyle = "TitleLong"
+    linkend = "CIHGGBIH"/><phrase condition = "Optional"></phrase></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CIHIGCIF"/><phrase
+    condition = "Optional"></phrase></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CIHFDJCA"/></para></listitem>
+<listitem condition = "Optional"><para><xref xrefstyle = "TitleLong"
+    linkend = "Babieigh"/>.</para></listitem></itemizedlist></para>
+<sect1 id = "CIHGGBIH"><title>About the <phrase
+    condition = "Configurable">Cortex-M0</phrase> peripherals</title>
+<para>The address map of the <emphasis>Private peripheral bus</emphasis> (PPB)
+is:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "BABIGDGG">
+<title condition = "Configurable">Core peripheral register regions</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "1.292in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "2.014in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "1.389in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Address</entry>
+<entry colname = "2">Core peripheral</entry>
+<entry colname = "3">Description</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000E008</literal>-<literal>0xE000E00F</literal></entry>
+<entry colname = "2">System Control Block</entry>
+<entry colname = "3"><xref xrefstyle = "TableNumPage"
+    linkend = "CHDCFECB"/></entry>
+</row>
+<row rowsep = "1" condition = "Optional">
+<entry colname = "1"><literal>0xE000E010</literal>-<literal>0xE000E01F</literal></entry>
+<entry colname = "2">Reserved</entry>
+<entry colname = "3">-</entry>
+</row>
+<row rowsep = "1" condition = "Optional">
+<entry colname = "1"><literal>0xE000E010</literal>-<literal>0xE000E01F</literal></entry>
+<entry colname = "2">System timer</entry>
+<entry colname = "3"><xref xrefstyle = "TableNumPage"
+    linkend = "CHDEGGAE"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000E100</literal>-<literal>0xE000E4EF</literal></entry>
+<entry colname = "2">Nested Vectored Interrupt Controller</entry>
+<entry colname = "3"><xref xrefstyle = "TableNumPage"
+    linkend = "Cihjdhda"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000ED00</literal>-<literal>0xE000ED3F</literal></entry>
+<entry colname = "2">System Control Block</entry>
+<entry colname = "3"><xref xrefstyle = "TableNumPage"
+    linkend = "CHDCFECB"/></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><literal>0xE000EF00</literal>-<literal>0xE000EF03</literal></entry>
+<entry colname = "2">Nested Vectored Interrupt Controller</entry>
+<entry colname = "3"><xref xrefstyle = "TableNumPage"
+    linkend = "Cihjdhda"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>In register descriptions, the register <emphasis>type</emphasis> is
+described as follows:<variablelist spacing = "compact"><varlistentry>
+<term>RW</term><listitem><para>Read and write.</para></listitem></varlistentry>
+<varlistentry><term>RO</term><listitem><para>Read-only.</para></listitem></varlistentry>
+<varlistentry><term>WO</term><listitem><para>Write-only.</para></listitem></varlistentry></variablelist></para></sect1>
+<sect1 id = "CIHIGCIF"><title>Nested Vectored Interrupt Controller</title>
+<para>This section describes the <emphasis>Nested Vectored Interrupt
+Controller</emphasis> (NVIC) and the registers it uses. The NVIC
+supports:</para>
+<para><itemizedlist><listitem><para>1<phrase condition = "Configurable"> to 32</phrase> interrupt<phrase
+    condition = "Configurable">s</phrase>.</para></listitem>
+<listitem><para>A programmable priority level of 0-192 in steps
+of 64 for each interrupt. A higher level corresponds to a lower
+priority, so level 0 is the highest interrupt priority.</para></listitem>
+<listitem><para>Level and pulse detection of interrupt signals.</para></listitem>
+<listitem><para>Interrupt tail-chaining.</para></listitem>
+<listitem><para>An external <emphasis>Non-maskable interrupt</emphasis> (NMI).</para></listitem></itemizedlist></para>
+<para>The processor automatically stacks its state on exception
+entry and unstacks this state on exception exit, with no instruction
+overhead. This provides low latency exception handling. The hardware
+implementation of the NVIC registers is:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Cihjdhda">
+<title>NVIC register summary </title>
+<tgroup cols = "5" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "1.292in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.528in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "0.459in" colsep = "0"/>
+<colspec colnum = "4" colname = "4" colwidth = "0.861in" colsep = "0"/>
+<colspec colnum = "5" colname = "5" colwidth = "2.445in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Address</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Type</entry>
+<entry colname = "4"><para>Reset value</para></entry>
+<entry colname = "5">Description</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000E100</literal>	</entry>
+<entry colname = "2">ISER</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><literal>0x00000000</literal></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Cihcajhj"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000E180</literal></entry>
+<entry colname = "2">ICER</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><literal>0x00000000</literal></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Cihbiadi"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000E200</literal></entry>
+<entry colname = "2">ISPR</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><literal>0x00000000</literal></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Cihjjifh"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000E280</literal></entry>
+<entry colname = "2">ICPR</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><literal>0x00000000</literal></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Cihedbhi"/></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><literal>0xE000E400</literal>-<literal>0xE000E41C</literal></entry>
+<entry colname = "2">IPR0-7</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><literal>0x00000000</literal></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Cihgjeed"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+<sect2 id = "CIHJGJDC"><title>Accessing the Cortex-M0 NVIC registers
+using CMSIS</title>
+<para>CMSIS functions enable software portability between different
+Cortex-M profile processors.</para>
+<para>To access the NVIC registers when using CMSIS, use the following
+functions: </para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CIHEFJJE">
+<title>CMSIS access NVIC functions </title>
+<tgroup cols = "2" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "3.236in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "2.973in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">CMSIS function</entry>
+<entry colname = "2">Description</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><parameter>void NVIC_EnableIRQ(IRQn_Type IRQn)</parameter><footnote
+    id = "CIHCEEEJ"><para>The input parameter <parameter>IRQn</parameter> is
+the IRQ number, see <xref xrefstyle = "TableNumPage"
+    linkend = "CHDICFAA"/> for more information. </para></footnote><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+<entry colname = "2">Enables an interrupt or exception.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><parameter>void NVIC_DisableIRQ(IRQn_Type IRQn)</parameter><footnoteref
+    linkend = "CIHCEEEJ"/></entry>
+<entry colname = "2">Disables an interrupt or exception.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><parameter>void NVIC_SetPendingIRQ(IRQn_Type
+IRQn)</parameter><footnoteref linkend = "CIHCEEEJ"/></entry>
+<entry colname = "2">Sets the pending status of interrupt or exception
+to 1.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><parameter>void NVIC_ClearPendingIRQ(IRQn_Type
+IRQn)</parameter><footnoteref linkend = "CIHCEEEJ"/></entry>
+<entry colname = "2">Clears the pending status of interrupt or exception
+to 0.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><parameter>uint32_t NVIC_GetPendingIRQ(IRQn_Type
+IRQn)</parameter><footnoteref linkend = "CIHCEEEJ"/></entry>
+<entry colname = "2">Reads the pending status of interrupt or exception. 
+This function returns non-zero value if the pending status is set
+to 1.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><parameter>void NVIC_SetPriority(IRQn_Type
+IRQn, uint32_t priority)</parameter><footnoteref linkend = "CIHCEEEJ"/></entry>
+<entry colname = "2">Sets the priority of an interrupt or exception
+with configurable priority level to 1.</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><parameter>uint32_t NVIC_GetPriority(IRQn_Type
+IRQn)</parameter><footnoteref linkend = "CIHCEEEJ"/></entry>
+<entry colname = "2">Reads the priority of an interrupt or exception
+with configurable priority level.
+This function return the current priority level.</entry>
+</row>
+</tbody>
+</tgroup></table></sect2>
+<sect2 id = "Cihcajhj"><title>Interrupt Set-enable Register</title>
+<para>The ISER enables interrupts, and shows which interrupts are
+enabled. See the register summary in <xref xrefstyle = "TableNumPage"
+    linkend = "Cihjdhda"/> for the register attributes.</para>
+<para>The bit assignments are: </para><mediaobject><imageobject><imagedata fileref = "graphics/iser_bit_assignments.svg" format = "SVG" contentdepth = "55" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Cihibfbh">
+<title>ISER bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.472in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.653in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "1.417in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "0">
+<entry colname = "1">[31:0]</entry>
+<entry colname = "2">SETENA</entry>
+<entry colname = "3"><para>Interrupt set-enable bits. </para><para>Write:</para><para>0
+= no effect1 = enable interrupt.Read:</para><para>0 = interrupt
+disabled</para><para>1 = interrupt enabled.</para></entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>If a pending interrupt is enabled, the NVIC activates the
+interrupt based on its priority. If an interrupt is not enabled,
+asserting its interrupt signal changes the interrupt state to pending,
+but the NVIC never activates the interrupt, regardless of its priority.</para></sect2>
+<sect2 id = "Cihbiadi"><title>Interrupt Clear-enable Register</title>
+<para>The ICER disables interrupts, and show which interrupts are
+enabled. See the register summary in <xref xrefstyle = "TableNumPage"
+    linkend = "Cihjdhda"/> for the register attributes.</para>
+<para>The bit assignments are: </para><mediaobject><imageobject><imagedata fileref = "graphics/icer_bit_assignments.svg" format = "SVG" contentdepth = "55" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Cihbbigd">
+<title>ICER bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.472in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.667in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "1.486in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "0">
+<entry colname = "1">[31:0]</entry>
+<entry colname = "2">CLRENA</entry>
+<entry colname = "3"><para>Interrupt clear-enable bits.</para><para>Write:</para><para>0
+= no effect</para><para>1 = disable interrupt.</para><para>Read:</para><para>0
+= interrupt disabled</para><para>1 = interrupt enabled.</para></entry>
+</row>
+</tbody>
+</tgroup></table></sect2>
+<sect2 id = "Cihjjifh" role = "standard"><title>Interrupt Set-pending
+Register</title>
+<para>The ISPR forces interrupts into the pending state, and shows
+which interrupts are pending. See the register summary in <xref
+    xrefstyle = "TableNumPage" linkend = "Cihjdhda"/> for the register
+attributes. </para>
+<para>The bit assignments are: </para><mediaobject><imageobject><imagedata fileref = "graphics/ispr_bit_assignments.svg" format = "SVG" contentdepth = "55" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Cihijjje">
+<title>ISPR bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.472in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.722in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.083in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "0">
+<entry colname = "1">[31:0]</entry>
+<entry colname = "2">SETPEND</entry>
+<entry colname = "3"><para>Interrupt set-pending bits.</para><para>Write:</para><para>0
+= no effect</para><para>1 = changes interrupt state to pending.Read:</para><para>0
+= interrupt is not pending</para><para>1 = interrupt is pending.</para></entry>
+</row>
+</tbody>
+</tgroup></table>
+<note>
+<para>Writing 1 to the ISPR bit corresponding to:<itemizedlist
+    spacing = "compact"><listitem><para>an interrupt that is pending
+has no effect</para></listitem>
+<listitem><para>a disabled interrupt sets the state of that interrupt
+to pending.</para></listitem></itemizedlist></para>
+</note></sect2>
+<sect2 id = "Cihedbhi" role = "standard"><title>Interrupt Clear-pending
+Register</title>
+<para>The ICPR removes the pending state from interrupts, and shows
+which interrupts are pending. See the register summary in <xref
+    xrefstyle = "TableNumPage" linkend = "Cihjdhda"/> for the register
+attributes.</para>
+<para>The bit assignments are: </para><mediaobject><imageobject><imagedata fileref = "graphics/icpr_bit_assignments.svg" format = "SVG" contentdepth = "55" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Cihhdhdh">
+<title>ICPR bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.472in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.736in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.125in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "0">
+<entry colname = "1">[31:0]</entry>
+<entry colname = "2">CLRPEND</entry>
+<entry colname = "3"><para>Interrupt clear-pending bits.</para><para>Write:</para><para>0
+= no effect</para><para>1 = removes pending state an interrupt.Read:</para><para>0
+= interrupt is not pending</para><para>1 = interrupt is pending.</para></entry>
+</row>
+</tbody>
+</tgroup></table>
+<note>
+<para>Writing 1 to an ICPR bit does not affect the active state
+of the corresponding interrupt.</para>
+</note></sect2>
+<sect2 id = "Cihgjeed"><title>Interrupt Priority Registers</title>
+<para>The <phrase condition = "Configurable">IPR0-IPR7</phrase> registers
+provide an <phrase condition = "Configurable">8</phrase>-bit priority
+field for each interrupt. These registers are only word-accessible.
+See the register summary in <xref xrefstyle = "TableNumPage"
+    linkend = "Cihjdhda"/> for their attributes. Each register holds
+four priority fields as shown:</para><mediaobject><imageobject><imagedata fileref = "graphics/ipr_bit_assignments.svg" format = "SVG" contentdepth = "206" contentwidth = "528"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "BABDCFGH">
+<title>IPR bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.569in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.264in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "4.367in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits </entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:24] </entry>
+<entry colname = "2">Priority, byte offset 3 </entry>
+<entry colname = "3" morerows = "3"><para>Each priority field holds
+a priority value, 0-192. The lower the value, the greater the priority
+of the corresponding interrupt. The processor implements only bits[7:6]
+of each field, bits [5:0] read as zero and ignore writes. This means
+writing 255 to a priority register saves value 192 to the register.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[23:16] </entry>
+<entry colname = "2">Priority, byte offset 2</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[15:8] </entry>
+<entry colname = "2">Priority, byte offset 1</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[7:0] </entry>
+<entry colname = "2">Priority, byte offset 0</entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>See <xref xrefstyle = "TitleLong" linkend = "CIHJGJDC"/> for
+more information about the access to the interrupt priority array,
+which provides the software view of the interrupt priorities.</para>
+<para>Find the IPR number and byte offset for interrupt <emphasis>M</emphasis> as
+follows:<itemizedlist spacing = "compact"><listitem><para>the corresponding
+IPR number, <emphasis>N</emphasis>, is given by <emphasis>N</emphasis> = <emphasis>N</emphasis> DIV
+4</para></listitem>
+<listitem><para>the byte offset of the required Priority field in
+this register is <emphasis>M</emphasis> MOD 4, where:<itemizedlist
+    spacing = "compact"><listitem><para>byte offset 0 refers to
+register bits[7:0]</para></listitem>
+<listitem><para>byte offset 1 refers to register bits[15:8]</para></listitem>
+<listitem><para>byte offset 2 refers to register bits[23:16]</para></listitem>
+<listitem><para>byte offset 3 refers to register bits[31:24].</para></listitem></itemizedlist></para></listitem></itemizedlist></para></sect2>
+<sect2 id = "Bhchgeei"><title>Level-sensitive and pulse interrupts</title>
+<para>The processor supports both level-sensitive and pulse interrupts.
+Pulse interrupts are also described as edge-triggered interrupts.</para>
+<para>A level-sensitive interrupt is held asserted until the peripheral
+deasserts the interrupt signal. Typically this happens because the
+ISR accesses the peripheral, causing it to clear the interrupt request.
+A pulse interrupt is an interrupt signal sampled synchronously on
+the rising edge of the processor clock. To ensure the NVIC detects the
+interrupt, the peripheral must assert the interrupt signal for at
+least one clock cycle, during which the NVIC detects the pulse and
+latches the interrupt.</para>
+<para>When the processor enters the ISR, it automatically removes
+the pending state from the interrupt, see <xref xrefstyle = "TitleLong"
+    linkend = "BABFCBFG"/>. For a level-sensitive interrupt, if
+the signal is not deasserted before the processor returns from the
+ISR, the interrupt becomes pending again, and the processor must
+execute its ISR again. This means that the peripheral can hold the
+interrupt signal asserted until it no longer needs servicing.</para>
+<para condition = "Configurable">See &lt;reference required> for
+details of which interrupts are level-sensitive and which are pulsed.</para>
+<sect3 id = "BABFCBFG"><title>Hardware and software control of interrupts</title>
+<para>The Cortex-M0 latches all interrupts. A peripheral interrupt
+becomes pending for one of the following reasons:<itemizedlist
+    spacing = "normal"><listitem><para>the NVIC detects that the
+interrupt signal is active and the corresponding interrupt is not
+active</para></listitem>
+<listitem><para>the NVIC detects a rising edge on the interrupt
+signal</para></listitem>
+<listitem><para>software writes to the corresponding interrupt set-pending
+register bit, see <xref xrefstyle = "TitleLong" linkend = "Cihjjifh"/>.</para></listitem></itemizedlist></para>
+<para>A pending interrupt remains pending until one of the following:<itemizedlist>
+<listitem><para>The processor enters the ISR for the interrupt.
+This changes the state of the interrupt from pending to active.
+Then:<itemizedlist><listitem><para>For a level-sensitive interrupt,
+when the processor returns from the ISR, the NVIC samples the interrupt
+signal. If the signal is asserted, the state of the interrupt changes
+to pending, which might cause the processor to immediately re-enter
+the ISR. Otherwise, the state of the interrupt changes to inactive.</para></listitem>
+<listitem><para>For a pulse interrupt, the NVIC continues to monitor
+the interrupt signal, and if this is pulsed the state of the interrupt
+changes to pending and active. In this case, when the processor
+returns from the ISR the state of the interrupt changes to pending,
+which might cause the processor to immediately re-enter the ISR.</para>
+<para>If the interrupt signal is not pulsed while the processor
+is in the ISR, when the processor returns from the ISR the state
+of the interrupt changes to inactive.</para></listitem></itemizedlist></para></listitem>
+<listitem><para>Software writes to the corresponding interrupt clear-pending
+register bit.</para>
+<para>For a level-sensitive interrupt, if the interrupt signal is
+still asserted, the state of the interrupt does not change. Otherwise,
+the state of the interrupt changes to inactive.</para>
+<para>For a pulse interrupt, state of the interrupt changes to:<itemizedlist
+    spacing = "compact"><listitem><para>inactive, if the state was
+pending</para></listitem>
+<listitem><para>active, if the state was active and pending.</para></listitem></itemizedlist></para></listitem></itemizedlist></para></sect3></sect2>
+<sect2 id = "BABEDCBC"><title>NVIC usage hints and tips</title>
+<para>Ensure software uses correctly aligned register accesses.
+The processor does not support unaligned accesses to NVIC registers.</para>
+<para>An interrupt can enter pending state even if it is disabled. Disabling
+an interrupt only prevents the processor from taking that interrupt.</para>
+<sect3 id = "CIHIDJBC"><title>NVIC programming hints</title>
+<para>Software uses the <code>CPSIE i</code> and <code>CPSID i</code> instructions
+to enable and disable interrupts. The CMSIS provides the following
+intrinsic functions for these instructions:</para>
+<programlisting>
+void __disable_irq(void) 	// Disable Interrupts
+</programlisting>
+<programlisting>
+void __enable_irq(void) 	// Enable Interrupts
+</programlisting>
+<para>In addition, the CMSIS provides a number of functions for
+NVIC control, including:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE">
+<title>CMSIS functions for NVIC control</title>
+<tgroup cols = "2" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "3.084in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.875in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">CMSIS interrupt control function</entry>
+<entry colname = "2">Description</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><literal>void NVIC_EnableIRQ(IRQn_t IRQn)</literal><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+<entry colname = "2">Enable IRQn</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>void NVIC_DisableIRQ(IRQn_t IRQn)</literal><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+<entry colname = "2">Disable IRQn</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>uint32_t NVIC_GetPendingIRQ (IRQn_t
+IRQn)</literal><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+<entry colname = "2">Return true (1) if IRQn is pending</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>void NVIC_SetPendingIRQ (IRQn_t IRQn)</literal><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+<entry colname = "2">Set IRQn pending</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>void NVIC_ClearPendingIRQ (IRQn_t
+IRQn)</literal><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+<entry colname = "2">Clear IRQn pending status</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>void NVIC_SetPriority (IRQn_t IRQn,
+uint32_t priority)</literal><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+<entry colname = "2">Set priority for IRQn</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>uint32_t NVIC_GetPriority (IRQn_t
+IRQn)</literal><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+<entry colname = "2">Read priority of IRQn</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><literal>void NVIC_SystemReset (void)</literal><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+<entry colname = "2">Reset the system</entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>The input parameter <parameter>IRQn</parameter> is the IRQ
+number, see <xref xrefstyle = "TableNumPage" linkend = "CHDICFAA"/> for
+more information. For more information about these functions, see
+the CMSIS documentation.</para></sect3></sect2></sect1>
+<sect1 id = "CIHFDJCA"><title>System Control Block</title>
+<para>The <emphasis>System Control Block</emphasis> (SCB) provides
+system implementation information, and system control. This includes
+configuration, control, and reporting of the system exceptions.
+The SCB registers are:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CHDCFECB">
+<title>Summary of the SCB registers </title>
+<tgroup cols = "5" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.708in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.556in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "0.458in" colsep = "0"/>
+<colspec colnum = "4" colname = "4" colwidth = "0.861in" colsep = "0"/>
+<colspec colnum = "5" colname = "5" colwidth = "3.306in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Address</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Type</entry>
+<entry colname = "4"><para>Reset value</para></entry>
+<entry colname = "5">Description</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000ED00</literal></entry>
+<entry colname = "2">CPUID</entry>
+<entry colname = "3">RO</entry>
+<entry colname = "4"><para condition = "Configurable"><literal>0x410CC200</literal></para></entry>
+<entry colname = "5"><xref xrefstyle = "TitleShort" linkend = "CIHCAGHH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000ED04</literal></entry>
+<entry colname = "2">ICSR</entry>
+<entry colname = "3">RW <footnote id = "CIHGDEBA"><para>See the
+register description for more information.</para></footnote></entry>
+<entry colname = "4"><literal>0x00000000</literal></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Cihfaaha"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000ED0C</literal></entry>
+<entry colname = "2">AIRCR</entry>
+<entry colname = "3">RW <footnoteref linkend = "CIHGDEBA"/></entry>
+<entry colname = "4"><para><literal>0xFA050000</literal></para></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Cihehdge"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000ED10</literal></entry>
+<entry colname = "2">SCR</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><literal>0x00000000</literal></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Cihhjgdh"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000ED14</literal></entry>
+<entry colname = "2">CCR</entry>
+<entry colname = "3">RO</entry>
+<entry colname = "4"><literal>0x00000204</literal></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Bhcjabhi"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000ED1C</literal></entry>
+<entry colname = "2">SHPR2</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><literal>0x00000000</literal></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "BABBBJIJ"/></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><literal>0xE000ED20</literal></entry>
+<entry colname = "2">SHPR3</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><literal>0x00000000</literal></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Babdebjh"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+<sect2><title>The CMSIS mapping of the Cortex-M0 SCB registers</title>
+<para>To improve software efficiency, the CMSIS simplifies the SCB
+register presentation. In the CMSIS, the array <literal>SHP[</literal><literal
+    condition = "Configurable">1</literal><literal>]</literal> corresponds
+to the registers SHPR2-SHPR3.</para></sect2>
+<sect2 id = "CIHCAGHH"><title>CPUID Register</title>
+<para>The CPUID register contains the processor part number, version,
+and implementation information. See the register summary in <xref
+    xrefstyle = "TableNum" linkend = "CHDCFECB"/> for its attributes.
+The bit assignments are:</para><mediaobject><imageobject><imagedata fileref = "graphics/cpuid_register_bit_assignments.svg" format = "SVG" contentdepth = "56" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Cihjfhad">
+<title>CPUID register bit assignments </title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.542in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.056in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "3.597in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:24]</entry>
+<entry colname = "2">Implementer</entry>
+<entry colname = "3"><para>Implementer code:</para><para><literal>0x41</literal> =
+ARM</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[23:20]</entry>
+<entry colname = "2">Variant</entry>
+<entry colname = "3"><para>Variant number, the r value in the r<emphasis>n</emphasis>p<emphasis>n</emphasis> product
+revision identifier:</para><para><phrase condition = "Configurable"><literal>0x0</literal> = Revision
+0</phrase></para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[19:16]</entry>
+<entry colname = "2">Constant</entry>
+<entry colname = "3"><para>Constant that defines the architecture
+of the processor:, reads as</para><para><literal>0xC</literal> =
+ARMv6-M architecture</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[15:4]</entry>
+<entry colname = "2">Partno</entry>
+<entry colname = "3"><para>Part number of the processor:</para><para><literal>0xC20</literal> =
+Cortex-M0</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[3:0]</entry>
+<entry colname = "2">Revision</entry>
+<entry colname = "3"><para>Revision number, the p value in the r<emphasis>n</emphasis>p<emphasis>n</emphasis> product
+revision identifier: </para><para><phrase condition = "Configurable"><literal>0x0</literal> = Patch
+0</phrase></para></entry>
+</row>
+</tbody>
+</tgroup></table></sect2>
+<sect2 id = "Cihfaaha"><title>Interrupt Control and State Register</title>
+<para>The ICSR:<itemizedlist spacing = "compact"><listitem><para>provides:<itemizedlist>
+<listitem><para>a set-pending bit for the <emphasis>Non-Maskable
+Interrupt</emphasis> (NMI) exception</para></listitem></itemizedlist><itemizedlist>
+<listitem><para>set-pending and clear-pending bits for the PendSV
+and SysTick exceptions</para></listitem></itemizedlist></para></listitem>
+<listitem><para>indicates:<itemizedlist><listitem><para>the exception
+number of the exception being processed</para></listitem>
+<listitem><para>whether there are preempted active exceptions</para></listitem>
+<listitem><para>the exception number of the highest priority pending
+exception</para></listitem>
+<listitem><para>whether any interrupts are pending.</para></listitem></itemizedlist></para></listitem></itemizedlist></para>
+<para>See the register summary in <xref xrefstyle = "TableNumPage"
+    linkend = "CHDCFECB"/> for the ICSR attributes. The bit assignments
+are:</para><mediaobject><imageobject><imagedata fileref = "graphics/icsr_bit_assignments.svg" format = "SVG" contentdepth = "187" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Chdefcfb">
+<title>ICSR bit assignments</title>
+<tgroup cols = "4" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.542in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.042in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "0.458in" colsep = "0"/>
+<colspec colnum = "4" colname = "4" colwidth = "4.167in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Type</entry>
+<entry colname = "4">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31]</entry>
+<entry colname = "2">NMIPENDSET</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><para>NMI set-pending bit.</para><para>Write:</para><para>0
+= no effect1 = changes NMI exception state to pending.</para><para>Read:</para><para>0
+= NMI exception is not pending</para><para>1 = NMI exception is
+pending.</para><para>Because NMI is the highest-priority exception,
+normally the processor enters the NMI exception handler as soon
+as it detects a write of 1 to this bit. Entering the handler then clears
+this bit to 0. This means a read of this bit by the NMI exception
+handler returns 1 only if the NMI signal is reasserted while the processor
+is executing that handler.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[30:29]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">-</entry>
+<entry colname = "4">Reserved.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[28]</entry>
+<entry colname = "2">PENDSVSET</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><para>PendSV set-pending bit.</para><para>Write:</para><para>0
+= no effect1 = changes PendSV exception state to pending.</para><para>Read:</para><para>0
+= PendSV exception is not pending</para><para>1 = PendSV exception
+is pending.</para><para>Writing 1 to this bit is the only way to
+set the PendSV exception state to pending.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[27]</entry>
+<entry colname = "2">PENDSVCLR</entry>
+<entry colname = "3">WO</entry>
+<entry colname = "4"><para>PendSV clear-pending bit.</para><para>Write:</para><para>0
+= no effect1 = removes the pending state from the PendSV exception.</para></entry>
+</row>
+<row rowsep = "1" condition = "Optional">
+<entry colname = "1">[26]</entry>
+<entry colname = "2">PENDSTSET</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><para>SysTick exception set-pending bit.</para><para>Write:</para><para>0
+= no effect1 = changes SysTick exception state to pending.</para><para>Read:</para><para>0
+= SysTick exception is not pending</para><para>1 = SysTick exception
+is pending.</para></entry>
+</row>
+<row rowsep = "1" condition = "Optional">
+<entry colname = "1">[26]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">-</entry>
+<entry colname = "4">Reserved.</entry>
+</row>
+<row rowsep = "1" condition = "Optional">
+<entry colname = "1">[25]</entry>
+<entry colname = "2">PENDSTCLR</entry>
+<entry colname = "3">WO</entry>
+<entry colname = "4"><para>SysTick exception clear-pending bit.</para><para>Write:</para><para>0
+= no effect1 = removes the pending state from the SysTick exception.</para><para>This
+bit is WO. On a register read its value is Unknown.</para></entry>
+</row>
+<row rowsep = "1" condition = "Optional">
+<entry colname = "1">[25]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">-</entry>
+<entry colname = "4">Reserved.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[24:23]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">-</entry>
+<entry colname = "4">Reserved.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[22]</entry>
+<entry colname = "2">ISRPENDING</entry>
+<entry colname = "3">RO</entry>
+<entry colname = "4"><para>Interrupt pending flag, excluding NMI
+and Faults:</para><para>0 = interrupt not pending1 = interrupt pending.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[21:18]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">-</entry>
+<entry colname = "4">Reserved.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[17:12]</entry>
+<entry colname = "2">VECTPENDING</entry>
+<entry colname = "3">RO</entry>
+<entry colname = "4"><para>Indicates the exception number of the
+highest priority pending enabled exception: </para><para>0 = no
+pending exceptions</para><para>Nonzero = the exception number of
+the highest priority pending enabled exception.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[11:6]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">-</entry>
+<entry colname = "4">Reserved.</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[5:0]</entry>
+<entry colname = "2">VECTACTIVE<footnoteref linkend = "BABFHIAI"/></entry>
+<entry colname = "3">RO</entry>
+<entry colname = "4"><para>Contains the active exception number:</para><para>0
+= Thread mode</para><para>Nonzero = The exception number<footnote
+    id = "BABFHIAI"><para>This is the same value as IPSR bits[5:0],
+see <xref xrefstyle = "TitleLong" linkend = "BABGBIBI"/>.</para></footnote> of
+the currently active exception.</para><note>
+<para>Subtract 16 from this value to obtain the CMSIS IRQ number that
+identifies the corresponding bit in the Interrupt Clear-Enable,
+Set-Enable, Clear-Pending, Set-pending, and Priority Register, see <xref
+    xrefstyle = "TableNumPage" linkend = "CHDBFIBD"/>.</para>
+</note></entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>When you write to the ICSR, the effect is Unpredictable if
+you:<itemizedlist spacing = "compact"><listitem><para>write 1 to
+the PENDSVSET bit and write 1 to the PENDSVCLR bit</para></listitem>
+<listitem><para>write 1 to the PENDSTSET bit and write 1 to the
+PENDSTCLR bit.</para></listitem></itemizedlist></para></sect2>
+<sect2 id = "Cihehdge"><title>Application Interrupt and Reset Control
+Register</title>
+<para>The AIRCR provides endian status for data accesses and reset
+control of the system. See the register summary in <xref
+    xrefstyle = "TableNumPage" linkend = "CHDCFECB"/> and <xref
+    xrefstyle = "TableNumPage" linkend = "Cihfbgig"/> for its attributes.</para>
+<para>To write to this register, you must write <literal>0x05FA</literal> to
+the VECTKEY field, otherwise the processor ignores the write. </para>
+<para>The bit assignments are:</para><mediaobject><imageobject><imagedata fileref = "graphics/aircr_bit_assignments.svg" format = "SVG" contentdepth = "111" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Cihfbgig">
+<title>AIRCR bit assignments</title>
+<tgroup cols = "4" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.542in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.389in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "0.458in" colsep = "0"/>
+<colspec colnum = "4" colname = "4" colwidth = "3.817in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Type</entry>
+<entry colname = "4">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:16]</entry>
+<entry colname = "2"><para>Read: Reserved</para><para>Write: VECTKEY</para></entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4"><para>Register key:</para><para>Reads as <phrase>Unknown</phrase></para><para>On
+writes, write <literal>0x05FA</literal> to VECTKEY, otherwise the
+write is ignored.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[15]</entry>
+<entry colname = "2">ENDIANESS</entry>
+<entry colname = "3">RO</entry>
+<entry colname = "4"><para>Data endianness implemented:</para><para
+    condition = "Configurable">0 = Little-endian</para><para
+    condition = "Configurable">1 = Big-endian.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[14:3]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">-</entry>
+<entry colname = "4">Reserved</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[2]</entry>
+<entry colname = "2">SYSRESETREQ</entry>
+<entry colname = "3">WO</entry>
+<entry colname = "4"><para>System reset request:</para><para
+    condition = "Configurable">0 = no effect</para><para
+    condition = "Configurable">1 = requests a system level reset. </para><para>This
+bit reads as 0.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[1]</entry>
+<entry colname = "2">VECTCLRACTIVE</entry>
+<entry colname = "3">WO</entry>
+<entry colname = "4">Reserved for debug use. This bit reads as 0.
+When writing to the register you must write 0 to this bit, otherwise
+behavior is Unpredictable.</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[0]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">-</entry>
+<entry colname = "4">Reserved.</entry>
+</row>
+</tbody>
+</tgroup></table></sect2>
+<sect2 id = "Cihhjgdh"><title>System Control Register </title>
+<para>The SCR controls features of entry to and exit from low power
+state. See the register summary in <xref xrefstyle = "TableNumPage"
+    linkend = "CHDCFECB"/> for its attributes. The bit assignments
+are:</para><mediaobject><imageobject><imagedata fileref = "graphics/scr_bit_assignments.svg" format = "SVG" contentdepth = "142" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Cihcfgga">
+<title>SCR bit assignments </title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.472in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.000in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "4.724in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:5]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[4]</entry>
+<entry colname = "2">SEVONPEND</entry>
+<entry colname = "3"><para>Send Event on Pending bit:</para><para>0
+= only enabled interrupts or events can wakeup the processor, disabled
+interrupts are excluded1 = enabled events and all interrupts, including
+disabled interrupts, can wakeup the processor.</para><para>When
+an event or interrupt enters pending state, the event signal wakes
+up the processor from WFE. If the processor is not waiting for an
+event, the event is registered and affects the next WFE. </para><para>The
+processor also wakes up on execution of an <code>SEV</code> instruction
+or an external event.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[3]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+<row rowsep = "1" condition = "Configurable">
+<entry colname = "1">[2]</entry>
+<entry colname = "2">SLEEPDEEP</entry>
+<entry colname = "3"><para>Controls whether the processor uses sleep
+or deep sleep as its low power mode:</para><para>0 = sleep</para><para>1
+= deep sleep.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[1]</entry>
+<entry colname = "2">SLEEPONEXIT</entry>
+<entry colname = "3"><para>Indicates sleep-on-exit when returning
+from Handler mode to Thread mode:</para><para>0 = do not sleep when
+returning to Thread mode.</para><para>1 = enter sleep, or deep sleep,
+on return from an ISR to Thread mode.</para><para>Setting this bit
+to 1 enables an interrupt driven application to avoid returning
+to an empty main application.</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[0]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+</tbody>
+</tgroup></table></sect2>
+<sect2 id = "Bhcjabhi"><title>Configuration and Control Register</title>
+<para>The CCR is a read-only register and indicates some aspects
+of the behavior of the Cortex-M0 processor. See the register summary
+in <xref xrefstyle = "TableNumPage" linkend = "CHDCFECB"/> for the
+CCR attributes.</para>
+<para>The bit assignments are:</para><mediaobject><imageobject><imagedata fileref = "graphics/ccr_bit_assignments.svg" format = "SVG" contentdepth = "111" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Bhcghajc">
+<title>CCR bit assignments </title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.589in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.431in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "4.189in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:10]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[9]</entry>
+<entry colname = "2">STKALIGN</entry>
+<entry colname = "3"><para>Always reads as one, indicates 8-byte
+stack alignment on exception entry.</para><para>On exception entry,
+the processor uses bit[9] of the stacked PSR to indicate the stack
+alignment. On return from the exception it uses this stacked bit
+to restore the correct stack alignment.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[8:4]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[3]</entry>
+<entry colname = "2">UNALIGN_TRP</entry>
+<entry colname = "3"><para>Always reads as one, indicates that all
+unaligned accesses generate a HardFault.</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[2:0]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+</tbody>
+</tgroup></table></sect2>
+<sect2 id = "CIAGECDD"><title>System Handler Priority Registers</title>
+<para>The SHPR2-SHPR3 registers set the priority level, 0 to <phrase>192, </phrase>of
+the exception handlers that have configurable priority.</para>
+<para>SHPR2-SHPR3 are word accessible. See the register summary
+in <xref xrefstyle = "TableNumPage" linkend = "CHDCFECB"/> for their
+attributes.</para>
+<para>To access to the system exception priority level using CMSIS,
+use the following CMSIS functions:<itemizedlist spacing = "compact">
+<listitem><para><parameter>uint32_t NVIC_GetPriority(IRQn_Type IRQn)</parameter></para></listitem>
+<listitem><para><parameter>void NVIC_SetPriority(IRQn_Type IRQn,
+uint32_t priority)</parameter></para></listitem></itemizedlist></para>
+<para>The input parameter <parameter>IRQn</parameter> is the IRQ
+number, see <xref xrefstyle = "TableNumPage" linkend = "CHDICFAA"/> for
+more information.</para>
+<para>The system fault handlers, and the priority field and register
+for each handler are:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CIHFHAFG">
+<title>System fault handler priority fields</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "1.528in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.556in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.611in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Handler</entry>
+<entry colname = "2">Field</entry>
+<entry colname = "3">Register description</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">SVCall</entry>
+<entry colname = "2">PRI_11</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABBBJIJ"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">PendSV</entry>
+<entry colname = "2">PRI_14</entry>
+<entry colname = "3" morerows = "1"><xref xrefstyle = "TitleLong"
+    linkend = "Babdebjh"/></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">SysTick</entry>
+<entry colname = "2">PRI_15</entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>Each PRI_N field is 8 bits wide, but the processor implements
+only bits[7:6] of each field, and bits[5:0] read as zero and ignore
+writes.</para>
+<sect3 id = "BABBBJIJ" role = "break"><title>System Handler Priority
+Register 2</title>
+<para>The bit assignments are:</para><mediaobject><imageobject><imagedata fileref = "graphics/shpr2_register_bit_assignments.svg" format = "SVG" contentdepth = "55" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE">
+<title>SHPR2 register bit assignments </title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.542in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.556in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.056in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:24]</entry>
+<entry colname = "2">PRI_11</entry>
+<entry colname = "3">Priority of system handler 11, SVCall</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[23:0]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved</entry>
+</row>
+</tbody>
+</tgroup></table></sect3>
+<sect3 id = "Babdebjh"><title>System Handler Priority Register 3	</title>
+<para>The bit assignments are:</para><mediaobject><imageobject><imagedata fileref = "graphics/shpr3_register_bit_assignments.svg" format = "SVG" contentdepth = "57" contentwidth = "487"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Bhcchehh">
+<title>SHPR3 register bit assignments </title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.569in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.611in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.611in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:24]</entry>
+<entry colname = "2">PRI_15</entry>
+<entry colname = "3" condition = "Configurable">Priority of system
+handler 15, SysTick exception<footnote condition = "Configurable">
+<para>This is Reserved when the SysTick timer is not implemented.</para></footnote></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[23:16]</entry>
+<entry colname = "2">PRI_14</entry>
+<entry colname = "3">Priority of system handler 14, PendSV</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[15:0]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved</entry>
+</row>
+</tbody>
+</tgroup></table></sect3></sect2>
+<sect2 id = "BABCAGFE"><title>SCB usage hints and tips</title>
+<para>Ensure software uses aligned 32-bit word size transactions
+to access all the SCB registers.</para></sect2></sect1>
+<sect1 id = "Babieigh" condition = "Optional"><title>System timer,
+SysTick</title>
+<para>When enabled, the timer counts down from the reload value
+to zero, reloads (wraps to) the value in the SYST_RVR on the next
+clock cycle, then decrements on subsequent clock cycles. Writing
+a value of zero to the SYST_RVR disables the counter on the next wrap.
+When the counter transitions to zero, the COUNTFLAG status bit is
+set to 1. Reading SYST_CSR clears the COUNTFLAG bit to 0.Writing
+to the SYST_CVR clears the register and the COUNTFLAG status bit
+to 0. The write does not trigger the SysTick exception logic. Reading
+the register returns its value at the time it is accessed.</para>
+<note>
+<para>When the processor is halted for debugging the counter does
+not decrement.</para>
+</note>
+<para>The system timer registers are:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CHDEGGAE">
+<title>System timer registers summary</title>
+<tgroup cols = "5" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.709in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.917in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "0.459in" colsep = "0"/>
+<colspec colnum = "4" colname = "4" colwidth = "0.764in" colsep = "0"/>
+<colspec colnum = "5" colname = "5" colwidth = "2.598in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Address</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Type</entry>
+<entry colname = "4"><para>Reset
+value</para></entry>
+<entry colname = "5">Description</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000E010</literal></entry>
+<entry colname = "2">SYST_CSR</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4" condition = "Configurable"><literal>0x00000000</literal></entry>
+<entry colname = "5"><xref xrefstyle = "TitleShort" linkend = "Bhccjgga"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000E014</literal></entry>
+<entry colname = "2">SYST_RVR</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4">Unknown</entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "BGBEEJHC"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xE000E018</literal></entry>
+<entry colname = "2">SYST_CVR</entry>
+<entry colname = "3">RW</entry>
+<entry colname = "4">Unknown</entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Bhccbfia"/></entry>
+</row>
+<row rowsep = "0" condition = "Optional">
+<entry colname = "1"><literal>0xE000E01C</literal></entry>
+<entry colname = "2">SYST_CALIB</entry>
+<entry colname = "3">RO</entry>
+<entry colname = "4"><para condition = "Configurable"><literal>0xC0000000</literal> <footnote>
+<para>SysTick calibration value. </para></footnote></para></entry>
+<entry colname = "5"><xref xrefstyle = "TitleLong" linkend = "Bhcjegci"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+<sect2 id = "Bhccjgga"><title>SysTick Control and Status Register</title>
+<para>The SYST_CSR enables the SysTick features. See the register
+summary in <xref xrefstyle = "TableNum" linkend = "CHDEGGAE"/> for
+its attributes. The bit assignments are:</para><mediaobject><imageobject><imagedata fileref = "graphics/syst_csr_bit_assignments.svg" format = "SVG" contentdepth = "107" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Bhcjcidc">
+<title>SYST_CSR bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.542in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.931in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "4.699in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:17]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[16]</entry>
+<entry colname = "2">COUNTFLAG</entry>
+<entry colname = "3"><para>Returns 1 if timer counted to 0 since the last read
+of this register. </para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[15:3]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[2]</entry>
+<entry colname = "2">CLKSOURCE</entry>
+<entry colname = "3"><para>Selects the SysTick timer clock source:</para><para
+    condition = "Configurable">0 = external reference clock</para><para
+    condition = "Configurable">1 = processor clock.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[1]</entry>
+<entry colname = "2">TICKINT</entry>
+<entry colname = "3"><para>Enables SysTick exception request:</para><para>0
+= counting down to zero does not assert the SysTick exception request</para><para>1
+= counting down to zero to asserts the SysTick exception request.</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[0]</entry>
+<entry colname = "2">ENABLE</entry>
+<entry colname = "3"><para>Enables the counter:</para><para>0 =
+counter disabled</para><para>1 = counter enabled.</para></entry>
+</row>
+</tbody>
+</tgroup></table></sect2>
+<sect2 id = "BGBEEJHC"><title>SysTick Reload Value Register</title>
+<para>The SYST_RVR specifies the start value to load into the SYST_CVR.
+See the register summary in <xref xrefstyle = "TableNumPage"
+    linkend = "CHDEGGAE"/> for its attributes. The bit assignments
+are:</para><mediaobject><imageobject><imagedata fileref = "graphics/syst_rvr_bit_assignments.svg" format = "SVG" contentdepth = "57" contentwidth = "487"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Babddfgb">
+<title>SYST_RVR bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.542in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.681in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "4.974in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:24]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[23:0]</entry>
+<entry colname = "2">RELOAD</entry>
+<entry colname = "3">Value to load into the SYST_CVR when the counter
+is enabled and when it reaches 0, see <xref xrefstyle = "TitleShort"
+    linkend = "BABGACGG"/>.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<sect3 id = "BABGACGG"><title>Calculating the RELOAD value</title>
+<para>The RELOAD value can be any value in the range <literal>0x00000001</literal>-<literal>0x00FFFFFF</literal>. You
+can program a value of 0, but this has no effect because the SysTick
+exception request and COUNTFLAG are activated when counting from
+1 to 0.</para>
+<para>To generate a multi-shot timer with a period of N processor
+clock cycles, use a RELOAD value of N-1. For example, if the SysTick
+interrupt is required every 100 clock pulses, set RELOAD to 99.</para></sect3></sect2>
+<sect2 id = "Bhccbfia"><title>SysTick Current Value Register</title>
+<para>The SYST_CVR contains the current value of the SysTick counter.
+See the register summary in <xref xrefstyle = "TableNumPage"
+    linkend = "CHDEGGAE"/> for its attributes. The bit assignments
+are:</para><mediaobject><imageobject><imagedata fileref = "graphics/syst_cvr_bit_assignments.svg" format = "SVG" contentdepth = "57" contentwidth = "487"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Bhcddcdb">
+<title>SYST_CVR bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.542in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.750in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "4.902in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:24]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[23:0]</entry>
+<entry colname = "2">CURRENT</entry>
+<entry colname = "3"><para>Reads return the current value of the
+SysTick counter.</para><para>A write of any value clears the field
+to 0, and also clears the SYST_CSR.COUNTFLAG bit to 0.</para></entry>
+</row>
+</tbody>
+</tgroup></table></sect2>
+<sect2 id = "Bhcjegci" condition = "Optional"><title>SysTick Calibration
+Value Register</title>
+<para>The SYST_CALIB register indicates the SysTick calibration
+properties. See the register summary in <xref xrefstyle = "TableNumPage"
+    linkend = "CHDEGGAE"/> for its attributes. The bit assignments
+are:</para><mediaobject><imageobject><imagedata fileref = "graphics/syst_calib_register_bit_assignments.svg" format = "SVG" contentdepth = "97" contentwidth = "503"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Bhchbfai">
+<title>SYST_CALIB register bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.542in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.597in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "5.039in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31]</entry>
+<entry colname = "2">NOREF</entry>
+<entry colname = "3"><para condition = "Configurable">Reads as one.
+Indicates that no separate reference clock is provided.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[30]</entry>
+<entry colname = "2">SKEW</entry>
+<entry colname = "3" condition = "Configurable">Reads as one. Calibration
+value for the 10ms inexact timing is not known because TENMS is
+not known. This can affect the suitability of SysTick as a software
+real time clock.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[29:24]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[23:0]</entry>
+<entry colname = "2">TENMS</entry>
+<entry colname = "3" condition = "Configurable">Reads as zero. Indicates
+calibration value is not known.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<para condition = "Configurable">If calibration information is not
+known, calculate the calibration value required from the frequency
+of the processor clock or external clock.</para></sect2>
+<sect2 id = "BABIDIGI"><title>SysTick usage hints and tips</title>
+<para>The interrupt controller clock updates the SysTick counter.<phrase
+    condition = "Configurable"> If this clock signal is stopped
+for low power mode, the SysTick counter stops.</phrase></para>
+<para>Ensure software uses word accesses to access the SysTick registers.</para>
+<para>If the SysTick counter reload and current value are undefined
+at reset, the correct initialization sequence for the SysTick counter
+is: <orderedlist spacing = "compact"><listitem><para>Program reload
+value.</para></listitem>
+<listitem><para>Clear current value.</para></listitem>
+<listitem><para>Program Control and Status register.</para></listitem></orderedlist></para></sect2></sect1></chapter>

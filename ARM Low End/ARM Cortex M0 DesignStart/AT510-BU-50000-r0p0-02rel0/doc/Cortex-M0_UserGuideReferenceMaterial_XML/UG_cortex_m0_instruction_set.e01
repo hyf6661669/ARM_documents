@@ -1,0 +1,2570 @@
+<?Fm Document UG_cortex_m0_instruction_set.fm?>
+<chapter id = "CIHJJEIH">
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green NO_OVERRIDE show?>
+
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red NO_OVERRIDE hide?>
+
+
+<?Fm BoolCondExpr "" State 0?>
+
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_ON_FINAL?>
+
+
+<title>The Cortex-M0 Instruction Set<phrase condition = "Configurable">,
+Reference Material</phrase></title>
+<para>This chapter is the reference material for the Cortex-M0 instruction
+set description in a User Guide. The following sections give general
+information:<itemizedlist spacing = "compact"><listitem><para><xref
+    xrefstyle = "TitleLong" linkend = "BABIHJGA"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CIHCAEJD"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CIHGBEEB"/>.</para></listitem></itemizedlist></para>
+<para>Each of the following sections describes a functional group
+of Cortex-M0 instructions. Together they describe all the instructions
+supported by the Cortex-M0 processor:</para>
+<para><itemizedlist spacing = "compact"><listitem><para><xref
+    xrefstyle = "TitleLong" linkend = "BABGIFCI"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABJJACB"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABECGJD"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABIGDID"/>.</para></listitem></itemizedlist></para>
+<sect1 id = "BABIHJGA"><title>Instruction set summary</title>
+<para>The processor implements a version of the Thumb instruction
+set. <xref xrefstyle = "TableNum" linkend = "BABHCHFH"/> lists the supported
+instructions.</para>
+<note>
+<para>In <xref xrefstyle = "TableNum" linkend = "BABHCHFH"/>:<itemizedlist
+    spacing = "compact"><listitem><para>angle brackets, &lt;>, enclose
+alternative forms of the operand</para></listitem>
+<listitem><para>braces, {}, enclose optional operands and mnemonic
+parts</para></listitem>
+<listitem><para>the Operands column is not exhaustive.</para></listitem></itemizedlist>For
+more information on the instructions and operands, see the instruction
+descriptions.</para>
+</note>
+<para></para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "BABHCHFH">
+<title>Cortex-M0 instructions</title>
+<tgroup cols = "5" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.866in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.209in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.618in" colsep = "0"/>
+<colspec colnum = "4" colname = "4" colwidth = "0.669in" colsep = "0"/>
+<colspec colnum = "5" colname = "5" colwidth = "0.748in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Mnemonic</entry>
+<entry colname = "2">Operands</entry>
+<entry colname = "3">Brief description</entry>
+<entry colname = "4">Flags</entry>
+<entry colname = "5">Page</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><code>ADCS</code></entry>
+<entry colname = "2"><code><replaceable>{Rd,}</replaceable> <replaceable>Rn</replaceable><replaceable>,</replaceable> <replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Add with Carry</entry>
+<entry colname = "4">N,Z,C,V</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABFFEJF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ADD{S}</code></entry>
+<entry colname = "2"><code><replaceable>{Rd,}</replaceable> <replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rm|#imm></replaceable></code></entry>
+<entry colname = "3">Add </entry>
+<entry colname = "4">N,Z,C,V</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABFFEJF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ADR</code></entry>
+<entry colname = "2"><code><replaceable>Rd</replaceable><replaceable>, </replaceable><replaceable>label</replaceable></code></entry>
+<entry colname = "3">PC-relative Address to Register</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABEDJGG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ANDS</code></entry>
+<entry colname = "2"><code><replaceable>{Rd</replaceable><replaceable>,} </replaceable><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Bitwise AND</entry>
+<entry colname = "4">N,Z</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABFFEJF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ASRS</code></entry>
+<entry colname = "2"><code><replaceable>{Rd</replaceable><replaceable>,} </replaceable><replaceable>Rm</replaceable><replaceable>, </replaceable><replaceable>&lt;Rs|#imm></replaceable></code></entry>
+<entry colname = "3">Arithmetic Shift Right</entry>
+<entry colname = "4">N,Z,C</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABJCCDH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>B{cc}</code></entry>
+<entry colname = "2"><code><replaceable>label</replaceable><replaceable></replaceable></code></entry>
+<entry colname = "3">Branch {conditionally}</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABEFHAE"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>BICS</code></entry>
+<entry colname = "2"><code><replaceable>{Rd</replaceable><replaceable>,}</replaceable> <replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Bit Clear</entry>
+<entry colname = "4">N,Z</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "CIHBDBJH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>BKPT</code></entry>
+<entry colname = "2"><code><replaceable>#imm</replaceable><replaceable></replaceable></code></entry>
+<entry colname = "3">Breakpoint</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABHCHGB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>BL</code></entry>
+<entry colname = "2"><code><replaceable></replaceable><replaceable>label</replaceable></code></entry>
+<entry colname = "3">Branch with Link</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABEFHAE"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>BLX</code></entry>
+<entry colname = "2"><code><replaceable>Rm</replaceable><replaceable></replaceable></code></entry>
+<entry colname = "3">Branch indirect with Link</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABEFHAE"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>BX</code></entry>
+<entry colname = "2"><code><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Branch indirect</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABEFHAE"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>CMN</code></entry>
+<entry colname = "2"><code><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Compare Negative</entry>
+<entry colname = "4">N,Z,C,V</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABIHIEI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>CMP</code></entry>
+<entry colname = "2"><code><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rm|#imm></replaceable></code></entry>
+<entry colname = "3">Compare</entry>
+<entry colname = "4">N,Z,C,V</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABIHIEI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>CPSID</code></entry>
+<entry colname = "2"><code><replaceable>i</replaceable></code></entry>
+<entry colname = "3">Change Processor State, Disable Interrupts</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABHBAAB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>CPSIE</code></entry>
+<entry colname = "2"><code><replaceable>i</replaceable></code></entry>
+<entry colname = "3">Change Processor State, Enable Interrupts</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABHBAAB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>DMB</code></entry>
+<entry colname = "2"><code><replaceable>-</replaceable></code></entry>
+<entry colname = "3">Data Memory Barrier</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABDFABI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>DSB</code></entry>
+<entry colname = "2"><code><replaceable>-</replaceable></code></entry>
+<entry colname = "3">Data Synchronization Barrier</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "CHDDGICF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>EORS</code></entry>
+<entry colname = "2"><code><replaceable>{Rd</replaceable><replaceable>,} </replaceable><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Exclusive OR</entry>
+<entry colname = "4">N,Z</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "CIHBDBJH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ISB</code></entry>
+<entry colname = "2"><code><replaceable>-</replaceable></code></entry>
+<entry colname = "3">Instruction Synchronization Barrier</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "CHDEBIEG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LDM</code></entry>
+<entry colname = "2"><code><replaceable>Rn{!}</replaceable><replaceable>, </replaceable><replaceable>reglist</replaceable><replaceable></replaceable></code></entry>
+<entry colname = "3">Load Multiple registers, increment after</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABCAEDD"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LDR</code></entry>
+<entry colname = "2"><code><replaceable>Rt, label</replaceable></code></entry>
+<entry colname = "3">Load Register from PC-relative address</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABGIFCI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LDR</code></entry>
+<entry colname = "2"><code><replaceable>Rt</replaceable><replaceable>, </replaceable><replaceable>[Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rm|#imm>]</replaceable></code></entry>
+<entry colname = "3">Load Register with word</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABGIFCI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LDRB</code></entry>
+<entry colname = "2"><code><replaceable>Rt, </replaceable><replaceable>[Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rm|#imm>]</replaceable></code></entry>
+<entry colname = "3">Load Register with byte</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABGIFCI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LDRH</code></entry>
+<entry colname = "2"><code><replaceable>Rt, </replaceable><replaceable>[Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rm|#imm>]</replaceable></code></entry>
+<entry colname = "3">Load Register with halfword</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABGIFCI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LDRSB</code></entry>
+<entry colname = "2"><code><replaceable>Rt, </replaceable><replaceable>[Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rm|#imm>]</replaceable></code></entry>
+<entry colname = "3">Load Register with signed byte</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABGIFCI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LDRSH</code></entry>
+<entry colname = "2"><code><replaceable>Rt, </replaceable><replaceable>[Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rm|#imm>]</replaceable></code></entry>
+<entry colname = "3">Load Register with signed halfword</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABGIFCI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LSLS</code></entry>
+<entry colname = "2"><code><replaceable>{Rd,} </replaceable><replaceable></replaceable><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rs|#imm></replaceable></code></entry>
+<entry colname = "3">Logical Shift Left</entry>
+<entry colname = "4">N,Z,C</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABJCCDH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LSRS</code></entry>
+<entry colname = "2"><code><replaceable>{Rd,} </replaceable><replaceable></replaceable><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rs|#imm></replaceable></code></entry>
+<entry colname = "3">Logical Shift Right</entry>
+<entry colname = "4">N,Z,C</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABJCCDH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>MOV{S</code>}</entry>
+<entry colname = "2"><code><replaceable>Rd</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Move</entry>
+<entry colname = "4">N,Z</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABHGAJI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>MRS</code></entry>
+<entry colname = "2"><code><replaceable>Rd</replaceable><replaceable>, </replaceable><replaceable>spec_reg</replaceable><replaceable></replaceable></code></entry>
+<entry colname = "3">Move to general register from special register</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABGIDDI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>MSR</code></entry>
+<entry colname = "2"><code><replaceable>spec_reg</replaceable><replaceable>, </replaceable><replaceable>R</replaceable><replaceable>m</replaceable></code></entry>
+<entry colname = "3">Move to special register from general register</entry>
+<entry colname = "4">N,Z,C,V</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABEEJCI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>MULS</code></entry>
+<entry colname = "2"><code><replaceable>Rd,</replaceable><replaceable> </replaceable><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Multiply, 32-bit result</entry>
+<entry colname = "4">N,Z</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABCFBDJ"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>MVNS</code></entry>
+<entry colname = "2"><code><replaceable>Rd</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable><replaceable></replaceable></code></entry>
+<entry colname = "3">Bitwise NOT</entry>
+<entry colname = "4">N,Z</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABHGAJI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>NOP</code></entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">No Operation</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "CHDJJGFB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ORRS</code></entry>
+<entry colname = "2"><code><replaceable>{Rd,}</replaceable><replaceable> </replaceable><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Logical OR</entry>
+<entry colname = "4">N,Z</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "CIHBDBJH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>POP</code></entry>
+<entry colname = "2"><code><replaceable>reglist</replaceable><replaceable></replaceable></code></entry>
+<entry colname = "3">Pop registers from stack</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABIAJHJ"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>PUSH</code></entry>
+<entry colname = "2"><code><replaceable>reglist</replaceable><replaceable></replaceable></code></entry>
+<entry colname = "3">Push registers onto stack</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABIAJHJ"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>REV</code></entry>
+<entry colname = "2"><code><replaceable>Rd</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Byte-Reverse word</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABJJDDB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>REV16</code><code></code></entry>
+<entry colname = "2"><code><replaceable>Rd</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Byte-Reverse packed halfwords</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABJJDDB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>REVSH</code></entry>
+<entry colname = "2"><code><replaceable>Rd</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Byte-Reverse signed halfword</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABJJDDB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>RORS</code></entry>
+<entry colname = "2"><code><replaceable>{Rd</replaceable><replaceable>,} </replaceable><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>Rs</replaceable></code></entry>
+<entry colname = "3">Rotate Right</entry>
+<entry colname = "4">N,Z,C</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABJCCDH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>RSBS</code></entry>
+<entry colname = "2"><code><replaceable>{Rd,}</replaceable><replaceable> </replaceable><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>#0</replaceable></code></entry>
+<entry colname = "3">Reverse Subtract</entry>
+<entry colname = "4">N,Z,C,V</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABFFEJF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SBCS</code></entry>
+<entry colname = "2"><code><replaceable>{Rd,}</replaceable><replaceable> </replaceable><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>Rm</replaceable></code></entry>
+<entry colname = "3">Subtract with Carry</entry>
+<entry colname = "4">N,Z,C,V</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABFFEJF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SEV</code></entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Send Event</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "CHDJIEAG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>STM</code></entry>
+<entry colname = "2"><code><replaceable>Rn!</replaceable><replaceable>, </replaceable><replaceable>reglist</replaceable></code></entry>
+<entry colname = "3">Store Multiple registers, increment after</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABCAEDD"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>STR</code></entry>
+<entry colname = "2"><code><replaceable>Rt</replaceable><replaceable>, </replaceable><replaceable>[Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rm|#imm>]</replaceable></code></entry>
+<entry colname = "3">Store Register as word</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABGIFCI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>STRB</code></entry>
+<entry colname = "2"><code><replaceable>Rt</replaceable><replaceable>, </replaceable><replaceable>[Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rm|#imm>]</replaceable></code></entry>
+<entry colname = "3">Store Register as byte</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABGIFCI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>STRH</code></entry>
+<entry colname = "2"><code><replaceable>Rt</replaceable><replaceable>, </replaceable><replaceable>[Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rm|#imm>]</replaceable></code></entry>
+<entry colname = "3">Store Register as halfword</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABGIFCI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SUB{S}</code></entry>
+<entry colname = "2"><code><replaceable>{Rd,}</replaceable><replaceable> </replaceable><replaceable>Rn</replaceable><replaceable>, </replaceable><replaceable>&lt;Rm|#imm></replaceable></code></entry>
+<entry colname = "3">Subtract</entry>
+<entry colname = "4">N,Z,C,V</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABFFEJF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SVC</code></entry>
+<entry colname = "2"><code><replaceable>#imm</replaceable></code></entry>
+<entry colname = "3">Supervisor Call</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABBHFJE"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SXTB</code></entry>
+<entry colname = "2"><code><replaceable>Rd, Rm </replaceable></code></entry>
+<entry colname = "3">Sign extend byte</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABBJGAG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SXTH</code></entry>
+<entry colname = "2"><code><replaceable>Rd, Rm</replaceable></code></entry>
+<entry colname = "3">Sign extend halfword</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABBJGAG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>TST</code></entry>
+<entry colname = "2"><code><replaceable>Rn, Rm</replaceable></code></entry>
+<entry colname = "3">Logical AND based test</entry>
+<entry colname = "4">N,Z</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABEHFIB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>UXTB</code></entry>
+<entry colname = "2"><code><replaceable>Rd, Rm</replaceable></code></entry>
+<entry colname = "3">Zero extend a byte</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABBJGAG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>UXTH</code></entry>
+<entry colname = "2"><code><replaceable>Rd, Rm</replaceable></code></entry>
+<entry colname = "3">Zero extend a halfword</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABBJGAG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>WFE</code></entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Wait For Event</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "CHDEAAHJ"/></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><code>WFI</code><code></code></entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Wait For Interrupt</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><xref xrefstyle = "Page" linkend = "BABFEFIG"/></entry>
+</row>
+</tbody>
+</tgroup></table></sect1>
+<sect1 id = "CIHCAEJD"><title>Intrinsic functions</title>
+<para>ISO/IEC C code cannot directly access some Cortex-M0 instructions.
+This section describes intrinsic functions that can generate these
+instructions, provided by the CMSIS and that might be provided by
+a C compiler. If a C compiler does not support an appropriate intrinsic
+function, you might have to use inline assembler to access the relevant
+instruction.</para>
+<para>The CMSIS provides the following intrinsic functions to generate
+instructions that ISO/IEC C code cannot directly access:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE">
+<title>CMSIS intrinsic functions to generate some Cortex-M0 instructions </title>
+<tgroup cols = "2" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.819in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "2.111in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Instruction</entry>
+<entry colname = "2">CMSIS intrinsic function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><code>CPSIE i</code></entry>
+<entry colname = "2"><function>void __enable_irq(void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>CPSID i</code></entry>
+<entry colname = "2"><function>void __disable_irq(void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ISB</code></entry>
+<entry colname = "2"><function>void __ISB(void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>DSB</code></entry>
+<entry colname = "2"><function>void __DSB(void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>DMB</code></entry>
+<entry colname = "2"><function>void __DMB(void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>NOP</code></entry>
+<entry colname = "2"><code>void __NOP(void)</code></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>REV</code></entry>
+<entry colname = "2"><function>uint32_t __REV(uint32_t int value)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>REV16</code></entry>
+<entry colname = "2"><function>uint32_t __REV16(uint32_t int value)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>REVSH</code></entry>
+<entry colname = "2"><function>uint32_t __REVSH(uint32_t int value)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SEV</code></entry>
+<entry colname = "2"><function>void __SEV(void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>WFE</code></entry>
+<entry colname = "2"><function>void __WFE(void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><code>WFI</code></entry>
+<entry colname = "2"><function>void __WFI(void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>The CMSIS also provides a number of functions for accessing
+the special registers using <code>MRS</code> and <code>MSR</code> instructions:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE">
+<title>CMSIS intrinsic functions to access the special registers</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "1.097in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.611in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.333in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Special register</entry>
+<entry colname = "2">Access</entry>
+<entry colname = "3">CMSIS function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1" morerows = "1">PRIMASK</entry>
+<entry colname = "2">Read</entry>
+<entry colname = "3"><function>uint32_t __get_PRIMASK (void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "2">Write</entry>
+<entry colname = "3"><function>void __set_PRIMASK (uint32_t value)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1" morerows = "1">CONTROL</entry>
+<entry colname = "2">Read</entry>
+<entry colname = "3"><function>uint32_t __get_CONTROL (void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "2">Write</entry>
+<entry colname = "3"><function>void __set_CONTROL (uint32_t value)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1" morerows = "1">MSP</entry>
+<entry colname = "2">Read</entry>
+<entry colname = "3"><function>uint32_t __get_MSP (void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "2">Write</entry>
+<entry colname = "3"><function>void __set_MSP (uint32_t TopOfMainStack)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1" morerows = "1">PSP</entry>
+<entry colname = "2">Read</entry>
+<entry colname = "3"><function>uint32_t __get_PSP (void)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "2">Write</entry>
+<entry colname = "3"><function>void __set_PSP (uint32_t TopOfProcStack)</function><?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></entry>
+</row>
+</tbody>
+</tgroup></table></sect1>
+<sect1 id = "CIHGBEEB"><title>About the instruction descriptions</title>
+<para>The following sections give more information about using the
+instructions:</para>
+<itemizedlist spacing = "compact"><listitem><para><xref
+    xrefstyle = "TitleLong" linkend = "CHDIFIDH"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CHDCEEHG"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CIHDDCIF"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABFAIGG"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABJJAAA"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABEHFEF"/>.</para></listitem></itemizedlist>
+<sect2 id = "CHDIFIDH" role = "break"><title>Operands</title>
+<para>An instruction operand can be an ARM register, a constant,
+or another instruction-specific parameter. Instructions act on the
+operands and often store the result in a destination register. When
+there is a destination register in the instruction, it is usually
+specified before the other operands. </para></sect2>
+<sect2 id = "CHDCEEHG"><title>Restrictions when using PC or SP</title>
+<para>Many instructions are unable to use, or have restrictions
+on whether you can use, the <emphasis>Program Counter</emphasis> (PC)
+or <emphasis>Stack Pointer</emphasis> (SP) for the operands or destination
+register. See instruction descriptions for more information. </para>
+<note>
+<para>When you update the PC with a <code>BX</code>, <code>BLX</code>,
+or <code>POP</code> instruction, bit[0] of any address must be 1
+for correct execution. This is because this bit indicates the destination
+instruction set, and the Cortex-M0 processor only supports Thumb
+instructions. When a <code>BL</code> or <code>BLX</code> instruction
+writes the value of bit[0] into the LR it is automatically assigned
+the value 1. </para>
+</note></sect2>
+<sect2 id = "CIHDDCIF"><title>Shift Operations</title>
+<para>Register shift operations move the bits in a register left
+or right by a specified number of bits, the <emphasis>shift length</emphasis>.
+Register shift can be performed directly by the instructions <code>ASR</code>, <code>LSR</code>, <code>LSL</code>,and <code>ROR</code> and
+the result is written to a destination register.</para>
+<para>The permitted shift lengths depend on the shift type and the
+instruction, see the individual instruction description. If the
+shift length is 0, no shift occurs. Register shift operations update
+the carry flag except when the specified shift length is 0. The following
+sub-sections describe the various shift operations and how they
+affect the carry flag. In these descriptions, <parameter><replaceable>Rm</replaceable></parameter> is
+the register containing the value to be shifted, and <parameter><replaceable>n</replaceable></parameter> is
+the shift length.</para>
+<sect3><title>ASR</title>
+<para>Arithmetic shift right by <parameter><replaceable>n</replaceable></parameter> bits
+moves the left-hand <literal>32</literal>-<parameter><replaceable>n</replaceable></parameter> bits
+of the register <parameter><replaceable>Rm</replaceable></parameter>,
+to the right by <parameter><replaceable>n</replaceable></parameter> places,
+into the right-hand <literal>32</literal>-<parameter><replaceable>n</replaceable></parameter> bits
+of the result, and it copies the original bit[31] of the register
+into the left‑hand <parameter><replaceable>n</replaceable></parameter> bits
+of the result. See <xref xrefstyle = "FigureNumPage"
+    linkend = "CIHFBGJH"/>.</para>
+<para>You can use the <parameter>ASR</parameter> operation to divide
+the signed value in the register <parameter><replaceable>Rm</replaceable></parameter> by
+2<superscript><replaceable>n</replaceable></superscript>, with the
+result being rounded towards negative-infinity.</para>
+<para>When the instruction is <code>ASRS</code> the carry flag is
+updated to the last bit shifted out, bit[<parameter><replaceable>n</replaceable></parameter>-1], of
+the register <parameter><replaceable>Rm</replaceable></parameter>.</para>
+<note>
+<para><itemizedlist><listitem><para>If <parameter><replaceable>n</replaceable></parameter> is
+32 or more, then all the bits in the result are set to the value
+of bit[31] of <parameter><replaceable>Rm</replaceable></parameter>.</para></listitem>
+<listitem><para>If <parameter><replaceable>n</replaceable></parameter> is
+32 or more and the carry flag is updated, it is updated to the value
+of bit[31] of <parameter><replaceable>Rm</replaceable></parameter>.</para></listitem></itemizedlist></para>
+</note>
+<figure id = "CIHFBGJH"><title>ASR #3</title><mediaobject><imageobject><imagedata fileref = "graphics/asr.svg" format = "SVG" contentdepth = "91" contentwidth = "456"/></imageobject></mediaobject></figure></sect3>
+<sect3><title>LSR</title>
+<para>Logical shift right by <parameter><replaceable>n</replaceable></parameter> bits
+moves the left-hand <literal>32</literal>-<parameter><replaceable>n</replaceable></parameter> bits
+of the register <parameter><replaceable>Rm</replaceable></parameter>,
+to the right by <parameter><replaceable>n</replaceable></parameter> places,
+into the right-hand <literal>32</literal>-<parameter><replaceable>n</replaceable></parameter> bits
+of the result, and it sets the left‑hand <literal><replaceable>n</replaceable></literal> bits
+of the result to 0. See <xref xrefstyle = "FigureNum"
+    linkend = "CIHHGFBA"/>.</para>
+<para>You can use the <parameter>LSR</parameter> operation to divide
+the value in the register <parameter><replaceable>Rm</replaceable></parameter> by
+2<superscript><replaceable>n</replaceable></superscript>, if the
+value is regarded as an unsigned integer.</para>
+<para>When the instruction is <code>LSRS</code>, the carry flag
+is updated to the last bit shifted out, bit[<parameter><replaceable>n</replaceable></parameter>-1], of
+the register <parameter><replaceable>Rm</replaceable></parameter>.</para>
+<note>
+<para><itemizedlist><listitem><para>If <parameter><replaceable>n</replaceable></parameter> is
+32 or more, then all the bits in the result are cleared to 0. </para></listitem>
+<listitem><para>If <parameter><replaceable>n</replaceable></parameter> is
+33 or more and the carry flag is updated, it is updated to 0.</para></listitem></itemizedlist></para>
+</note>
+<figure id = "CIHHGFBA"><title>LSR #3</title><mediaobject><imageobject><imagedata fileref = "graphics/lsr.svg" format = "SVG" contentdepth = "100" contentwidth = "470"/></imageobject></mediaobject></figure></sect3>
+<sect3><title>LSL</title>
+<para>Logical shift left by <parameter><replaceable>n</replaceable></parameter> bits
+moves the right-hand <literal>32</literal>-<parameter><replaceable>n</replaceable></parameter> bits
+of the register <parameter><replaceable>Rm</replaceable></parameter>,
+to the left by <parameter><replaceable>n</replaceable></parameter> places,
+into the left-hand <literal>32</literal>-<parameter><replaceable>n</replaceable></parameter> bits
+of the result, and it sets the right‑hand <literal><replaceable>n</replaceable></literal> bits
+of the result to 0. See <xref xrefstyle = "FigureNum"
+    linkend = "CIHCBCBD"/>.</para>
+<para>You can use the <parameter>LSL</parameter> operation to multiply
+the value in the register <parameter><replaceable>Rm</replaceable></parameter> by
+2<superscript><replaceable>n</replaceable></superscript>, if the
+value is regarded as an unsigned integer or a two’s complement signed
+integer. Overflow can occur without warning.</para>
+<para>When the instruction is <code>LSLS</code> the carry flag is
+updated to the last bit shifted out, bit[<literal>32</literal>-<parameter><replaceable>n</replaceable></parameter>], of
+the register <parameter><replaceable>Rm</replaceable></parameter>.
+These instructions do not affect the carry flag when used with <parameter>LSL
+#0</parameter>.</para>
+<note>
+<para><itemizedlist><listitem><para>If <parameter><replaceable>n</replaceable></parameter> is
+32 or more, then all the bits in the result are cleared to 0.</para></listitem>
+<listitem><para>If <parameter><replaceable>n</replaceable></parameter> is
+33 or more and the carry flag is updated, it is updated to 0.</para></listitem></itemizedlist></para>
+</note>
+<figure id = "CIHCBCBD"><title>LSL #3</title><mediaobject><imageobject><imagedata fileref = "graphics/lsl.svg" format = "SVG" contentdepth = "99" contentwidth = "462"/></imageobject></mediaobject></figure></sect3>
+<sect3 role = "standard"><title>ROR</title>
+<para>Rotate right by <literal><replaceable>n</replaceable></literal> bits
+moves the left-hand <literal>32</literal>-<parameter><replaceable>n</replaceable></parameter> bits
+of the register <parameter><replaceable>Rm</replaceable></parameter>,
+to the right by <parameter><replaceable>n</replaceable></parameter> places,
+into the right-hand <literal>32</literal>-<parameter><replaceable>n</replaceable></parameter> bits
+of the result, and it moves the right‑hand <parameter><replaceable>n</replaceable></parameter> bits
+of the register into the left‑hand <parameter><replaceable>n</replaceable></parameter> bits
+of the result. See <xref xrefstyle = "FigureNumPage"
+    linkend = "CIHGDFHI"/>.</para>
+<para>When the instruction is <code>RORS</code> the carry flag is
+updated to the last bit rotation, bit[<parameter><replaceable>n</replaceable></parameter>-1],
+of the register <parameter><replaceable>Rm</replaceable></parameter>.</para>
+<note>
+<para><itemizedlist><listitem><para>If <parameter><replaceable>n</replaceable></parameter> is
+32, then the value of the result is same as the value in <parameter><replaceable>Rm</replaceable></parameter>,
+and if the carry flag is updated, it is updated to bit[31] of <parameter><replaceable>Rm</replaceable></parameter>. </para></listitem>
+<listitem><para><code>ROR</code> with shift length, <parameter><replaceable>n</replaceable></parameter>, greater
+than 32 is the same as <code>ROR</code> with shift length <parameter><replaceable>n</replaceable></parameter>-32.</para></listitem></itemizedlist></para>
+</note>
+<figure id = "CIHGDFHI"><title>ROR #3</title><mediaobject><imageobject><imagedata fileref = "graphics/ror.svg" format = "SVG" contentdepth = "103" contentwidth = "461"/></imageobject></mediaobject></figure></sect3></sect2>
+<sect2 id = "BABFAIGG" role = "break"><title>Address alignment</title>
+<para>An aligned access is an operation where a word-aligned address
+is used for a word, or multiple word access, or where a halfword-aligned
+address is used for a halfword access. Byte accesses are always
+aligned.</para>
+<para>There is no support for unaligned accesses on the Cortex-M0
+processor. Any attempt to perform an unaligned memory access operation
+results in a HardFault exception.</para></sect2>
+<sect2 id = "BABJJAAA" role = "standard"><title>PC‑relative expressions</title>
+<para>A PC‑relative expression or <emphasis>label</emphasis> is
+a symbol that represents the address of an instruction or literal
+data. It is represented in the instruction as the PC value plus
+or minus a numeric offset. The assembler calculates the required
+offset from the label and the address of the current instruction.
+If the offset is too big, the assembler produces an error.</para>
+<note>
+<para><itemizedlist><listitem><para>For most instructions, the value
+of the PC is the address of the current instruction plus 4 bytes. </para></listitem>
+<listitem><para>Your assembler might permit other syntaxes for PC-relative
+expressions, such as a label plus or minus a number, or an expression
+of the form <parameter>[PC, #<replaceable>imm</replaceable>]</parameter>.</para></listitem></itemizedlist></para>
+</note></sect2>
+<sect2 id = "BABEHFEF" role = "break"><title>Conditional execution</title>
+<para>Most data processing instructions update the condition flags
+in the <emphasis>Application Program Status Register</emphasis> (APSR)
+according to the result of the operation, see <xref
+    xrefstyle = "TitleLong" linkend = "BABDDCIA"/>. Some instructions
+update all flags, and some only update a subset. If a flag is not
+updated, the original value is preserved. See the instruction descriptions
+for the flags they affect.</para>
+<para>You can execute a conditional branch instruction, based on
+the condition flags set in another instruction, either:</para>
+<itemizedlist spacing = "compact"><listitem><para>immediately after
+the instruction that updated the flags</para></listitem>
+<listitem><para>after any number of intervening instructions that
+have not updated the flags.</para></listitem></itemizedlist>
+<para>On the Cortex-M0 processor, conditional execution is available
+by using conditional branches.</para>
+<para>This section describes:<itemizedlist spacing = "compact">
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CHDHDBFC"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CHDBEFEJ"/>.</para></listitem></itemizedlist></para>
+<sect3 id = "CHDHDBFC" role = "break"><sect3info><keywordset role = "alinknames"><keyword>N</keyword><keyword>Z</keyword><keyword>C</keyword><keyword>V</keyword></keywordset></sect3info>
+<title>The condition flags</title>
+<para>The APSR contains the following condition flags:</para>
+<para><variablelist spacing = "normal"><varlistentry><term>N</term>
+<listitem><para>Set to 1 when the result of the operation was negative,
+cleared to 0 otherwise.</para></listitem></varlistentry>
+<varlistentry><term>Z</term><listitem><para>Set to 1 when the result
+of the operation was zero, cleared to 0 otherwise.</para></listitem></varlistentry>
+<varlistentry><term>C</term><listitem><para>Set to 1 when the operation
+resulted in a carry, cleared to 0 otherwise.</para></listitem></varlistentry>
+<varlistentry><term>V</term><listitem><para>Set to 1 when the operation
+caused overflow, cleared to 0 otherwise.</para></listitem></varlistentry></variablelist></para>
+<para>For more information about the APSR see <xref
+    xrefstyle = "TitleLong" linkend = "CHDDIAFA"/>.</para>
+<para>A carry occurs:<itemizedlist spacing = "compact"><listitem><para>if
+the result of an addition is greater than or equal to 2<superscript>32</superscript></para></listitem>
+<listitem><para>if the result of a subtraction is positive or zero</para></listitem>
+<listitem><para>as the result of a shift or rotate instruction.</para></listitem></itemizedlist></para>
+<para>Overflow occurs when the sign of the result, in bit[31], does
+not match the sign of the result had the operation been performed
+at infinite precision, for example:<itemizedlist spacing = "compact">
+<listitem><para>if adding two negative values results in a positive value</para></listitem>
+<listitem><para>if adding two positive values results in a negative value</para></listitem>
+<listitem><para>if subtracting a positive value from a negative value
+generates a positive value</para></listitem>
+<listitem><para>if subtracting a negative value from a positive
+value generates a negative value.</para></listitem></itemizedlist></para>
+<para>The Compare operations are identical to subtracting, for <code>CMP</code>,
+or adding, for <code>CMN</code>, except that the result is discarded.
+See the instruction descriptions for more information.</para></sect3>
+<sect3 id = "CHDBEFEJ" role = "break"><sect3info><keywordset role = "alinknames"><keyword>EQ</keyword><keyword>NE</keyword><keyword>CS</keyword><keyword>HS</keyword><keyword>CC</keyword><keyword>LO</keyword><keyword>MI</keyword><keyword>PL</keyword><keyword>VS</keyword><keyword>VC</keyword><keyword>HI</keyword><keyword>LS</keyword><keyword>GE</keyword><keyword>LT</keyword><keyword>GT</keyword><keyword>LE</keyword><keyword>AL</keyword></keywordset></sect3info>
+<title>Condition code suffixes</title>
+<para>Conditional branch is shown in syntax descriptions as <parameter>B{<replaceable>cond</replaceable>}</parameter>.
+A branch instruction with a condition code is only taken if the
+condition code flags in the APSR meet the specified condition, otherwise
+the branch instruction is ignored. <xref xrefstyle = "TableNum"
+    linkend = "CHDJAHCI"/> shows the condition codes to use. </para>
+<para><xref xrefstyle = "TableNum" linkend = "CHDJAHCI"/> also shows
+the relationship between condition code suffixes and the N, Z, C, and
+V flags.</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CHDJAHCI">
+<title>Condition code suffixes</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.611in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.139in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.917in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Suffix</entry>
+<entry colname = "2">Flags</entry>
+<entry colname = "3">Meaning</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><literal>EQ</literal></entry>
+<entry colname = "2">Z = 1</entry>
+<entry colname = "3">Equal, last flag setting result was zero</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>NE</literal></entry>
+<entry colname = "2">Z = 0</entry>
+<entry colname = "3">Not equal, last flag setting result was non-zero</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>CS or HS</literal></entry>
+<entry colname = "2">C = 1</entry>
+<entry colname = "3">Higher or same, unsigned</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>CC or LO</literal></entry>
+<entry colname = "2">C = 0</entry>
+<entry colname = "3">Lower, unsigned</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>MI</literal></entry>
+<entry colname = "2">N = 1</entry>
+<entry colname = "3">Negative</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>PL</literal></entry>
+<entry colname = "2">N = 0</entry>
+<entry colname = "3">Positive or zero</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>VS</literal></entry>
+<entry colname = "2">V = 1</entry>
+<entry colname = "3">Overflow</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>VC</literal></entry>
+<entry colname = "2">V = 0</entry>
+<entry colname = "3">No overflow</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>HI</literal></entry>
+<entry colname = "2">C = 1 and Z = 0</entry>
+<entry colname = "3">Higher, unsigned</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>LS</literal></entry>
+<entry colname = "2">C = 0 or   Z = 1</entry>
+<entry colname = "3">Lower or same, unsigned</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>GE</literal></entry>
+<entry colname = "2">N = V </entry>
+<entry colname = "3">Greater than or equal, signed </entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>LT</literal></entry>
+<entry colname = "2">N != V</entry>
+<entry colname = "3">Less than, signed</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>GT</literal></entry>
+<entry colname = "2">Z = 0 and N = V</entry>
+<entry colname = "3">Greater than, signed</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>LE</literal></entry>
+<entry colname = "2">Z = 1 and N != V </entry>
+<entry colname = "3"><para>Less than or equal, signed</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><literal>AL</literal></entry>
+<entry colname = "2">Can have any value</entry>
+<entry colname = "3">Always. This is the default when no suffix
+is specified.</entry>
+</row>
+</tbody>
+</tgroup></table></sect3></sect2></sect1>
+<sect1 id = "BABGIFCI" role = "Break"><sect1info><keywordset role = "alinknames"><keyword>LDR</keyword><keyword>STR</keyword></keywordset></sect1info>
+<title>Memory access instructions</title>
+<para><xref xrefstyle = "TableNum" linkend = "CIHIJIGE"/> shows
+the memory access instructions:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CIHIJIGE">
+<title>Memory access instructions</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.792in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "2.181in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.431in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Mnemonic</entry>
+<entry colname = "2">Brief description</entry>
+<entry colname = "3">See</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><code>ADR</code></entry>
+<entry colname = "2">Generate PC-relative address</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABEDJGG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LDM</code></entry>
+<entry colname = "2">Load Multiple registers</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABCAEDD"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LDR{type}</code></entry>
+<entry colname = "2">Load Register using immediate offset</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABJGHFJ"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LDR{type}</code></entry>
+<entry colname = "2">Load Register using register offset</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABFGBDD"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LDR</code></entry>
+<entry colname = "2">Load Register from PC-relative address</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABJFJBD"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>POP</code></entry>
+<entry colname = "2">Pop registers from stack</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABIAJHJ"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>PUSH</code></entry>
+<entry colname = "2">Push registers onto stack</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABIAJHJ"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>STM</code></entry>
+<entry colname = "2">Store Multiple registers</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABCAEDD"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>STR{type}</code></entry>
+<entry colname = "2">Store Register using immediate offset</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABJGHFJ"/></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><code>STR{type}</code></entry>
+<entry colname = "2">Store Register using register offset</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABFGBDD"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+<sect2 id = "BABEDJGG" role = "break"><sect2info><keywordset role = "alinknames"><keyword>ADR</keyword></keywordset></sect2info>
+<title>ADR</title>
+<para>Generates a PC-relative address.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+<code>ADR</code> <replaceable>Rd</replaceable>, <replaceable>label</replaceable>
+</synopsis>
+<para>where:<variablelist spacing = "compact"><varlistentry><term><parameter><replaceable>Rd</replaceable></parameter></term>
+<listitem><para>is the destination register.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>label</replaceable></parameter></term>
+<listitem><para>is a PC‑relative expression. See <xref
+    xrefstyle = "TitleLong" linkend = "BABJJAAA"/>.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para><code>ADR</code> generates an address by adding an immediate
+value to the PC, and writes the result to the destination register.</para>
+<para><code>ADR</code> facilitates the generation of position‑independent
+code, because the address is PC‑relative.</para>
+<para>If you use <code>ADR</code> to generate a target address for
+a <code>BX</code> or <code>BLX</code> instruction, you must ensure that
+bit[0] of the address you generate is set to 1 for correct execution.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>In this instruction <code><replaceable>Rd</replaceable></code> must
+specify R0-R7. The data-value addressed must be word aligned and
+within 1020 bytes of the current PC.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    ADR    R1, TextMessage   ; Write address value of a location labelled as
+                             ; TextMessage to R1
+</programlisting>
+<programlisting>
+    ADR    R3, [PC,#996]     ; Set R3 to value of PC + 996.
+</programlisting>
+<programlisting>
+                              
+</programlisting></sect3></sect2>
+<sect2 id = "BABJGHFJ" role = "break"><sect2info><keywordset role = "alinknames"><keyword>LDR</keyword><keyword>LDRB</keyword><keyword>LDRSB</keyword><keyword>LDRH</keyword><keyword>LDRSH</keyword><keyword>LDRD</keyword><keyword>STR</keyword><keyword>STRB</keyword><keyword>STRSB</keyword><keyword>STRH</keyword><keyword>STRSH</keyword><keyword>STRD</keyword></keywordset></sect2info>
+<title>LDR and STR, immediate offset</title>
+<para>Load and Store with immediate offset.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+LDR <replaceable>Rt</replaceable>, [&lt;<replaceable>Rn</replaceable> | SP> {, #<replaceable>imm</replaceable>}]
+</synopsis>
+<synopsis>
+LDR&lt;B|H> <replaceable>Rt</replaceable>, [<replaceable>Rn</replaceable> {, #<replaceable>imm</replaceable>}]
+</synopsis>
+<synopsis>
+STR <replaceable>Rt</replaceable>, [&lt;<replaceable>Rn</replaceable> | SP>, {,#<replaceable>imm</replaceable>}]
+</synopsis>
+<synopsis>
+STR&lt;B|H> <replaceable>Rt</replaceable>, [<replaceable>Rn</replaceable> {,#<replaceable>imm</replaceable>}]
+</synopsis>
+<para>where:<variablelist spacing = "compact"><varlistentry><term><parameter><replaceable>Rt</replaceable></parameter></term>
+<listitem><para>is the register to load or store.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rn</replaceable></parameter></term>
+<listitem><para>is the register on which the memory address is based.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>imm</replaceable></parameter></term>
+<listitem><para>is an offset from <literal><replaceable>Rn</replaceable></literal>.
+If <literal><replaceable>imm</replaceable></literal> is omitted, it
+is assumed to be zero.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3 id = "BABBBDJB" role = "standard"><title>Operation</title>
+<para><code>LDR</code>, <code>LDRB</code> and <code>LDRH</code> instructions
+load the register specified by <parameter><replaceable>Rt</replaceable></parameter> with
+either a word, byte or halfword data value from memory. Sizes less
+than word are zero extended to 32-bits before being written to the
+register specified by <parameter><replaceable>Rt</replaceable></parameter>.</para>
+<para><code>STR</code>, <code>STRB</code> and <code>STRH</code> instructions
+store the word, least-significant byte or lower halfword contained
+in the single register specified by <parameter><replaceable>Rt</replaceable></parameter> in
+to memory. The memory address to load from or store to is the sum
+of the value in the register specified by either <parameter><replaceable>Rn</replaceable></parameter> or
+SP and the immediate value <parameter><replaceable>imm</replaceable></parameter>.</para></sect3>
+<sect3 role = "standard"><title>Restrictions</title>
+<para>In these instructions:</para>
+<para><itemizedlist><listitem><para><parameter><replaceable>Rt</replaceable></parameter> and <parameter><replaceable>Rn</replaceable></parameter> must
+only specify R0-R7. </para></listitem>
+<listitem><para><parameter><replaceable>imm</replaceable></parameter> must
+be between:<itemizedlist><listitem><para>0 and 1020 and an integer
+multiple of four for <code>LDR</code> and <code>STR</code> using
+SP as the base register</para></listitem>
+<listitem><para>0 and 124 and an integer multiple of four for <code>LDR</code> and <code>STR</code> using
+R0-R7 as the base register</para></listitem>
+<listitem><para>0 and 62 and an integer multiple of two for <code>LDRH</code> and <code>STRH</code></para></listitem>
+<listitem><para>0 and 31 for <code>LDRB</code> and <code>STRB</code>.</para></listitem></itemizedlist></para></listitem>
+<listitem><para>The computed address must be divisible by the number
+of bytes in the transaction, see <xref xrefstyle = "TitleLong"
+    linkend = "BABFAIGG"/>.</para></listitem></itemizedlist></para></sect3>
+<sect3><title>Condition flags</title>
+<para>These instructions do not change the flags.</para></sect3>
+<sect3><title>Examples </title>
+<programlisting>
+    LDR     R4, [R7                ; Loads R4 from the address in R7.
+    STR     R2, [R0,#const‑struc]  ; const‑struc is an expression evaluating
+                                   ; to a constant in the range 0‑1020.
+</programlisting></sect3></sect2>
+<sect2 id = "BABFGBDD" role = "break"><sect2info><keywordset role = "alinknames"><keyword>LDR</keyword><keyword>LDRB</keyword><keyword>LDRSB</keyword><keyword>LDRH</keyword><keyword>LDRSH</keyword><keyword>LDRD</keyword><keyword>STR</keyword><keyword>STRB</keyword><keyword>STRSB</keyword><keyword>STRH</keyword><keyword>STRSH</keyword><keyword>STRD</keyword></keywordset></sect2info>
+<title>LDR and STR, register offset</title>
+<para>Load and Store with register offset.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+LDR <replaceable>Rt</replaceable>, [<replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>]
+</synopsis>
+<synopsis>
+LDR&lt;B|H> <replaceable>Rt</replaceable>, [<replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>]
+</synopsis>
+<synopsis>
+LDR&lt;SB|SH> <replaceable>Rt</replaceable>, [<replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>]
+</synopsis>
+<synopsis>
+STR <replaceable>Rt</replaceable>, [<replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>]
+</synopsis>
+<synopsis>
+STR&lt;B|H> <replaceable>Rt</replaceable>, [<replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>]
+</synopsis>
+<para>where:<variablelist spacing = "compact"><varlistentry><term><parameter><replaceable>Rt</replaceable></parameter></term>
+<listitem><para>is the register to load or store.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rn</replaceable></parameter></term>
+<listitem><para>is the register on which the memory address is based.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rm</replaceable></parameter></term>
+<listitem><para>is a register containing a value to be used as the
+offset.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3 role = "standard"><title>Operation</title>
+<para><code>LDR</code>, <code>LDRB</code>, <code>LDRH</code>, <code>LDRSB</code> and <code>LDRSH</code> load
+the register specified by <parameter><replaceable>Rt</replaceable></parameter> with
+either a word, zero extended byte, zero extended halfword, sign
+extended byte or sign extended halfword value from memory.</para>
+<para><code>STR</code>, <code>STRB</code> and <code>STRH</code> store
+the word, least-significant byte or lower halfword contained in the
+single register specified by <parameter><replaceable>Rt</replaceable></parameter> into
+memory.</para>
+<para>The memory address to load from or store to is the sum of
+the values in the registers specified by <parameter><replaceable>Rn</replaceable></parameter> and <parameter><replaceable>Rm</replaceable></parameter>.</para></sect3>
+<sect3 role = "break"><title>Restrictions</title>
+<para>In these instructions:<itemizedlist><listitem><para><code><replaceable>Rt</replaceable></code>, <code><replaceable>Rn</replaceable></code>,
+and <code><replaceable>Rm</replaceable></code> must only specify
+R0-R7.</para></listitem>
+<listitem><para>the computed memory address must be divisible by
+the number of bytes in the load or store, see <xref
+    xrefstyle = "TitleLong" linkend = "BABFAIGG"/>.</para></listitem></itemizedlist></para></sect3>
+<sect3><title>Condition flags</title>
+<para>These instructions do not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    STR    R0, [R5, R1]         ; Store value of R0 into an address equal to
+                                ; sum of R5 and R1
+</programlisting>
+<programlisting>
+    LDRSH  R1, [R2, R3]         ; Load a halfword from the memory address
+                                ; specified by (R2 + R3), sign extend to 32-bits
+</programlisting>
+<programlisting>
+                                ; and write to R1.
+</programlisting></sect3></sect2>
+<sect2 id = "BABJFJBD" role = "break"><sect2info><keywordset role = "alinknames"><keyword>LDR</keyword><keyword>LDRB</keyword><keyword>LDRSB</keyword><keyword>LDRH</keyword><keyword>LDRSH</keyword><keyword>LDRD</keyword></keywordset></sect2info>
+<title>LDR, PC‑relative</title>
+<para>Load register (literal) from memory.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+LDR <replaceable>Rt</replaceable>, <replaceable>label</replaceable>
+</synopsis>
+<para>where:<variablelist spacing = "compact"><varlistentry><term><parameter><replaceable>Rt</replaceable></parameter></term>
+<listitem><para>is the register to load.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>label</replaceable></parameter></term>
+<listitem><para>is a PC‑relative expression. See <xref
+    xrefstyle = "TitleLong" linkend = "BABJJAAA"/>.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3 id = "CHDCCDGC" role = "standard"><title>Operation</title>
+<para>Loads the register specified by <parameter><replaceable>Rt</replaceable></parameter> from
+the word in memory specified by <parameter><replaceable>label</replaceable></parameter>.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>In these instructions, <parameter><replaceable>label</replaceable></parameter> must
+be within 1020 bytes of the current PC and word aligned.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>These instructions do not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    LDR     R0, LookUpTable   ; Load R0 with a word of data from an address
+                              ; labelled as LookUpTable.
+</programlisting>
+<programlisting>
+    LDR     R3, [PC, #100]    ; Load R3 with memory word at (PC + 100).
+</programlisting>
+<programlisting>
+ 
+</programlisting></sect3></sect2>
+<sect2 id = "BABCAEDD" role = "break"><sect2info><keywordset role = "alinknames"><keyword>LDM</keyword><keyword>LDMIA</keyword><keyword>LDMIB</keyword><keyword>LDMDA</keyword><keyword>LDMDB</keyword><keyword>STM</keyword><keyword>STMIA</keyword><keyword>STMIB</keyword><keyword>STMDA</keyword><keyword>STMDB</keyword></keywordset></sect2info>
+<title>LDM and STM</title>
+<para>Load and Store Multiple registers.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+LDM <replaceable>Rn</replaceable>{!}, reglist
+</synopsis>
+<synopsis>
+STM <replaceable>Rn</replaceable>!, reglist
+</synopsis>
+<para>where:<variablelist><varlistentry><term><parameter><replaceable>Rn</replaceable></parameter></term>
+<listitem><para>is the register on which the memory addresses are
+based.<parameter> </parameter></para></listitem></varlistentry>
+<varlistentry><term><parameter>!</parameter></term><listitem><para>writeback
+suffix.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>reglist</replaceable></parameter></term>
+<listitem><para>is a list of one or more registers to be loaded
+or stored, enclosed in braces. It can contain register ranges. It
+must be comma separated if it contains more than one register or
+register range, see <xref xrefstyle = "TitleLong" linkend = "CHDEGBAA"/>.</para></listitem></varlistentry></variablelist></para>
+<para><code>LDMIA</code> and <code>LDMFD</code> are synonyms for <code>LDM</code>. <code>LDMIA</code> refers
+to the base register being Incremented After each access. <code>LDMFD</code> refers
+to its use for popping data from Full Descending stacks.</para>
+<para><code>STMIA</code> and <code>STMEA</code> are synonyms for <code>STM</code>. <code>STMIA</code> refers
+to the base register being Incremented After each access. <code>STMEA</code> refers
+to its use for pushing data onto Empty Ascending stacks.</para></sect3>
+<sect3><title>Operation</title>
+<para><code>LDM</code> instructions load the registers in <parameter><replaceable>reglist</replaceable></parameter> with
+word values from memory addresses based on <parameter><replaceable>Rn</replaceable></parameter>.</para>
+<para><code>STM</code> instructions store the word values in the
+registers in <parameter><replaceable>reglist</replaceable></parameter> to
+memory addresses based on <parameter><replaceable>Rn</replaceable></parameter>.</para>
+<para>The memory addresses used for the accesses are at 4-byte intervals
+ranging from the value in the register specified by <parameter><replaceable>Rn</replaceable></parameter> to the
+value in the register specified by <parameter><replaceable>Rn</replaceable></parameter> +
+4 * (<literal><replaceable>n</replaceable></literal>-1), where <literal><replaceable>n</replaceable></literal> is
+the number of registers in <parameter><replaceable>reglist</replaceable></parameter>.
+The accesses happens in order of increasing register numbers, with
+the lowest numbered register using the lowest memory address and
+the highest number register using the highest memory address. If the
+writeback suffix is specified, the value in the register specified
+by <parameter><replaceable>Rn</replaceable></parameter> + 4 *<literal><replaceable>n</replaceable></literal> is
+written back to the register specified by <parameter><replaceable>Rn</replaceable></parameter>.</para></sect3>
+<sect3 id = "CHDGBEDI" role = "break"><title>Restrictions</title>
+<para>In these instructions:<itemizedlist spacing = "compact">
+<listitem><para><literal><replaceable>reglist</replaceable></literal> and <parameter><replaceable>Rn</replaceable></parameter> are
+limited to R0-R7.</para></listitem>
+<listitem><para>the writeback suffix must always be used unless
+the instruction is an <code>LDM</code> where reglist also contains <parameter><replaceable>Rn</replaceable></parameter>,
+in which case the writeback suffix must not be used.</para></listitem>
+<listitem><para>the value in the register specified by <parameter><replaceable>Rn</replaceable></parameter> must
+be word aligned. See <xref xrefstyle = "TitleLong" linkend = "BABFAIGG"/> for
+more information. </para></listitem>
+<listitem><para>for <code>STM</code>, if <parameter><replaceable>Rn</replaceable></parameter> appears
+in <parameter><replaceable>reglist</replaceable></parameter>, then
+it must be the first register in the list.</para></listitem></itemizedlist></para></sect3>
+<sect3><title>Condition flags</title>
+<para>These instructions do not change the flags.</para></sect3>
+<sect3 id = "CHDEGBAA" role = "standard"><title>Examples</title>
+<programlisting>
+    LDM     R0,{R0,R3,R4}      ; LDMIA is a synonym for LDM
+    STMIA   R1!,{R2‑R4,R6}
+</programlisting></sect3>
+<sect3><title>Incorrect examples</title>
+<programlisting>
+    STM     R5!,{R4,R5,R6} ; Value stored for R5 is unpredictable 
+    LDM     R2,{}          ; There must be at least one register in the list
+</programlisting></sect3></sect2>
+<sect2 id = "BABIAJHJ" role = "break"><sect2info><keywordset role = "alinknames"><keyword>PUSH</keyword><keyword>POP</keyword></keywordset></sect2info>
+<title>PUSH and POP</title>
+<para>Push registers onto, and pop registers off a full-descending
+stack.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+<code>PUSH</code> <replaceable>reglist</replaceable>
+</synopsis>
+<synopsis>
+<code>POP</code> <replaceable>reglist</replaceable>
+</synopsis>
+<para>where:<variablelist><varlistentry><term><parameter><replaceable>reglist</replaceable></parameter></term>
+<listitem><para>is a non-empty list of registers, enclosed in braces.
+It can contain register ranges. It must be comma separated if it
+contains more than one register or register range.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para><code>PUSH</code> stores registers on the stack, with the lowest
+numbered register using the lowest memory address and the highest
+numbered register using the highest memory address.</para>
+<para><code>POP</code> loads registers from the stack, with the
+lowest numbered register using the lowest memory address and the
+highest numbered register using the highest memory address.</para>
+<para><code>PUSH</code> uses the value in the SP register minus
+four as the highest memory address, <code>POP</code> uses the value
+in the SP register as the lowest memory address, implementing a full-descending
+stack. On completion, <code>PUSH</code> updates the SP register
+to point to the location of the lowest store value, <code>POP</code> updates
+the SP register to point to the location above the highest location
+loaded.</para>
+<para>If a <code>POP</code> instruction includes PC in its <parameter><replaceable>reglist</replaceable></parameter>,
+a branch to this location is performed when the <code>POP</code> instruction
+has completed. Bit[0] of the value read for the PC is used to update
+the APSR T-bit. This bit must be 1 to ensure correct operation.</para></sect3>
+<sect3 role = "standard"><title>Restrictions</title>
+<para>In these instructions:<itemizedlist spacing = "compact">
+<listitem><para><code><replaceable>reglist</replaceable></code> must
+use only R0-R7. </para></listitem>
+<listitem><para>The exception is LR for a <code>PUSH</code> and
+PC for a <code>POP</code>.</para></listitem></itemizedlist></para></sect3>
+<sect3><title>Condition flags</title>
+<para>These instructions do not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    PUSH    {R0,R4‑R7}      ; Push R0,R4,R5,R6,R7 onto the stack
+    PUSH    {R2,LR}         ; Push R2 and the link-register onto the stack
+    POP     {R0,R6,PC}      ; Pop r0,r6 and PC from the stack, then branch to
+                            ; the new PC.
+</programlisting></sect3></sect2></sect1>
+<sect1 id = "BABJJACB" role = "Break"><title>General data processing
+instructions</title>
+<para><xref xrefstyle = "TableNum" linkend = "CIHEDIJE"/> shows
+the data processing instructions:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CIHEDIJE">
+<title>Data processing instructions</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.792in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "2.917in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.514in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Mnemonic</entry>
+<entry colname = "2">Brief description</entry>
+<entry colname = "3">See</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><code>ADCS</code></entry>
+<entry colname = "2">Add with Carry</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABFFEJF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ADD{S}</code></entry>
+<entry colname = "2">Add</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABFFEJF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ANDS</code></entry>
+<entry colname = "2">Logical AND</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "CIHBDBJH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ASRS</code></entry>
+<entry colname = "2">Arithmetic Shift Right</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABJCCDH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>BICS</code></entry>
+<entry colname = "2">Bit Clear</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "CIHBDBJH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>CMN</code></entry>
+<entry colname = "2">Compare Negative</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABIHIEI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>CMP</code></entry>
+<entry colname = "2">Compare</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABIHIEI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>EORS</code></entry>
+<entry colname = "2">Exclusive OR</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "CIHBDBJH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LSLS</code></entry>
+<entry colname = "2">Logical Shift Left</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABJCCDH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>LSRS</code></entry>
+<entry colname = "2">Logical Shift Right</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABJCCDH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>MOV{S}</code></entry>
+<entry colname = "2">Move</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABHGAJI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>MULS</code></entry>
+<entry colname = "2">Multiply</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABCFBDJ"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>MVNS</code></entry>
+<entry colname = "2">Move NOT</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABHGAJI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ORRS</code></entry>
+<entry colname = "2">Logical OR</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "CIHBDBJH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>REV</code></entry>
+<entry colname = "2">Reverse byte order in a word</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABJJDDB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>REV16</code><code></code></entry>
+<entry colname = "2">Reverse byte order in each halfword</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABJJDDB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>REVSH</code></entry>
+<entry colname = "2">Reverse byte order in bottom halfword and sign
+extend</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABJJDDB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>RORS</code></entry>
+<entry colname = "2">Rotate Right</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABJCCDH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>RSBS</code></entry>
+<entry colname = "2">Reverse Subtract</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABFFEJF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SBCS</code></entry>
+<entry colname = "2">Subtract with Carry</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABFFEJF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SUBS</code></entry>
+<entry colname = "2">Subtract</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABFFEJF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SXTB</code></entry>
+<entry colname = "2">Sign extend a byte</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABBJGAG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SXTH</code></entry>
+<entry colname = "2">Sign extend a halfword</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABBJGAG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>UXTB</code></entry>
+<entry colname = "2">Zero extend a byte</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABBJGAG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>UXTH</code></entry>
+<entry colname = "2">Zero extend a halfword</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABBJGAG"/></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><code>TST</code></entry>
+<entry colname = "2">Test</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABEHFIB"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+<sect2 id = "BABFFEJF" role = "break"><sect2info><keywordset role = "alinknames"><keyword>ADD</keyword><keyword>SUB</keyword><keyword>ADC</keyword><keyword>RSB</keyword><keyword>SBC</keyword><keyword>RSC</keyword><keyword>ADDS</keyword><keyword>SUBS</keyword><keyword>ADCS</keyword><keyword>RSBS</keyword><keyword>SBCS</keyword><keyword>RSCS</keyword></keywordset></sect2info>
+<title>ADC, ADD, RSB, SBC, and SUB</title>
+<para>Add with carry, Add, Reverse Subtract, Subtract with carry,
+and Subtract.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+ADCS   {<replaceable>Rd</replaceable>,} <replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>
+<synopsis>
+ADD{S} {<replaceable>Rd</replaceable>,} <replaceable>Rn</replaceable>, <replaceable>&lt;Rm|#imm></replaceable>
+</synopsis>
+<synopsis>
+RSBS   {<replaceable>Rd</replaceable>,} <replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>, <replaceable>#0</replaceable>
+</synopsis>
+<synopsis>
+SBCS   {<replaceable>Rd</replaceable>,} <replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>
+<synopsis>
+SUB{S} {<replaceable>Rd</replaceable>,} <replaceable>Rn</replaceable>, <code>&lt;<replaceable>Rm</replaceable>|<replaceable>#imm</replaceable>></code>
+</synopsis>
+<para>Where:<variablelist spacing = "compact"><varlistentry><term><parameter>S</parameter></term>
+<listitem><para>causes an <code>ADD</code> or <code>SUB</code> instruction
+to update flags</para></listitem></varlistentry>
+<varlistentry><term><parameter>Rd</parameter></term><listitem><para>specifies
+the result register</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rn</replaceable></parameter></term>
+<listitem><para>specifies the first source register</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rm</replaceable></parameter></term>
+<listitem><para>specifies the second source register</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>imm</replaceable></parameter></term>
+<listitem><para>specifies a constant immediate value.</para></listitem></varlistentry></variablelist></para>
+<para>When the optional <parameter>Rd</parameter> register specifier
+is omitted, it is assumed to take the same value as <parameter><replaceable>Rn</replaceable></parameter>,
+for example <code>ADDS R1,R2</code> is identical to <code>ADDS R1,R1,R2</code>.</para></sect3>
+<sect3 role = "break"><title>Operation</title>
+<para>The <code>ADCS</code> instruction adds the value in <parameter><replaceable>Rn </replaceable></parameter>to
+the value in <parameter><replaceable>Rm</replaceable></parameter>, adding
+a further one if the carry flag is set, places the result in the
+register specified by <parameter>Rd</parameter> and updates the
+N, Z, C, and V flags.</para>
+<para>The <code>ADD</code> instruction adds the value in <literal><replaceable>Rn</replaceable></literal> to
+the value in <parameter><replaceable>Rm</replaceable></parameter> or
+an immediate value specified by <parameter><replaceable>imm</replaceable></parameter> and
+places the result in the register specified by <parameter>Rd</parameter>. </para>
+<para>The <code>ADDS</code> instruction performs the same operation
+as <code>ADD</code> and also updates the N, Z, C and V flags.</para>
+<para>The <code>RSBS</code> instruction subtracts the value in <parameter><replaceable>Rn</replaceable></parameter> from
+zero, producing the arithmetic negative of the value, and places
+the result in the register specified by Rd and updates the N, Z,
+C and V flags.</para>
+<para>The <code>SBCS</code> instruction subtracts the value of <parameter><replaceable>Rm</replaceable></parameter> from
+the value in <parameter><replaceable>Rn</replaceable></parameter>,
+deducts a further one if the carry flag is set. It places the result
+in the register specified by Rd and updates the N, Z, C and V flags.</para>
+<para>The <code>SUB</code> instruction subtracts the value in <parameter><replaceable>Rm</replaceable></parameter> or
+the immediate specified by <replaceable>imm</replaceable>. It places the
+result in the register specified by <parameter>Rd</parameter>.</para>
+<para>The <code>SUBS</code> instruction performs the same operation
+as <code>SUB</code> and also updates the N, Z, C and V flags.</para>
+<para>Use <code>ADC</code> and <code>SBC</code><code></code> to
+synthesize multiword arithmetic, see <xref xrefstyle = "TitleLong"
+    linkend = "CHDCFBGG"/>.</para>
+<para>See also <xref xrefstyle = "TitleLong" linkend = "BABEDJGG"/>.</para></sect3>
+<sect3 role = "break"><title>Restrictions</title>
+<para><xref xrefstyle = "TableNum" linkend = "CIHEJJFI"/> lists
+the legal combinations of register specifiers and immediate values
+that can be used with each instruction.</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CIHEJJFI">
+<title>ADC, ADD, RSB, SBC and SUB operand restrictions</title>
+<tgroup cols = "6" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.820in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.570in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "0.625in" colsep = "0"/>
+<colspec colnum = "4" colname = "4" colwidth = "0.570in" colsep = "0"/>
+<colspec colnum = "5" colname = "5" colwidth = "0.528in" colsep = "0"/>
+<colspec colnum = "6" colname = "6" colwidth = "2.778in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Instruction</entry>
+<entry colname = "2">Rd</entry>
+<entry colname = "3">Rn</entry>
+<entry colname = "4">Rm</entry>
+<entry colname = "5">imm</entry>
+<entry colname = "6">Restrictions</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><code>ADCS</code></entry>
+<entry colname = "2">R0-R7</entry>
+<entry colname = "3">R0-R7</entry>
+<entry colname = "4">R0-R7</entry>
+<entry colname = "5">-</entry>
+<entry colname = "6"><para><parameter>Rd</parameter> and <parameter><replaceable>Rn</replaceable></parameter> must
+specify the same register.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1" morerows = "2"><code>ADD</code></entry>
+<entry colname = "2">R0-R15</entry>
+<entry colname = "3">R0-R15</entry>
+<entry colname = "4">R0-PC</entry>
+<entry colname = "5">-</entry>
+<entry colname = "6"><para><parameter>Rd</parameter> and <parameter><replaceable>Rn</replaceable></parameter> must
+specify the same register. </para><para><parameter><replaceable>Rn</replaceable></parameter> and <parameter><replaceable>Rm</replaceable></parameter> must
+not both specify PC.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "2">R0-R7</entry>
+<entry colname = "3">SP or PC</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">0-1020</entry>
+<entry colname = "6"><para>Immediate value must be an integer multiple
+of four.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "2">SP</entry>
+<entry colname = "3">SP</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">0-508</entry>
+<entry colname = "6"><para>Immediate value must be an integer multiple
+of four.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1" morerows = "2"><code>ADDS</code></entry>
+<entry colname = "2">R0-R7</entry>
+<entry colname = "3">R0-R7</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">0-7</entry>
+<entry colname = "6">-</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "2">R0-R7</entry>
+<entry colname = "3">R0-R7</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">0-255</entry>
+<entry colname = "6"><para><parameter>Rd</parameter> and <parameter><replaceable>Rn</replaceable></parameter> must
+specify the same register.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "2">R0-R7</entry>
+<entry colname = "3">R0-R7</entry>
+<entry colname = "4">R0-R7</entry>
+<entry colname = "5">-</entry>
+<entry colname = "6">-</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>RSBS</code></entry>
+<entry colname = "2">R0-R7</entry>
+<entry colname = "3">R0-R7</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">-</entry>
+<entry colname = "6">-</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SBCS</code></entry>
+<entry colname = "2">R0-R7</entry>
+<entry colname = "3">R0-R7</entry>
+<entry colname = "4">R0-R7</entry>
+<entry colname = "5">-</entry>
+<entry colname = "6"><para><parameter>Rd</parameter> and <parameter><replaceable>Rn</replaceable></parameter> must
+specify the same register.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SUB</code></entry>
+<entry colname = "2">SP</entry>
+<entry colname = "3">SP</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">0-508</entry>
+<entry colname = "6"><para>Immediate value must be an integer multiple
+of four.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1" morerows = "2"><code>SUBS</code></entry>
+<entry colname = "2">R0-R7</entry>
+<entry colname = "3">R0-R7</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">0-7</entry>
+<entry colname = "6">-</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "2">R0-R7</entry>
+<entry colname = "3">R0-R7</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">0-255</entry>
+<entry colname = "6"><para><parameter>Rd</parameter> and <parameter><replaceable>Rn</replaceable></parameter> must
+specify the same register.</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "2">R0-R7</entry>
+<entry colname = "3">R0-R7</entry>
+<entry colname = "4">R0-R7</entry>
+<entry colname = "5">-</entry>
+<entry colname = "6">-</entry>
+</row>
+</tbody>
+</tgroup></table></sect3>
+<sect3 id = "CHDCFBGG" role = "break"><title>Examples</title>
+<para><xref xrefstyle = "Example" linkend = "CIHBGBBI"/> shows two
+instructions that add a 64‑bit integer contained in R0 and R1 to another
+64‑bit integer contained in R2 and R3, and place the result in R0 and <parameter>R1</parameter>.</para>
+<example id = "CIHBGBBI"><title>64-bit addition</title>
+<programlisting>
+    ADDS    R0, R0, R2    ; add the least significant words
+    ADCS    R1, R1, R3    ; add the most significant words with carry
+</programlisting></example>
+<para>Multiword values do not have to use consecutive registers. <xref
+    xrefstyle = "Example" linkend = "CIHCCBCB"/> shows instructions
+that subtract a 96‑bit integer contained in R1, R2, and R3 from
+another contained in R4, R5, and R6. The example stores the result
+in R4, R5, and R6.</para>
+<example id = "CIHCCBCB"><title>96-bit subtraction</title>
+<programlisting>
+    SUBS    R4, R4, R1    ; subtract the least significant words
+    SBCS    R5, R5, R2    ; subtract the middle words with carry
+    SBCS    R6, R6, R3    ; subtract the most significant words with carry
+</programlisting></example>
+<para><xref xrefstyle = "Example" linkend = "CIHJAAIA"/> shows the <code>RSBS</code> instruction
+used to perform a 1's complement of a single register.</para>
+<example id = "CIHJAAIA"><title> Arithmetic negation</title>
+<programlisting>
+    RSBS    R7, R7, #0    ; subtract R7 from zero
+</programlisting></example></sect3></sect2>
+<sect2 id = "CIHBDBJH" role = "break"><sect2info><keywordset role = "alinknames"><keyword>AND</keyword><keyword>ORR</keyword><keyword>EOR</keyword><keyword>BIC</keyword><keyword>ORN</keyword><keyword>ANDS</keyword><keyword>ORRS</keyword><keyword>EORS</keyword><keyword>BICS</keyword><keyword>ORNS</keyword></keywordset></sect2info>
+<title>AND, ORR, EOR, and BIC</title>
+<para>Logical AND, OR, Exclusive OR, and Bit Clear. </para>
+<sect3><title>Syntax</title>
+<synopsis>
+ANDS {<replaceable>Rd,</replaceable>} <replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>
+<synopsis>
+ORRS {<replaceable>Rd,</replaceable>} <replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>
+<synopsis>
+EORS {<replaceable>Rd,</replaceable>} <replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>
+<synopsis>
+BICS {<replaceable>Rd,</replaceable>} <replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>
+<para>where:<variablelist><varlistentry><term><parameter><replaceable>Rd</replaceable></parameter></term>
+<listitem><para>is the destination register.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rn</replaceable></parameter></term>
+<listitem><para>is the register holding the first operand and is
+the same as the destination register.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rm</replaceable></parameter></term>
+<listitem><para>second register.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para>The <code>AND</code>, <code>EOR</code>, and <code>ORR</code> instructions
+perform bitwise AND, exclusive OR, and inclusive OR operations on
+the values in <parameter><replaceable>Rn</replaceable></parameter> and <parameter><replaceable>Rm</replaceable></parameter>.</para>
+<para>The <code>BIC</code> instruction performs an AND operation
+on the bits in <parameter><replaceable>Rn</replaceable></parameter> with
+the logical negation of the corresponding bits in the value of <parameter><replaceable>Rm</replaceable></parameter>.</para>
+<para>The condition code flags are updated on the result of the
+operation, see <xref xrefstyle = "TitleLong" linkend = "CHDHDBFC"/>.</para></sect3>
+<sect3 role = "break"><title>Restrictions</title>
+<para>In these instructions, <code><replaceable>Rd</replaceable></code>, <code><replaceable>Rn</replaceable></code>,
+and <code><replaceable>Rm</replaceable></code> must only specify
+R0-R7.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>These instructions:<itemizedlist spacing = "compact"><listitem>
+<para>update the N and Z flags according to the result</para></listitem>
+<listitem><para>do not affect the C or V flag.</para></listitem></itemizedlist></para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    ANDS    R2, R2, R1
+    ORRS    R2, R2, R5
+    ANDS    R5, R5, R8
+    EORS    R7, R7, R6
+    BICS    R0, R0, R1
+</programlisting></sect3></sect2>
+<sect2 id = "BABJCCDH" role = "break"><sect2info><keywordset role = "alinknames"><keyword>ASR</keyword><keyword>ASL</keyword><keyword>LSR</keyword><keyword>ROR</keyword><keyword>RRX</keyword><keyword>ASRS</keyword><keyword>ASLS</keyword><keyword>LSRS</keyword><keyword>RORS</keyword><keyword>RRXS</keyword></keywordset></sect2info>
+<title>ASR, LSL, LSR, and ROR</title>
+<para>Arithmetic Shift Right, Logical Shift Left, Logical Shift
+Right, and Rotate Right.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+ASRS {Rd,} <replaceable>Rm</replaceable>, <replaceable>Rs</replaceable>
+</synopsis>
+<synopsis>
+ASRS {Rd,} <replaceable>Rm</replaceable>, #<replaceable>imm</replaceable>
+</synopsis>
+<synopsis>
+LSLS {Rd,} <replaceable>Rm</replaceable>, <replaceable>Rs</replaceable>
+</synopsis>
+<synopsis>
+LSLS {Rd,} <replaceable>Rm</replaceable>, #<replaceable>imm</replaceable>
+</synopsis>
+<synopsis>
+LSRS {Rd,} <replaceable>Rm</replaceable>, <replaceable>Rs</replaceable>
+</synopsis>
+<synopsis>
+LSRS {Rd,} <replaceable>Rm</replaceable>, #<replaceable>imm</replaceable>
+</synopsis>
+<synopsis>
+RORS {Rd,} <replaceable>Rm</replaceable>, <replaceable>Rs</replaceable>
+</synopsis>
+<para>where:<variablelist spacing = "normal"><varlistentry><term><parameter><replaceable>Rd</replaceable></parameter></term>
+<listitem><para>is the destination register. If <parameter>Rd</parameter> is
+omitted, it is assumed to take the same value as <parameter><replaceable>Rm</replaceable></parameter>.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rm</replaceable></parameter></term>
+<listitem><para>is the register holding the value to be shifted.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rs</replaceable></parameter></term>
+<listitem><para>is the register holding the shift length to apply
+to the value in <literal><replaceable>Rm</replaceable></literal>.</para></listitem></varlistentry>
+<varlistentry><term><parameter>imm</parameter></term><listitem><para>is
+the shift length. The range of shift length depends on the instruction:<variablelist
+    spacing = "compact"><varlistentry><term><code>ASR</code></term>
+<listitem><para>shift length from 1 to 32</para></listitem></varlistentry>
+<varlistentry><term><code>LSL</code></term><listitem><para>shift
+length from 0 to 31</para></listitem></varlistentry>
+<varlistentry><term><code>LSR</code></term><listitem><para>shift
+length from 1 to 32.</para></listitem></varlistentry></variablelist></para></listitem></varlistentry></variablelist></para>
+<note>
+<para><code>MOVS Rd, <replaceable>Rm</replaceable></code> is a pseudonym
+for <code>LSLS Rd, <replaceable>Rm</replaceable>, #0</code>.</para>
+</note></sect3>
+<sect3 role = "standard"><title>Operation</title>
+<para><code>ASR</code>, <code>LSL</code>, <code>LSR</code>, and <code>ROR</code> perform
+an arithmetic-shift-left, logical-shift-left, logical-shift-right
+or a right-rotation of the bits in the register <parameter><replaceable>Rm</replaceable></parameter> by
+the number of places specified by the immediate <parameter><replaceable>imm</replaceable></parameter> or the
+value in the least-significant byte of the register specified by <parameter><replaceable>Rs</replaceable></parameter>.</para>
+<para>For details on what result is generated by the different instructions,
+see <xref xrefstyle = "TitleLong" linkend = "CIHDDCIF"/>.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>In these instructions, <code><replaceable>Rd</replaceable></code>, <code><replaceable>Rm</replaceable></code>,
+and <code><replaceable>Rs</replaceable></code> must only specify
+R0-R7. For non-immediate instructions, <parameter>Rd</parameter> and <parameter><replaceable>Rm</replaceable></parameter> must
+specify the same register.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>These instructions update the N and Z flags according to the
+result.</para>
+<para>The C flag is updated to the last bit shifted out, except
+when the shift length is 0, see <xref xrefstyle = "TitleLong"
+    linkend = "CIHDDCIF"/>. The V flag is left unmodified.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    ASRS    R7, R5, #9  ; Arithmetic shift right by 9 bits
+    LSLS    R1, R2, #3  ; Logical shift left by 3 bits with flag update
+    LSRS    R4, R5, #6  ; Logical shift right by 6 bits
+    RORS    R4, R4, R6  ; Rotate right by the value in the bottom byte of R6.
+</programlisting></sect3></sect2>
+<sect2 id = "BABIHIEI" role = "break"><sect2info><keywordset role = "alinknames"><keyword>CMP</keyword><keyword>CMN</keyword></keywordset></sect2info>
+<title>CMP and CMN</title>
+<para>Compare and Compare Negative.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+<code>CMN</code> <replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>
+<synopsis>
+<code>CMP</code> <replaceable>Rn</replaceable>, <replaceable>#imm</replaceable>
+</synopsis>
+<para><synopsis>
+<code>CMP</code> <replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>where:<variablelist spacing = "compact"><varlistentry><term><parameter><replaceable>Rn</replaceable></parameter></term>
+<listitem><para>is the register holding the first operand.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rm</replaceable></parameter></term>
+<listitem><para>is the register to compare with.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>imm</replaceable></parameter></term>
+<listitem><para>is the immediate value to compare with.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para>These instructions compare the value in a register with either
+the value in another register or an immediate value. They update
+the condition flags on the result, but do not write the result to
+a register.</para>
+<para>The <code>CMP</code> instruction subtracts either the value
+in the register specified by <parameter><replaceable>Rm</replaceable></parameter>,
+or the immediate <parameter><replaceable>imm</replaceable></parameter> from
+the value in <parameter><replaceable>Rn</replaceable></parameter> and
+updates the flags. This is the same as a <code>SUBS</code> instruction,
+except that the result is discarded.</para>
+<para>The <code>CMN</code> instruction adds the value of <parameter><replaceable>Rm</replaceable></parameter> to
+the value in <parameter><replaceable>Rn</replaceable></parameter> and
+updates the flags. This is the same as an <code>ADDS</code> instruction,
+except that the result is discarded.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>For the:<itemizedlist><listitem><para><code>CMN</code> instruction <code><replaceable>Rn</replaceable></code>,
+and <code><replaceable>Rm</replaceable></code> must only specify
+R0-R7.</para></listitem>
+<listitem><para><code>CMP</code> instruction:</para>
+<para><itemizedlist spacing = "compact"><listitem><para><code><replaceable>Rn</replaceable></code> and <code><replaceable>Rm</replaceable></code> can
+specify R0-R14</para></listitem>
+<listitem><para>immediate must be in the range 0-255.</para></listitem></itemizedlist></para></listitem></itemizedlist></para></sect3>
+<sect3><title>Condition flags</title>
+<para>These instructions update the N, Z, C and V flags according
+to the result.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    CMP     R2, R9
+    CMN     R0, R2
+    
+</programlisting></sect3></sect2>
+<sect2 id = "BABHGAJI" role = "break"><sect2info><keywordset role = "alinknames"><keyword>MOV</keyword><keyword>MVN</keyword><keyword>MOVS</keyword><keyword>MVNS</keyword></keywordset></sect2info>
+<title>MOV and MVN</title>
+<para>Move and Move NOT.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+<code>MOV{S} </code><replaceable>Rd</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>
+<synopsis>
+<code>MOVS</code> <replaceable>Rd</replaceable>, #<replaceable>imm</replaceable>
+</synopsis>
+<synopsis>
+<code>MV</code>NS <replaceable>Rd</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>
+<para>where:<variablelist><varlistentry><term><parameter>S</parameter></term>
+<listitem><para>is an optional suffix. If <parameter>S</parameter> is
+specified, the condition code flags are updated on the result of
+the operation, see <xref xrefstyle = "TitleLong" linkend = "BABEHFEF"/>.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rd</replaceable></parameter></term>
+<listitem><para>is the destination register.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rm</replaceable></parameter></term>
+<listitem><para>is a register.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>imm</replaceable></parameter></term>
+<listitem><para>is any value in the range 0-255.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para>The <code>MOV</code> instruction copies the value of <parameter><replaceable>Rm</replaceable></parameter> into <parameter><replaceable>Rd</replaceable></parameter>. </para>
+<para>The <code>MOVS</code> instruction performs the same operation
+as the <code>MOV</code> instruction, but also updates the N and
+Z flags.</para>
+<para>The <code>MVNS</code> instruction takes the value of <parameter><replaceable>Rm</replaceable></parameter>,
+performs a bitwise logical negate operation on the value, and places
+the result into <parameter><replaceable>Rd</replaceable></parameter>.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>In these instructions, <code><replaceable>Rd</replaceable></code>,
+and <code><replaceable>Rm</replaceable></code> must only specify
+R0-R7.</para>
+<para>When <literal><replaceable>Rd</replaceable></literal> is the
+PC in a <code>MOV</code> instruction:<itemizedlist spacing = "normal">
+<listitem><para>Bit[0] of the result is discarded.</para></listitem>
+<listitem><para>A branch occurs to the address created by forcing
+bit[0] of the result to 0. The T-bit remains unmodified.</para></listitem></itemizedlist></para>
+<note>
+<para>Though it is possible to use <code>MOV</code> as a branch
+instruction, ARM strongly recommends the use of a <code>BX</code> or <code>BLX</code> instruction
+to branch for software portability.</para>
+</note></sect3>
+<sect3 role = "standard"><title>Condition flags</title>
+<para>If <parameter>S</parameter> is specified, these instructions:<itemizedlist
+    spacing = "compact"><listitem><para>update the N and Z flags
+according to the result</para></listitem>
+<listitem><para>do not affect the C or V flags.</para></listitem></itemizedlist></para></sect3>
+<sect3><title>Example</title>
+<programlisting>
+    MOVS  R0, #0x000B     ; Write value of 0x000B to R0, flags get updated
+    MOVS  R1, #0x0        ; Write value of zero to R1, flags are updated
+    MOV   R10, R12        ; Write value in R12 to R10, flags are not updated
+    MOVS  R3, #23         ; Write value of 23 to R3
+    MOV   R8, SP          ; Write value of stack pointer to R8
+    MVNS  R2, R0          ; Write inverse of R0 to the R2 and update flags
+                         
+</programlisting></sect3></sect2>
+<sect2 id = "BABCFBDJ" role = "break"><sect2info><keywordset role = "alinknames"><keyword>MUL</keyword><keyword>MLA</keyword><keyword>MLS</keyword></keywordset></sect2info>
+<title>MULS</title>
+<para>Multiply using 32‑bit operands, and producing a 32-bit result.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+MULS Rd, <replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>
+<para>where:<variablelist spacing = "compact"><varlistentry><term><parameter><replaceable>Rd</replaceable></parameter></term>
+<listitem><para>is the destination register.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rn, Rm</replaceable></parameter></term>
+<listitem><para>are registers holding the values to be multiplied.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para>The <code>MUL</code> instruction multiplies the values in
+the registers specified by <literal><replaceable>Rn</replaceable></literal> and <parameter><replaceable>Rm</replaceable></parameter>,
+and places the least significant 32 bits of the result in <parameter><replaceable>Rd</replaceable></parameter>.
+The condition code flags are updated on the result of the operation,
+see <xref xrefstyle = "TitleLong" linkend = "BABEHFEF"/>.</para>
+<para>The results of this instruction does not depend on whether
+the operands are signed or unsigned.</para></sect3>
+<sect3 role = "standard"><title>Restrictions</title>
+<para>In this instruction:<itemizedlist spacing = "compact"><listitem>
+<para><code><replaceable>Rd</replaceable></code>, <code><replaceable>Rn</replaceable></code>,
+and <code><replaceable>Rm</replaceable></code> must only specify
+R0-R7</para></listitem>
+<listitem><para><parameter><replaceable>Rd</replaceable></parameter> must
+be the same as <parameter><replaceable>Rm</replaceable></parameter>.</para></listitem></itemizedlist></para></sect3>
+<sect3 role = "standard"><title>Condition flags</title>
+<para>This instruction:</para>
+<itemizedlist spacing = "compact"><listitem><para>updates the N
+and Z flags according to the result</para></listitem>
+<listitem><para>does not affect the C or V flags.</para></listitem></itemizedlist></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    MULS    R0, R2, R0      ; Multiply with flag update, R0 = R0 x R2
+</programlisting></sect3></sect2>
+<sect2 id = "BABJJDDB" role = "break"><sect2info><keywordset role = "alinknames"><keyword>REV</keyword><keyword>REV16</keyword><keyword>REVSH</keyword><keyword>RBIT</keyword></keywordset></sect2info>
+<title>REV, REV16, and REVSH</title>
+<para>Reverse bytes.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+REV Rd, <replaceable>Rn</replaceable>
+</synopsis>
+<synopsis>
+REV16 Rd, <replaceable>Rn</replaceable>
+</synopsis>
+<synopsis>
+REVSH Rd, <replaceable>Rn</replaceable>
+</synopsis>
+<para>where:<variablelist spacing = "compact"><varlistentry><term><parameter><replaceable>Rd</replaceable></parameter></term>
+<listitem><para>is the destination register.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rn</replaceable></parameter></term>
+<listitem><para>is the source register.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3 role = "standard"><title>Operation</title>
+<para>Use these instructions to change endianness of data:<variablelist>
+<varlistentry><term><code>REV</code></term><listitem><para>converts
+32‑bit big‑endian data into little‑endian data or 32‑bit little‑endian
+data into big‑endian data.</para></listitem></varlistentry>
+<varlistentry><term><code>REV16</code></term><listitem><para>converts two
+packed 16‑bit big‑endian data into little‑endian data or two packed
+16‑bit little‑endian data into big‑endian data.</para></listitem></varlistentry>
+<varlistentry><term><code>REVSH</code></term><listitem><para>converts 16‑bit
+signed big‑endian data into 32‑bit signed little‑endian data or
+16‑bit signed little‑endian data into 32‑bit signed big‑endian data.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Restrictions</title>
+<para>In these instructions, <code><replaceable>Rd</replaceable></code>,
+and <code><replaceable>Rn</replaceable></code> must only specify
+R0-R7.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>These instructions do not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    REV    R3, R7  ; Reverse byte order of value in R7 and write it to R3
+    REV16  R0, R0  ; Reverse byte order of each 16-bit halfword in R0
+    REVSH  R0, R5  ; Reverse signed halfword
+
+</programlisting></sect3></sect2>
+<sect2 id = "BABBJGAG" role = "break"><sect2info><keywordset role = "alinknames"><keyword>SXT</keyword><keyword>UXT</keyword><keyword>SXTA</keyword><keyword>UXTA</keyword></keywordset></sect2info>
+<title>SXT and UXT</title>
+<para>Sign extend and Zero extend.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+SXTB Rd, <replaceable>Rm</replaceable>
+</synopsis>
+<synopsis>
+SXTH Rd, <replaceable>Rm</replaceable>
+</synopsis>
+<synopsis>
+UXTB Rd, <replaceable>Rm</replaceable>
+</synopsis>
+<synopsis>
+UXTH Rd, <replaceable>Rm</replaceable>
+</synopsis>
+<para>where:<variablelist spacing = "compact"><varlistentry><term><parameter><replaceable>Rd</replaceable></parameter></term>
+<listitem><para>is the destination register.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rm</replaceable></parameter></term>
+<listitem><para>is the register holding the value to be extended.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3 role = "standard"><title>Operation</title>
+<para>These instructions extract bits from the resulting value:</para>
+<para><itemizedlist spacing = "compact"><listitem><para><code>SXTB</code> extracts
+bits[7:0] and sign extends to 32 bits</para></listitem>
+<listitem><para><code>UXTB</code> extracts bits[7:0] and zero extends
+to 32 bits</para></listitem>
+<listitem><para><code>SXTH</code> extracts bits[15:0] and sign extends
+to 32 bits</para></listitem>
+<listitem><para><code>UXTH</code> extracts bits[15:0] and zero extends
+to 32 bits.</para></listitem></itemizedlist></para></sect3>
+<sect3><title>Restrictions</title>
+<para>In these instructions, <code><replaceable>Rd</replaceable></code> and <code><replaceable>Rm</replaceable></code> must
+only specify R0-R7.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>These instructions do not affect the flags.</para></sect3>
+<sect3 role = "standard"><title>Examples</title>
+<programlisting>
+    SXTH  R4, R6           ; Obtain the lower halfword of the
+                           ; value in R6 and then sign extend to
+                           ; 32 bits and write the result to R4.
+    UXTB  R3, R1           ; Extract lowest byte of the value in R10 and zero
+                           ; extend it, and write the result to R3
+</programlisting></sect3></sect2>
+<sect2 id = "BABEHFIB" role = "break"><sect2info><keywordset role = "alinknames"><keyword>TST</keyword><keyword>TEQ</keyword></keywordset></sect2info>
+<title>TST</title>
+<para>Test bits.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+<code>TST</code> <replaceable>Rn</replaceable>, <replaceable>Rm</replaceable>
+</synopsis>
+<para>where:<variablelist spacing = "compact"><varlistentry><term><parameter><replaceable>Rn</replaceable></parameter></term>
+<listitem><para>is the register holding the first operand.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rm</replaceable></parameter></term>
+<listitem><para>the register to test against.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para>This instruction tests the value in a register against another
+register. It updates the condition flags based on the result, but
+does not write the result to a register.</para>
+<para>The <code>TST</code> instruction performs a bitwise AND operation
+on the value in <parameter><replaceable>Rn</replaceable></parameter> and
+the value in <parameter><replaceable>Rm</replaceable></parameter>.
+This is the same as the <code>ANDS</code> instruction, except that
+it discards the result.</para>
+<para>To test whether a bit of <parameter><replaceable>Rn</replaceable></parameter> is
+0 or 1, use the <code>TST</code> instruction with a register that
+has that bit set to 1 and all other bits cleared to 0.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>In these instructions, <code><replaceable>Rn</replaceable></code> and <code><replaceable>Rm</replaceable></code> must
+only specify R0-R7.</para></sect3>
+<sect3 role = "standard"><title>Condition flags</title>
+<para>This instruction:<itemizedlist spacing = "compact"><listitem>
+<para>updates the N and Z flags according to the result</para></listitem>
+<listitem><para>does not affect the C or V flags.</para></listitem></itemizedlist></para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    TST     R0, R1  ; Perform bitwise AND of R0 value and R1 value, 
+                    ; condition code flags are updated but result is discarded
+</programlisting></sect3></sect2></sect1>
+<sect1 id = "BABECGJD" role = "Break"><title>Branch and control
+instructions</title>
+<para><xref xrefstyle = "TableNum" linkend = "CIHBGIHC"/> shows
+the branch and control instructions:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CIHBGIHC">
+<title>Branch and control instructions</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.792in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.861in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "1.861in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Mnemonic</entry>
+<entry colname = "2">Brief description</entry>
+<entry colname = "3">See</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><code>B{cc}</code></entry>
+<entry colname = "2">Branch {conditionally}</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABEFHAE"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>BL</code></entry>
+<entry colname = "2">Branch with Link</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABEFHAE"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>BLX</code></entry>
+<entry colname = "2">Branch indirect with Link</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABEFHAE"/></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><code>BX</code></entry>
+<entry colname = "2">Branch indirect</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABEFHAE"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+<sect2 id = "BABEFHAE" role = "break"><sect2info><keywordset role = "alinknames"><keyword>B</keyword><keyword>BL</keyword><keyword>BX</keyword><keyword>BLX</keyword><keyword>BXJ</keyword></keywordset></sect2info>
+<title>B, BL, BX, and BLX</title>
+<para>Branch instructions.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+B{<replaceable>cond</replaceable>} <replaceable>label</replaceable>
+</synopsis>
+<synopsis>
+BL <replaceable>label</replaceable>
+</synopsis>
+<synopsis>
+BX <replaceable>Rm</replaceable>
+</synopsis>
+<synopsis>
+BLX <replaceable>Rm</replaceable>
+</synopsis>
+<para>where:<variablelist spacing = "compact"><varlistentry><term><parameter><replaceable>cond</replaceable></parameter></term>
+<listitem><para>is an optional condition code, see <xref
+    xrefstyle = "TitleLong" linkend = "BABEHFEF"/>.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>label</replaceable></parameter></term>
+<listitem><para>is a PC‑relative expression. See <xref
+    xrefstyle = "TitleLong" linkend = "BABJJAAA"/>.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>Rm</replaceable></parameter></term>
+<listitem><para>is a register providing the address to branch to.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para>All these instructions cause a branch to the address indicated by <parameter><replaceable>label</replaceable></parameter> or
+contained in the register specified by <literal><parameter><replaceable>Rm</replaceable></parameter></literal>.
+In addition:</para>
+<itemizedlist><listitem><para>The <code>BL</code> and <code>BLX</code> instructions
+write the address of the next instruction to LR, the link register R14.</para></listitem>
+<listitem><para>The <code>BX</code> and <code>BLX</code> instructions
+result in a HardFault exception if bit[0] of <parameter><replaceable>Rm</replaceable></parameter> is
+0.</para></listitem></itemizedlist>
+<para><code>BL</code> and <code>BLX</code> instructions also set
+bit[0] of the LR to 1. This ensures that the value is suitable for
+use by a subsequent <code>POP {PC}</code> or <code>BX</code> instruction
+to perform a successful return branch.</para>
+<para><xref xrefstyle = "TableNum" linkend = "CHDIHJHJ"/> shows
+the ranges for the various branch instructions.</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CHDIHJHJ">
+<title>Branch ranges</title>
+<tgroup cols = "2" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.820in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.431in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Instruction</entry>
+<entry colname = "2">Branch range</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><literal><code>B</code> <parameter><replaceable>label</replaceable></parameter></literal></entry>
+<entry colname = "2">−2 KB to +2 KB</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>B</code><parameter><replaceable>cond</replaceable></parameter> <parameter><replaceable>label</replaceable></parameter></entry>
+<entry colname = "2">−256 bytes to +254 bytes</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>BL </code><parameter><replaceable>label</replaceable></parameter></entry>
+<entry colname = "2">−16 MB to +16 MB</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>BX </code><parameter><replaceable>Rm</replaceable></parameter></entry>
+<entry colname = "2">Any value in register </entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><code>BLX </code><parameter><replaceable>Rm</replaceable></parameter></entry>
+<entry colname = "2">Any value in register </entry>
+</row>
+</tbody>
+</tgroup></table></sect3>
+<sect3><title>Restrictions</title>
+<para>In these instructions:<itemizedlist><listitem><para>Do not
+use SP or PC in the <code>BX</code> or <code>BLX</code> instruction.<literal><replaceable></replaceable></literal></para></listitem>
+<listitem><para>For <code>BX</code> and <code>BLX</code>, bit[0]
+of <parameter><replaceable>Rm</replaceable></parameter> must be
+1 for correct execution. Bit[0] is used to update the EPSR T-bit
+and is discarded from the target address.</para></listitem></itemizedlist></para>
+<note>
+<para><code>B<replaceable>cond</replaceable> </code>is the only
+conditional instruction on the Cortex-M0 processor.</para>
+</note></sect3>
+<sect3><title>Condition flags</title>
+<para>These instructions do not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    B      loopA  ; Branch to loopA
+    BL     funC   ; Branch with link (Call) to function funC, return address
+                  ; stored in LR
+    BX     LR     ; Return from function call
+    BLX    R0     ; Branch with link and exchange (Call) to a address stored
+                  ; in R0
+</programlisting>
+<programlisting>
+    BEQ    labelD ; Conditionally branch to labelD if last flag setting
+</programlisting>
+<programlisting>
+                  ; instruction set the Z flag, else do not branch.
+
+</programlisting></sect3></sect2></sect1>
+<sect1 id = "BABIGDID" role = "Break"><title>Miscellaneous instructions</title>
+<para><xref xrefstyle = "TableNum" linkend = "CIHGCCCA"/> shows
+the remaining Cortex-M0 instructions:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CIHGCCCA">
+<title>Miscellaneous instructions</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.792in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "2.319in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "1.167in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Mnemonic</entry>
+<entry colname = "2">Brief description</entry>
+<entry colname = "3">See</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><code>BKPT</code></entry>
+<entry colname = "2">Breakpoint</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABHCHGB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>CPSID</code></entry>
+<entry colname = "2">Change Processor State, Disable Interrupts</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABHBAAB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>CPSIE</code></entry>
+<entry colname = "2">Change Processor State, Enable Interrupts</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABHBAAB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>DMB</code></entry>
+<entry colname = "2">Data Memory Barrier</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABDFABI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>DSB</code></entry>
+<entry colname = "2">Data Synchronization Barrier</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "CHDDGICF"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>ISB</code></entry>
+<entry colname = "2">Instruction Synchronization Barrier</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "CHDEBIEG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>MRS</code></entry>
+<entry colname = "2">Move from special register to register</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABGIDDI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>MSR</code></entry>
+<entry colname = "2">Move from register to special register</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABEEJCI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>NOP</code></entry>
+<entry colname = "2">No Operation</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "CHDJJGFB"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SEV</code></entry>
+<entry colname = "2">Send Event</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "CHDJIEAG"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>SVC</code></entry>
+<entry colname = "2">Supervisor Call</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABBHFJE"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><code>WFE</code></entry>
+<entry colname = "2">Wait For Event</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "CHDEAAHJ"/></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><code>WFI</code><code></code></entry>
+<entry colname = "2">Wait For Interrupt</entry>
+<entry colname = "3"><xref xrefstyle = "TitleLong" linkend = "BABFEFIG"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+<sect2 id = "BABHCHGB" role = "break"><sect2info><keywordset role = "alinknames"><keyword>BKPT</keyword></keywordset></sect2info>
+<title>BKPT</title>
+<para>Breakpoint.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+<code>BKPT</code> #<replaceable>imm</replaceable>
+</synopsis>
+<para>where:<variablelist><varlistentry><term><parameter><replaceable>imm</replaceable></parameter></term>
+<listitem><para>is an integer in the range 0-255.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para>The <code>BKPT</code> instruction causes the processor to
+enter Debug state. Debug tools can use this to investigate system
+state when the instruction at a particular address is reached.</para>
+<para><literal><replaceable>imm</replaceable></literal> is ignored
+by the processor. If required, a debugger can use it to store additional information
+about the breakpoint.</para>
+<para>The processor might also produce a HardFault or go in to lockup
+if a debugger is not attached when a <code>BKPT</code> instruction
+is executed. See <xref xrefstyle = "TitleLong" linkend = "BABDCDHA"/> for
+more information.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>There are no restrictions.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    BKPT #0     ; Breakpoint with immediate value set to 0x0.
+</programlisting></sect3></sect2>
+<sect2 id = "BABHBAAB" role = "break"><sect2info><keywordset role = "alinknames"><keyword>CPS</keyword></keywordset></sect2info>
+<title>CPS</title>
+<para>Change Processor State. </para>
+<sect3><title>Syntax</title>
+<synopsis>
+CPSID i
+</synopsis>
+<synopsis>
+CPSIE i
+</synopsis></sect3>
+<sect3><title>Operation</title>
+<para><code>CPS</code> changes the PRIMASK special register values. <code>CPSID</code> causes
+interrupts to be disabled by setting PRIMASK. <code>CPSIE</code> cause
+interrupts to be enabled by clearing PRIMASK.See <xref
+    xrefstyle = "TitleLong" linkend = "BABCHBFJ"/> for more information
+about these registers.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>There are no restrictions.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the condition flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    CPSID i ; Disable all interrupts except NMI (set PRIMASK)
+</programlisting>
+<programlisting>
+    CPSIE i ; Enable interrupts (clear PRIMASK)
+</programlisting></sect3></sect2>
+<sect2 id = "BABDFABI" role = "break"><sect2info><keywordset role = "alinknames"><keyword>DBG</keyword><keyword>DMB</keyword><keyword>DSB</keyword><keyword>ISB</keyword></keywordset></sect2info>
+<title>DMB</title>
+<para>Data Memory Barrier.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+DMB
+</synopsis></sect3>
+<sect3 role = "standard"><title>Operation</title>
+<para><code>DMB</code> acts as a data memory barrier. It ensures
+that all explicit memory accesses that appear in program order before
+the <code>DMB</code> instruction are observed before any explicit memory
+accesses that appear in program order after the <code>DMB</code> instruction. <code>DMB</code> does
+not affect the ordering of instructions that do not access memory.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>There are no restrictions.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    DMB  ; Data Memory Barrier 
+
+</programlisting></sect3></sect2>
+<sect2 id = "CHDDGICF" role = "break"><sect2info><keywordset role = "alinknames"><keyword>DBG</keyword><keyword>DMB</keyword><keyword>DSB</keyword><keyword>ISB</keyword></keywordset></sect2info>
+<title>DSB</title>
+<para>Data Synchronization Barrier.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+DSB
+</synopsis></sect3>
+<sect3 role = "standard"><title>Operation</title>
+<para><code>DSB</code> acts as a special data synchronization memory
+barrier. Instructions that come after the <code>DSB</code>, in program
+order, do not execute until the <code>DSB</code> instruction completes.
+The <code>DSB</code> instruction completes when all explicit memory
+accesses before it complete.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>There are no restrictions.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    DSB ; Data Synchronisation Barrier 
+
+</programlisting></sect3></sect2>
+<sect2 id = "CHDEBIEG" role = "break"><sect2info><keywordset role = "alinknames"><keyword>DBG</keyword><keyword>DMB</keyword><keyword>DSB</keyword><keyword>ISB</keyword></keywordset></sect2info>
+<title>ISB</title>
+<para>Instruction Synchronization Barrier.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+ISB
+</synopsis></sect3>
+<sect3 role = "standard"><title>Operation</title>
+<para><code>ISB</code> acts as an instruction synchronization barrier.
+It flushes the pipeline of the processor, so that all instructions
+following the <code>ISB</code> are fetched from cache or memory
+again, after the <code>ISB</code> instruction has been completed.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>There are no restrictions.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    ISB  ; Instruction Synchronisation Barrier 
+
+</programlisting></sect3></sect2>
+<sect2 id = "BABGIDDI" role = "break"><sect2info><keywordset role = "alinknames"><keyword>MRS</keyword></keywordset></sect2info>
+<title>MRS</title>
+<para>Move the contents of a special register to a general‑purpose
+register.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+<code>MRS</code> <replaceable>Rd</replaceable>, <replaceable>spec_reg</replaceable>
+</synopsis>
+<para>where:<variablelist><varlistentry><term><parameter><replaceable>Rd</replaceable></parameter></term>
+<listitem><para>is the general-purpose destination register.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>spec_reg</replaceable></parameter></term>
+<listitem><para>is one of the special-purpose registers: <literal>APSR</literal>, <literal>IPSR</literal>, <literal>EPSR</literal>, <literal>IEPSR</literal>, <literal>IAPSR</literal>, <literal>EAPSR</literal>, <literal>PSR</literal>, <literal>MSP</literal>, <literal>PSP</literal>, <literal>PRIMASK</literal>, or <literal>CONTROL</literal>.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para><code>MRS</code> stores the contents of a special-purpose
+register to a general-purpose register. The <code>MRS</code> instruction
+can be combined with the <code>MSR</code> instruction to produce
+read-modify-write sequences, which are suitable for modifying a
+specific flag in the PSR.</para>
+<para>See <xref xrefstyle = "TitleLong" linkend = "BABEEJCI"/>.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>In this instruction, <parameter><replaceable>Rd</replaceable></parameter> must
+not be SP or PC.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    MRS  R0, PRIMASK ; Read PRIMASK value and write it to R0 
+
+</programlisting></sect3></sect2>
+<sect2 id = "BABEEJCI" role = "break"><sect2info><keywordset role = "alinknames"><keyword>MSR</keyword></keywordset></sect2info>
+<title>MSR</title>
+<para>Move the contents of a general‑purpose register into the specified
+special register.</para>
+<sect3 role = "standard"><title>Syntax</title>
+<synopsis>
+<code>MSR</code> <replaceable>spec_reg</replaceable>, <replaceable>Rn</replaceable>
+</synopsis>
+<para>where:<variablelist><varlistentry><term><parameter><replaceable>Rn</replaceable></parameter></term>
+<listitem><para>is the general-purpose source register.</para></listitem></varlistentry>
+<varlistentry><term><parameter><replaceable>spec_reg</replaceable></parameter></term>
+<listitem><para>is the special-purpose destination register: <literal>APSR</literal>, <literal>IPSR</literal>, <literal>EPSR</literal>, <literal>IEPSR</literal>, <literal>IAPSR</literal>, <literal>EAPSR</literal>, <literal>PSR</literal>, <literal>MSP</literal>, <literal>PSP</literal>, <literal>PRIMASK</literal>,
+or <literal>CONTROL</literal>.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para><code>MSR</code> updates one of the special registers with
+the value from the register specified by <parameter><replaceable>Rn</replaceable></parameter>.</para>
+<para>See <xref xrefstyle = "TitleLong" linkend = "BABGIDDI"/>.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>In this instruction, <parameter><replaceable>Rn</replaceable></parameter> must
+not be SP and must not be PC.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction updates the flags explicitly based on the
+value in <parameter><replaceable>Rn</replaceable></parameter>.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+MSR  CONTROL, R1 ; Read R1 value and write it to the CONTROL register 
+
+</programlisting></sect3></sect2>
+<sect2 id = "CHDJJGFB" role = "break"><sect2info><keywordset role = "alinknames"><keyword>NOP</keyword><keyword>SEV</keyword><keyword>WFE</keyword><keyword>WFI</keyword><keyword>YIELD</keyword></keywordset></sect2info>
+<title>NOP</title>
+<para>No Operation.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+NOP
+</synopsis></sect3>
+<sect3 role = "standard"><title>Operation</title>
+<para><code>NOP</code> performs no operation and is not guaranteed
+to be time consuming. The processor might remove it from the pipeline
+before it reaches the execution stage.</para>
+<para>Use <code>NOP</code> for padding, for example to place the subsequent
+instructions on a 64‑bit boundary.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>There are no restrictions.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    NOP  ; No operation
+</programlisting></sect3></sect2>
+<sect2 id = "CHDJIEAG" role = "break"><sect2info><keywordset role = "alinknames"><keyword>NOP</keyword><keyword>SEV</keyword><keyword>WFE</keyword><keyword>WFI</keyword><keyword>YIELD</keyword></keywordset></sect2info>
+<title>SEV</title>
+<para>Send Event.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+SEV
+</synopsis></sect3>
+<sect3 role = "standard"><title>Operation</title>
+<para><code>SEV</code> causes an event to be signaled to all processors
+within a multiprocessor system. It also sets the local event register, see <xref
+    xrefstyle = "TitleLong" linkend = "CHDJJHJI"/>.</para>
+<para>See also <xref xrefstyle = "TitleLong" linkend = "CHDEAAHJ"/>.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>There are no restrictions.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    SEV ; Send Event 
+
+</programlisting></sect3></sect2>
+<sect2 id = "BABBHFJE" role = "break"><sect2info><keywordset role = "alinknames"><keyword>SVC</keyword></keywordset></sect2info>
+<title>SVC</title>
+<para>Supervisor Call.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+<code>SVC</code> #<replaceable>imm</replaceable>
+</synopsis>
+<para>where:<variablelist><varlistentry><term><parameter><replaceable>imm</replaceable></parameter></term>
+<listitem><para>is an integer in the range 0‑255.</para></listitem></varlistentry></variablelist></para></sect3>
+<sect3><title>Operation</title>
+<para>The <code>SVC</code> instruction causes the <literal>SVC</literal> exception.</para>
+<para><parameter><replaceable>imm</replaceable></parameter> is ignored
+by the processor. If required, it can be retrieved by the exception
+handler to determine what service is being requested.</para></sect3>
+<sect3><title>Restrictions</title>
+<para>There are no restrictions.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    SVC  #0x32 ; Supervisor Call (SVC handler can extract the immediate value
+               ; by locating it via the stacked PC) 
+
+</programlisting></sect3></sect2>
+<sect2 id = "CHDEAAHJ" role = "break"><sect2info><keywordset role = "alinknames"><keyword>NOP</keyword><keyword>SEV</keyword><keyword>WFE</keyword><keyword>WFI</keyword><keyword>YIELD</keyword></keywordset></sect2info>
+<title>WFE</title>
+<para>Wait For Event.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+WFE
+</synopsis></sect3>
+<sect3 role = "standard"><title>Operation</title>
+<para>If the event register is 0, <code>WFE</code> suspends execution
+until one of the following events occurs:<itemizedlist
+    spacing = "normal"><listitem><para>an exception, unless masked
+by the exception mask registers or the current priority level</para></listitem>
+<listitem><para>an exception enters the Pending state, if <literal>SEVONPEND</literal> in
+the System Control Register is set</para></listitem>
+<listitem><para>a Debug Entry request, if debug is enabled</para></listitem>
+<listitem><para>an event signaled by a peripheral or another processor
+in a multiprocessor system using the <code>SEV</code> instruction.</para></listitem></itemizedlist></para>
+<para>If the event register is 1, <code>WFE</code> clears it to
+0 and completes immediately.</para>
+<para>For more information see <xref xrefstyle = "TitleLong"
+    linkend = "CHDJJHJI"/>.</para>
+<note>
+<para><code>WFE</code> is intended for power saving only. When writing
+software assume that <code>WFE</code> might behave as <code>NOP</code>.</para>
+</note></sect3>
+<sect3><title>Restrictions</title>
+<para>There are no restrictions.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    WFE  ; Wait for event 
+
+</programlisting></sect3></sect2>
+<sect2 id = "BABFEFIG" role = "break"><sect2info><keywordset role = "alinknames"><keyword>NOP</keyword><keyword>SEV</keyword><keyword>WFE</keyword><keyword>WFI</keyword><keyword>YIELD</keyword></keywordset></sect2info>
+<title>WFI</title>
+<para>Wait for Interrupt.</para>
+<sect3><title>Syntax</title>
+<synopsis>
+WFI
+</synopsis></sect3>
+<sect3 role = "standard"><title>Operation</title>
+<para><code>WFI</code> suspends execution until one of the following
+events occurs:<itemizedlist spacing = "compact"><listitem><para>an
+exception </para></listitem>
+<listitem><para>an interrupt becomes pending which would preempt
+if PRIMASK was clear</para></listitem>
+<listitem><para>a Debug Entry request, regardless of whether debug
+is enabled.</para></listitem></itemizedlist></para>
+<note>
+<para><code>WFI</code> is intended for power saving only. When writing
+software assume that <code>WFI</code> might behave as a <code>NOP</code> operation.</para>
+</note></sect3>
+<sect3><title>Restrictions</title>
+<para>There are no restrictions.</para></sect3>
+<sect3><title>Condition flags</title>
+<para>This instruction does not change the flags.</para></sect3>
+<sect3><title>Examples</title>
+<programlisting>
+    WFI ; Wait for interrupt 
+
+</programlisting></sect3></sect2></sect1></chapter>

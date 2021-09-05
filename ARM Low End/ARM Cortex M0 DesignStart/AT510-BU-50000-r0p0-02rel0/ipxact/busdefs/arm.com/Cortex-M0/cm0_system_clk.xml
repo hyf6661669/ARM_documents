@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    // =============================================================================
+    // This confidential and proprietary software may be used only as
+    // authorised by a licensing agreement from ARM Limited
+    //   (C) COPYRIGHT 2008-2009 ARM Limited
+    //       ALL RIGHTS RESERVED
+    // The entire notice above must be reproduced on all authorised
+    // copies and copies may only be made to the extent permitted
+    // by a licensing agreement from ARM Limited.
+    //
+    //      Release Information : Cortex-M0-AT510-r0p0-00rel0
+    //
+    // =============================================================================
+    //
+    // Purpose :
+    //           IP-XACT bus definition for the system clock
+    //
+    // =============================================================================
+-->
+
+<spirit:busDefinition xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2/index.xsd ">
+  <spirit:vendor>arm.com</spirit:vendor>
+  <spirit:library>Cortex-M0</spirit:library>
+  <spirit:name>cm0_system_clk</spirit:name>
+  <spirit:version>r0p0_0</spirit:version>
+  
+  <spirit:directConnection>false</spirit:directConnection>
+  
+  <spirit:signals> 
+    <spirit:signal>
+            <spirit:logicalName>SCLK</spirit:logicalName>
+            <spirit:isClock>true</spirit:isClock>
+            <spirit:onSystem>
+                <spirit:group>clk</spirit:group>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onSystem>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onSlave>
+    </spirit:signal>
+  </spirit:signals>
+  
+</spirit:busDefinition>

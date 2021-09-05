@@ -1,0 +1,141 @@
+Reading /arm/tools/mentor/modelsim/6.4b/modeltech/tcl/vsim/pref.tcl 
+
+# 6.4b
+
+# vsim -do /home/someuser/work/cortexm0/design/trunk/integration_kit/validation/simulator_mti.cmds -lib work -c -novopt tbench 
+# //  ModelSim SE 6.4b Nov 14 2008 Linux 2.6.9-67.ELsmp
+# //
+# //  Copyright 1991-2008 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.tbench
+# Loading work.CM0IKMCU
+# Loading work.cm0ik_sys
+# Loading work.cm0ik_cortexm0integration_timing
+# Loading work.cm0ik_input_delay
+# Loading work.CORTEXM0INTEGRATIONIMP
+# Loading work.CORTEXM0INTEGRATION
+# Loading work.cm0_dbg_reset_sync
+# Loading work.CORTEXM0
+# Loading work.cm0_top
+# Loading work.cm0_top_sys
+# Loading work.cm0_core
+# Loading work.cm0_core_alu
+# Loading work.cm0_core_spu
+# Loading work.cm0_core_mul
+# Loading work.cm0_core_psr
+# Loading work.cm0_core_gpr
+# Loading work.cm0_core_pfu
+# Loading work.cm0_core_ctl
+# Loading work.cm0_core_dec
+# Loading work.cm0_nvic
+# Loading work.cm0_nvic_reg
+# Loading work.cm0_nvic_main
+# Loading work.cm0_matrix
+# Loading work.cm0_matrix_sel
+# Loading work.cm0_top_dbg
+# Loading work.cm0_dbg_ctl
+# Loading work.cm0_dbg_bpu
+# Loading work.cm0_dbg_dwt
+# Loading work.cm0_dbg_if
+# Loading work.cm0_dbg_sel
+# Loading work.cm0_top_clk
+# Loading work.cm0_acg
+# Loading work.CORTEXM0DAP
+# Loading work.cm0_dap_dp
+# Loading work.cm0_dap_dp_jtag
+# Loading work.cm0_dap_jt_cdc_comb_and
+# Loading work.cm0_dap_dp_sw
+# Loading work.cm0_dap_sw_cdc_capt_reset
+# Loading work.cm0_dap_dp_cdc
+# Loading work.cm0_dap_cdc_capt_sync
+# Loading work.cm0_dap_cdc_send_reset
+# Loading work.cm0_dap_cdc_send_data
+# Loading work.cm0_dap_cdc_send_addr
+# Loading work.cm0_dap_cdc_send
+# Loading work.cm0_dap_cdc_comb_and_data
+# Loading work.cm0_dap_cdc_comb_and
+# Loading work.cm0_dap_dp_pwr
+# Loading work.cm0_dap_ap
+# Loading work.cm0_dap_ap_mast
+# Loading work.cm0_dap_ap_cdc
+# Loading work.cm0_dap_cdc_comb_and_addr
+# Loading work.cortexm0_wic
+# Loading work.cm0ik_rom
+# Loading work.cm0ik_ahb_sram_bridge
+# Loading work.cm0ik_sram
+# Loading work.cm0ik_system_rom_table
+# Loading work.cm0ik_v6m_rom_table
+# Loading work.cm0ik_ahb_interconnect
+# Loading work.cm0ik_ahb_def_slv
+# Loading work.cm0ik_misc
+# Loading work.cm0ik_misc_delay
+# Loading work.cm0ik_stclken_gen
+# Loading work.cm0ik_gpio
+# Loading work.cortexm0_pmu
+# Loading work.cm0_pmu_sync_set
+# Loading work.cm0_pmu_sync_reset
+# Loading work.cm0_pmu_cdc_send_reset
+# Loading work.cm0_pmu_cdc_send_set
+# Loading work.cm0_pmu_acg
+# Loading work.cm0ik_clk_gen
+# Loading work.cortexm0_rst_ctl
+# Loading work.cm0_rst_send_set
+# Loading work.cm0_rst_sync
+# Loading work.cm0ik_clk_src
+# Loading work.cm0ik_poreset
+# Loading work.cm0ik_debug_driver
+# Loading work.cm0_tarmac
+# do /home/someuser/work/cortexm0/design/trunk/integration_kit/validation/simulator_mti.cmds 
+# hexadecimal
+# ROM: ---------------------------------------------------------
+# ROM: flat memory model
+# ROM: (C) COPYRIGHT 2008-2009 ARM Limited - All Rights Reserved
+# ROM: ROM [ 00000000 : 000fffff ]
+# ROM: memory width =          32 bits
+# ROM: memory size  =        1024 kb
+# ROM: image max    =      262144 lines
+# ROM: ---------------------------------------------------------
+# RAM: ---------------------------------------------------------
+# RAM: flat memory model
+# RAM: (C) COPYRIGHT 2008-2009 ARM Limited - All Rights Reserved
+# RAM: SRAM [ 20000000 : 200fffff ]
+# RAM: memory width =          32 bits
+# RAM: memory size  =        1024 kb
+# RAM: ---------------------------------------------------------
+# ROM: ---------------------------------------------------------
+# ROM: flat memory model
+# ROM: (C) COPYRIGHT 2008-2009 ARM Limited - All Rights Reserved
+# ROM: DEBUG DRIVER ROM [ 00000000 : 000fffff ]
+# ROM: memory width =          32 bits
+# ROM: memory size  =        1024 kb
+# ROM: image max    =      262144 lines
+# ROM: ---------------------------------------------------------
+# RAM: ---------------------------------------------------------
+# RAM: flat memory model
+# RAM: (C) COPYRIGHT 2008-2009 ARM Limited - All Rights Reserved
+# RAM: DEBUG DRIVER SRAM [ 20000000 : 200fffff ]
+# RAM: memory width =          32 bits
+# RAM: memory size  =        1024 kb
+# RAM: ---------------------------------------------------------
+# tbench.u_dbg_drv.u_tarmac: ---------------------------------------------------------
+# tbench.u_dbg_drv.u_tarmac: Thumb UAL Verilog Disassembler
+# tbench.u_dbg_drv.u_tarmac: (C) COPYRIGHT 2006-2009 ARM Limited - All Rights Reserved
+# tbench.u_dbg_drv.u_tarmac: ARM v6-M Build 0001
+# tbench.u_dbg_drv.u_tarmac: ---------------------------------------------------------
+# tarmac: Generating trace file tarmac_dbg_drv.log using MCD 00000002 @ tbench.u_dbg_drv.u_tarmac
+# tbench.u_tarmac: ---------------------------------------------------------
+# tbench.u_tarmac: Thumb UAL Verilog Disassembler
+# tbench.u_tarmac: (C) COPYRIGHT 2006-2009 ARM Limited - All Rights Reserved
+# tbench.u_tarmac: ARM v6-M Build 0001
+# tbench.u_tarmac: ---------------------------------------------------------
+# tarmac: Generating trace file tarmac.log using MCD 00000004 @ tbench.u_tarmac
+# Cortex-M0 - Max Power Test
+# ** TEST PASSED OK ** (Time:               39100)
+# ** Note: $finish    : /home/someuser/work/cortexm0/design/trunk/integration_kit/validation/../logical/tbench/verilog/tbench.v(193)
+#    Time: 39100 ns  Iteration: 1  Instance: /tbench

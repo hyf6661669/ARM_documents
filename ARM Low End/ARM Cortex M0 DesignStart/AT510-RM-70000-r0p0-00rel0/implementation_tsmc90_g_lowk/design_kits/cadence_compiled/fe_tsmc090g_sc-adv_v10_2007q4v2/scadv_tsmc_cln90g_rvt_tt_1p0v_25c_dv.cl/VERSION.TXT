@@ -1,0 +1,14 @@
+* The organization, structure, and layout of this file are copyrights
+* and confidential and proprietary trade secrets of Cadence Design Systems,
+* subject to the terms and conditions of the license agreement in effect
+* between you and Cadence Design Systems, Inc.  This file and its information
+* may not be disclosed, sold, or otherwise transferred to any third party
+* without the express written consent of Cadence Design Systems, Inc.  Export
+* of any or all of this file in violation of any statute or regulation is
+* strictly prohibited.
+Library Name             : tsmc090adrvt_9lm_2thick
+Library Major Version    : 4
+Application Name         : libgen
+Application Version      : LibGen Version 6.1.2a (10/03/2006)
+Date Created             : 2007-Jun-08 10:40:10 (2007-Jun-08 05:10:10 GMT)
+Date Modified            : 2007-Jun-08 12:22:31 (2007-Jun-08 06:52:31 GMT)

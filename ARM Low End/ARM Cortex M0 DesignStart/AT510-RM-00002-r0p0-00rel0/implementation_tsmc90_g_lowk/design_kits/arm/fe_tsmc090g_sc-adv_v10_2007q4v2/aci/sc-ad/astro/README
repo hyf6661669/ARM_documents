@@ -1,0 +1,45 @@
+Astro Database
+===============
+The Astro database included in this distribution was created using the
+tsmc090adgrvt_9lm_2thick.tf technology file.
+
+Astro Routing Options
+=====================
+
+You must execute the following commands in Astro in order to support
+fat metal spacing rules.
+
+  At the Astro command line:
+  ---------------------------
+  axgSetRouteOptions
+  setFormField "Route Common Options" "Fat Wire Checking" "merge then check"
+  setFormField "Route Common Options" "Merge Fat Wire On" "signal routing too"
+  formOK "Route Common Options"
+
+  OR within the Astro GUI:
+  -------------------------
+  Route->Route Common Options
+    On the form, look for "Fat Wire Checking" and click on 
+    "merge then check". Look also for "Merge Fat Wire On" and click on
+    "signal routing too".
+
+Astro may not implement the M1.S.2 rule properly. Furthermore, the
+Astro internal DRC may not recognize these violations.
+
+Notch and Gap filling is not adviced for this library because they create
+fat metal spacing violations. The Notches and Gaps should be fixed at the
+time of detail routing.
+  
+  At the Astro command line:
+  ---------------------------
+  axgSetRouteOptions
+  setFormField "Route Common Options" "Same Net Notch" "check and fix"
+  formOK "Route Common Options"
+
+  OR within the Astro GUI:
+  -------------------------
+  Route->Route Common Options
+    On the form, look for "Same Net Notch" and click on 
+    "check and fix"
+
+

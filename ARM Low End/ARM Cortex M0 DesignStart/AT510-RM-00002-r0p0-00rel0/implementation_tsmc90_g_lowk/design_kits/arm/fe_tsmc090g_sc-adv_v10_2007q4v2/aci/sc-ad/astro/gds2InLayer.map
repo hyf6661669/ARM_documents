@@ -1,0 +1,41 @@
+;Avanti!Layer GDS2Layer[:GDS2DataType]
+
+03  03  ; NWELL      Converts GDS2 layer 03  to Avant! layer 03
+06  06  ; DIFF       Converts GDS2 layer 06  to Avant! layer 06
+140:1 17:1  ; DPO      Converts GDS2 layer 17:1  to Avant! layer 140:1
+17  17  ; POLY1      Converts GDS2 layer 17  to Avant! layer 17
+25  25  ; PIMP       Converts GDS2 layer 25  to Avant! layer 25
+26  26  ; NIMP       Converts GDS2 layer 26  to Avant! layer 26
+67  67  ; VTHN       Converts GDS2 layer 67  to Avant! layer 67
+68  68  ; VTHP       Converts GDS2 layer 68  to Avant! layer 68
+12  12  ; VTLN       Converts GDS2 layer 12  to Avant! layer 12
+13  13  ; VTLP       Converts GDS2 layer 13  to Avant! layer 13
+30  30  ; CONT       Converts GDS2 layer 30  to Avant! layer 30
+31  31  ; M1         Converts GDS2 layer 31  to Avant! layer 31
+131 131 ; M1 txt     Converts GDS2 layer 131 to Avant! layer 131
+51  51  ; VIA1       Converts GDS2 layer 51  to Avant! layer 51
+32  32  ; M2         Converts GDS2 layer 32  to Avant! layer 32
+132 132 ; M2 txt     Converts GDS2 layer 132 to Avant! layer 132
+52  52  ; VIA2       Converts GDS2 layer 52  to Avant! layer 52
+33  33  ; M3         Converts GDS2 layer 33  to Avant! layer 33
+133 133 ; M3 txt     Converts GDS2 layer 133 to Avant! layer 133
+53  53  ; VIA3       Converts GDS2 layer 53  to Avant! layer 53
+34  34  ; M4         Converts GDS2 layer 34  to Avant! layer 34
+134 134 ; M4 txt     Converts GDS2 layer 134 to Avant! layer 134
+54  54  ; VIA4       Converts GDS2 layer 54  to Avant! layer 54
+35  35  ; M5         Converts GDS2 layer 35  to Avant! layer 35
+135 135 ; M5 txt     Converts GDS2 layer 135 to Avant! layer 135
+55  55  ; VIA5       Converts GDS2 layer 55  to Avant! layer 55
+36  36  ; M6         Converts GDS2 layer 36  to Avant! layer 36
+136 136 ; M6 txt     Converts GDS2 layer 136 to Avant! layer 136
+56  56  ; VIA6       Converts GDS2 layer 56  to Avant! layer 56
+37  37  ; M7         Converts GDS2 layer 37  to Avant! layer 37
+137 137 ; M7 txt     Converts GDS2 layer 137 to Avant! layer 137
+57  57  ; VIA7       Converts GDS2 layer 57  to Avant! layer 57
+38  38  ; M8         Converts GDS2 layer 38  to Avant! layer 38
+138 138 ; M8 txt     Converts GDS2 layer 138 to Avant! layer 138
+39  39  ; M9         Converts GDS2 layer 39  to Avant! layer 39
+139 139 ; M9 txt     Converts GDS2 layer 139 to Avant! layer 139
+119 119 ; DIODE      Converts GDS2 layer 119 to Avant! layer 119
+108 108 ; prBoundary Converts GDS2 layer 108 to Avant! layer 108
+63:63 63:63 ;artiscan Converts GDS2 layer 63:63  to Avant! layer 63:63

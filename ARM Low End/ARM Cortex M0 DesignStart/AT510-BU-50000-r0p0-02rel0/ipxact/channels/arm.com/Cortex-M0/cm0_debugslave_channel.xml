@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    // =============================================================================
+    // This confidential and proprietary software may be used only as
+    // authorised by a licensing agreement from ARM Limited
+    //   (C) COPYRIGHT 2006-2009 ARM Limited
+    //       ALL RIGHTS RESERVED
+    // The entire notice above must be reproduced on all authorised
+    // copies and copies may only be made to the extent permitted
+    // by a licensing agreement from ARM Limited.
+    //
+    //      Release Information : Cortex-M0-AT510-r0p0-00rel0
+    //
+    // =============================================================================
+    //
+    // Purpose :
+    //           IP-XACT channel component for the Cortex-M0 Debug Slave bus. The DS
+    //           is a simple point-to-point bus but IP-XACT requires a channel
+    //           to be described for clock and reset routing.
+    //
+    // =============================================================================
+-->
+
+<spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2/index.xsd ">
+
+  <spirit:vendor>arm.com</spirit:vendor>
+  <spirit:library>Cortex-M0</spirit:library>
+  <spirit:name>cm0_debugslave_channel</spirit:name>
+  <spirit:version>r0p0_0</spirit:version>
+
+  <!--
+    ==============================================================
+    Bus Interfaces
+    ==============================================================
+  -->
+  <spirit:busInterfaces>
+
+    <!-- Mirrored Master Interface to the DAP: Connects to master interface on the DAP -->
+    <spirit:busInterface>
+      <spirit:name>DS_MM</spirit:name>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="Cortex-M0" spirit:name="cm0_debug_slave" spirit:version="r0p0_0" />
+      <spirit:mirroredMaster />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>DCLKMM</spirit:componentSignalName>
+          <spirit:busSignalName>CLK</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>DBGRESETnMM</spirit:componentSignalName>
+          <spirit:busSignalName>RESETn</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVRDATAMM</spirit:componentSignalName>
+          <spirit:busSignalName>SLVRDATA</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVREADYMM</spirit:componentSignalName>
+          <spirit:busSignalName>SLVREADY</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVRESPMM</spirit:componentSignalName>
+          <spirit:busSignalName>SLVRESP</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVTRANSMM</spirit:componentSignalName>
+          <spirit:busSignalName>SLVTRANS</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVSIZEMM</spirit:componentSignalName>
+          <spirit:busSignalName>SLVSIZE</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVWRITEMM</spirit:componentSignalName>
+          <spirit:busSignalName>SLVWRITE</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVADDRMM</spirit:componentSignalName>
+          <spirit:busSignalName>SLVADDR</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVWDATAMM</spirit:componentSignalName>
+          <spirit:busSignalName>SLVWDATA</spirit:busSignalName>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <!-- Mirrored Slave Interface: Connects to the Debug Slave Port on the Cortex-M0 core -->
+    <spirit:busInterface>
+      <spirit:name>DS_MS</spirit:name>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="Cortex-M0" spirit:name="cm0_debug_slave" spirit:version="r0p0_0" />
+      <spirit:mirroredSlave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>DCLKMS</spirit:componentSignalName>
+          <spirit:busSignalName>CLK</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>DBGRESETnMS</spirit:componentSignalName>
+          <spirit:busSignalName>RESETn</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVRDATAMS</spirit:componentSignalName>
+          <spirit:busSignalName>SLVRDATA</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVREADYMS</spirit:componentSignalName>
+          <spirit:busSignalName>SLVREADY</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVRESPMS</spirit:componentSignalName>
+          <spirit:busSignalName>SLVRESP</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVTRANSMS</spirit:componentSignalName>
+          <spirit:busSignalName>SLVTRANS</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVSIZEMS</spirit:componentSignalName>
+          <spirit:busSignalName>SLVSIZE</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVWRITEMS</spirit:componentSignalName>
+          <spirit:busSignalName>SLVWRITE</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVADDRMS</spirit:componentSignalName>
+          <spirit:busSignalName>SLVADDR</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVWDATAMS</spirit:componentSignalName>
+          <spirit:busSignalName>SLVWDATA</spirit:busSignalName>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <!-- Mirrored System Interface: Routes the clock signal -->
+    <spirit:busInterface>
+      <spirit:name>DS_MSys</spirit:name>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="Cortex-M0" spirit:name="cm0_debug_slave" spirit:version="r0p0_0" />
+      <spirit:mirroredSystem>
+        <spirit:group>ds_clk_reset</spirit:group>
+      </spirit:mirroredSystem>
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>DCLKMSYS</spirit:componentSignalName>
+          <spirit:busSignalName>CLK</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>DBGRESETnMSYS</spirit:componentSignalName>
+          <spirit:busSignalName>RESETn</spirit:busSignalName>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+  
+  <!-- 
+    ===========================================================================
+    Channels
+    Represents the bus interconnect.  The channel is a simple interconnect
+    from a single master to a single slave.
+    ===========================================================================
+  -->
+  <spirit:channels>
+    <spirit:channel>
+      <spirit:name>cm0_debugslave_channel</spirit:name>
+      <spirit:maxMasters>1</spirit:maxMasters>
+      <spirit:maxSlaves>1</spirit:maxSlaves>
+      <spirit:busInterfaceRef>DS_MM</spirit:busInterfaceRef>
+      <spirit:busInterfaceRef>DS_MS</spirit:busInterfaceRef>
+    </spirit:channel>
+  </spirit:channels>
+
+  <!--
+    ==========================================================================
+    Model
+    Describes views and signals
+    ==========================================================================
+  -->
+  <spirit:model>
+
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>rtl</spirit:name>
+        <spirit:envIdentifier>verilogSource:*Synthesis:</spirit:envIdentifier>
+        <spirit:envIdentifier>verilogSource:*Simulation:</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>cm0_debugslave_channel</spirit:modelName>
+        <spirit:fileSetRef>rtl</spirit:fileSetRef>
+      </spirit:view>
+    </spirit:views>
+
+    <spirit:signals>
+
+      <!-- Clocks -->
+      <spirit:signal>
+        <spirit:name>DCLKMSYS</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>DCLKMM</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>DCLKMS</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+
+      <!-- Resets -->
+      <spirit:signal>
+        <spirit:name>DBGRESETnMM</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>DBGRESETnMS</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>DBGRESETnMSYS</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+
+      <!-- Mirrored Master Signals -->
+      <spirit:signal>
+        <spirit:name>SLVRDATAMM</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVREADYMM</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVRESPMM</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVTRANSMM</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>1</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVSIZEMM</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>1</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVWRITEMM</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVADDRMM</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVWDATAMM</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+
+      <!-- Mirrored Slave Signals -->
+      <spirit:signal>
+        <spirit:name>SLVRDATAMS</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVREADYMS</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVRESPMS</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVTRANSMS</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>1</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVSIZEMS</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>1</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVWRITEMS</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVADDRMS</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVWDATAMS</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+    </spirit:signals>
+
+  </spirit:model>
+
+  <spirit:fileSets>
+
+    <spirit:fileSet spirit:fileSetId="rtl">
+      <spirit:file>
+        <spirit:name>rtl/cm0_debugslave_channel.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+      </spirit:file>
+    </spirit:fileSet>
+ 
+  </spirit:fileSets>
+
+</spirit:component>

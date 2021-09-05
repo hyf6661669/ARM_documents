@@ -1,0 +1,121 @@
+## ----------------------------------------------------------------------------
+## The confidential and proprietary information contained in this file may
+## only be used by a person authorised under and to the extent permitted
+## by a subsisting licensing agreement from ARM Limited.
+##
+## (C) COPYRIGHT 2008-2009 ARM Limited
+## ALL RIGHTS RESERVED
+##
+## This entire notice must be reproduced on all copies of this file
+## and copies of this file may only be made by a person if such person is
+## permitted to do so under the terms of a subsisting license agreement
+## from ARM Limited.
+##
+## SVN Information
+##
+## Revision :  
+## Release Information : Cortex-M0-AT510-r0p0-00rel0
+##
+## -----------------------------------------------------------------------------
+## Purpose       : Common Power Format for Cortex-M0 Processor Level
+## -----------------------------------------------------------------------------
+
+set_cpf_version 1.0
+set_power_unit  uW 
+set_time_unit   ns
+set_design      CORTEXM0IMP
+
+set_hierarchy_separator "/"
+
+################################################################################
+# Create power domains
+################################################################################
+
+create_power_domain -name TOP -default
+
+create_power_domain -name PD_SYS -instances u_cortexm0/u_top/u_sys \
+                                 -shutoff_condition {SYSPWRDOWN}
+
+create_power_domain -name PD_DBG -instances u_cortexm0/u_top/u_dbg \
+                                 -shutoff_condition {DBGPWRDOWN}
+
+################################################################################
+# Create and logically connect power ports and nets
+################################################################################
+
+create_power_nets  -nets VDD     -voltage 1.0
+create_ground_nets -nets VSS     -voltage 0.0
+create_power_nets  -nets VDD_SYS -voltage 1.0
+create_power_nets  -nets VDD_DBG -voltage 1.0
+
+create_global_connection -net VDD -pins VDD
+create_global_connection -net VSS -pins VSS
+
+################################################################################
+# Assign power supplies to power domains
+################################################################################
+
+update_power_domain -name TOP    -internal_power_net VDD     -internal_ground_net VSS
+update_power_domain -name PD_SYS -internal_power_net VDD_SYS -internal_ground_net VSS \
+                    -min_power_up_time 12.0 -max_power_up_time 65.0
+update_power_domain -name PD_DBG -internal_power_net VDD_DBG -internal_ground_net VSS \
+                    -min_power_up_time 12.0 -max_power_up_time 65.0
+
+################################################################################
+# Create Power Switches
+################################################################################
+
+create_power_switch_rule -name uswitch1 -domain PD_SYS -external_power_net VDD
+create_power_switch_rule -name uswitch2 -domain PD_DBG -external_power_net VDD
+
+update_power_switch_rule -name uswitch1 -enable_condition_1 !SYSPWRDOWN \
+                         -acknowledge_receiver SYSPWRDOWNACK
+update_power_switch_rule -name uswitch2 -enable_condition_1 !DBGPWRDOWN \
+                         -acknowledge_receiver DBGPWRDOWNACK
+
+################################################################################
+# Set Isolation Controls
+################################################################################
+
+create_isolation_rule -name iso_lo1 -from PD_SYS \
+                      -isolation_condition !SYSISOLATEn -to TOP \
+                      -isolation_output low -isolation_target from
+
+create_isolation_rule -name iso_hi1 -from PD_SYS \
+                      -isolation_condition !SYSISOLATEn \
+                      -pins {u_cortexm0/u_top/u_sys/sleeping_o \
+                             u_cortexm0/u_top/u_sys/sleep_deep_o} \
+                      -isolation_output high -isolation_target from
+
+create_isolation_rule -name iso_lo2 -from PD_DBG \
+                      -isolation_condition !DBGISOLATEn \
+                      -isolation_output low -isolation_target from
+
+################################################################################
+# Set Retention 
+################################################################################
+
+create_state_retention_rule -name ret_sys -domain PD_SYS -restore_edge SYSRETAINn \
+                            -save_edge !SYSRETAINn
+
+################################################################################
+# Define port states
+################################################################################
+
+create_nominal_condition -name on  -voltage 1.0
+create_nominal_condition -name off -voltage 0.0
+
+################################################################################
+# Define power state table
+################################################################################
+
+create_power_mode -name run -domain_conditions {TOP@on PD_SYS@on  PD_DBG@off}
+create_power_mode -name slp -domain_conditions {TOP@on PD_SYS@off PD_DBG@off}
+create_power_mode -name dbg -domain_conditions {TOP@on PD_SYS@on  PD_DBG@on} -default
+
+################################################################################
+# Technology details (not needed for simulation)
+# Can be in a separate CPF file which is sourced here.
+################################################################################
+
+end_design

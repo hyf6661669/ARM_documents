@@ -1,0 +1,158 @@
+## ----------------------------------------------------------------------------
+## The confidential and proprietary information contained in this file may
+## only be used by a person authorised under and to the extent permitted
+## by a subsisting licensing agreement from ARM Limited.
+##
+## (C) COPYRIGHT 2008-2009 ARM Limited
+## ALL RIGHTS RESERVED
+##
+## This entire notice must be reproduced on all copies of this file
+## and copies of this file may only be made by a person if such person is
+## permitted to do so under the terms of a subsisting license agreement
+## from ARM Limited.
+##
+## SVN Information
+##
+## Revision :  
+## Release Information : Cortex-M0-AT510-r0p0-01rel0
+##
+## -----------------------------------------------------------------------------
+## Purpose       : Unified Power Format for Cortex-M0 Integration level
+## -----------------------------------------------------------------------------
+
+################################################################################
+# Create power domains
+#   - Six Atomic Power Domains at integration level
+#   - After merging, only three Power Domains (in this example)
+# Note: UPF Command 'merge_power_domains' is not supported by MV Tools
+################################################################################
+
+create_power_domain TOP
+create_power_domain PD_SYS -elements  uut/u_cortexm0integration/u_cortexm0/u_top/u_sys
+create_power_domain PD_DBG -elements {uut/u_cortexm0integration/u_cortexm0/u_top/u_dbg \
+                                      uut/u_cortexm0integration/u_dap/u_ap}
+
+################################################################################
+# Create and logically connect power ports and nets
+################################################################################
+
+# Always on VDD
+create_supply_port VDD
+create_supply_net  VDD -domain TOP
+create_supply_net  VDD -domain PD_SYS -reuse
+create_supply_net  VDD -domain PD_DBG -reuse
+connect_supply_net VDD -ports VDD
+
+# Ground
+create_supply_port VSS
+create_supply_net  VSS -domain TOP
+create_supply_net  VSS -domain PD_SYS -reuse
+create_supply_net  VSS -domain PD_DBG -reuse
+connect_supply_net VSS -ports VSS
+
+# Switched VDD
+create_supply_net VDD_SYS -domain PD_SYS
+create_supply_net VDD_DBG -domain PD_DBG
+
+################################################################################
+# Assign power supplies to power domains
+################################################################################
+
+set_domain_supply_net TOP    -primary_power_net VDD     -primary_ground_net VSS
+set_domain_supply_net PD_SYS -primary_power_net VDD_SYS -primary_ground_net VSS
+set_domain_supply_net PD_DBG -primary_power_net VDD_DBG -primary_ground_net VSS
+
+################################################################################
+# Create Power Switches
+################################################################################
+
+create_power_switch uswitch1 -domain PD_SYS \
+                             -input_supply_port  {VDD     VDD} \
+                             -output_supply_port {VDD_SYS VDD_SYS} \
+	                     -control_port {SYSPWRDOWN uut/SYSPWRDOWN} \
+                             -ack_port {SYSPWRDOWNACK uut/SYSPWRDOWNACK { SYSPWRDOWN}} \
+                             -ack_delay {SYSPWRDOWNACK 65000} \
+                             -on_state  {on_state  VDD {!SYSPWRDOWN}} \
+                             -off_state {off_state     { SYSPWRDOWN}}
+
+create_power_switch uswitch2 -domain PD_DBG \
+                             -input_supply_port  {VDD     VDD} \
+                             -output_supply_port {VDD_DBG VDD_DBG} \
+	                     -control_port {DBGPWRDOWN uut/DBGPWRDOWN} \
+                             -ack_port {DBGPWRDOWNACK uut/DBGPWRDOWNACK { DBGPWRDOWN}} \
+                             -ack_delay {DBGPWRDOWNACK 65000} \
+                             -on_state  {on_state  VDD {!DBGPWRDOWN}} \
+                             -off_state {off_state     { DBGPWRDOWN}}
+
+################################################################################
+# Set Isolation Controls
+#   - iso_low1, iso_high1 at PD_SYS outputs
+#   - iso_low2 at PD_DBG outputs
+################################################################################
+
+set_isolation         iso_low1 -domain PD_SYS \
+                               -isolation_power_net VDD \
+                               -isolation_ground_net VSS \
+                               -clamp_value 0 \
+                               -applies_to outputs
+
+# The signals that need to be clamped HIGH
+set_isolation        iso_high1 -domain PD_SYS \
+                               -isolation_power_net VDD \
+                               -isolation_ground_net VSS \
+                               -clamp_value 1 \
+                               -elements {uut/u_cortexm0integration/u_cortexm0/u_top/u_sys/sleeping_o \
+                                          uut/u_cortexm0integration/u_cortexm0/u_top/u_sys/sleep_deep_o}
+
+# No isolation required for signals from PD_SYS to PD_DBG
+set_isolation         iso_none -domain PD_DBG -no_isolation \
+                               -applies_to inputs
+
+set_isolation_control iso_low1 -domain PD_SYS \
+                               -isolation_signal uut/SYSISOLATEn \
+                               -isolation_sense low \
+                               -location parent
+
+set_isolation_control iso_high1 -domain PD_SYS \
+                               -isolation_signal uut/SYSISOLATEn \
+                               -isolation_sense low \
+                               -location parent
+
+set_isolation         iso_low2 -domain PD_DBG \
+                               -isolation_power_net VDD \
+                               -isolation_ground_net VSS \
+                               -clamp_value 0 \
+                               -applies_to outputs
+
+set_isolation_control iso_low2 -domain PD_DBG \
+                               -isolation_signal uut/DBGISOLATEn \
+                               -isolation_sense low \
+                               -location parent
+
+################################################################################
+# Set Retention 
+################################################################################
+
+set_retention drff -domain PD_SYS -retention_power_net VDD -retention_ground_net VSS
+set_retention_control drff -domain PD_SYS -save_signal {uut/SYSRETAINn high} \
+                           -restore_signal {uut/SYSRETAINn low}
+
+map_retention_cell drff -domain PD_SYS -lib_cell_type DRFF
+
+################################################################################
+# Define port states
+################################################################################
+
+add_port_state VSS              -state {on 0.0}
+add_port_state VDD              -state {on 1.62}
+add_port_state uswitch1/VDD_SYS -state {on 1.62} -state {off off}
+add_port_state uswitch2/VDD_DBG -state {on 1.62} -state {off off}
+
+################################################################################
+# Define power state table
+################################################################################
+
+create_pst cm0_pst -supplies           {VSS  VDD  VDD_SYS  VDD_DBG}
+add_pst_state run -pst cm0_pst -state  {on   on   on       off    }
+add_pst_state slp -pst cm0_pst -state  {on   on   off      off    }
+add_pst_state dbg -pst cm0_pst -state  {on   on   on       on     }

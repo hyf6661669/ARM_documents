@@ -1,0 +1,4 @@
+onbreak {resume}
+radix hex
+run -a
+quit -f

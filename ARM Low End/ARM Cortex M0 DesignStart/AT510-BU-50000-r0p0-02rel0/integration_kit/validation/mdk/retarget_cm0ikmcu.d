@@ -1,0 +1,11 @@
+.\retarget_cm0ikmcu.o: ..\tests\retarget_cm0ikmcu.c
+.\retarget_cm0ikmcu.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\retarget_cm0ikmcu.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\rt_misc.h
+.\retarget_cm0ikmcu.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\retarget_cm0ikmcu.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\retarget_cm0ikmcu.o: ..\tests\cm0ikmcu.h
+.\retarget_cm0ikmcu.o: ..\tests\CMSIS\Core\CM0\core_cm0.h
+.\retarget_cm0ikmcu.o: ..\tests\system_cm0ikmcu.h
+.\retarget_cm0ikmcu.o: ..\tests\IKtests.h
+.\retarget_cm0ikmcu.o: ..\tests\IKConfig.h
+.\retarget_cm0ikmcu.o: ..\tests\debugdriver_functions.h

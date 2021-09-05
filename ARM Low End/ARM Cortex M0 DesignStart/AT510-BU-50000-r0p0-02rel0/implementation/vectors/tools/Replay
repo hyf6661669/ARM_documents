@@ -1,0 +1,310 @@
+#!/usr/bin/env perl
+#################################################################################
+#
+# The confidential and proprietary information contained in this file may
+# only be used by a person authorised under and to the extent permitted
+# by a subsisting licensing agreement from ARM Limited.
+#
+#                 (C) COPYRIGHT 2008-2009 ARM Limited.
+#                       ALL RIGHTS RESERVED
+#
+# This entire notice must be reproduced on all copies of this file
+# and copies of this file may only be made by a person if such person is
+# permitted to do so under the terms of a subsisting license agreement
+# from ARM Limited.
+#
+#              Cortex-M0 Vector Replay Script
+#              =======================================
+#      SVN Information
+#
+#      Checked In          : $Date: $
+#
+#      Revision            : $Revision: $
+#
+#      Release Information : Cortex-M0-AT510-r0p0-01rel0
+#
+################################################################################
+
+$^W=1; # enable warnings (same as perl -w)
+
+use Cwd;
+use Getopt::Long;
+use File::Basename;
+use File::Copy;
+
+my @testlist = qw (dhry hellow max_power speed_indicative config_check interrupt reset sleep debug romtable); #Add tests to this array
+my $prog = basename($0);
+my $help;
+my $simulator;
+my $integration = 0;
+my $build = 0;
+my $netlist = 0;
+my $srpg = 0;
+my $upf = 0;
+my $cpf = 0;
+my $sdf;
+my $sdfset = 0;
+my $runall = 0;
+my $testname;
+my $default_simulator = "mti";
+my $level = "CORTEXM0IMP";
+my $cwd = cwd(); # Get current directory
+my $testdir = $cwd."/../crf";
+my $srpgdir = $cwd."/../srpg";
+my $logsdir = $cwd."/logs";
+my $rtldir = $cwd."/../../../../logical/";
+my $rundir;
+my $buildopts = "";
+my $ncelabopts = "-ACCESS rwc";
+my $builddefs = "";
+my $simopts = "";
+my $list = 0;
+my $usage="
+USAGE: $prog <options> <testname>
+
+Description: 
+ where <options> are:
+ -h[elp]                        : print usage
+ -mti                           : use mti simulator (default)
+ -nc                            : use nc  simulator
+ -vcs                           : use vcs simulator
+ -int[egration]                 : use CORTEXM0INTEGRATIONIMP level
+                                  default is CORTEXM0IMP
+ -build                         : build before running
+ -srpg                          : include SRPG signals for vector replay
+ -upf                           : use UPF for simulation
+ -cpf                           : use CPF for simulation
+ -netlist                       : use netlist
+ -sdf <delay type>              : use sdf with netlist
+                                  choose delay type from min:max
+                                  if switch not used, zero delay used
+ -all                           : run all tests specified in perl array \@testlist
+\n";
+
+# Get the multi-character command line options
+if (!GetOptions(
+           "h|help"                        => \$help,
+           "mti"                           => \&{ sub { $simulator="mti"; } },
+	   "nc"                            => \&{ sub { $simulator="nc";  } },
+	   "vcs"                           => \&{ sub { $simulator="vcs"; } },
+           "int|integration"               => \$integration,
+           "build"                         => \$build,
+           "netlist"                       => \$netlist,
+           "srpg"                          => \$srpg,
+           "upf"                           => \$upf,
+           "cpf"                           => \$cpf,
+           "sdf=s"                         => \$sdf,
+           "all"                           => \$runall,
+           "list"                          => \$list)
+           or $help) {
+           print $usage;
+           exit;
+           }
+
+if ((@ARGV == 0) and ($runall == 0) and ($list == 0)) { print $usage; exit; }
+
+# Get The Test Name from the commandline
+$testname = shift @ARGV;
+$testname = "" unless defined $testname;
+
+# Exit if there are still arguments left to parse
+die "Unrecognised arguments still remain: @ARGV" if @ARGV != 0;
+
+# Print warning if the script thinks that it is used wrongly
+print "WARNING: Replay testbench may not be of the correct level
+WARNING: -int switch used in CORTEXM0IMP level\n" if (($cwd =~ m/vectors\/CORTEXM0IMP\/tbench/) and ($integration == 1));
+
+# Print warning if the script thinks that it is used wrongly
+print "WARNING: Replay testbench may not be of the correct level
+WARNING: -int switch not used in CORTEXM0INTEGRATIONIMP level\n" if (($cwd =~ m/vectors\/CORTEXM0INTEGRATIONIMP\/tbench/) and ($integration == 0));
+
+# Exit if UPF requested but not SRPG
+die "UPF simulation cannot run without including SRPG pins" if (($upf == 1) and ($srpg == 0));
+
+# Print perl array testlist and exit
+if ($list == 1) {
+    print "\@testlist has following tests: @testlist\n";
+    print "Modify \@testlist in Replay script to add or remove tests\n";
+    exit;
+}
+
+if (defined $sdf) {
+# Lower case $sdf
+    $sdf = lc($sdf);
+    if (($sdf eq "min") or ($sdf eq "max")) {
+        $sdfset = 1;
+    } else {
+        die "Unrecognized argument for -sdf option";
+    }
+}
+
+# Exit if sdf requested without netlist
+die "SDF timing annotation can only be used with netlist" if (($sdfset == 1) and ($netlist == 0));
+
+# Get the correct level
+$level = "CORTEXM0INTEGRATIONIMP" if ($integration == 1);
+
+if (not defined $simulator) {
+    print "Using default simulator: $default_simulator\n";
+    $simulator = $default_simulator;
+};
+
+# Check for Simulator directory
+$_ = uc($simulator);
+$rundir = $cwd."/".$_;
+# Delete run directory if one exists
+system "rm -rf $rundir" if ($build == 1);
+# Make run directory if one doesn't exist
+system "mkdir $rundir" if !(-d $rundir);
+# cd to Simulator directory
+chdir $rundir or die ("cd to $rundir failed");
+
+# Symbolic link to RTL
+system "rm -f verilog";
+symlink($rtldir,"verilog");
+
+# Set environment for UPF simulation
+if ($upf == 1) {
+    system "cp $srpgdir/archpro.ini $rundir/.";
+    if ($integration == 1) {
+        $_upf = $srpgdir."/CORTEXM0INTEGRATIONIMP.upf";
+    } else {
+        $_upf = $srpgdir."/CORTEXM0IMP.upf";
+    }
+}
+
+# Set environment for CPF simulation
+if ($cpf == 1) {
+    if ($integration == 1) {
+        $_cpf = $srpgdir."/CORTEXM0INTEGRATIONIMP.cpf";
+    } else {
+        $_cpf = $srpgdir."/CORTEXM0IMP.cpf";
+    }
+}
+
+# Set build options
+$builddefs .= " +define+ARM_CM0_REPLAY_SDF" if ($sdfset == 1);
+$builddefs .= " +define+ARM_CM0_REPLAY_SRPG" if ($srpg == 1);
+$buildopts .= $builddefs;
+$buildopts .= " +nospecify" if (($netlist == 1) and ($sdfset == 0));
+$buildopts .= " +delay_mode_zero" if (($netlist == 1) and ($sdfset == 0) and ($simulator ne "nc"));
+$ncelabopts .= " -SEQ_UDP_DELAY 1" if (($netlist == 1) and ($sdfset == 0) and ($simulator eq "nc"));
+if (($simulator eq "vcs") and ($upf == 1)) {
+    $buildopts .= " +vpi -load '\${ARCHPRO_ROOT}/lib/libmvsim-vcs.so:mvsimInit'";
+    $buildopts .= " -P \${ARCHPRO_ROOT}/templates/mvsim_vcs.tab";
+    $buildopts .= " -debug -f $rundir/apdb/ev/vcs_options_1 -f $rundir/apdb/ev/cmdfile_1";
+}
+
+# Set simulation options
+$simopts .= " -c -do 'run -a' +nowarnTFMPC" if ($simulator eq "mti");
+
+# Set vc file
+if ($netlist == 1) {
+    $_vc = $cwd."/"."netlist.vc";
+} else {
+    $_vc = $cwd."/"."tbench.vc";
+}
+# Set top-level file
+$_v = $cwd."/".$level."_Replay_tb.v";
+
+if ($build == 1) {
+    # set compile log
+    $_lg = $logsdir."/".$simulator."_compile.log";
+
+    # Build RTL/Netlist
+    print "Building...\n";
+    BuildRTL($simulator);
+}    
+
+# Put $testname into $testlist for single test
+@testlist = $testname unless ($runall == 1);
+
+$_vrf = $rundir."/".$level."_vectors.vrf";
+$_ctrm = $testdir."/".$level.".ctrm";
+
+foreach (@testlist) {
+
+    $_crf = $testdir."/".$_."_".$level.".crf";
+    
+    # Check if test exists
+    die "Error! Test ${_}_${level}.crf not found in $testdir\n" unless (-e $_crf);
+
+    print "Running test $_\n";
+
+    $_lg = $logsdir."/".$_."_".$simulator.".log";
+
+    # cd back to cwd to run Crf2Vrf
+    chdir $cwd;
+    # Run Crf2Vrf
+    system "../../tools/Crf2Vrf -i $_crf -o $_vrf -t $_ctrm";
+    # cd to simulation directory
+    chdir $rundir;
+
+    # Run simulation
+    RunSimulation($simulator);
+
+}
+
+#cd back to cwd
+chdir ($cwd);
+
+exit;
+
+sub BuildRTL($)
+  {
+    my ($simulator) = @_;
+
+   if ($upf == 1) {
+        system "mvcmp -upf $_upf | tee $_lg";
+        system "mvcmp $builddefs -f $_vc $_v | tee -a $_lg";
+        system "mvdbgen -top ${level}_Replay_tb | tee -a $_lg";
+    }
+
+    if($simulator eq "mti")
+      {
+        # remove any existing one
+	system "rm -rf work";
+        system "vlib work | tee $_lg";
+        system "vlog -work work -incr -f $_vc $_v $buildopts | tee -a $_lg"; 
+      }
+    elsif($simulator eq "nc")
+      {
+        system "ncprep +overwrite $buildopts -f $_vc $_v | tee -a $_lg";
+        system "echo '-LPS_CPF $_cpf' >> ncelab.args | tee -a $_lg" if ($cpf == 1);
+        system "ncvlog -f ncvlog.args | tee -a $_lg";
+        system "ncelab -mess -f ncelab.args $ncelabopts | tee -a $_lg";
+      }
+    elsif($simulator eq "vcs")
+      {
+        system "vcs +vcs+lic+wait +v2k -cc gcc -cpp g++ -CFLAGS \"-O4 -I\${VCS_HOME}/include\" -Mupdate $buildopts | tee -a $_lg" if ($upf == 1);
+        system "vcs +vcs+lic+wait +v2k -cc gcc -cpp g++ -CFLAGS \"-O4 -I\${VCS_HOME}/include\" -Mupdate $buildopts -f $_vc $_v | tee -a $_lg" unless ($upf == 1);
+      }
+    else
+      {
+	die "Unrecognised simulator $simulator when trying to build RTL.";
+      }
+  }
+
+sub RunSimulation($)
+  {
+    my ($simulator) = @_;
+
+    if($simulator eq "mti")
+      {
+        system "vsim $simopts -lib work $level\"_Replay_tb\" | tee $_lg";
+      }
+    elsif($simulator eq "nc")
+      {
+        system "ncsim -unbuffered -status -LICQUEUE -f ncsim.args -cdslib cds.lib -hdlvar hdl.var -NBASYNC $simopts | tee $_lg";
+
+      }
+    elsif($simulator eq "vcs")
+      {
+        system "./simv +vcs+lic+wait $simopts +vcs+flush+log +nowarnTFMPC | tee $_lg";
+      }
+    else
+      {
+	die "Unrecognised simulator $simulator when trying to run simulation.";
+      }
+  }
+

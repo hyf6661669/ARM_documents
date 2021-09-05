@@ -1,0 +1,53 @@
+Dependencies for Project 'hellow', Target 'CM0IKMCU - Cortex-M0': (DO NOT MODIFY !)
+F (..\tests\boot.c)(0x4CC45800)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\tests -I..\tests\CMSIS\Core\CM0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="513"-o .\boot.o --omf_browse .\boot.crf --depend .\boot.d)
+I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
+I (E:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x5475F300)
+I (E:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5475F300)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (..\tests\cm0ikmcu.h)(0x4CC45800)
+I (..\tests\CMSIS\Core\CM0\core_cm0.h)(0x4CC45800)
+I (..\tests\system_cm0ikmcu.h)(0x4CC45800)
+I (..\tests\IKtests.h)(0x4CC45800)
+I (..\tests\IKConfig.h)(0x4CC45800)
+I (..\tests\debugdriver_functions.h)(0x4CC45800)
+F (..\tests\CMSIS\Core\CM0\core_cm0.h)(0x4CC45800)()
+F (..\tests\CMSIS\Core\CM0\core_cm0.c)(0x4CC45800)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\tests -I..\tests\CMSIS\Core\CM0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="513"-o .\core_cm0.o --omf_browse .\core_cm0.crf --depend .\core_cm0.d)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+F (..\tests\cm0ikmcu.h)(0x4CC45800)()
+F (..\tests\system_cm0ikmcu.h)(0x4CC45800)()
+F (..\tests\system_cm0ikmcu.c)(0x4CC45800)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\tests -I..\tests\CMSIS\Core\CM0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="513"-o .\system_cm0ikmcu.o --omf_browse .\system_cm0ikmcu.crf --depend .\system_cm0ikmcu.d)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (..\tests\cm0ikmcu.h)(0x4CC45800)
+I (..\tests\CMSIS\Core\CM0\core_cm0.h)(0x4CC45800)
+I (..\tests\system_cm0ikmcu.h)(0x4CC45800)
+F (..\tests\retarget_cm0ikmcu.c)(0x4CC45800)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\tests -I..\tests\CMSIS\Core\CM0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="513"-o .\retarget_cm0ikmcu.o --omf_browse .\retarget_cm0ikmcu.crf --depend .\retarget_cm0ikmcu.d)
+I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
+I (E:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x5475F300)
+I (E:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5475F300)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (..\tests\cm0ikmcu.h)(0x4CC45800)
+I (..\tests\CMSIS\Core\CM0\core_cm0.h)(0x4CC45800)
+I (..\tests\system_cm0ikmcu.h)(0x4CC45800)
+I (..\tests\IKtests.h)(0x4CC45800)
+I (..\tests\IKConfig.h)(0x4CC45800)
+I (..\tests\debugdriver_functions.h)(0x4CC45800)
+F (..\tests\IKConfig.h)(0x4CC45800)()
+F (..\tests\IKtests.h)(0x4CC45800)()
+F (..\tests\IKtests.c)(0x4CC45800)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\tests -I..\tests\CMSIS\Core\CM0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="513"-o .\iktests.o --omf_browse .\iktests.crf --depend .\iktests.d)
+I (..\tests\cm0ikmcu.h)(0x4CC45800)
+I (..\tests\CMSIS\Core\CM0\core_cm0.h)(0x4CC45800)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (..\tests\system_cm0ikmcu.h)(0x4CC45800)
+I (..\tests\IKtests.h)(0x4CC45800)
+I (..\tests\IKConfig.h)(0x4CC45800)
+I (..\tests\debugdriver_functions.h)(0x4CC45800)
+F (..\tests\debugdriver_functions.h)(0x4CC45800)()
+F (..\tests\hellow.c)(0x4CC45800)(-c --cpu Cortex-M0 -g -O0 --apcs=interwork -I..\tests -I..\tests\CMSIS\Core\CM0-I E:\Keil_v5\ARM\RV31\INC-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="513"-o .\hellow.o --omf_browse .\hellow.crf --depend .\hellow.d)
+I (..\tests\cm0ikmcu.h)(0x4CC45800)
+I (..\tests\CMSIS\Core\CM0\core_cm0.h)(0x4CC45800)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (..\tests\system_cm0ikmcu.h)(0x4CC45800)
+I (..\tests\IKtests.h)(0x4CC45800)
+I (..\tests\IKConfig.h)(0x4CC45800)
+I (..\tests\debugdriver_functions.h)(0x4CC45800)
+I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)

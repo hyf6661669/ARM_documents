@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<ProjectWorkspace xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_mpw.xsd">
+
+  <SchemaVersion>1.0</SchemaVersion>
+
+  <Header>### uVision Project, (C) Keil Software</Header>
+
+  <WorkspaceName>WorkSpace</WorkspaceName>
+
+  <project>
+    <PathAndName>.\config_check.uvproj</PathAndName>
+    <NodeIsActive>1</NodeIsActive>
+  </project>
+
+  <project>
+    <PathAndName>.\debug.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\debugdriver.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\dhry.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\hellow.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\interrupt.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\max_power.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\reset.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\romtable.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\sleep.uvproj</PathAndName>
+  </project>
+
+  <project>
+    <PathAndName>.\speed_indicative.uvproj</PathAndName>
+  </project>
+
+</ProjectWorkspace>

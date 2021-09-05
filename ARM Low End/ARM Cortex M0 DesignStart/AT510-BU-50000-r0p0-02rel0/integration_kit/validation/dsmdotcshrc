@@ -1,0 +1,26 @@
+#################################################################################
+#
+# The confidential and proprietary information contained in this file may
+# only be used by a person authorised under and to the extent permitted
+# by a subsisting licensing agreement from ARM Limited.
+#
+#                 (C) COPYRIGHT 2008-2009 ARM Limited.
+#                       ALL RIGHTS RESERVED
+#
+# This entire notice must be reproduced on all copies of this file
+# and copies of this file may only be made by a person if such person is
+# permitted to do so under the terms of a subsisting license agreement
+# from ARM Limited.
+#
+#              Example DSM dotcshrc file 
+#              =========================
+#
+#   $Revision: 31886 $
+#       $Date: 2008-12-18 13:20:11 +0000 (Thu, 18 Dec 2008) $
+#
+################################################################################
+# if sourcing this file modify the variables below to point to the correct DSM build
+setenv MG_LIB /home/someuser/work/swift/design/trunk/logical/cortexm0_dsm/ENCRYPTED_OOB/simulation_models/ModelManager/MMAPI_5.1.0/Linux/MM
+setenv LD_LIBRARY_PATH /home/someuser/work/swift/design/trunk/logical/cortexm0_dsm/ENCRYPTED_OOB/simulation_models/ModelManager/MMAPI_5.1.0/Linux/MM/synopsys_vcs_verilog
+setenv DIR_CORTEXM0 /home/someuser/work/swift/design/trunk/logical/cortexm0_dsm/ENCRYPTED_OOB/simulation_models/DSM/synopsys_vcs_verilog_Linux/CORTEXM0_unlicensed_r0p0-00rel0/CORTEXM0
+setenv LMC_HOME /home/someuser/work/swift/design/trunk/logical/cortexm0_dsm/ENCRYPTED_OOB/simulation_models/LMC_HOME

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    // =============================================================================
+    // This confidential and proprietary software may be used only as
+    // authorised by a licensing agreement from ARM Limited
+    //   (C) COPYRIGHT 2009 ARM Limited
+    //       ALL RIGHTS RESERVED
+    // The entire notice above must be reproduced on all authorised
+    // copies and copies may only be made to the extent permitted
+    // by a licensing agreement from ARM Limited.
+    //
+    // =============================================================================
+    //
+    // Purpose : Defines signals on the Debug Power Connection. The bus definition
+    //           assumes the Debug Access Port is the Master of this interface.
+    //
+    // =============================================================================
+-->
+
+<spirit:busDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2" xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2/index.xsd">
+
+    <spirit:vendor>arm.com</spirit:vendor>
+    <spirit:library>CortexMCores</spirit:library>
+    <spirit:name>dbg_pwr_bus</spirit:name>
+    <spirit:version>r0p0_1</spirit:version>
+
+    <spirit:directConnection>true</spirit:directConnection>
+
+    <spirit:signals>
+
+        <!-- Debug Power Up Request -->
+        <spirit:signal>
+            <spirit:logicalName>CDBGPWRUPREQ</spirit:logicalName>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onSlave>
+        </spirit:signal>
+
+        <!-- Debug Power Up Acknowledge -->
+        <spirit:signal>
+            <spirit:logicalName>CDBGPWRUPACK</spirit:logicalName>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onSlave>
+        </spirit:signal>
+
+        <!-- System Power Up Request -->
+        <spirit:signal>
+          <spirit:logicalName>CSYSPWRUPREQ</spirit:logicalName>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onSlave>
+        </spirit:signal>
+
+        <!-- System Power Up Acknowledge -->
+        <spirit:signal>
+          <spirit:logicalName>CSYSPWRUPACK</spirit:logicalName>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onSlave>
+        </spirit:signal>
+
+        <!-- Debug Reset Request -->
+        <spirit:signal>
+          <spirit:logicalName>CDBGRSTREQ</spirit:logicalName>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onSlave>
+        </spirit:signal>
+
+        <!-- System Power Up Acknowledge -->
+        <spirit:signal>
+          <spirit:logicalName>CDBGRSTACK</spirit:logicalName>
+            <spirit:onMaster>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>in</spirit:direction>
+            </spirit:onMaster>
+            <spirit:onSlave>
+                <spirit:bitWidth>1</spirit:bitWidth>
+                <spirit:direction>out</spirit:direction>
+            </spirit:onSlave>
+        </spirit:signal>
+    </spirit:signals>
+
+</spirit:busDefinition>

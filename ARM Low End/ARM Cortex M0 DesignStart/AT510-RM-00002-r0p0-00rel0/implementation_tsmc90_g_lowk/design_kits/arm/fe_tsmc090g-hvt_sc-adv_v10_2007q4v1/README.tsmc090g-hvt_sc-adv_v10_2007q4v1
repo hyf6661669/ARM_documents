@@ -1,0 +1,575 @@
+ARM, Inc.
+
+TSMC 90nm Enhanced (CLN90G) HVT Process
+SC-ADV(tm) v1.0 Standard Cell Library Release Notes
+--------------------------------------------------------
+2007q4v1 (10/17/2007)
+
+Impact on Designs Using 2006q3v1
+---------------------------------
+This section describes the impact of this release on current designs
+which are using the previous release.
+
+*** This is a mandatory update. ***
+
+ARM Update Recommendation:
+
+  o Install version 2007q4v1.
+    GDS2 and CDL netlist updated to use with PMK.
+    
+This package contains no timing models. The timing models for
+this library are in separate *.tgz files whose name starts
+with "ft" and has an identical process, library and release
+name as the name of this tgz file.
+        
+Impact of this Release on Major Library Components:
+
+  o GDS2 has changed:
+    - Updated the nwell and pwell labels.
+      nwell label changed from "VDD" to "VNW"
+      pwell label changed from "VSS" to "VPW"
+      No other changes done to layout artwork.
+  o LEF macro views have not changed.
+  o Astro FRAM views recreated:
+    - No change to physical footprints.      
+  o LVS netlists have been changed:
+    - Bulk nodes updated.
+      "VDD" to "VNW" and
+      "VSS" to "VPW"
+    - Global statement removed for VDD VSS and
+      updated I/O pins to the netlists.
+  o LEF technology files have been changed.
+    - Uncommented below statement no more required.
+      #ANTENNAAREARATIO 495 ;
+  o Astro technology files have not changed.
+  o Antenna clf files has been changed. 
+    - To removed non-cumulative rule.    
+  o Milkyway database have been changed.
+    - Recreated for GDS2 changes.     
+  o Synopsys Timing views have not changed
+     - Seperate *.tgz files whose name starts with "ft" and 
+       has an identical process, library and release
+       name as the name of this tgz file.     
+  o Symbol views have not changed.
+  o Verilog model views have not changed.
+  o Vhdl model views have not changed.
+  o .plib and .pdb views have not changed.
+      
+Process Technology Data
+-----------------------
+This section lists all of the foundry documents and technology files used to
+design this product.
+
+  o Design Rule Document
+      - T-N90-LO-DR-001 Ver: 1.4 Date: 05-23-2005
+  o DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+      - CALIBRE NON_SHRINKABLE RULES IN N80 PROCESS
+	T-N80-CL-DR-001-C1 Ver: 1.0a Date: 1-23-2006
+  o Antenna DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+  o LVS Command File
+      - CALIBRE LVS COMMAND FILE
+        T-N90-CL-LS-001-C1 Ver: 1.3b Date: 7-06-2005
+  o Process Name
+      - 90nm LOGIC SALICIDE (1P9M, 1.0V/2.5V) (CLN90G)
+  o Process Spectre Models
+      - T-N90-LO-SP-002 Ver: 1.4 Date: 08-20-2004
+        Devices : nch_hvt & pch_hvt
+  o Extractor Technology File
+      - Using profile T-N90-LO-SP-002-B1 Rev: 1.4  Date: 10-29-2004
+        cln90g_v1.4_typical.nxtgrd
+	tsm090_6lm.map
+        RC extraction with star-rcxt
+
+EDA Support
+-----------
+This section lists the EDA tools and versions supported for this
+product release. The items indicated by the "*" were used during the
+QA testing of this release. This set of tools and versions corresponds
+to ARM EDA Package 4.1.
+
+    * Cadence NC-Sim (Verilog)
+        - 5.1
+    * Synopsys VCS (Verilog)
+        - 7.2
+    * Mentor ModelSim (Verilog)
+        - 6.0
+    * Cadence NC-Sim (VHDL)
+        - 5.1
+    * Mentor ModelSim (VHDL)
+        - 6.0
+    * Simulation Model SDF Compatibility
+        - SDF 2.1
+    * Synopsys Design Compiler
+        - 2004.12
+    o Synopsys Module Compiler 
+        - 2004.12
+    * Cadence RTL Compiler (.lib)
+        - 4.1
+    * Synopsys Physical Compiler 
+        - 2004.12
+    * Synopsys PrimeTime (Static Timing, Delay Calculation)
+        - 2004.12
+    * Synopsys Power Compiler
+        - 2004.12
+    o Synopsys PrimePower
+        - 2004.12
+    o Synopsys JupiterXT (Design Planning)
+        - 2004.12
+    o Cadence SoC Encounter/First Encounter (Design Planning)
+        - 4.1
+    * Cadence SoC Encounter/NanoRoute (Place & Route)
+        - 4.1
+    * Synopsys Astro (FRAM, CEL, .plib/.pdb, .lib/.db)
+        - 2004.12-SP1
+    * Mentor Graphics Calibre (GDSII, CDL)
+        - 2005.2_6.10
+    * Cadence Composer (Schematic Entry)
+        - DFII 5.0.33
+    o Synopsys DFT Compiler
+        - 2004.12
+    * Adobe Acrobat Reader (PDF Documentation)
+        - 5.0
+    * Cadence Spectre
+        - MMSIM6.0-ISR20050318
+    o Synopsys Hercules(For Extraction)
+        - 2004.12-1
+	
+Technology Implementation
+-------------------------
+This section provides information on items that may not be included in the
+foundry documentation.
+
+  Characterization Corners:
+  Note: This package contains no timing models. The timing models for
+        this library are in separate *.tgz files whose name starts
+        with "ft" and has an identical process, library and release
+        name as the name of this tgz file.
+
+  Mandatory Tapeout layers required for foundry:
+
+      - GDS2 text layer 63:63 is allocated by the foundry for IP marking.
+        *** This is a mandatory tapeout layer ****
+	
+Methodology
+-----------
+This section describes design flow issues that may be applicable to this
+release.
+
+  o Synopsys/Primetime/Pearl
+        - Please note that SDF generated with tool versions above
+          also require post-processing prior to back-annotation.
+          The following post-processing scripts are available:
+             
+              - Synopsys Primetime
+                aci/sc-ad/primetime/pt_postprocessor.pl             
+        - Please note that SDF generated with versions other than
+          those specified above may not annotate properly due to
+          various changes in the SDF output format.
+	  
+  o The FILL2ADTH cell has to be used to prevent latch-up violations at
+    chip level. Place the FILL2ADTH cell during standard cell
+    placement to meet process rules for taps.
+    
+  o The FILL1ADTH cell is intended to be used during place & route for the purpose of
+    continuing the metal1 rails, nwell, and any other layers needed to complete a
+    row in the event that two cells are unable to neighbor each other by abutment.
+
+    Due to the small geometries needed in the FILL1ADTH cell, some rules may fail on
+    this cell when DRC is run on FILL1ADTH in isolation. All DRC errors will disappear
+    when the cell is abutted next to another cell, as in a real design.
+
+     NW.A.1, Area >= 1.55
+     
+  o All cells will have LVS violations when LVS is run on the cells in	   	 
+    isolation because there is no direct well connection. This error	   	 
+    will disappear when the FILL2ADTH is used as well-tie cell. Well	   	 
+    text in gds2 has been used in verification.    
+	
+      - The TIEHIADTH and TIELOADTH cells may produce a PATHCHK ERC error in lvs
+        because the gate of the transistors doesn't have path to power/ground.
+
+      - The following cells will have ERC violations when LVS is run
+        at the cell level because there is no power/ground path to
+        the gates. All ERC errors will disappear when another cell is driving
+        these cells as in a real design.
+
+           MXI2DXLADTH MXI2DX1ADTH MXI2DX2ADTH MXI2DX4ADTH MXI2DX8AD
+
+      - The following cells will have ERC violations when you run LVS
+        because the gate of the transistors doesn't have path to power/ground.
+        The user has to add these cells manually into the design netlist to
+        pass the LVS as these cells have devices in them.
+
+        FILLCAP3ADTH   FILLCAP4ADTH   FILLCAP8ADTH   FILLCAP16ADTH   
+	FILLCAP32ADTH  FILLCAP64ADTH   	
+	
+Known Problems and Solutions
+----------------------------
+This section describes known problems and work-arounds as of the
+release date of this library.
+
+   o There are no known problems.
+------------------------------------------------------------------------  	
+2006q3v1 (09/06/2006)
+
+Impact on Designs Using 2006q2v1
+---------------------------------
+This section describes the impact of this release on current designs
+which are using the previous release.
+
+*** This is a mandatory update. ***
+
+ARM Update Recommendation:
+
+  o Install version 2006q3v1.
+    Discontinue using previous versions.
+    
+This package contains no timing models. The timing models for
+this library are in separate *.tgz files whose name starts
+with "ft" and has an identical process, library and release
+name as the name of this tgz file. 
+        
+Impact of this Release on Major Library Components:
+
+  o GDS2 has not changed.
+  o LVS netlists has not changed.
+  o LEF macro views and Astro FRAM views have not changed. 
+  o Technology files of LEF and Astro has not changed
+  o Milkyway database have not changed.      	    
+  o Synopsys *.lib and *.db has no changes.
+     - The timing views repackaged as seperate *.tgz file.
+  o Verilog & Vhdl model views has not changed.
+  o Primetime Postprocessor updated for Internal flow changes.  
+      
+Process Technology Data
+-----------------------
+This section lists all of the foundry documents and technology files used to
+design this product.
+
+  o Design Rule Document
+      - T-N90-LO-DR-001 Ver: 1.4 Date: 05-23-2005
+  o DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+      - CALIBRE NON_SHRINKABLE RULES IN N80 PROCESS
+	T-N80-CL-DR-001-C1 Ver: 1.0a Date: 1-23-2006
+  o Antenna DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+  o LVS Command File
+      - CALIBRE LVS COMMAND FILE
+        T-N90-CL-LS-001-C1 Ver: 1.3b Date: 7-06-2005
+  o Process Name
+      - 90nm LOGIC SALICIDE (1P9M, 1.0V/2.5V) (CLN90G)
+  o Process Spectre Models
+      - T-N90-LO-SP-002 Ver: 1.4 Date: 08-20-2004
+        Devices : nch_hvt & pch_hvt
+  o Extractor Technology File
+      - Using profile T-N90-LO-SP-002-B1 Rev: 1.4  Date: 10-29-2004
+        cln90g_v1.4_typical.nxtgrd
+	tsm090_6lm.map
+        RC extraction with star-rcxt
+
+EDA Support
+-----------
+This section lists the EDA tools and versions supported for this
+product release. The items indicated by the "*" were used during the
+QA testing of this release. This set of tools and versions corresponds
+to ARM EDA Package 4.1.
+
+    * Cadence NC-Sim (Verilog)
+        - 5.1
+    * Synopsys VCS (Verilog)
+        - 7.2
+    * Mentor ModelSim (Verilog)
+        - 6.0
+    * Cadence NC-Sim (VHDL)
+        - 5.1
+    * Mentor ModelSim (VHDL)
+        - 6.0
+    * Simulation Model SDF Compatibility
+        - SDF 2.1
+    * Synopsys Design Compiler
+        - 2004.12
+    o Synopsys Module Compiler 
+        - 2004.12
+    * Cadence RTL Compiler (.lib)
+        - 4.1
+    * Synopsys Physical Compiler 
+        - 2004.12
+    * Synopsys PrimeTime (Static Timing, Delay Calculation)
+        - 2004.12
+    * Synopsys Power Compiler
+        - 2004.12
+    o Synopsys PrimePower
+        - 2004.12
+    o Synopsys JupiterXT (Design Planning)
+        - 2004.12
+    o Cadence SoC Encounter/First Encounter (Design Planning)
+        - 4.1
+    * Cadence SoC Encounter/NanoRoute (Place & Route)
+        - 4.1
+    * Synopsys Astro (FRAM, CEL, .plib/.pdb, .lib/.db)
+        - 2004.12-SP1
+    * Mentor Graphics Calibre (GDSII, CDL)
+        - 2005.2_6.10
+    * Cadence Composer (Schematic Entry)
+        - DFII 5.0.33
+    o Synopsys DFT Compiler
+        - 2004.12
+    * Adobe Acrobat Reader (PDF Documentation)
+        - 5.0
+    * Cadence Spectre
+        - MMSIM6.0-ISR20050318
+    o Synopsys Hercules(For Extraction)
+        - 2004.12-1
+	
+Technology Implementation
+-------------------------
+This section provides information on items that may not be included in the
+foundry documentation.
+
+  Characterization Corners:
+  Note: This package contains no timing models. The timing models for
+        this library are in separate *.tgz files whose name starts
+        with "ft" and has an identical process, library and release
+        name as the name of this tgz file.
+
+  Mandatory Tapeout layers required for foundry:
+
+      - GDS2 text layer 63:63 is allocated by the foundry for IP marking.
+        *** This is a mandatory tapeout layer ****
+	
+Methodology
+-----------
+This section describes design flow issues that may be applicable to this
+release.
+
+  o Synopsys/Primetime/Pearl
+        - Please note that SDF generated with tool versions above
+          also require post-processing prior to back-annotation.
+          The following post-processing scripts are available:
+             
+              - Synopsys Primetime
+                aci/sc-ad/primetime/pt_postprocessor.pl             
+        - Please note that SDF generated with versions other than
+          those specified above may not annotate properly due to
+          various changes in the SDF output format.
+	  
+  o The FILL2ADTH cell has to be used to prevent latch-up violations at
+    chip level. Place the FILL2ADTH cell during standard cell
+    placement to meet process rules for taps.
+    
+  o The FILL1ADTH cell is intended to be used during place & route for the purpose of
+    continuing the metal1 rails, nwell, and any other layers needed to complete a
+    row in the event that two cells are unable to neighbor each other by abutment.
+
+    Due to the small geometries needed in the FILL1ADTH cell, some rules may fail on
+    this cell when DRC is run on FILL1ADTH in isolation. All DRC errors will disappear
+    when the cell is abutted next to another cell, as in a real design.
+
+     NW.A.1, Area >= 1.55
+     
+  o All cells will have LVS violations when LVS is run on the cells in	   	 
+    isolation because there is no direct well connection. This error	   	 
+    will disappear when the FILL2ADTH is used as well-tie cell. Well	   	 
+    text in gds2 has been used in verification.    
+	
+      - The TIEHIADTH and TIELOADTH cells may produce a PATHCHK ERC error in lvs
+        because the gate of the transistors doesn't have path to power/ground.
+
+      - The following cells will have ERC violations when LVS is run
+        at the cell level because there is no power/ground path to
+        the gates. All ERC errors will disappear when another cell is driving
+        these cells as in a real design.
+
+           MXI2DXLADTH MXI2DX1ADTH MXI2DX2ADTH MXI2DX4ADTH MXI2DX8AD
+
+      - The following cells will have ERC violations when you run LVS
+        because the gate of the transistors doesn't have path to power/ground.
+        The user has to add these cells manually into the design netlist to
+        pass the LVS as these cells have devices in them.
+
+        FILLCAP3ADTH   FILLCAP4ADTH   FILLCAP8ADTH   FILLCAP16ADTH   
+	FILLCAP32ADTH  FILLCAP64ADTH   	
+	
+Known Problems and Solutions
+----------------------------
+This section describes known problems and work-arounds as of the
+release date of this library.
+
+   o There are no known problems.
+------------------------------------------------------------------------  	
+2006q2v1 (06/03/2006)
+
+   *** This is First full Release of this Library ***
+      
+Process Technology Data
+-----------------------
+This section lists all of the foundry documents and technology files used to
+design this product.
+
+  o Design Rule Document
+      - T-N90-LO-DR-001 Ver: 1.4 Date: 05-23-2005
+  o DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	- T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+      - CALIBRE NON_SHRINKABLE RULES IN N80 PROCESS
+        - T-N80-CL-DR-001-C1 Ver: 1.0a Date: 1-23-2006
+  o LVS Command File
+      - CALIBRE LVS COMMAND FILE
+        - T-N90-CL-LS-001-C1 Ver: 1.3b Date: 07-06-2005
+  o Process Name
+      - 90nm LOGIC SALICIDE (1P9M, 1.0V/2.5V) (CLN90G)
+  o Process Spectre Models
+      - T-N90-LO-SP-002 Ver: 1.4 Date: 08-20-2004
+        Devices : nch_hvt & pch_hvt
+  o Extractor Technology File
+      - Using profile T-N90-LO-SP-002-B1 Rev: 1.4  Date: 10-29-2004
+        cln90g_v1.4_typical.nxtgrd
+	tsm090_6lm.map
+        RC extraction with star-rcxt
+
+EDA Support
+-----------
+This section lists the EDA tools and versions supported for this
+product release. The items indicated by the "*" were used during the
+QA testing of this release. This set of tools and versions corresponds
+to ARM EDA Package 4.1.
+
+    * Cadence NC-Sim (Verilog)
+        - 5.1
+    * Synopsys VCS (Verilog)
+        - 7.2
+    * Mentor ModelSim (Verilog)
+        - 6.0
+    * Cadence NC-Sim (VHDL)
+        - 5.1
+    * Mentor ModelSim (VHDL)
+        - 6.0
+    * Simulation Model SDF Compatibility
+        - SDF 2.1
+    * Synopsys Design Compiler
+        - 2004.12
+    o Synopsys Module Compiler 
+        - 2004.12
+    * Cadence RTL Compiler (.lib)
+        - 4.1
+    * Synopsys Physical Compiler 
+        - 2004.12
+    * Synopsys PrimeTime (Static Timing, Delay Calculation)
+        - 2004.12
+    * Synopsys Power Compiler
+        - 2004.12
+    o Synopsys PrimePower
+        - 2004.12
+    o Synopsys JupiterXT (Design Planning)
+        - 2004.12
+    o Cadence SoC Encounter/First Encounter (Design Planning)
+        - 4.1
+    * Cadence SoC Encounter/NanoRoute (Place & Route)
+        - 4.1
+    * Synopsys Astro (FRAM, CEL, .plib/.pdb, .lib/.db)
+        - 2004.12-SP1
+    * Mentor Graphics Calibre (GDSII, CDL)
+        - 2005.2_6.10
+    * Cadence Composer (Schematic Entry)
+        - DFII 5.0.33
+    o Synopsys DFT Compiler
+        - 2004.12
+    * Adobe Acrobat Reader (PDF Documentation)
+        - 5.0
+    * Cadence Spectre
+        - MMSIM6.0-ISR20050318
+
+Technology Implementation
+-------------------------
+This section provides information on items that may not be included in the
+foundry documentation.
+
+  Characterization Corners:
+
+        - Characterized library using the following conditions:
+	   scadv_tsmc_cln90g_hvt_ff_1p1v_0c   P/V/T = FF/1.1V/0C
+ 	   scadv_tsmc_cln90g_hvt_ff_1p1v_125c P/V/T = FF/1.1V/125C
+ 	   scadv_tsmc_cln90g_hvt_ff_1p1v_m40c P/V/T = FF/1.1V/-40C
+	   scadv_tsmc_cln90g_hvt_tt_1p0v_50c  P/V/T = TT/1.0V/50C
+	   scadv_tsmc_cln90g_hvt_tt_1p0v_25c  P/V/T = TT/1.0V/25C
+     	   scadv_tsmc_cln90g_hvt_ss_0p9v_125c P/V/T = SS/0.9V/125C
+
+  Mandatory Tapeout layers required for foundry:
+
+      - GDS2 text layer 63:63 is allocated by the foundry for IP marking.
+        *** This is a mandatory tapeout layer ****
+	
+Methodology
+-----------
+This section describes design flow issues that may be applicable to this
+release.
+
+  o Synopsys/Primetime/Pearl
+        - Please note that SDF generated with tool versions above
+          also require post-processing prior to back-annotation.
+          The following post-processing scripts are available:
+             
+              - Synopsys Primetime
+                aci/sc-ad/primetime/pt_postprocessor.pl             
+        - Please note that SDF generated with versions other than
+          those specified above may not annotate properly due to
+          various changes in the SDF output format.
+	  
+  o The FILL2ADTH cell has to be used to prevent latch-up violations at
+    chip level. Place the FILL2ADTH cell during standard cell
+    placement to meet process rules for taps.
+    
+  o The FILL1ADTH cell is intended to be used during place & route for the purpose of
+    continuing the metal1 rails, nwell, and any other layers needed to complete a
+    row in the event that two cells are unable to neighbor each other by abutment.
+
+    Due to the small geometries needed in the FILL1ADTH cell, some rules may fail on
+    this cell when DRC is run on FILL1ADTH in isolation. All DRC errors will disappear
+    when the cell is abutted next to another cell, as in a real design.
+
+     NW.A.1, Area >= 1.55
+     
+  o All cells will have LVS violations when LVS is run on the cells in	   	 
+    isolation because there is no direct well connection. This error	   	 
+    will disappear when the FILL2ADTH is used as well-tie cell. Well	   	 
+    text in gds2 has been used in verification.    
+	
+      - The TIEHIADTH and TIELOADTH cells may produce a PATHCHK ERC error in lvs
+        because the gate of the transistors doesn't have path to power/ground.
+
+      - The following cells will have ERC violations when LVS is run
+        at the cell level because there is no power/ground path to
+        the gates. All ERC errors will disappear when another cell is driving
+        these cells as in a real design.
+
+           MXI2DXLADTH MXI2DX1ADTH MXI2DX2ADTH MXI2DX4ADTH MXI2DX8AD
+
+      - The following cells will have ERC violations when you run LVS
+        because the gate of the transistors doesn't have path to power/ground.
+        The user has to add these cells manually into the design netlist to
+        pass the LVS as these cells have devices in them.
+
+        FILLCAP3ADTH   FILLCAP4ADTH   FILLCAP8ADTH   FILLCAP16ADTH   
+	FILLCAP32ADTH  FILLCAP64ADTH   	
+	
+Known Problems and Solutions
+----------------------------
+This section describes known problems and work-arounds as of the
+release date of this library.
+
+   o There are no known problems.
+------------------------------------------------------------------------ 
+	
+	
+	
+	
+	
+	
+	

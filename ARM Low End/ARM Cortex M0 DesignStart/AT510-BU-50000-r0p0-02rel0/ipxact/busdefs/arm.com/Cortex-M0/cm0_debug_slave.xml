@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    // =============================================================================
+    // This confidential and proprietary software may be used only as
+    // authorised by a licensing agreement from ARM Limited
+    //   (C) COPYRIGHT 2008-2009 ARM Limited
+    //       ALL RIGHTS RESERVED
+    // The entire notice above must be reproduced on all authorised
+    // copies and copies may only be made to the extent permitted
+    // by a licensing agreement from ARM Limited.
+    //
+    //      Release Information : Cortex-M0-AT510-r0p0-00rel0
+    //
+    // =============================================================================
+    //
+    // Purpose :
+    //           IP-XACT bus definition for the Cortex-M0 Debug Slave Port
+    //
+    // =============================================================================
+-->
+
+<spirit:busDefinition xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2/index.xsd ">
+  <spirit:vendor>arm.com</spirit:vendor>
+  <spirit:library>Cortex-M0</spirit:library>
+  <spirit:name>cm0_debug_slave</spirit:name>
+  <spirit:version>r0p0_0</spirit:version>
+  
+  <spirit:directConnection>false</spirit:directConnection>
+  
+  <spirit:signals>
+    
+    <!-- Clock -->
+    <spirit:signal>
+      <spirit:logicalName>CLK</spirit:logicalName>
+      <spirit:isClock>true</spirit:isClock>
+      <spirit:onSystem>
+        <spirit:group>ds_clk_reset</spirit:group>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>out</spirit:direction>
+      </spirit:onSystem>
+      <spirit:onMaster>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onMaster>
+      <spirit:onSlave>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onSlave>
+    </spirit:signal>
+    
+    <!-- Reset -->
+    <spirit:signal>
+      <spirit:logicalName>RESETn</spirit:logicalName>
+      <spirit:isReset>true</spirit:isReset>
+      <spirit:onSystem>
+        <spirit:group>ds_clk_reset</spirit:group>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>out</spirit:direction>
+      </spirit:onSystem>
+      <spirit:onMaster>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onMaster>
+      <spirit:onSlave>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onSlave>
+    </spirit:signal>
+    
+    <!-- Signals -->
+    <spirit:signal>
+      <spirit:logicalName>SLVRDATA</spirit:logicalName>
+      <spirit:isData>true</spirit:isData>
+      <spirit:onMaster>
+        <spirit:bitWidth>32</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onMaster>
+      <spirit:onSlave>
+        <spirit:bitWidth>32</spirit:bitWidth>
+        <spirit:direction>out</spirit:direction>
+      </spirit:onSlave>
+    </spirit:signal>
+    <spirit:signal>
+      <spirit:logicalName>SLVREADY</spirit:logicalName>
+      <spirit:onMaster>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onMaster>
+      <spirit:onSlave>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>out</spirit:direction>
+      </spirit:onSlave>
+    </spirit:signal>
+    <spirit:signal>
+      <spirit:logicalName>SLVRESP</spirit:logicalName>
+      <spirit:onMaster>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onMaster>
+      <spirit:onSlave>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>out</spirit:direction>
+      </spirit:onSlave>
+    </spirit:signal>
+    <spirit:signal>
+      <spirit:logicalName>SLVTRANS</spirit:logicalName>
+      <spirit:onMaster>
+        <spirit:bitWidth>2</spirit:bitWidth>
+        <spirit:direction>out</spirit:direction>
+      </spirit:onMaster>
+      <spirit:onSlave>
+        <spirit:bitWidth>2</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onSlave>
+    </spirit:signal>
+    <spirit:signal>
+      <spirit:logicalName>SLVSIZE</spirit:logicalName>
+      <spirit:onMaster>
+        <spirit:bitWidth>2</spirit:bitWidth>
+        <spirit:direction>out</spirit:direction>
+      </spirit:onMaster>
+      <spirit:onSlave>
+        <spirit:bitWidth>2</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onSlave>
+    </spirit:signal>
+    <spirit:signal>
+      <spirit:logicalName>SLVWRITE</spirit:logicalName>
+      <spirit:onMaster>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>out</spirit:direction>
+      </spirit:onMaster>
+      <spirit:onSlave>
+        <spirit:bitWidth>1</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onSlave>
+    </spirit:signal>
+    <spirit:signal>
+      <spirit:logicalName>SLVADDR</spirit:logicalName>
+      <spirit:onMaster>
+        <spirit:bitWidth>32</spirit:bitWidth>
+        <spirit:direction>out</spirit:direction>
+      </spirit:onMaster>
+      <spirit:onSlave>
+        <spirit:bitWidth>32</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onSlave>
+    </spirit:signal>
+    <spirit:signal>
+      <spirit:logicalName>SLVWDATA</spirit:logicalName>
+      <spirit:isData>true</spirit:isData>
+      <spirit:onMaster>
+        <spirit:bitWidth>32</spirit:bitWidth>
+        <spirit:direction>out</spirit:direction>
+      </spirit:onMaster>
+      <spirit:onSlave>
+        <spirit:bitWidth>32</spirit:bitWidth>
+        <spirit:direction>in</spirit:direction>
+      </spirit:onSlave>
+    </spirit:signal>
+  </spirit:signals>
+  
+</spirit:busDefinition>

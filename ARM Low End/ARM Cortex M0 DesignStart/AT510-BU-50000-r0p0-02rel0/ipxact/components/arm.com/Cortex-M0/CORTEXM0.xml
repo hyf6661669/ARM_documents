@@ -1,0 +1,3964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    // =============================================================================
+    // This confidential and proprietary software may be used only as
+    // authorised by a licensing agreement from ARM Limited
+    //   (C) COPYRIGHT 2008-2009 ARM Limited
+    //       ALL RIGHTS RESERVED
+    // The entire notice above must be reproduced on all authorised
+    // copies and copies may only be made to the extent permitted
+    // by a licensing agreement from ARM Limited.
+    //
+    //      SVN Information
+    //
+    //      Checked In          : $Date$
+    //
+    //      Revision            : $Revision$
+    //
+    //      Release Information : Cortex-M0-AT510-r0p0-00rel0
+    //
+    // =============================================================================
+    //
+    // Purpose :
+    //           IP-XACT component definition for Cortex-M0 (Processor Level)
+    //
+    // =============================================================================
+-->
+
+<spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1.2/index.xsd ">
+
+  <spirit:vendor>arm.com</spirit:vendor>
+  <spirit:library>Cortex-M0</spirit:library>
+  <spirit:name>CORTEXM0</spirit:name>
+  <spirit:version>r0p0_0</spirit:version>
+
+  <!-- Bus Interfaces -->
+  <spirit:busInterfaces>
+
+    <!-- External (AHBLite) Interface -->
+    <spirit:busInterface>
+      <spirit:name>AHBLite</spirit:name>
+      <spirit:busType spirit:vendor="amba.com" spirit:library="AMBA3" spirit:name="AHBLite" spirit:version="r1p0_6" />
+      <spirit:master>
+        <spirit:addressSpaceRef spirit:addressSpaceRef="AHBLite">
+          <spirit:baseAddress>0x00000000</spirit:baseAddress>
+        </spirit:addressSpaceRef>
+      </spirit:master>
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>HCLK</spirit:componentSignalName>
+          <spirit:busSignalName>HCLK</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HRESETn</spirit:componentSignalName>
+          <spirit:busSignalName>HRESETn</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HADDR</spirit:componentSignalName>
+          <spirit:busSignalName>HADDR</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HTRANS</spirit:componentSignalName>
+          <spirit:busSignalName>HTRANS</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HWRITE</spirit:componentSignalName>
+          <spirit:busSignalName>HWRITE</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HSIZE</spirit:componentSignalName>
+          <spirit:busSignalName>HSIZE</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HBURST</spirit:componentSignalName>
+          <spirit:busSignalName>HBURST</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HPROT</spirit:componentSignalName>
+          <spirit:busSignalName>HPROT</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HWDATA</spirit:componentSignalName>
+          <spirit:busSignalName>HWDATA</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HMASTLOCK</spirit:componentSignalName>
+          <spirit:busSignalName>HMASTLOCK</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HRDATA</spirit:componentSignalName>
+          <spirit:busSignalName>HRDATA</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HREADY</spirit:componentSignalName>
+          <spirit:busSignalName>HREADY</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HRESP</spirit:componentSignalName>
+          <spirit:busSignalName>HRESP</spirit:busSignalName>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <!-- Supplementary Master Port -->
+    <spirit:busInterface>
+      <spirit:name>CortexM0_SMP</spirit:name>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="Cortex-M0" spirit:name="cm0_smp" spirit:version="r0p0_0"/>
+      <spirit:master />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>SPECHTRANS</spirit:componentSignalName>
+          <spirit:busSignalName>SPECHTRANS</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HMASTER</spirit:componentSignalName>
+          <spirit:busSignalName>HMASTER</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>CODENSEQ</spirit:componentSignalName>
+          <spirit:busSignalName>CODENSEQ</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>CODEHINTDE</spirit:componentSignalName>
+          <spirit:busSignalName>CODEHINTDE</spirit:busSignalName>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+
+    <!-- WIC Interface -->
+
+    <spirit:busInterface>
+      <spirit:name>WICInterface</spirit:name>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="Cortex-M0" spirit:name="cm0_proc_wicinterface" spirit:version="r0p0_0"/>
+      <spirit:master/>
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>SCLK</spirit:componentSignalName>
+          <spirit:busSignalName>CLK</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>WICDSACKn</spirit:componentSignalName>
+          <spirit:busSignalName>WICDSACKn</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>WICLOAD</spirit:componentSignalName>
+          <spirit:busSignalName>WICLOAD</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>WICCLEAR</spirit:componentSignalName>
+          <spirit:busSignalName>WICCLEAR</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>WICMASKISR</spirit:componentSignalName>
+          <spirit:busSignalName>WICMASKISR</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>WICMASKNMI</spirit:componentSignalName>
+          <spirit:busSignalName>WICMASKNMI</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>WICMASKRXEV</spirit:componentSignalName>
+          <spirit:busSignalName>WICMASKRXEV</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+           <spirit:componentSignalName>WICDSREQn</spirit:componentSignalName>
+           <spirit:busSignalName>WICDSREQn</spirit:busSignalName>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+
+    <!-- The System Clock -->
+    <spirit:busInterface>
+      <spirit:name>SCLK</spirit:name>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="Cortex-M0" spirit:name="cm0_system_clk" spirit:version="r0p0_0"/>
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>SCLK</spirit:componentSignalName>
+          <spirit:busSignalName>SCLK</spirit:busSignalName>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <!-- Debug Triggers -->
+    <spirit:busInterface>
+      <spirit:name>DebugTriggers</spirit:name>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="CortexMCores" spirit:name="dbg_trigger_bus" spirit:version="r0p0_1" />
+      <spirit:slave/>
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>DCLK</spirit:componentSignalName>
+          <spirit:busSignalName>CLK</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>DBGRESETn</spirit:componentSignalName>
+          <spirit:busSignalName>RESETn</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>EDBGRQ</spirit:componentSignalName>
+          <spirit:busSignalName>EDBGRQ</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HALTED</spirit:componentSignalName>
+          <spirit:busSignalName>HALTED</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>DBGRESTART</spirit:componentSignalName>
+          <spirit:busSignalName>DBGRESTART</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>DBGRESTARTED</spirit:componentSignalName>
+          <spirit:busSignalName>DBGRESTARTED</spirit:busSignalName>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <!-- Debug Slave Interface -->
+    <spirit:busInterface>
+      <spirit:name>DebugSlave</spirit:name>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="Cortex-M0" spirit:name="cm0_debug_slave" spirit:version="r0p0_0" />
+      <spirit:slave>
+        <spirit:memoryMapRef spirit:memoryMapRef="debug_memory" />
+      </spirit:slave>
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>DCLK</spirit:componentSignalName>
+          <spirit:busSignalName>CLK</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>DBGRESETn</spirit:componentSignalName>
+          <spirit:busSignalName>RESETn</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVRDATA</spirit:componentSignalName>
+          <spirit:busSignalName>SLVRDATA</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVREADY</spirit:componentSignalName>
+          <spirit:busSignalName>SLVREADY</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVRESP</spirit:componentSignalName>
+          <spirit:busSignalName>SLVRESP</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVTRANS</spirit:componentSignalName>
+          <spirit:busSignalName>SLVTRANS</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVSIZE</spirit:componentSignalName>
+          <spirit:busSignalName>SLVSIZE</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVWRITE</spirit:componentSignalName>
+          <spirit:busSignalName>SLVWRITE</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVADDR</spirit:componentSignalName>
+          <spirit:busSignalName>SLVADDR</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLVWDATA</spirit:componentSignalName>
+          <spirit:busSignalName>SLVWDATA</spirit:busSignalName>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <!-- Interrupt Interfaces -->
+    <spirit:busInterface>
+      <spirit:name>Events</spirit:name>
+      <spirit:busType spirit:vendor="arm.com" spirit:library="CortexMCores" spirit:name="sleep_bus" spirit:version="r0p0_1"/>
+      <spirit:master />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>SCLK</spirit:componentSignalName>
+          <spirit:busSignalName>CLK</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>HRESETn</spirit:componentSignalName>
+          <spirit:busSignalName>RESETn</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLEEPING</spirit:componentSignalName>
+          <spirit:busSignalName>SLEEPING</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLEEPDEEP</spirit:componentSignalName>
+          <spirit:busSignalName>SLEEPDEEP</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLEEPHOLDREQn</spirit:componentSignalName>
+          <spirit:busSignalName>SLEEPHOLDREQn</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>SLEEPHOLDACKn</spirit:componentSignalName>
+          <spirit:busSignalName>SLEEPHOLDACKn</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>TXEV</spirit:componentSignalName>
+          <spirit:busSignalName>TXEV</spirit:busSignalName>
+        </spirit:signalName>
+        <spirit:signalName>
+          <spirit:componentSignalName>RXEV</spirit:componentSignalName>
+          <spirit:busSignalName>RXEV</spirit:busSignalName>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ0</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>0</spirit:left>
+          <spirit:right>0</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ1</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>1</spirit:left>
+          <spirit:right>1</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ2</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>2</spirit:left>
+          <spirit:right>2</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ3</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>3</spirit:left>
+          <spirit:right>3</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ4</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>4</spirit:left>
+          <spirit:right>4</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ5</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>5</spirit:left>
+          <spirit:right>5</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ6</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>6</spirit:left>
+          <spirit:right>6</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ7</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>7</spirit:left>
+          <spirit:right>7</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ8</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>8</spirit:left>
+          <spirit:right>8</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ9</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>9</spirit:left>
+          <spirit:right>9</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ10</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>10</spirit:left>
+          <spirit:right>10</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ11</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>11</spirit:left>
+          <spirit:right>11</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ12</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>12</spirit:left>
+          <spirit:right>12</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ13</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>13</spirit:left>
+          <spirit:right>13</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ14</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>14</spirit:left>
+          <spirit:right>14</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ15</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>15</spirit:left>
+          <spirit:right>15</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ16</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>16</spirit:left>
+          <spirit:right>16</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ17</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>17</spirit:left>
+          <spirit:right>17</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ18</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>18</spirit:left>
+          <spirit:right>18</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ19</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>19</spirit:left>
+          <spirit:right>19</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ20</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>20</spirit:left>
+          <spirit:right>20</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ21</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>21</spirit:left>
+          <spirit:right>21</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ22</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>22</spirit:left>
+          <spirit:right>22</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ23</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>23</spirit:left>
+          <spirit:right>23</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ24</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>24</spirit:left>
+          <spirit:right>24</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ25</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>25</spirit:left>
+          <spirit:right>25</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ26</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>26</spirit:left>
+          <spirit:right>26</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ27</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>27</spirit:left>
+          <spirit:right>27</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ28</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>28</spirit:left>
+          <spirit:right>28</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ29</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>29</spirit:left>
+          <spirit:right>29</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ30</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>30</spirit:left>
+          <spirit:right>30</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>IRQ31</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+          <spirit:componentSignalName>IRQ</spirit:componentSignalName>
+          <spirit:busSignalName>IRQ</spirit:busSignalName>
+          <spirit:left>31</spirit:left>
+          <spirit:right>31</spirit:right>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+
+    <spirit:busInterface>
+      <spirit:name>NMI</spirit:name>
+      <spirit:busType spirit:version="1.0" spirit:library="busdef.interrupt" spirit:name="interrupt" spirit:vendor="spiritconsortium.org" />
+      <spirit:slave />
+      <spirit:connection>explicit</spirit:connection>
+      <spirit:signalMap>
+        <spirit:signalName>
+            <spirit:componentSignalName>NMI</spirit:componentSignalName>
+            <spirit:busSignalName>IRQ</spirit:busSignalName>
+        </spirit:signalName>
+      </spirit:signalMap>
+    </spirit:busInterface>
+  </spirit:busInterfaces>
+
+  <!-- Component Address Spaces -->
+  <spirit:addressSpaces>
+
+    <!-- External AHB-Lite Interface -->
+    <spirit:addressSpace>
+      <spirit:name>AHBLite</spirit:name>
+      <spirit:range>3584M</spirit:range>
+      <spirit:width>32</spirit:width>
+    </spirit:addressSpace>
+
+    <spirit:addressSpace>
+      <spirit:name>Vendor_SYS</spirit:name>
+      <spirit:range>511M</spirit:range>
+      <spirit:width>32</spirit:width>
+
+      <spirit:localMemoryMap>
+        <spirit:addressBlock>
+          <spirit:baseAddress>0xE0100000</spirit:baseAddress>
+          <spirit:range>511M</spirit:range>
+          <spirit:width>32</spirit:width>
+          <spirit:usage>reserved</spirit:usage>
+        </spirit:addressBlock>
+      </spirit:localMemoryMap>
+    </spirit:addressSpace>
+
+    <!-- Internal PPB Interface -->
+    <spirit:addressSpace>
+      <spirit:name>PPB</spirit:name>
+      <spirit:range>1M</spirit:range>
+      <spirit:width>32</spirit:width>
+
+      <spirit:localMemoryMap>
+        <spirit:addressBlock>
+          <spirit:baseAddress>0xE0000000</spirit:baseAddress>
+          <spirit:range>1M</spirit:range>
+          <spirit:width>32</spirit:width>
+          <spirit:usage>register</spirit:usage>
+        </spirit:addressBlock>
+      </spirit:localMemoryMap>
+    </spirit:addressSpace>
+  </spirit:addressSpaces>
+
+  <!-- Slave interface Memory Map -->
+  <spirit:memoryMaps>
+    <spirit:memoryMap>
+      <spirit:name>debug_memory</spirit:name>
+        <!--
+            ==========================================================
+            DW Unit Registers: 0xE0001000 - 0xE0001FFF
+            ==========================================================
+        -->
+        <spirit:addressBlock>
+          <spirit:baseAddress>0xE0001000</spirit:baseAddress>
+          <spirit:range>4K</spirit:range>
+          <spirit:width>32</spirit:width>
+
+          <!-- DW Control Register: 0xE0001000 -->
+          <spirit:register>
+            <spirit:name>DWT_CTRL</spirit:name>
+            <spirit:addressOffset>0x0000</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-only</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x20000000</spirit:value>
+              <spirit:mask>0xEFFFFFFF</spirit:mask><!-- NUMCOMP field depends on the number of implemented comparators. -->
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>NUMCOMP</spirit:name>
+              <spirit:bitOffset>28</spirit:bitOffset>
+              <spirit:bitWidth>4</spirit:bitWidth>
+              <spirit:access>read-only</spirit:access>
+              <spirit:description>Number of comparators. This read-only field contains 0b0010 or 0b0001 to indicate two or one comparators.</spirit:description>
+              <spirit:values>
+                <spirit:value>0x2</spirit:value>
+                <spirit:description>Indicates two comparators</spirit:description>
+                <spirit:name>0b0010</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x1</spirit:value>
+                <spirit:description>Indicates one comparator</spirit:description>
+                <spirit:name>0b0001</spirit:name>
+              </spirit:values>
+            </spirit:field>
+            <spirit:description>Use the DW Control Register to check how many comparators are available.</spirit:description>
+          </spirit:register>
+
+          <!-- DW Program Counter Sample Register: 0xE000101C -->
+          <spirit:register>
+            <spirit:name>DWT_PCSR</spirit:name>
+            <spirit:addressOffset>0x001C</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-only</spirit:access>
+
+            <spirit:field>
+              <spirit:name>EIASAMPLE</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>32</spirit:bitWidth>
+              <spirit:access>read-only</spirit:access>
+              <spirit:description>Execution instruction address sample, or 0xFFFFFFFF if the core is halted</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the DW Program Counter Sample Register (DWPCSR) to enable coarse-grained software profiling using a debug agent, without changing the currently executing code. If the core is not in debug state, the value returned is the instruction address of a recently executed instruction. If the core is in debug state, the value returned is 0xFFFFFFFF.</spirit:description>
+          </spirit:register>
+
+          <!-- DW Comparator Register 0: 0xE0001020 -->
+          <spirit:register>
+            <spirit:name>DWT_COMP0</spirit:name>
+            <spirit:addressOffset>0x0020</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:field>
+              <spirit:name>COMP</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>32</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Value to compare against PC or the data address as given by the DWT_FUNCTION Register. A debugger must align the value to DWT_MASK, otherwise operation is UNPREDICTABLE.</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the DW Comparator Registers to write the values that trigger watchpoint events</spirit:description>
+          </spirit:register>
+
+          <!-- DW Mask Register 0: 0xE0001024 -->
+          <spirit:register>
+            <spirit:name>DWT_MASK0</spirit:name>
+            <spirit:addressOffset>0x0024</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:field>
+              <spirit:name>MASK</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>4</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Mask applied to data address when matching against COMP. This is the size of the ignore mask.</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the DW Mask Registers to apply a mask to data addresses when matching against COMP</spirit:description>
+          </spirit:register>
+
+          <!-- DW Function Register 0: 0xE0001028 -->
+          <spirit:register>
+            <spirit:name>DWT_FUNCTION0</spirit:name>
+            <spirit:addressOffset>0x0028</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:field>
+              <spirit:name>FUNCTION</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>4</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Function setting</spirit:description>
+              <spirit:values>
+                <spirit:value>0x0</spirit:value>
+                <spirit:description>Disabled</spirit:description>
+                <spirit:name>0b0000</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x4</spirit:value>
+                <spirit:description>Watchpoint on PC match</spirit:description>
+                <spirit:name>0b0100</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x5</spirit:value>
+                <spirit:description>Watchpoint on read address</spirit:description>
+                <spirit:name>0b0101</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x6</spirit:value>
+                <spirit:description>Watchpoint on write to address</spirit:description>
+                <spirit:name>0b0110</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x7</spirit:value>
+                <spirit:description>Watchpoint on read or write address</spirit:description>
+                <spirit:name>0b0111</spirit:name>
+              </spirit:values>
+            </spirit:field>
+
+            <spirit:description>Use the DW Function Registers to control the operation of the comparator. Each comparator can Match against either the PC or the data address and halt the core. This function is in conjunction with DWT_COMP</spirit:description>
+          </spirit:register>
+
+          <!-- DW Comparator Register 1: 0xE0001030 -->
+          <spirit:register>
+            <spirit:name>DWT_COMP1</spirit:name>
+            <spirit:addressOffset>0x0030</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:field>
+              <spirit:name>COMP</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>32</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Value to compare against PC or the data address as given by the DWT_FUNCTION Register. A debugger must align this value to DWT_MASK, otherwise operation is UNPREDICTABLE.</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the DW Comparator Registers to write the values that trigger watchpoint events</spirit:description>
+          </spirit:register>
+
+          <!-- DW Mask Register 1: 0xE0001034 -->
+          <spirit:register>
+            <spirit:name>DWT_MASK1</spirit:name>
+            <spirit:addressOffset>0x0034</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:field>
+              <spirit:name>MASK</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>4</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Mask applied to data address when matching against COMP. This is the size of the ignore mask.</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the DW Mask Registers to apply a mask to data addresses when matching against COMP</spirit:description>
+          </spirit:register>
+
+          <!-- DW Function Register 1: 0xE0001038 -->
+          <spirit:register>
+            <spirit:name>DWT_FUNCTION1</spirit:name>
+            <spirit:addressOffset>0x0038</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>FUNCTION</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>4</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Function setting</spirit:description>
+              <spirit:values>
+                <spirit:value>0x0</spirit:value>
+                <spirit:description>Disabled</spirit:description>
+                <spirit:name>0b0000</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x4</spirit:value>
+                <spirit:description>Watchpoint on PC match</spirit:description>
+                <spirit:name>0b0100</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x5</spirit:value>
+                <spirit:description>Watchpoint on read address</spirit:description>
+                <spirit:name>0b0101</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x6</spirit:value>
+                <spirit:description>Watchpoint on write to address</spirit:description>
+                <spirit:name>0b0110</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x7</spirit:value>
+                <spirit:description>Watchpoint on read or write address</spirit:description>
+                <spirit:name>0b0111</spirit:name>
+              </spirit:values>
+            </spirit:field>
+
+            <spirit:description>Use the DW Function Registers to control the operation of the comparator. Each comparator can Match against either the PC or the data address and halt the core. This function is in conjunction with DWT_COMP</spirit:description>
+          </spirit:register>
+
+        </spirit:addressBlock>
+
+        <!--
+            ==========================================================
+            BP Unit Registers: 0xE0002000 - 0xE0002FFF
+            ==========================================================
+        -->
+        <spirit:addressBlock>
+          <spirit:baseAddress>0xE0002000</spirit:baseAddress>
+          <spirit:range>4K</spirit:range>
+          <spirit:width>32</spirit:width>
+
+          <!-- Breakpoint Control Register: 0xE0002000 -->
+          <spirit:register>
+              <spirit:name>BP_CTRL</spirit:name>
+              <spirit:addressOffset>0x0000</spirit:addressOffset>
+              <spirit:size>32</spirit:size>
+              <spirit:access>read-write</spirit:access>
+
+              <spirit:reset>
+                  <spirit:value>0x00000040</spirit:value>
+                  <spirit:mask>0x00000001</spirit:mask><!-- NUM_CODE1 depends on number of breakpoint comparators -->
+              </spirit:reset>
+
+              <spirit:field>
+                  <spirit:name>ENABLE</spirit:name>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>1</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>Breakpoint unit enable bit. DBGRESETn clears the ENABLE bit.</spirit:description>
+                  <spirit:values>
+                      <spirit:value>0x1</spirit:value>
+                      <spirit:description>Breakpoint unit enabled</spirit:description>
+                      <spirit:name>0b1</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x0</spirit:value>
+                      <spirit:description>Breakpoint unit disabled</spirit:description>
+                      <spirit:name>0b0</spirit:name>
+                  </spirit:values>
+              </spirit:field>
+
+              <spirit:field>
+                  <spirit:name>KEY</spirit:name>
+                  <spirit:bitOffset>1</spirit:bitOffset>
+                  <spirit:bitWidth>1</spirit:bitWidth>
+                  <spirit:access>write-only</spirit:access>
+                  <spirit:description>Key field. To write to the Breakpoint Control Register, you must write a 1 to this write-only bit. This bit reads as zero.</spirit:description>
+              </spirit:field>
+
+              <spirit:field>
+                  <spirit:name>NUM_CODE</spirit:name>
+                  <spirit:bitOffset>4</spirit:bitOffset>
+                  <spirit:bitWidth>4</spirit:bitWidth>
+                  <spirit:access>read-only</spirit:access>
+                  <spirit:description>Number of comparators.</spirit:description>
+              </spirit:field>
+
+              <spirit:description>Use the Breakpoint Control Register to enable the Breakpoint block</spirit:description>
+          </spirit:register>
+
+          <!-- Breakpoint Comparator Register 0: 0xE0002008 -->
+          <spirit:register>
+              <spirit:name>BP_COMP0</spirit:name>
+              <spirit:addressOffset>0x0008</spirit:addressOffset>
+              <spirit:size>32</spirit:size>
+              <spirit:access>read-write</spirit:access>
+
+              <spirit:reset>
+                  <spirit:value>0x00000000</spirit:value>
+                  <spirit:mask>0x00000001</spirit:mask>
+              </spirit:reset>
+
+              <spirit:field>
+                  <spirit:name>ENABLE</spirit:name>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>1</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>Compare enable for Breakpoint Comparator Register 0. The ENABLE bit of BP_CTRL must also be set to enable comparisons. DBGRESETn clears the ENABLE bit.</spirit:description>
+                  <spirit:values>
+                      <spirit:value>0x0</spirit:value>
+                      <spirit:description>Breakpoint Comparator Register 0 compare disabled</spirit:description>
+                      <spirit:name>0b0</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x1</spirit:value>
+                      <spirit:description>Breakpoint Comparator Register 0 compare enabled</spirit:description>
+                      <spirit:name>0b1</spirit:name>
+                  </spirit:values>
+              </spirit:field>
+
+              <spirit:field>
+                  <spirit:name>COMP</spirit:name>
+                  <spirit:bitOffset>2</spirit:bitOffset>
+                  <spirit:bitWidth>27</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>Comparison address, UNKNOWN on reset.</spirit:description>
+              </spirit:field>
+
+              <spirit:field>
+                  <spirit:name>BP_MATCH</spirit:name>
+                  <spirit:bitOffset>30</spirit:bitOffset>
+                  <spirit:bitWidth>2</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>This selects what happens when the COMP address is matched</spirit:description>
+                  <spirit:values>
+                      <spirit:value>0x0</spirit:value>
+                      <spirit:description>no breakpoint generated</spirit:description>
+                      <spirit:name>0b00</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x1</spirit:value>
+                      <spirit:description>set breakpoint on lower halfword, upper is unaffected</spirit:description>
+                      <spirit:name>0b01</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x2</spirit:value>
+                      <spirit:description>set breakpoint on upper halfword, lower is unaffected</spirit:description>
+                      <spirit:name>0b10</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x3</spirit:value>
+                      <spirit:description>set breakpoint on both lower and upper halfwords</spirit:description>
+                      <spirit:name>0b11</spirit:name>
+                  </spirit:values>
+              </spirit:field>
+
+              <spirit:description>Use the Breakpoint Comparator Registers to store the values to compare with the instruction address.</spirit:description>
+          </spirit:register>
+
+          <!-- Breakpoint Comparator Register 1: 0xE000200C -->
+          <spirit:register>
+              <spirit:name>BP_COMP1</spirit:name>
+              <spirit:addressOffset>0x000C</spirit:addressOffset>
+              <spirit:size>32</spirit:size>
+              <spirit:access>read-write</spirit:access>
+
+              <spirit:reset>
+                  <spirit:value>0x00000000</spirit:value>
+                  <spirit:mask>0x00000001</spirit:mask>
+              </spirit:reset>
+
+              <spirit:field>
+                  <spirit:name>ENABLE</spirit:name>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>1</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>Comparison address, UNKNOWN on reset.</spirit:description>
+                  <spirit:values>
+                      <spirit:value>0x0</spirit:value>
+                      <spirit:description>Breakpoint Comparator Register 1 compare disabled</spirit:description>
+                      <spirit:name>0b0</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x1</spirit:value>
+                      <spirit:description>Breakpoint Comparator Register 1 compare enabled</spirit:description>
+                      <spirit:name>0b1</spirit:name>
+                  </spirit:values>
+              </spirit:field>
+
+              <spirit:field>
+                  <spirit:name>COMP</spirit:name>
+                  <spirit:bitOffset>2</spirit:bitOffset>
+                  <spirit:bitWidth>27</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>Comparison address. Although it is architecturally Unpredictable whether breakpoint matches on the address of the second halfword of a 32-bit instruction to generates a debug event, in this processor it is predictable and a debug event is generated.</spirit:description>
+              </spirit:field>
+
+              <spirit:field>
+                  <spirit:name>BP_MATCH</spirit:name>
+                  <spirit:bitOffset>30</spirit:bitOffset>
+                  <spirit:bitWidth>2</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>This selects what happens when the COMP address is matched</spirit:description>
+                  <spirit:values>
+                      <spirit:value>0x0</spirit:value>
+                      <spirit:description>No breakpoint generated</spirit:description>
+                      <spirit:name>0b00</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x1</spirit:value>
+                      <spirit:description>Set breakpoint on lower halfword, upper is unaffected</spirit:description>
+                      <spirit:name>0b01</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x2</spirit:value>
+                      <spirit:description>Set breakpoint on upper halfword, lower is unaffected</spirit:description>
+                      <spirit:name>0b10</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x3</spirit:value>
+                      <spirit:description>Set breakpoint on both lower and upper halfwords</spirit:description>
+                      <spirit:name>0b11</spirit:name>
+                  </spirit:values>
+              </spirit:field>
+
+              <spirit:description>Use the Breakpoint Comparator Registers to store the values to compare with the instruction address.</spirit:description>
+          </spirit:register>
+
+          <!-- Breakpoint Comparator Register 2: 0xE0002010 -->
+          <spirit:register>
+              <spirit:name>BP_COMP2</spirit:name>
+              <spirit:addressOffset>0x0010</spirit:addressOffset>
+              <spirit:size>32</spirit:size>
+              <spirit:access>read-write</spirit:access>
+
+              <spirit:reset>
+                  <spirit:value>0x00000000</spirit:value>
+                  <spirit:mask>0x00000001</spirit:mask>
+              </spirit:reset>
+
+              <spirit:field>
+                  <spirit:name>ENABLE</spirit:name>
+                  <spirit:bitOffset>0</spirit:bitOffset>
+                  <spirit:bitWidth>1</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>Compare enable for Breakpoint Comparator Register 2. The ENABLE bit of BP_CTRL must also be set to enable comparisons. DBGRESETn clears the ENABLE bit.</spirit:description>
+                  <spirit:values>
+                      <spirit:value>0x0</spirit:value>
+                      <spirit:description>Breakpoint Comparator Register 2 compare disabled</spirit:description>
+                      <spirit:name>0b0</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x1</spirit:value>
+                      <spirit:description>Breakpoint Comparator Register 2 compare enabled</spirit:description>
+                      <spirit:name>0b1</spirit:name>
+                  </spirit:values>
+              </spirit:field>
+
+              <spirit:field>
+                  <spirit:name>COMP</spirit:name>
+                  <spirit:bitOffset>2</spirit:bitOffset>
+                  <spirit:bitWidth>27</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>Comparison address, UNKNOWN on reset.</spirit:description>
+              </spirit:field>
+
+              <spirit:field>
+                  <spirit:name>BP_MATCH</spirit:name>
+                  <spirit:bitOffset>30</spirit:bitOffset>
+                  <spirit:bitWidth>2</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>This selects what happens when the COMP address is matched</spirit:description>
+                  <spirit:values>
+                      <spirit:value>0x0</spirit:value>
+                      <spirit:description>No breakpoint matching</spirit:description>
+                      <spirit:name>0b00</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x1</spirit:value>
+                      <spirit:description>Set breakpoint on lower halfword, upper is unaffected</spirit:description>
+                      <spirit:name>0b01</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x2</spirit:value>
+                      <spirit:description>Set breakpoint on upper halfword, lower is unaffected</spirit:description>
+                      <spirit:name>0b10</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x3</spirit:value>
+                      <spirit:description>Set breakpoint on both lower and upper halfwords</spirit:description>
+                      <spirit:name>0b11</spirit:name>
+                  </spirit:values>
+              </spirit:field>
+
+              <spirit:description>Use the Breakpoint Comparator Registers to store the values to compare with the PC address.</spirit:description>
+          </spirit:register>
+
+          <!-- Breakpoint Comparator Register 3: 0xE0002014 -->
+          <spirit:register>
+            <spirit:name>BP_COMP3</spirit:name>
+            <spirit:addressOffset>0x0014</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+              <spirit:mask>0x00000001</spirit:mask>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>ENABLE</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>1</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Compare enable for Breakpoint Comparator Register 3. The ENABLE bit of BP_CTRL must also be set to enable comparisons. DBGRESETn clears the ENABLE bit.</spirit:description>
+              <spirit:values>
+                <spirit:value>0x0</spirit:value>
+                <spirit:description>Breakpoint Comparator Register 3 compare disabled</spirit:description>
+                <spirit:name>0b0</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x1</spirit:value>
+                <spirit:description>Breakpoint Comparator Register 3 compare enabled</spirit:description>
+                <spirit:name>0b1</spirit:name>
+              </spirit:values>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>COMP</spirit:name>
+              <spirit:bitOffset>2</spirit:bitOffset>
+              <spirit:bitWidth>27</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Comparison address, UNKNOWN on reset.</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>BP_MATCH</spirit:name>
+              <spirit:bitOffset>30</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>This selects what happens when the COMP address is matched</spirit:description>
+              <spirit:values>
+                <spirit:value>0x0</spirit:value>
+                <spirit:description>No breakpoint generated</spirit:description>
+                <spirit:name>0b00</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x1</spirit:value>
+                <spirit:description>Set breakpoint on lower halfword, upper is unaffected</spirit:description>
+                <spirit:name>0b01</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x2</spirit:value>
+                <spirit:description>Set breakpoint on upper halfword, lower is unaffected</spirit:description>
+                <spirit:name>0b10</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x3</spirit:value>
+                <spirit:description>Set breakpoint on both lower and upper halfwords</spirit:description>
+                <spirit:name>0b11</spirit:name>
+              </spirit:values>
+          </spirit:field>
+
+          <spirit:description>Use the Breakpoint Comparator Registers to store the values to compare with the instruction address.</spirit:description>
+          </spirit:register>
+
+        </spirit:addressBlock>
+
+        <!--
+            ===============================================================
+            NVIC and SysTick Registers: 0xE000E000 - 0xE000ECFF
+            ===============================================================
+        -->
+        <spirit:addressBlock>
+          <spirit:baseAddress>0xE000E000</spirit:baseAddress>
+          <spirit:range>3K</spirit:range>
+          <spirit:width>32</spirit:width>
+
+          <!-- Auxiliary Control Register: 0xE000E008 -->
+          <spirit:register>
+            <spirit:name>ACTLR</spirit:name>
+            <spirit:addressOffset>0x0008</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-only</spirit:access>
+
+            <spirit:field>
+              <spirit:name>ACTLR</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>32</spirit:bitWidth>
+              <spirit:values>
+                <spirit:value>0x00000000</spirit:value>
+                <spirit:description>ACTLR is RAZ.</spirit:description>
+                <spirit:name>0x00000000</spirit:name>
+              </spirit:values>
+            </spirit:field>
+
+          </spirit:register>
+
+          <!-- SysTick Control and Status Register: 0xE000E010 -->
+          <spirit:register>
+            <spirit:name>STCSR</spirit:name>
+            <spirit:addressOffset>0x0010</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:field>
+              <spirit:name>ENABLE</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>1</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Enable SysTick counter</spirit:description>
+
+              <spirit:values>
+                <spirit:value>0x0</spirit:value>
+                <spirit:description>counter disabled</spirit:description>
+                <spirit:name>0b0</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x1</spirit:value>
+                <spirit:description>Counter operates in a multi-shot way. That is, counter loads with the Reload value and then begins counting down. On reaching 0, it sets the COUNTFLAG to 1 and optionally pends the SysTick handler, based on TICKINT. It then loads the Reload value again, and begins counting.</spirit:description>
+                <spirit:name>0b1</spirit:name>
+              </spirit:values>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>TICKINT</spirit:name>
+              <spirit:bitOffset>1</spirit:bitOffset>
+              <spirit:bitWidth>1</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+
+              <spirit:values>
+                <spirit:value>0x0</spirit:value>
+                <spirit:description>counting down to zero does not pend the SysTick handler. Software can use COUNTFLAG to determine if the SysTick handler has ever counted to zero.</spirit:description>
+                <spirit:name>0b0</spirit:name>
+              </spirit:values>
+              <spirit:values>
+                <spirit:value>0x1</spirit:value>
+                <spirit:description>counting down to zero pends the SysTick handler.</spirit:description>
+                <spirit:name>0b1</spirit:name>
+              </spirit:values>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>CLKSOURCE</spirit:name>
+              <spirit:bitOffset>2</spirit:bitOffset>
+              <spirit:bitWidth>1</spirit:bitWidth>
+              <spirit:access>read-only</spirit:access>
+              <spirit:description>Always reads as one if STCALIB reports NOREF. 1 = core clock. Indicates that SysTick uses the processor clock, HCLK</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>COUNTFLAG</spirit:name>
+              <spirit:bitOffset>16</spirit:bitOffset>
+              <spirit:bitWidth>1</spirit:bitWidth>
+              <spirit:access>read-only</spirit:access>
+              <spirit:description>Returns 1 if timer counted to 0 since last time this was read. Clears on read by application or debugger.</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the SysTick Control and Status Register to enable the SysTick features.</spirit:description>
+          </spirit:register>
+
+          <!-- SysTick Reload Value Register: 0xE000E014 -->
+          <spirit:register>
+            <spirit:name>STRVR</spirit:name>
+            <spirit:addressOffset>0x0014</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:field>
+              <spirit:name>RELOAD</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>24</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Value to load into the SysTick Current Value Register when the counter reaches 0.</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the SysTick Reload Value Register to specify the start value to load into the current value register when the counter reaches 0. It can be any value between 0 and 0x00FFFFFF. A start value of 0 is possible, but has no effect because the SysTick interrupt and COUNTFLAG are activated when counting from 1 to 0. The reset value of this register is UNKNOWN.</spirit:description>
+          </spirit:register>
+
+          <!-- SysTick Current Value Register: 0xE000E018 -->
+          <spirit:register>
+            <spirit:name>STCVR</spirit:name>
+            <spirit:addressOffset>0x0018</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:field>
+              <spirit:name>CURRENT</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>24</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Reads return the current value of the SysTick counter. This register is write-clear. Writing to it with any value clears the register to 0. Clearing this register also clears the COUNTFLAG bit of the SysTick Control and Status Register.</spirit:description>
+              </spirit:field>
+
+              <spirit:description>Use the SysTick Current Value Register to find the current value in the register. The reset value of this register is UNKNOWN.</spirit:description>
+          </spirit:register>
+
+          <!-- SysTick Calibration Value Register: 0xE000E01C -->
+          <spirit:register>
+            <spirit:name>STCR</spirit:name>
+            <spirit:addressOffset>0x001C</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-only</spirit:access>
+            <spirit:reset>
+              <spirit:value>0x80000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>TENMS</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>24</spirit:bitWidth>
+              <spirit:access>read-only</spirit:access>
+              <spirit:description>An optional Reload value to be used for 10ms (100Hz) timing, subject to system clock skew errors. If the value reads as 0, the calibration value is not known.</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>SKEW</spirit:name>
+              <spirit:bitOffset>30</spirit:bitOffset>
+              <spirit:bitWidth>1</spirit:bitWidth>
+              <spirit:access>read-only</spirit:access>
+              <spirit:description>If reads as 1, the calibration value for 10ms is inexact (due to clock frequency).</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>NOREF</spirit:name>
+              <spirit:bitOffset>31</spirit:bitOffset>
+              <spirit:bitWidth>1</spirit:bitWidth>
+              <spirit:access>read-only</spirit:access>
+              <spirit:description>If reads as 1, the Reference clock is not provided - the CLKSOURCE bit of the SysTick Control and Status register will be forced to 1 and cannot be cleared to 0.</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the SysTick Calibration Value Register to enable software to scale to any required speed using divide and multiply.</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Set Enable Register: 0xE000E100 -->
+          <spirit:register>
+            <spirit:name>ISER</spirit:name>
+            <spirit:addressOffset>0x0100</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>SETENA</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>32</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Writing 0 to a SETENA bit has no effect, writing 1 to a bit enables the corresponding interrupt. Reading the bit returns its current enable state. Reset clears the SETENA fields.</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Set-Enable Register to enable interrupts and determine which interrupts are currently enabled.</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Clear Enable Register: 0xE000E180 -->
+          <spirit:register>
+            <spirit:name>ICER</spirit:name>
+            <spirit:addressOffset>0x0180</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>CLRENA</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>32</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Writing 0 to a CLRENA bit has no effect, writing 1 to a bit disables the corresponding interrupt. Reading the bit returns its current enable state. Reset clears the CLRENA field.</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Clear-Enable Registers to disable interrupts and determine which interrupts are currently enabled.</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Set Pending Register: 0xE000E200 -->
+          <spirit:register>
+            <spirit:name>ISPR</spirit:name>
+            <spirit:addressOffset>0x0200</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>SETPEND</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>32</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Interrupt set-pending bits for a: Write: 1 = pend interrupt 0 = no effect; Read: 1 = interrupt is pending 0 = interrupt is not pending.</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Set-Pending Register to force interrupts into the pending state and determine which interrupts are currently pending</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Clear Pending Register: 0xE000E280 -->
+          <spirit:register>
+            <spirit:name>ICPR</spirit:name>
+            <spirit:addressOffset>0x0280</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>CLRPEND</spirit:name>
+              <spirit:bitOffset>0</spirit:bitOffset>
+              <spirit:bitWidth>32</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Interrupt clear-pending bits: Write: 1 = clear interrupt pending bit, 0 = no effect; Read: 1 = interrupt is pending 0 = interrupt is not pending.</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Clear-Pending Register to clear pending interrupts and determine which interrupts are currently pending.</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Priority Register 0: 0xE000E400 -->
+          <spirit:register>
+            <spirit:name>IPR0</spirit:name>
+            <spirit:addressOffset>0x0400</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>IP_0</spirit:name>
+              <spirit:bitOffset>6</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 0</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_1</spirit:name>
+              <spirit:bitOffset>14</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 1</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_2</spirit:name>
+              <spirit:bitOffset>22</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 2</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_3</spirit:name>
+              <spirit:bitOffset>30</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 3</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Priority Register 1: 0xE000E404 -->
+          <spirit:register>
+            <spirit:name>IPR1</spirit:name>
+            <spirit:addressOffset>0x0404</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>IP_4</spirit:name>
+              <spirit:bitOffset>6</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 4</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_5</spirit:name>
+              <spirit:bitOffset>14</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 5</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_6</spirit:name>
+              <spirit:bitOffset>22</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 6</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_7</spirit:name>
+              <spirit:bitOffset>30</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 7</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Priority Register 2: 0xE000E408 -->
+          <spirit:register>
+            <spirit:name>IPR2</spirit:name>
+            <spirit:addressOffset>0x0408</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>IP_8</spirit:name>
+              <spirit:bitOffset>6</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 8</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_9</spirit:name>
+              <spirit:bitOffset>14</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 9</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_10</spirit:name>
+              <spirit:bitOffset>22</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 10</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_11</spirit:name>
+              <spirit:bitOffset>30</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 11</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Priority Register 3: 0xE000E40C -->
+          <spirit:register>
+            <spirit:name>IPR3</spirit:name>
+            <spirit:addressOffset>0x040C</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>IP_12</spirit:name>
+              <spirit:bitOffset>6</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 12</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_13</spirit:name>
+              <spirit:bitOffset>14</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 13</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_14</spirit:name>
+              <spirit:bitOffset>22</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 14</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_15</spirit:name>
+              <spirit:bitOffset>30</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 15</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Priority Register 4: 0xE000E410 -->
+          <spirit:register>
+            <spirit:name>IPR4</spirit:name>
+            <spirit:addressOffset>0x0410</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>IP_16</spirit:name>
+              <spirit:bitOffset>6</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 16</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_17</spirit:name>
+              <spirit:bitOffset>14</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 17</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_18</spirit:name>
+              <spirit:bitOffset>22</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 18</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_19</spirit:name>
+              <spirit:bitOffset>30</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 19</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Priority Register 5: 0xE000E414 -->
+          <spirit:register>
+            <spirit:name>IPR5</spirit:name>
+            <spirit:addressOffset>0x0414</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>IP_20</spirit:name>
+              <spirit:bitOffset>6</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 20</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_21</spirit:name>
+              <spirit:bitOffset>14</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 21</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_22</spirit:name>
+              <spirit:bitOffset>22</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 22</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_23</spirit:name>
+              <spirit:bitOffset>30</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 23</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Priority Register 6: 0xE000E418 -->
+          <spirit:register>
+            <spirit:name>IPR6</spirit:name>
+            <spirit:addressOffset>0x0418</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>IP_24</spirit:name>
+              <spirit:bitOffset>6</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 24</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_25</spirit:name>
+              <spirit:bitOffset>14</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 25</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_26</spirit:name>
+              <spirit:bitOffset>22</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 26</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_27</spirit:name>
+              <spirit:bitOffset>30</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 27</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.</spirit:description>
+          </spirit:register>
+
+          <!-- Interrupt Priority Register 7: 0xE000E41C -->
+          <spirit:register>
+            <spirit:name>IPR7</spirit:name>
+            <spirit:addressOffset>0x041C</spirit:addressOffset>
+            <spirit:size>32</spirit:size>
+            <spirit:access>read-write</spirit:access>
+
+            <spirit:reset>
+              <spirit:value>0x00000000</spirit:value>
+            </spirit:reset>
+
+            <spirit:field>
+              <spirit:name>IP_28</spirit:name>
+              <spirit:bitOffset>6</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 28</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_29</spirit:name>
+              <spirit:bitOffset>14</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 29</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_30</spirit:name>
+              <spirit:bitOffset>22</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 30</spirit:description>
+            </spirit:field>
+
+            <spirit:field>
+              <spirit:name>IP_31</spirit:name>
+              <spirit:bitOffset>30</spirit:bitOffset>
+              <spirit:bitWidth>2</spirit:bitWidth>
+              <spirit:access>read-write</spirit:access>
+              <spirit:description>Priority of interrupt 31</spirit:description>
+            </spirit:field>
+
+            <spirit:description>Use the Interrupt Priority Registers to assign a priority from 0 to 3 to each of the available interrupts. 0 is the highest priority, and 3 is the lowest.</spirit:description>
+          </spirit:register>
+
+        </spirit:addressBlock>
+
+        <!--
+            ==========================================================
+            System and Debug Control Registers: 0xE000ED00 - 0xE000EFFF
+            ==========================================================
+        -->
+        <spirit:addressBlock>
+            <spirit:baseAddress>0xE000ED00</spirit:baseAddress>
+            <spirit:range>768</spirit:range>
+            <spirit:width>32</spirit:width>
+
+            <!-- CPUID Base Register: 0xE000ED00 -->
+            <spirit:register>
+                <spirit:name>CPUID</spirit:name>
+                <spirit:addressOffset>0x0000</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0x410CC200</spirit:value>
+                </spirit:reset>
+
+                <spirit:field>
+                    <spirit:name>REVISION</spirit:name>
+                    <spirit:bitOffset>0</spirit:bitOffset>
+                    <spirit:bitWidth>4</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Implementation defined revision number: 0x0 = processor p0 revision.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>PARTNO</spirit:name>
+                    <spirit:bitOffset>4</spirit:bitOffset>
+                    <spirit:bitWidth>12</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Number of processor within family: 0xC20</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>CONSTANT</spirit:name>
+                    <spirit:bitOffset>16</spirit:bitOffset>
+                    <spirit:bitWidth>4</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Reads as 0xC</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>VARIANT</spirit:name>
+                    <spirit:bitOffset>20</spirit:bitOffset>
+                    <spirit:bitWidth>4</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Implementation defined variant number: 0x0 (for r0)</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>IMPLEMENTER</spirit:name>
+                    <spirit:bitOffset>24</spirit:bitOffset>
+                    <spirit:bitWidth>8</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Implementor code: 0x41 = ARM</spirit:description>
+                </spirit:field>
+
+                <spirit:description>Read the CPU ID Base Register to determine: the ID number of the processor core, the version number of the processor core, the implementation details of the processor core.</spirit:description>
+            </spirit:register>
+
+            <!-- Interrupt Control State Register: 0xE000ED04 -->
+            <spirit:register>
+                <spirit:name>ICSR</spirit:name>
+                <spirit:addressOffset>0x0004</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-write</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+
+                <spirit:field>
+                    <spirit:name>VECTACTIVE</spirit:name>
+                    <spirit:bitOffset>0</spirit:bitOffset>
+                    <spirit:bitWidth>9</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Active exception number field. Reset clears the VECTACTIVE field.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>VECTPENDING</spirit:name>
+                    <spirit:bitOffset>12</spirit:bitOffset>
+                    <spirit:bitWidth>9</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Indicates the exception number for the highest priority pending exception: 0 = no pending exceptions. Non zero = The pending state includes the effect of memory-mapped enable and mask registers. It does not include the PRIMASK special-purpose register qualifier.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>ISRPENDING</spirit:name>
+                    <spirit:bitOffset>22</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>External interrupt pending flag</spirit:description>
+
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>interrupt not pending</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>interrupt pending</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>ISRPREEMPT</spirit:name>
+                    <spirit:bitOffset>23</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>The system can only access this bit when the core is halted. It indicates that a pending interrupt is to be taken in the next running cycle. If C_MASKINTS is clear in the Debug Halting Control and Status Register, the interrupt is serviced.</spirit:description>
+
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>a pending exception is not serviced.</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>a pending exception is serviced on exit from the debug halt state</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>PENDSTCLR</spirit:name>
+                    <spirit:bitOffset>25</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>write-only</spirit:access>
+                    <spirit:description>Clear pending SysTick bit</spirit:description>
+
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>no effect</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>clear pending SysTick</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>PENDSTSET</spirit:name>
+                    <spirit:bitOffset>26</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Set a pending SysTick bit. On reads this bit returns the pending state of Systick.</spirit:description>
+
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>no effect</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>set pending SysTick</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>PENDSVCLR</spirit:name>
+                    <spirit:bitOffset>27</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>write-only</spirit:access>
+                    <spirit:description>Clear pending PendSV bit</spirit:description>
+
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>no effect</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>clear pending PendSV</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>PENDSVSET</spirit:name>
+                    <spirit:bitOffset>28</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Set pending PendSV bit. On reads this bit returns the pending state of PendSV</spirit:description>
+
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>no effect</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>set pending PendSV</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>NMIPENDSET</spirit:name>
+                    <spirit:bitOffset>31</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Setting this bit will activate an NMI. Since NMI is the highest priority exception, it will activate as soon as it is registered. Reads back with current state (1 if Pending, 0 if not).</spirit:description>
+
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>no effect</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>set pending NMI</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:description>Use the Interrupt Control State Register to set a pending Non-Maskable Interrupt (NMI), set or clear a pending PendSV, set or clear a pending SysTick, check for pending exceptions, check the vector number of the highest priority pended exception, check the vector number of the active exception.</spirit:description>
+            </spirit:register>
+
+            <!-- Application Interrupt and Reset Control Register: 0xE000ED0C -->
+            <spirit:register>
+                <spirit:name>AIRCR</spirit:name>
+                <spirit:addressOffset>0x000C</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-write</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0xFA050000</spirit:value>
+                    <spirit:mask>0xFFFF7FFF</spirit:mask><!-- bit[15] depends on endianess -->
+                </spirit:reset>
+
+                <spirit:field>
+                    <spirit:name>VECTCLRACTIVE</spirit:name>
+                    <spirit:bitOffset>1</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>write-only</spirit:access>
+                    <spirit:description>Clears all active state information for fixed and configurable exceptions. This bit: is self-clearing, can only be set by the DAP when the core is halted.  When set: clears all active exception status of the processor, forces a return to Thread mode, forces an IPSR of 0. A debugger must re-initialize the stack.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>SYSRESETREQ</spirit:name>
+                    <spirit:bitOffset>2</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>write-only</spirit:access>
+                    <spirit:description>Writing 1 to this bit causes the SYSRESETREQ signal to the outer system to be asserted to request a reset. The intention is to force a large system reset of all major components except for debug. The C_HALT bit in the DHCSR is cleared as a result of the system reset requested. The debugger does not lose contact with the device.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>ENDIANESS</spirit:name>
+                    <spirit:bitOffset>15</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Data endianness bit. The read value depends on the endian configuration implemented</spirit:description>
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>little endian</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>BE-8 big-endian</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>VECTKEY</spirit:name>
+                    <spirit:bitOffset>16</spirit:bitOffset>
+                    <spirit:bitWidth>16</spirit:bitWidth>
+                    <spirit:access>write-only</spirit:access>
+                    <spirit:description>Register key. To write to other parts of this register, you must ensure 0x5FA is written into the VECTKEY field.</spirit:description>
+                </spirit:field>
+
+                <spirit:description>Use the Application Interrupt and Reset Control Register to: determine data endianness, clear all active state information from debug halt mode, request a system reset.</spirit:description>
+            </spirit:register>
+
+            <!-- System Control Register 0xE000ED10 -->
+            <spirit:register>
+              <spirit:name>SCR</spirit:name>
+              <spirit:addressOffset>0x0010</spirit:addressOffset>
+              <spirit:size>32</spirit:size>
+              <spirit:access>read-write</spirit:access>
+              <spirit:reset>
+                  <spirit:value>0x00000000</spirit:value>
+              </spirit:reset>
+              <spirit:field>
+                  <spirit:name>SLEEPONEXIT</spirit:name>
+                  <spirit:bitOffset>1</spirit:bitOffset>
+                  <spirit:bitWidth>1</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>Sleep on exit when returning from Handler mode to Thread mode. Enables interrupt driven applications to avoid returning to empty main application.</spirit:description>
+                  <spirit:values>
+                      <spirit:value>0x0</spirit:value>
+                      <spirit:description>Do not sleep when returning to thread mode</spirit:description>
+                      <spirit:name>0b0</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x1</spirit:value>
+                      <spirit:description>Sleep on return to thread mode</spirit:description>
+                      <spirit:name>0b1</spirit:name>
+                  </spirit:values>
+              </spirit:field>
+              <spirit:field>
+                  <spirit:name>SLEEPDEEP</spirit:name>
+                  <spirit:bitOffset>2</spirit:bitOffset>
+                  <spirit:bitWidth>1</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>Sleep deep bit.</spirit:description>
+                  <spirit:values>
+                      <spirit:value>0x0</spirit:value>
+                      <spirit:description>not OK to turn off system clock</spirit:description>
+                      <spirit:name>0b0</spirit:name>
+                  </spirit:values>
+                  <spirit:values>
+                      <spirit:value>0x1</spirit:value>
+                      <spirit:description>indicates to the system that Cortex-M0 clock can be stopped. Setting this bit causes the SLEEPDEEP port to be asserted when the processor can be stopped.</spirit:description>
+                      <spirit:name>0b1</spirit:name>
+                  </spirit:values>
+              </spirit:field>
+              <spirit:field>
+                  <spirit:name>SEVONPEND</spirit:name>
+                  <spirit:bitOffset>4</spirit:bitOffset>
+                  <spirit:bitWidth>1</spirit:bitWidth>
+                  <spirit:access>read-write</spirit:access>
+                  <spirit:description>When enabled, this causes WFE to wake up when an interrupt moves from inactive to pended. Otherwise, WFE only wakes up from an event signal, external and SEV instruction generated. The event input, RXEV, is registered even when not waiting for an event, and so effects the next WFE.</spirit:description>
+              </spirit:field>
+              <spirit:description>System Control Register. Use the System Control Register for power-management functions: signal to the system when the processor can enter a low power state, control how the processor enters and exits low power states.</spirit:description>
+          </spirit:register>
+
+            <!-- Configuration and Control Register: 0xE000ED14 -->
+            <spirit:register>
+                <spirit:name>CCR</spirit:name>
+                <spirit:addressOffset>0x0014</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0x00000208</spirit:value>
+                </spirit:reset>
+
+                <spirit:field>
+                    <spirit:name>UNALIGN_TRP</spirit:name>
+                    <spirit:bitOffset>3</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Indicates that all unaligned accesses results in a Hard Fault. Trap for unaligned access is fixed at 1.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>STKALIGN</spirit:name>
+                    <spirit:bitOffset>9</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Always set to 1. On exception entry, all exceptions are entered with 8-byte stack alignment and the context to restore it is saved. The SP is restored on the associated exception return.</spirit:description>
+                </spirit:field>
+
+                <spirit:description>The Configuration and Control Register permanently enables stack alignment and causes unaligned accesses to result in a Hard Fault.</spirit:description>
+            </spirit:register>
+
+            <!-- System Handler Priority Register 2: 0xE000ED1C -->
+            <spirit:register>
+                <spirit:name>SHPR2</spirit:name>
+                <spirit:addressOffset>0x001C</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-write</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+
+                <spirit:field>
+                    <spirit:name>PRI_11</spirit:name>
+                    <spirit:bitOffset>30</spirit:bitOffset>
+                    <spirit:bitWidth>2</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Priority of system handler 11, SVCall</spirit:description>
+                </spirit:field>
+
+                <spirit:description>System handlers are a special class of exception handler that can have their priority set to any of the priority levels. Use the System Handler Priority Register 2 to set the priority of SVCall.</spirit:description>
+            </spirit:register>
+
+            <!-- System Handler Priority Register 3: 0xE000ED20 -->
+            <spirit:register>
+                <spirit:name>SHPR3</spirit:name>
+                <spirit:addressOffset>0x0020</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-write</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+
+                <spirit:field>
+                    <spirit:name>PRI_14</spirit:name>
+                    <spirit:bitOffset>22</spirit:bitOffset>
+                    <spirit:bitWidth>2</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Priority of system handler 14, PendSV</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>PRI_15</spirit:name>
+                    <spirit:bitOffset>30</spirit:bitOffset>
+                    <spirit:bitWidth>2</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Priority of system handler 15, SysTick</spirit:description>
+                </spirit:field>
+
+                <spirit:description>System handlers are a special class of exception handler that can have their priority set to any of the priority levels. Use the System Handler Priority Register 3 to set the priority of PendSV and SysTick.</spirit:description>
+            </spirit:register>
+
+            <!-- System Handler Control and State Register: 0xE000ED24 -->
+            <spirit:register>
+                <spirit:name>SHCSR</spirit:name>
+                <spirit:addressOffset>0x0024</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-write</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+
+                <spirit:field>
+                    <spirit:name>SVCALLPENDED</spirit:name>
+                    <spirit:bitOffset>15</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Reads as 1 if SVCall is Pending.  Write 1 to set pending SVCall, write 0 to clear pending SVCall.</spirit:description>
+                </spirit:field>
+
+                <spirit:description>Use the System Handler Control and State Register to determine or clear the pending status of SVCall. This register is only accessible as part of debug and not through the processor memory map.</spirit:description>
+            </spirit:register>
+
+            <!-- Debug Fault Status Register: 0xE000ED30 -->
+            <spirit:register>
+                <spirit:name>DFSR</spirit:name>
+                <spirit:addressOffset>0x0030</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-write</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+
+                <spirit:field>
+                    <spirit:name>HALTED</spirit:name>
+                    <spirit:bitOffset>0</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Halt request flag</spirit:description>
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>no halt request</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>halt requested by DAP access to C_HALT or halted with C_STEP asserted</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>BKPT</spirit:name>
+                    <spirit:bitOffset>1</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>The BKPT flag is set by the execution of the BKPT instruction or on an instruction whose address triggered the breakpoint comparator match. When the processor has halted, the return PC points to the address of the breakpointed instruction.</spirit:description>
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>no BKPT instruction or hardware breakpoint match</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>BKPT instruction or hardware breakpoint match</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>DWTRAP</spirit:name>
+                    <spirit:bitOffset>2</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Data Watchpoint (DW) flag.</spirit:description>
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>no DW match</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>DW match</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>VCATCH</spirit:name>
+                    <spirit:bitOffset>3</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Vector catch flag. When the VCATCH flag is set, a flag in the Debug Exception and Monitor Control Register is also set to indicate the type of vector catch.</spirit:description>
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>no vector catch occurred</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>vector catch occurred</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>EXTERNAL</spirit:name>
+                    <spirit:bitOffset>4</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>External debug request flag</spirit:description>
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>no EDBGRQ external debug request occurred</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>EDBGRQ has halted the core</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:description>Use the Debug Fault Status Register to monitor external debug requests, vector catches, data watchpoint match, BKPT instruction execution and BPU comparator matches, halt requests. Write one to clear. C_DEBUGEN must be set before any bits in DFSR are updated.</spirit:description>
+            </spirit:register>
+
+            <!-- Debug Halting Control and Status Register: 0xE000EDF0 -->
+            <spirit:register>
+                <spirit:name>DHCSR</spirit:name>
+                <spirit:addressOffset>0x00F0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x20000000</spirit:value>
+                </spirit:reset>
+
+                <spirit:field>
+                    <spirit:name>C_DEBUGEN</spirit:name>
+                    <spirit:bitOffset>0</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Enables or disable debug</spirit:description>
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>Debug disabled</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>Debug enabled</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>C_HALT</spirit:name>
+                    <spirit:bitOffset>1</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Halts the core. This bit is set automatically when the core triggers a debug event, for example, on a breakpoint. This bit clears on core reset. When C_DEBUGEN = 0, this bit has no effect.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>C_STEP</spirit:name>
+                    <spirit:bitOffset>2</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Causes a debug event on any instruction or exception being executed, resulting in the core single stepping.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>C_MASKINTS</spirit:name>
+                    <spirit:bitOffset>3</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>When this bit is set and debug is enabled, external interrupts, SysTick, and PendSV are masked. Does not affect NMI, Hard Fault or SVCall. When C_DEBUGEN = 0, this bit has no effect.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>S_REGRDY</spirit:name>
+                    <spirit:bitOffset>16</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Register Read/Write to the Debug Core Register Selector Register is available. Set in response to a successful register access.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>S_HALT</spirit:name>
+                    <spirit:bitOffset>17</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>The core is halted in debug state only if S_HALT is set.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>S_RETIRE_ST</spirit:name>
+                    <spirit:bitOffset>24</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Core has retired at least part of an instruction since last read. This is a sticky bit that clears on read.</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>S_RESET_ST</spirit:name>
+                    <spirit:bitOffset>25</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-only</spirit:access>
+                    <spirit:description>Indicates that the core has been reset, or is now being reset, since the last time this bit was read. This a sticky bit that clears on read. So, reading twice and getting 1 then 0 means it was reset in the past. Reading twice and getting 1 both times means that it is currently reset and held in reset.</spirit:description>
+                </spirit:field>
+
+                <spirit:description>The purpose of the Debug Halting Control and Status Register (DHCSR) is to provide status information about the state of the processor, enable core debug, halt and step the processor. For writes, 0xA05F must be written to bits [31:16], otherwise the write operation is ignored and no bits are written into the register.</spirit:description>
+            </spirit:register>
+
+            <!-- Debug Core Register Selector Register: 0xE000EDF4 -->
+            <spirit:register>
+                <spirit:name>DCRSR</spirit:name>
+                <spirit:addressOffset>0x00F4</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>write-only</spirit:access>
+
+                <spirit:field>
+                    <spirit:name>REGSEL</spirit:name>
+                    <spirit:bitOffset>0</spirit:bitOffset>
+                    <spirit:bitWidth>5</spirit:bitWidth>
+                    <spirit:access>write-only</spirit:access>
+                    <spirit:description>Select processor register</spirit:description>
+                    <spirit:values>
+                        <spirit:value>0x00</spirit:value>
+                        <spirit:description>R0</spirit:description>
+                        <spirit:name>0b00000</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x01</spirit:value>
+                        <spirit:description>R1</spirit:description>
+                        <spirit:name>0b00001</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x02</spirit:value>
+                        <spirit:description>R2</spirit:description>
+                        <spirit:name>0b00010</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x03</spirit:value>
+                        <spirit:description>R3</spirit:description>
+                        <spirit:name>0b00011</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x04</spirit:value>
+                        <spirit:description>R4</spirit:description>
+                        <spirit:name>0b00100</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x05</spirit:value>
+                        <spirit:description>R5</spirit:description>
+                        <spirit:name>0b00101</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x06</spirit:value>
+                        <spirit:description>R6</spirit:description>
+                        <spirit:name>0b00110</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x07</spirit:value>
+                        <spirit:description>R7</spirit:description>
+                        <spirit:name>0b00111</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x08</spirit:value>
+                        <spirit:description>R8</spirit:description>
+                        <spirit:name>0b01000</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x09</spirit:value>
+                        <spirit:description>R9</spirit:description>
+                        <spirit:name>0b01001</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x0A</spirit:value>
+                        <spirit:description>R10</spirit:description>
+                        <spirit:name>0b01010</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x0B</spirit:value>
+                        <spirit:description>R11</spirit:description>
+                        <spirit:name>0b01011</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x0C</spirit:value>
+                        <spirit:description>R12</spirit:description>
+                        <spirit:name>0b01100</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x0D</spirit:value>
+                        <spirit:description>Current SP</spirit:description>
+                        <spirit:name>0b01101</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x0E</spirit:value>
+                        <spirit:description>LR</spirit:description>
+                        <spirit:name>0b01110</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x0F</spirit:value>
+                        <spirit:description>DebugReturnAddress</spirit:description>
+                        <spirit:name>0b01111</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x10</spirit:value>
+                        <spirit:description>xPSR flags, Execution Number, and state information</spirit:description>
+                        <spirit:name>0b10000</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x11</spirit:value>
+                        <spirit:description>MSP (Main SP)</spirit:description>
+                        <spirit:name>0b10001</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x12</spirit:value>
+                        <spirit:description>PSP (Process SP)</spirit:description>
+                        <spirit:name>0b10010</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x14</spirit:value>
+                        <spirit:description>CONTROL (DCRDR[25:24]), PRIMASK (DCRDR[0])</spirit:description>
+                        <spirit:name>0b10100</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>REGWnR</spirit:name>
+                    <spirit:bitOffset>16</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>write-only</spirit:access>
+                    <spirit:description>Write = 1, Read = 0</spirit:description>
+                </spirit:field>
+
+                <spirit:description>The purpose of the Debug Core Register Selector Register (DCRSR) is to select the processor register to transfer data to or from.</spirit:description>
+            </spirit:register>
+
+            <!-- Debug Core Register Data Register: 0xE000EDF8 -->
+            <spirit:register>
+                <spirit:name>DCRDR</spirit:name>
+                <spirit:addressOffset>0x00F8</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-write</spirit:access>
+
+                <spirit:description>The purpose of the Debug Core Register Data Register (DCRDR) is to hold data read from or written to core registers.</spirit:description>
+            </spirit:register>
+
+            <!-- Debug Exception and Monitor Control Register: 0xE000EDFC -->
+            <spirit:register>
+                <spirit:name>DEMCR</spirit:name>
+                <spirit:addressOffset>0x00FC</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-write</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+
+                <spirit:field>
+                    <spirit:name>VC_CORERESET</spirit:name>
+                    <spirit:bitOffset>0</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Reset Vector Catch. Halt running system if HRESETn is asserted</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>VC_HARDERR</spirit:name>
+                    <spirit:bitOffset>10</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Debug trap on a Hard Fault</spirit:description>
+                </spirit:field>
+
+                <spirit:field>
+                    <spirit:name>DWTENA</spirit:name>
+                    <spirit:bitOffset>24</spirit:bitOffset>
+                    <spirit:bitWidth>1</spirit:bitWidth>
+                    <spirit:access>read-write</spirit:access>
+                    <spirit:description>Global enable or disable for the DW unit</spirit:description>
+                    <spirit:values>
+                        <spirit:value>0x0</spirit:value>
+                        <spirit:description>DW unit disabled. Watchpoint cannot halt the core. The DW PCSR reads as OxFFFFFFFF.</spirit:description>
+                        <spirit:name>0b0</spirit:name>
+                    </spirit:values>
+                    <spirit:values>
+                        <spirit:value>0x1</spirit:value>
+                        <spirit:description>DW unit enabled</spirit:description>
+                        <spirit:name>0b1</spirit:name>
+                    </spirit:values>
+                </spirit:field>
+
+                <spirit:description>The purpose of the Debug Exception and Monitor Control Register (DEMCR) is: Global enable for the DW unit, Vector catching (that is, causes debug entry on execution of a specified vector.)</spirit:description>
+            </spirit:register>
+
+        </spirit:addressBlock>
+
+        <!--
+            ==========================================================
+            ROM Table: 0xE00FF000 - 0xE00FFFFF
+            ==========================================================
+        -->
+        <spirit:addressBlock>
+
+            <spirit:baseAddress>0xE00FF000</spirit:baseAddress>
+            <spirit:range>4K</spirit:range>
+            <spirit:width>32</spirit:width>
+            <spirit:access>read-only</spirit:access>
+
+            <spirit:register>
+                <spirit:name>SCS</spirit:name>
+                <spirit:addressOffset>0x0000</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0xFFF0F003</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Points to the System Control Space (SCS) at 0xE000E000. This includes core debug control registers.</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>DWT</spirit:name>
+                <spirit:addressOffset>0x0004</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0xFFF02003</spirit:value>
+                    <spirit:mask>0xFFFFFFFE</spirit:mask>
+                </spirit:reset>
+
+                <spirit:description>Points to the DW unit at 0xE0001000.</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>BPU</spirit:name>
+                <spirit:addressOffset>0x0008</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0xFFF03003</spirit:value>
+                    <spirit:mask>0xFFFFFFFE</spirit:mask>
+                </spirit:reset>
+
+                <spirit:description>Points to the BPU at 0xE0002000.</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>end</spirit:name>
+                <spirit:addressOffset>0x000C</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Marks of end of table. This value is fixed.</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>MEMTYPE</spirit:name>
+                <spirit:addressOffset>0x0FCC</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000001</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>System memory map is always accessible from the DAP. Always set to 0x1.</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID0</spirit:name>
+                <spirit:addressOffset>0x0FE0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000071</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID0</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID1</spirit:name>
+                <spirit:addressOffset>0x0FE4</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000B4</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID1</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID2</spirit:name>
+                <spirit:addressOffset>0x0FE8</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x0000000B</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID2</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID3</spirit:name>
+                <spirit:addressOffset>0x0FEC</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+                <spirit:description>Peripheral ID3</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID4</spirit:name>
+                <spirit:addressOffset>0x0FD0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000004</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID4</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID5</spirit:name>
+                <spirit:addressOffset>0x0FD4</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000B4</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID5</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID6</spirit:name>
+                <spirit:addressOffset>0x0FD8</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x0000000B</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID6</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID7</spirit:name>
+                <spirit:addressOffset>0x0FDC</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+                <spirit:description>Peripheral ID7</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID0</spirit:name>
+                <spirit:addressOffset>0x0FF0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x0000000D</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID0</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID1</spirit:name>
+                <spirit:addressOffset>0x0FF4</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000010</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID1</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID2</spirit:name>
+                <spirit:addressOffset>0x0FF8</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000005</spirit:value>
+                </spirit:reset>
+                <spirit:description>Component ID2</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID3</spirit:name>
+                <spirit:addressOffset>0x0FFC</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000B1</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID3</spirit:description>
+            </spirit:register>
+
+        </spirit:addressBlock>
+
+        <!--
+            ==========================================================
+            SCS Space in ROM Table: 0xE000E000 - E000EFFF
+            ==========================================================
+        -->
+        <spirit:addressBlock>
+
+            <spirit:baseAddress>0xE000E000</spirit:baseAddress>
+            <spirit:range>4K</spirit:range>
+            <spirit:width>32</spirit:width>
+            <spirit:access>read-only</spirit:access>
+
+            <spirit:register>
+                <spirit:name>PeripheralID0</spirit:name>
+                <spirit:addressOffset>0x0FE0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000008</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID0</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID1</spirit:name>
+                <spirit:addressOffset>0x0FE4</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000B0</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID1</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID2</spirit:name>
+                <spirit:addressOffset>0x0FE8</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x0000000B</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID2</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID3</spirit:name>
+                <spirit:addressOffset>0x0FEC</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+                <spirit:description>Peripheral ID3</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID4</spirit:name>
+                <spirit:addressOffset>0x0FD0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000004</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID4</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID0</spirit:name>
+                <spirit:addressOffset>0x0FF0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x0000000D</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID0</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID1</spirit:name>
+                <spirit:addressOffset>0x0FF4</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000E0</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID1</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID2</spirit:name>
+                <spirit:addressOffset>0x0FF8</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000005</spirit:value>
+                </spirit:reset>
+                <spirit:description>Component ID2</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID3</spirit:name>
+                <spirit:addressOffset>0x0FFC</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000B1</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID3</spirit:description>
+            </spirit:register>
+        </spirit:addressBlock>
+        <!--
+            ==========================================================
+            DWT Space in ROM Table: 0xE0001000 - 0xE0001FFF
+            ==========================================================
+        -->
+        <spirit:addressBlock>
+
+            <spirit:baseAddress>0xE0001000</spirit:baseAddress>
+            <spirit:range>4K</spirit:range>
+            <spirit:width>32</spirit:width>
+            <spirit:access>read-only</spirit:access>
+
+            <spirit:register>
+                <spirit:name>PeripheralID0</spirit:name>
+                <spirit:addressOffset>0x0FE0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x0000000A</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID0</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID1</spirit:name>
+                <spirit:addressOffset>0x0FE4</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000B0</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID1</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID2</spirit:name>
+                <spirit:addressOffset>0x0FE8</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x0000000B</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID2</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID3</spirit:name>
+                <spirit:addressOffset>0x0FEC</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+                <spirit:description>Peripheral ID3</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID4</spirit:name>
+                <spirit:addressOffset>0x0FD0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000004</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID4</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID0</spirit:name>
+                <spirit:addressOffset>0x0FF0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x0000000D</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID0</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID1</spirit:name>
+                <spirit:addressOffset>0x0FF4</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000E0</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID1</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID2</spirit:name>
+                <spirit:addressOffset>0x0FF8</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000005</spirit:value>
+                </spirit:reset>
+                <spirit:description>Component ID2</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID3</spirit:name>
+                <spirit:addressOffset>0x0FFC</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000B1</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID3</spirit:description>
+            </spirit:register>
+        </spirit:addressBlock>
+        <!--
+            ==========================================================
+            BPU Space in ROM Table: 0xE0002000 - 0xE0002FFF
+            ==========================================================
+        -->
+        <spirit:addressBlock>
+
+            <spirit:baseAddress>0xE0002000</spirit:baseAddress>
+            <spirit:range>4K</spirit:range>
+            <spirit:width>32</spirit:width>
+            <spirit:access>read-only</spirit:access>
+
+            <spirit:register>
+                <spirit:name>PeripheralID0</spirit:name>
+                <spirit:addressOffset>0x0FE0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x0000000B</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID0</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID1</spirit:name>
+                <spirit:addressOffset>0x0FE4</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000B0</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID1</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID2</spirit:name>
+                <spirit:addressOffset>0x0FE8</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x0000000B</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID2</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID3</spirit:name>
+                <spirit:addressOffset>0x0FEC</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+                <spirit:reset>
+                    <spirit:value>0x00000000</spirit:value>
+                </spirit:reset>
+                <spirit:description>Peripheral ID3</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>PeripheralID4</spirit:name>
+                <spirit:addressOffset>0x0FD0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000004</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Peripheral ID4</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID0</spirit:name>
+                <spirit:addressOffset>0x0FF0</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x0000000D</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID0</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID1</spirit:name>
+                <spirit:addressOffset>0x0FF4</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000E0</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID1</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID2</spirit:name>
+                <spirit:addressOffset>0x0FF8</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x00000005</spirit:value>
+                </spirit:reset>
+                <spirit:description>Component ID2</spirit:description>
+            </spirit:register>
+
+            <spirit:register>
+                <spirit:name>ComponentID3</spirit:name>
+                <spirit:addressOffset>0x0FFC</spirit:addressOffset>
+                <spirit:size>32</spirit:size>
+                <spirit:access>read-only</spirit:access>
+
+                <spirit:reset>
+                    <spirit:value>0x000000B1</spirit:value>
+                </spirit:reset>
+
+                <spirit:description>Component ID3</spirit:description>
+            </spirit:register>
+        </spirit:addressBlock>
+    </spirit:memoryMap>
+  </spirit:memoryMaps>
+
+  <!-- Component Model -->
+  <spirit:model>
+
+    <!-- Component Views -->
+    <spirit:views>
+      <spirit:view>
+        <spirit:name>rtl</spirit:name>
+        <spirit:envIdentifier>verilogSource:*Synthesis:</spirit:envIdentifier>
+        <spirit:envIdentifier>verilogSource:*Simulation:</spirit:envIdentifier>
+        <spirit:language>verilog</spirit:language>
+        <spirit:modelName>CORTEXM0</spirit:modelName>
+        <spirit:fileSetRef>rtl</spirit:fileSetRef>
+      </spirit:view>
+    </spirit:views>
+
+    <!-- I/O Signals -->
+    <spirit:signals>
+
+      <!-- Bussed Signals -->
+      <!-- Clocks -->
+      <spirit:signal>
+        <spirit:name>HCLK</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SCLK</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>DCLK</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+
+      <!-- Resets -->
+      <spirit:signal>
+        <spirit:name>HRESETn</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>DBGRESETn</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+
+      <!-- AHB-Lite Master Interface -->
+      <spirit:signal>
+        <spirit:name>HADDR</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HTRANS</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>1</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HWRITE</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HSIZE</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>2</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HBURST</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>2</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HPROT</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>3</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HWDATA</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HMASTLOCK</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HRDATA</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HREADY</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HRESP</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+
+      <!-- Supplementary Master Port Signals -->
+      <spirit:signal>
+        <spirit:name>SPECHTRANS</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HMASTER</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>CODENSEQ</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>CODEHINTDE</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>2</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+
+
+      <!-- Debug Slave Port Signals -->
+      <spirit:signal>
+        <spirit:name>SLVRDATA</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVREADY</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVRESP</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVTRANS</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>1</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVSIZE</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>1</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVWRITE</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVADDR</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLVWDATA</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+
+
+
+      <!-- WIC Interface -->
+
+      <spirit:signal>
+        <spirit:name>WICDSACKn</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>WICLOAD</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>WICCLEAR</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>WICMASKISR</spirit:name>
+        <spirit:direction>out</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>WICMASKNMI</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>WICMASKRXEV</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>WICDSREQn</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+
+      <!-- Sleep Control Interface -->
+      <spirit:signal>
+        <spirit:name>SLEEPING</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLEEPDEEP</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLEEPHOLDACKn</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SLEEPHOLDREQn</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+
+      <!-- Interrupts and Events -->
+      <spirit:signal>
+        <spirit:name>TXEV</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>RXEV</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>IRQ</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>31</spirit:left>
+        <spirit:right>0</spirit:right>
+        <spirit:defaultValue>
+          <spirit:value>0x00000000</spirit:value>
+        </spirit:defaultValue>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>NMI</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:defaultValue>
+          <spirit:value>0x0</spirit:value>
+        </spirit:defaultValue>
+      </spirit:signal>
+
+      <!-- Debug Triggers -->
+      <spirit:signal>
+        <spirit:name>EDBGRQ</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:defaultValue>
+          <spirit:value>0</spirit:value>
+        </spirit:defaultValue>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>HALTED</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>DBGRESTART</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:defaultValue>
+          <spirit:value>0</spirit:value>
+        </spirit:defaultValue>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>DBGRESTARTED</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+
+      <!-- Ad-hoc Signals -->
+      <!-- Status Signals -->
+      <spirit:signal>
+        <spirit:name>LOCKUP</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+
+      <spirit:signal>
+        <spirit:name>STCALIB</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>25</spirit:left>
+        <spirit:right>0</spirit:right>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>ECOREVNUM</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>19</spirit:left>
+        <spirit:right>0</spirit:right>
+        <spirit:defaultValue>
+          <spirit:value spirit:id="cfg_ecorevnum" spirit:resolve="user" spirit:prompt="Engineering Change Order Revision. This port should be tied to a constant.">0x000000</spirit:value>
+        </spirit:defaultValue>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>IRQLATENCY</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:left>7</spirit:left>
+        <spirit:right>0</spirit:right>
+        <spirit:defaultValue>
+          <spirit:value spirit:id="cfg_irqlatency" spirit:resolve="user" spirit:prompt="Set IRQ Latency.">0x00</spirit:value>
+        </spirit:defaultValue>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>SE</spirit:name>
+        <spirit:direction>in</spirit:direction>
+        <spirit:defaultValue>
+          <spirit:value>0x0</spirit:value>
+        </spirit:defaultValue>
+      </spirit:signal>
+
+      <!-- Miscellaneous Signals -->
+      <spirit:signal>
+        <spirit:name>SYSRESETREQ</spirit:name>
+        <spirit:direction>out</spirit:direction>
+      </spirit:signal>
+      <spirit:signal>
+        <spirit:name>STCLKEN</spirit:name>
+        <spirit:direction>in</spirit:direction>
+      </spirit:signal>
+
+
+    </spirit:signals>
+
+    <spirit:modelParameters>
+
+      <spirit:modelParameter spirit:name="ACG" spirit:id="param_acg" spirit:choiceRef="yes_no" spirit:prompt="Architectural Clock Gating" spirit:resolve="user" spirit:configGroups="requiredConfig" spirit:format="choice" spirit:dataType="integer">1</spirit:modelParameter>
+      <spirit:modelParameter spirit:name="AHBSLV" spirit:id="param_ahbslv" spirit:prompt="AHB Slave Interface Type" spirit:configGroups="requiredConfig" spirit:dataType="integer">1</spirit:modelParameter>
+      <spirit:modelParameter spirit:name="BE" spirit:id="param_bigend" spirit:choiceRef="enddianness" spirit:prompt="Data Transfer Endianness" spirit:resolve="user" spirit:configGroups="requiredConfig" spirit:format="choice" spirit:dataType="integer">0</spirit:modelParameter>
+      <spirit:modelParameter spirit:name="BKPT" spirit:id="param_bkpt" spirit:prompt="Number of Breakpoint Comparators" spirit:resolve="user" spirit:configGroups="requiredConfig" spirit:dataType="integer" spirit:minimum="0" spirit:maximum="4">4</spirit:modelParameter>
+      <spirit:modelParameter spirit:name="DBG" spirit:id="param_debug" spirit:choiceRef="yes_no" spirit:prompt="Debug Support" spirit:resolve="user" spirit:configGroups="requiredConfig" spirit:format="choice" spirit:dataType="integer">1</spirit:modelParameter>
+      <spirit:modelParameter spirit:name="NUMIRQ" spirit:id="param_numirq" spirit:choiceRef="numirq" spirit:prompt="Number of interrupts" spirit:resolve="user" spirit:configGroups="requiredConfig" spirit:format="choice" spirit:dataType="integer">32</spirit:modelParameter>
+      <spirit:modelParameter spirit:name="RAR" spirit:id="param_rar" spirit:choiceRef="yes_no" spirit:prompt="Reset All Registers Extension" spirit:resolve="user" spirit:configGroups="requiredConfig" spirit:format="choice" spirit:dataType="integer">0</spirit:modelParameter>
+      <spirit:modelParameter spirit:name="SMUL" spirit:id="param_mul" spirit:choiceRef="multiplier" spirit:prompt="Multiplier Configuration" spirit:resolve="user" spirit:configGroups="requiredConfig" spirit:format="choice" spirit:dataType="integer">0</spirit:modelParameter>
+      <spirit:modelParameter spirit:name="SYST" spirit:id="param_syst" spirit:choiceRef="yes_no" spirit:prompt="SysTick Present" spirit:resolve="user" spirit:configGroups="requiredConfig" spirit:format="choice" spirit:dataType="integer">1</spirit:modelParameter>
+      <spirit:modelParameter spirit:name="WIC" spirit:id="param_wic" spirit:choiceRef="yes_no" spirit:prompt="WIC Support" spirit:resolve="user" spirit:configGroups="requiredConfig" spirit:format="choice" spirit:dataType="integer">1</spirit:modelParameter>
+      <spirit:modelParameter spirit:name="WICLINES" spirit:id="param_wiclines" spirit:prompt="Number of WIC lines" spirit:resolve="user" spirit:configGroups="requiredConfig" spirit:dataType="integer" spirit:minimum="2" spirit:maximum="34">34</spirit:modelParameter>
+      <spirit:modelParameter spirit:name="WPT" spirit:id="param_wpt" spirit:prompt="Number of DWT Comparators" spirit:resolve="user" spirit:configGroups="requiredConfig" spirit:dataType="integer" spirit:minimum="0" spirit:maximum="2">2</spirit:modelParameter>
+
+    </spirit:modelParameters>
+
+  </spirit:model>
+
+  <!-- Configuration Parameter Choices -->
+  <spirit:choices>
+
+    <!-- Generic Yes/No Choice -->
+    <spirit:choice>
+      <spirit:name>yes_no</spirit:name>
+      <spirit:enumeration spirit:text="Yes">1</spirit:enumeration>
+      <spirit:enumeration spirit:text="No">0</spirit:enumeration>
+    </spirit:choice>
+
+    <spirit:choice>
+      <spirit:name>multiplier</spirit:name>
+      <spirit:enumeration spirit:text="Single Cycle (Fast)">0</spirit:enumeration>
+      <spirit:enumeration spirit:text="32 Cycle (Small)">1</spirit:enumeration>
+    </spirit:choice>
+
+    <spirit:choice>
+      <spirit:name>enddianness</spirit:name>
+      <spirit:enumeration spirit:text="Little Endian">0</spirit:enumeration>
+      <spirit:enumeration spirit:text="Byte Invariant Big Endian">1</spirit:enumeration>
+    </spirit:choice>
+
+    <spirit:choice>
+      <spirit:name>numirq</spirit:name>
+      <spirit:enumeration spirit:text="1">1</spirit:enumeration>
+      <spirit:enumeration spirit:text="2">2</spirit:enumeration>
+      <spirit:enumeration spirit:text="4">4</spirit:enumeration>
+      <spirit:enumeration spirit:text="8">8</spirit:enumeration>
+      <spirit:enumeration spirit:text="16">16</spirit:enumeration>
+      <spirit:enumeration spirit:text="24">24</spirit:enumeration>
+      <spirit:enumeration spirit:text="32">32</spirit:enumeration>
+    </spirit:choice>
+
+
+  </spirit:choices>
+
+  <spirit:fileSets>
+    <spirit:fileSet spirit:fileSetId="rtl">
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_core_psr.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_top_dbg.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_core_spu.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_core.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_core_alu.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_core_ctl.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_nvic_reg.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_dbg_ctl.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_nvic.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_top_sys.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_core_gpr.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_dbg_bpu.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_core_pfu.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/CORTEXM0.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_top.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_core_dec.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_nvic_main.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_matrix.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_core_mul.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_matrix_sel.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_dbg_if.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_dbg_dwt.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_top_clk.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/cortexm0/verilog/cm0_dbg_sel.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>${CM0_ROOT}/logical/models/cells/cm0_acg.v</spirit:name>
+        <spirit:fileType>verilogSource-2001</spirit:fileType>
+      </spirit:file>
+
+      <spirit:dependency>${CM0_ROOT}/logical/cortexm0/verilog/</spirit:dependency>
+      <spirit:dependency>${CM0_ROOT}/logical/cortexm0_dap/verilog/</spirit:dependency>
+      <spirit:dependency>${CM0_ROOT}/logical/models/cells/</spirit:dependency>
+    </spirit:fileSet>
+  </spirit:fileSets>
+
+  <!-- CPU Lists -->
+  <spirit:cpus>
+    <spirit:cpu>
+      <spirit:name>Cortex-M0</spirit:name>
+      <spirit:addressSpaceRef spirit:addressSpaceRef="AHBLite" />
+      <spirit:addressSpaceRef spirit:addressSpaceRef="PPB" />
+    </spirit:cpu>
+
+  </spirit:cpus>
+</spirit:component>

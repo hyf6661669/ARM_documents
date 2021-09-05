@@ -1,0 +1,504 @@
+ARM, Inc.
+
+TSMC 90nm Enhanced (CLN90G) Process
+Advantage(tm) v1.0 Standard Cell Library 
+1.0V timing domain Release Notes
+------------------------------------------------
+2007q4v2 (11/16/2007)
+
+ *** This Release Contains Timing views of 1.0V Domain  ***
+ 
+This package should be used in conjunction with the FE or FB package
+of the TSMC 90nm Enhanced (CLN90G) Advantage(tm) v1.0 
+Standard Cell Library.
+
+Impact on Designs Using 2007q4v1
+--------------------------------
+This section describes the impact of this release on current designs
+which are using the previous release.
+
+*** This is a optional update. ***
+
+ARM Update Recommendation:
+
+  Impact of this Release on Major Library Components:
+
+  o Synopsys Timing views not changed compared to 2007q4v1.
+  
+Process Technology Data
+-----------------------
+This section lists all of the foundry documents and technology files used to
+design this product.
+
+  o Design Rule Document
+      - T-N90-LO-DR-001 Ver: 1.4 Date: 05-23-2005
+  o DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+      - CALIBRE NON_SHRINKABLE RULES IN N80 PROCESS
+	T-N80-CL-DR-001-C1 Ver: 1.0a Date: 1-23-2006
+  o Antenna DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+  o LVS Command File
+      - CALIBRE LVS COMMAND FILE
+        T-N90-CL-LS-001-C1 Ver: 1.3b Date: 7-06-2005
+  o Process Name
+      - 90nm LOGIC SALICIDE (1P9M, 1.0V/2.5V) (CLN90G)
+  o Process Spectre Models
+      - T-N90-LO-SP-002 Ver: 1.4 Date: 08-20-2004
+  o Extractor Technology File 
+      - Using profile T-N90-LO-SP-002-B1 Rev: 1.4  Date: 10-29-2004
+        cln90g_v1.4_typical.nxtgrd
+	tsm090_6lm.map
+        RC extraction with star-rcxt
+
+EDA Support
+-----------
+This section lists the EDA tools and versions supported for this
+product release. The items indicated by the "*" were used during the
+QA testing of this release. This set of tools and versions corresponds
+to ARM EDA Package 4.1.
+
+    * Cadence NC-Sim (Verilog)
+        - 5.1
+    * Synopsys VCS (Verilog)
+        - 7.2
+    * Mentor ModelSim (Verilog)
+        - 6.0
+    * Cadence NC-Sim (VHDL)
+        - 5.1
+    * Mentor ModelSim (VHDL)
+        - 6.0
+    * Simulation Model SDF Compatibility
+        - SDF 2.1
+    * Synopsys Design Compiler
+        - 2004.12
+    o Synopsys Module Compiler 
+        - 2004.12
+    * Cadence RTL Compiler (.lib)
+        - 4.1
+    * Synopsys Physical Compiler 
+        - 2004.12
+    * Synopsys PrimeTime (Static Timing, Delay Calculation)
+        - 2004.12
+    * Synopsys Power Compiler
+        - 2004.12
+    o Synopsys PrimePower
+        - 2004.12
+    o Synopsys JupiterXT (Design Planning)
+        - 2004.12
+    o Cadence SoC Encounter/First Encounter (Design Planning)
+        - 4.1
+    * Cadence SoC Encounter/NanoRoute (Place & Route)
+        - 4.1
+    * Synopsys Astro (FRAM, CEL, .plib/.pdb, .lib/.db)
+        - 2004.12-SP1
+    * Mentor Graphics Calibre (GDSII, CDL)
+        - 2005.2_6.10
+    * Cadence Composer (Schematic Entry)
+        - DFII 5.0.33
+    o Synopsys DFT Compiler
+        - 2004.12
+    * Adobe Acrobat Reader (PDF Documentation)
+        - 5.0
+    * Cadence Spectre
+        - MMSIM6.0-ISR20050318
+    o Synopsys Hercules(For Extraction)
+        - 2004.12-1
+
+Technology Implementation
+-------------------------
+This section provides information on items that may not be included
+in the foundry documentation.
+    Characterization Corners: 
+            
+       scadv_tsmc_cln90g_rvt_ff_1p1v_0c   P/V/T = FF/1.1V/0C
+       scadv_tsmc_cln90g_rvt_ff_1p1v_125c P/V/T = FF/1.1V/125C    
+       scadv_tsmc_cln90g_rvt_ff_1p1v_m40c P/V/T = FF/1.1V/-40C    
+       scadv_tsmc_cln90g_rvt_tt_1p0v_50c  P/V/T = TT/1.0V/50C     
+       scadv_tsmc_cln90g_rvt_tt_1p0v_25c  P/V/T = TT/1.0V/25C     
+       scadv_tsmc_cln90g_rvt_ss_0p9v_125c P/V/T = SS/0.9V/125C    
+
+Known Problems and Solutions
+----------------------------
+This section describes known problems and work-arounds as of the
+release date of this library.
+
+   o There are no known problems. 
+------------------------------------------------------------------------------
+2007q4v1 (10/16/2007)
+
+ *** This Release Contains Timing views of 1.0V Domain  ***
+ 
+This package should be used in conjunction with the FE or FB package
+of the TSMC 90nm Enhanced (CLN90G) Advantage(tm) v1.0 
+Standard Cell Library.
+
+Impact on Designs Using 2007q1v1
+--------------------------------
+This section describes the impact of this release on current designs
+which are using the previous release.
+
+*** This is a optional update. ***
+
+ARM Update Recommendation:
+
+  Impact of this Release on Major Library Components:
+
+  o Synopsys Timing views not changed compared to 2007q1v1.
+  
+Process Technology Data
+-----------------------
+This section lists all of the foundry documents and technology files used to
+design this product.
+
+  o Design Rule Document
+      - T-N90-LO-DR-001 Ver: 1.4 Date: 05-23-2005
+  o DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+      - CALIBRE NON_SHRINKABLE RULES IN N80 PROCESS
+	T-N80-CL-DR-001-C1 Ver: 1.0a Date: 1-23-2006
+  o Antenna DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+  o LVS Command File
+      - CALIBRE LVS COMMAND FILE
+        T-N90-CL-LS-001-C1 Ver: 1.3b Date: 7-06-2005
+  o Process Name
+      - 90nm LOGIC SALICIDE (1P9M, 1.0V/2.5V) (CLN90G)
+  o Process Spectre Models
+      - T-N90-LO-SP-002 Ver: 1.4 Date: 08-20-2004
+  o Extractor Technology File 
+      - Using profile T-N90-LO-SP-002-B1 Rev: 1.4  Date: 10-29-2004
+        cln90g_v1.4_typical.nxtgrd
+	tsm090_6lm.map
+        RC extraction with star-rcxt
+
+EDA Support
+-----------
+This section lists the EDA tools and versions supported for this
+product release. The items indicated by the "*" were used during the
+QA testing of this release. This set of tools and versions corresponds
+to ARM EDA Package 4.1.
+
+    * Cadence NC-Sim (Verilog)
+        - 5.1
+    * Synopsys VCS (Verilog)
+        - 7.2
+    * Mentor ModelSim (Verilog)
+        - 6.0
+    * Cadence NC-Sim (VHDL)
+        - 5.1
+    * Mentor ModelSim (VHDL)
+        - 6.0
+    * Simulation Model SDF Compatibility
+        - SDF 2.1
+    * Synopsys Design Compiler
+        - 2004.12
+    o Synopsys Module Compiler 
+        - 2004.12
+    * Cadence RTL Compiler (.lib)
+        - 4.1
+    * Synopsys Physical Compiler 
+        - 2004.12
+    * Synopsys PrimeTime (Static Timing, Delay Calculation)
+        - 2004.12
+    * Synopsys Power Compiler
+        - 2004.12
+    o Synopsys PrimePower
+        - 2004.12
+    o Synopsys JupiterXT (Design Planning)
+        - 2004.12
+    o Cadence SoC Encounter/First Encounter (Design Planning)
+        - 4.1
+    * Cadence SoC Encounter/NanoRoute (Place & Route)
+        - 4.1
+    * Synopsys Astro (FRAM, CEL, .plib/.pdb, .lib/.db)
+        - 2004.12-SP1
+    * Mentor Graphics Calibre (GDSII, CDL)
+        - 2005.2_6.10
+    * Cadence Composer (Schematic Entry)
+        - DFII 5.0.33
+    o Synopsys DFT Compiler
+        - 2004.12
+    * Adobe Acrobat Reader (PDF Documentation)
+        - 5.0
+    * Cadence Spectre
+        - MMSIM6.0-ISR20050318
+    o Synopsys Hercules(For Extraction)
+        - 2004.12-1
+
+Technology Implementation
+-------------------------
+This section provides information on items that may not be included
+in the foundry documentation.
+    Characterization Corners: 
+            
+       scadv_tsmc_cln90g_rvt_ff_1p1v_0c   P/V/T = FF/1.1V/0C
+       scadv_tsmc_cln90g_rvt_ff_1p1v_125c P/V/T = FF/1.1V/125C    
+       scadv_tsmc_cln90g_rvt_ff_1p1v_m40c P/V/T = FF/1.1V/-40C    
+       scadv_tsmc_cln90g_rvt_tt_1p0v_50c  P/V/T = TT/1.0V/50C     
+       scadv_tsmc_cln90g_rvt_tt_1p0v_25c  P/V/T = TT/1.0V/25C     
+       scadv_tsmc_cln90g_rvt_ss_0p9v_125c P/V/T = SS/0.9V/125C    
+
+Known Problems and Solutions
+----------------------------
+This section describes known problems and work-arounds as of the
+release date of this library.
+
+   o There are no known problems. 
+------------------------------------------------------------------------------
+2007q1v1 (03/30/2007)
+
+ *** This Release Contains Timing views of 1.0V Domain  ***
+ 
+This package should be used in conjunction with the FE or FB package
+of the TSMC 90nm Enhanced (CLN90G) Advantage(tm) v1.0 
+Standard Cell Library.
+
+Impact on Designs Using 2006q3v1
+--------------------------------
+This section describes the impact of this release on current designs
+which are using the previous release.
+
+*** This is a optional update. ***
+
+ARM Update Recommendation:
+
+  Install version 2007q1v1 to use the timing views in this package.
+   
+Impact of this Release on Major Library Components:
+
+  o Synopsys Timing views not changed compared to 2006q3v1.
+  
+Process Technology Data
+-----------------------
+This section lists all of the foundry documents and technology files used to
+design this product.
+
+  o Design Rule Document
+      - T-N90-LO-DR-001 Ver: 1.4 Date: 05-23-2005
+  o DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+      - CALIBRE NON_SHRINKABLE RULES IN N80 PROCESS
+	T-N80-CL-DR-001-C1 Ver: 1.0a Date: 1-23-2006
+  o Antenna DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+  o LVS Command File
+      - CALIBRE LVS COMMAND FILE
+        T-N90-CL-LS-001-C1 Ver: 1.3b Date: 7-06-2005
+  o Process Name
+      - 90nm LOGIC SALICIDE (1P9M, 1.0V/2.5V) (CLN90G)
+  o Process Spectre Models
+      - T-N90-LO-SP-002 Ver: 1.4 Date: 08-20-2004
+  o Extractor Technology File 
+      - Using profile T-N90-LO-SP-002-B1 Rev: 1.4  Date: 10-29-2004
+        cln90g_v1.4_typical.nxtgrd
+	tsm090_6lm.map
+        RC extraction with star-rcxt
+
+EDA Support
+-----------
+This section lists the EDA tools and versions supported for this
+product release. The items indicated by the "*" were used during the
+QA testing of this release. This set of tools and versions corresponds
+to ARM EDA Package 4.1.
+
+    * Cadence NC-Sim (Verilog)
+        - 5.1
+    * Synopsys VCS (Verilog)
+        - 7.2
+    * Mentor ModelSim (Verilog)
+        - 6.0
+    * Cadence NC-Sim (VHDL)
+        - 5.1
+    * Mentor ModelSim (VHDL)
+        - 6.0
+    * Simulation Model SDF Compatibility
+        - SDF 2.1
+    * Synopsys Design Compiler
+        - 2004.12
+    o Synopsys Module Compiler 
+        - 2004.12
+    * Cadence RTL Compiler (.lib)
+        - 4.1
+    * Synopsys Physical Compiler 
+        - 2004.12
+    * Synopsys PrimeTime (Static Timing, Delay Calculation)
+        - 2004.12
+    * Synopsys Power Compiler
+        - 2004.12
+    o Synopsys PrimePower
+        - 2004.12
+    o Synopsys JupiterXT (Design Planning)
+        - 2004.12
+    o Cadence SoC Encounter/First Encounter (Design Planning)
+        - 4.1
+    * Cadence SoC Encounter/NanoRoute (Place & Route)
+        - 4.1
+    * Synopsys Astro (FRAM, CEL, .plib/.pdb, .lib/.db)
+        - 2004.12-SP1
+    * Mentor Graphics Calibre (GDSII, CDL)
+        - 2005.2_6.10
+    * Cadence Composer (Schematic Entry)
+        - DFII 5.0.33
+    o Synopsys DFT Compiler
+        - 2004.12
+    * Adobe Acrobat Reader (PDF Documentation)
+        - 5.0
+    * Cadence Spectre
+        - MMSIM6.0-ISR20050318
+    o Synopsys Hercules(For Extraction)
+        - 2004.12-1
+
+Technology Implementation
+-------------------------
+This section provides information on items that may not be included
+in the foundry documentation.
+    Characterization Corners: 
+            
+       scadv_tsmc_cln90g_rvt_ff_1p1v_0c   P/V/T = FF/1.1V/0C
+       scadv_tsmc_cln90g_rvt_ff_1p1v_125c P/V/T = FF/1.1V/125C    
+       scadv_tsmc_cln90g_rvt_ff_1p1v_m40c P/V/T = FF/1.1V/-40C    
+       scadv_tsmc_cln90g_rvt_tt_1p0v_50c  P/V/T = TT/1.0V/50C     
+       scadv_tsmc_cln90g_rvt_tt_1p0v_25c  P/V/T = TT/1.0V/25C     
+       scadv_tsmc_cln90g_rvt_ss_0p9v_125c P/V/T = SS/0.9V/125C    
+
+Known Problems and Solutions
+----------------------------
+This section describes known problems and work-arounds as of the
+release date of this library.
+
+   o There are no known problems. 
+------------------------------------------------------------------------------
+2006q3v1 (09/06/2006)
+
+ *** This Release Contains Timing views of 1.0V Domain  ***
+
+This package should be used in conjunction with the FE or FB package
+of the TSMC 90nm Enhanced (CLN90G) SC-ADV(tm) v1.0 Standard Cell Library
+release. 
+
+Impact on Designs Using 2006q2v2
+---------------------------------
+This section describes the impact of this release on current designs
+which are using the previous release.
+
+*** This is a mandatory update. ***
+
+ARM Update Recommendation:
+
+  o Install version 2006q3v1.
+    Discontinue using previous versions.
+        
+Impact of this Release on Major Library Components:
+   
+  o Synopsys *.lib and *.db has no changes.
+     - The timing views repackaged as seperate *.tgz file.
+
+Process Technology Data
+-----------------------
+This section lists all of the foundry documents and technology files used to
+design this product.
+
+  o Design Rule Document
+      - T-N90-LO-DR-001 Ver: 1.4 Date: 05-23-2005
+  o DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+      - CALIBRE NON_SHRINKABLE RULES IN N80 PROCESS
+	T-N80-CL-DR-001-C1 Ver: 1.0a Date: 1-23-2006
+  o Antenna DRC Command File
+      - CALIBRE DRC COMMAND FILE         
+	T-N90-LO-DR-001-C1 Ver: 1.5b  Date: 04-03-2006
+  o LVS Command File
+      - CALIBRE LVS COMMAND FILE
+        T-N90-CL-LS-001-C1 Ver: 1.3b Date: 7-06-2005
+  o Process Name
+      - 90nm LOGIC SALICIDE (1P9M, 1.0V/2.5V) (CLN90G)
+  o Process Spectre Models
+      - T-N90-LO-SP-002 Ver: 1.4 Date: 08-20-2004
+  o Extractor Technology File 
+      - Using profile T-N90-LO-SP-002-B1 Rev: 1.4  Date: 10-29-2004
+        cln90g_v1.4_typical.nxtgrd
+	tsm090_6lm.map
+        RC extraction with star-rcxt
+
+EDA Support
+-----------
+This section lists the EDA tools and versions supported for this
+product release. The items indicated by the "*" were used during the
+QA testing of this release. This set of tools and versions corresponds
+to ARM EDA Package 4.1.
+
+    * Cadence NC-Sim (Verilog)
+        - 5.1
+    * Synopsys VCS (Verilog)
+        - 7.2
+    * Mentor ModelSim (Verilog)
+        - 6.0
+    * Cadence NC-Sim (VHDL)
+        - 5.1
+    * Mentor ModelSim (VHDL)
+        - 6.0
+    * Simulation Model SDF Compatibility
+        - SDF 2.1
+    * Synopsys Design Compiler
+        - 2004.12
+    o Synopsys Module Compiler 
+        - 2004.12
+    * Cadence RTL Compiler (.lib)
+        - 4.1
+    * Synopsys Physical Compiler 
+        - 2004.12
+    * Synopsys PrimeTime (Static Timing, Delay Calculation)
+        - 2004.12
+    * Synopsys Power Compiler
+        - 2004.12
+    o Synopsys PrimePower
+        - 2004.12
+    o Synopsys JupiterXT (Design Planning)
+        - 2004.12
+    o Cadence SoC Encounter/First Encounter (Design Planning)
+        - 4.1
+    * Cadence SoC Encounter/NanoRoute (Place & Route)
+        - 4.1
+    * Synopsys Astro (FRAM, CEL, .plib/.pdb, .lib/.db)
+        - 2004.12-SP1
+    * Mentor Graphics Calibre (GDSII, CDL)
+        - 2005.2_6.10
+    * Cadence Composer (Schematic Entry)
+        - DFII 5.0.33
+    o Synopsys DFT Compiler
+        - 2004.12
+    * Adobe Acrobat Reader (PDF Documentation)
+        - 5.0
+    * Cadence Spectre
+        - MMSIM6.0-ISR20050318
+    o Synopsys Hercules(For Extraction)
+        - 2004.12-1
+
+Technology Implementation
+-------------------------
+This section provides information on items that may not be included
+in the foundry documentation.
+    Characterization Corners:  
+       scadv_tsmc_cln90g_rvt_ff_1p1v_0c   P/V/T = FF/1.1V/0C
+       scadv_tsmc_cln90g_rvt_ff_1p1v_125c P/V/T = FF/1.1V/125C    
+       scadv_tsmc_cln90g_rvt_ff_1p1v_m40c P/V/T = FF/1.1V/-40C    
+       scadv_tsmc_cln90g_rvt_tt_1p0v_50c  P/V/T = TT/1.0V/50C     
+       scadv_tsmc_cln90g_rvt_tt_1p0v_25c  P/V/T = TT/1.0V/25C     
+       scadv_tsmc_cln90g_rvt_ss_0p9v_125c P/V/T = SS/0.9V/125C    
+
+Known Problems and Solutions
+----------------------------
+This section describes known problems and work-arounds as of the
+release date of this library.
+
+   o There are no known problems. 
+------------------------------------------------------------------------------
+

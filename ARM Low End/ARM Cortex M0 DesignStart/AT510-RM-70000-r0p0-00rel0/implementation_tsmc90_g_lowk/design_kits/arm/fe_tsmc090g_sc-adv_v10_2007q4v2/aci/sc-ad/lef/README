@@ -1,0 +1,25 @@
+
+
+==============================================================================   
+=                    Example to ADD FILL2AD as TIE cell                        =
+==============================================================================
+addWellTap -cell FILL2AD -prefix WTO -maxGap 30 -skipRow 1
+addWellTap -cell FILL2AD -prefix WTE -maxGap 30 -skipRow 1 \
+-startRowNum 2 -inRowOffset 30
+
+
+Encounter Routing Issues
+------------------------
+NanoRoute may not implement the M1.S.2 rule properly. Furthermore,
+the DRC command "verify geometry" may not recognize these violations. You can
+eliminate some of the violations by using the following option in the Encounter
+shell before detail route.
+
+setNanoRouteMode drouteAllowMergedWireAtPin false
+
+==============================================================================
+=                   FILLCAP cells                                            =
+==============================================================================
+FILLCAPs are function as FILL cells. Inside FILLCAP, there are PMOS and 
+NMOS devices forming capacitors between VDD and VSS power rails. This helps
+to reduce ground bounce in the power grid.

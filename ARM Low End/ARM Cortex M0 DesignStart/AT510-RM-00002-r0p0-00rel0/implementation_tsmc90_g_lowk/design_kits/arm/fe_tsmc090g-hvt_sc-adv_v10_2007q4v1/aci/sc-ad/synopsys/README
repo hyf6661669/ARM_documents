@@ -1,0 +1,120 @@
+default_max_transition value
+----------------------------
+The default_max_transition time for this library has been set to coincide with
+the maximum transition time for which the library has been characterized. For
+most designs, the default_max_transition will be too high, so it should be
+adjusted, using the set_max_transition command in Synopsys, to a more
+appropriate value specific to the target design.
+
+Wireload models
+---------------
+The wireload tables included within these timing models are FOR REFERENCE
+ONLY. Wireload models are very subjective to variations due to place & route
+design style, place & route tools, number of metal layers, block size, routing
+density and other design specific parameters. It is strongly recommended that
+users develop their own wireload models for their specific design environment
+for the highest level of accuracy.
+
+Process K-factors
+-----------------
+For each Synopsys library (fast, typical, slow), both the "nom_process"
+variable and the "process" operating condition are set to 1. Because each
+corner library was characterized using the foundry's corresponding process
+models (FF for fast, TT for typical, SS for slow), it is not necessary to
+derate the process condition within Synopsys. When mixing ARM libraries
+with other vendor libraries, the ARM process operating condition should be
+set equal to the nom_process value to maintain timing accuracy.
+
+Transition Time Measurements
+---------------------------- 
+Transition time measurements are made from 30% of VDD to 70% of VDD for rising
+signal transitions. Transition time measurements are made from 70% of VDD to
+30% of VDD for falling signal transitions. In order to remain compatible with
+standards predominantly accepted by other IP vendors, the transition
+measurements have been extrapolated to 10% and 90% thresholds in the timing
+models.
+
+"dont_use" Properties
+---------------------
+The following cells have the "dont_use" property set by default:
+
+  MXI2DX1ADTH   MXI2DX2ADTH  MXI2DX4ADTH MXI2DXLADTH 
+  RF1R1WX1ADTH  RF2R1WX1ADTH
+  TIEHIADTH     TIELOADTH
+  
+The RF* cells are designed for building custom register file instances, which
+cannot by synthesized by DesignCompiler. The RF* cells must be instantiated by
+hand or by hand-crafted script to build custom register file instances.
+
+The TIE* cells have the dont_use property set due to widespread customer
+requests that prefer to tie off signals directly to the VDD and VSS rails. If
+you prefer to tie off pins using the TIEHI/TIELO cells, you should disable the
+"dont_use" properties on TIEHI/TIELO cells in the Synopsys libraries.
+
+The MXI2D cell architecture uses transmission gate  inputs for the data input
+pins and a double-buffered select signal to minimize the risk associated with
+transmission gate inputs. Do not drive MXI2D inputs from MXI2, ACCSHCIN,
+ACCSHCON, ACHCIN, ACHCON, ADDH, AFHCIN, AFHCON, AHHCIN, AND AHHCON cells.
+Furthermore, special care should be taken in designs that use multiple
+voltage domains for standard cell regions. Do not allow high voltage signals
+to be coupled into the input pins, A and B, when the cell is used in a low
+voltage domain; otherwise, it may be possible for the cell to latch. If your
+design methodology does not permit cells with transmission gate inputs, the 
+MXI2 cell may be used as an alternative.
+
+"min_period" Property
+---------------------
+All sequential cells in the .lib file have this clock pin property set:
+
+   min_period : 1.000000;
+
+This property has the effect of limiting a design's clock frequency to
+1.0GHz.  Commonly used design flows may not be able to support the required
+accuracy for designs targeted for clock frequencies higher than this limit.
+Contact ARM Physical IP technical support for designs targeting higher
+clock frequencies.
+
+Electromigration Guideline Compliance
+-------------------------------------
+ARM standard cell libraries are designed to meet foundry electromigration
+guidelines for normal chip design usage; however, it is the chip designer's
+responsibility to ensure that electromigration guidelines are met at the chip
+level with regard to foundry guidelines as well as ARM's guidelines for
+how the library will be used. The following three ARM guidelines must be
+met in order to ensure safe use of the standard cell library within the
+electromigration guidelines of the foundry.
+
+  1. The width of the Metal1 VDD and VSS power buses in the standard cells has
+     been sized to provide adequate current to the cells. Vertical power
+     straps must be placed with sufficient frequency to provide adequate
+     current distribution to the standard cell power buses. For more details,
+     see the section entitled "Power-Rail Strapping" in the standard cell user
+     guide.
+     
+  2. The output pin metal for each standard cell has been sized to accomodate
+     multiple vias necessary (for worst case electromigration conditions) to
+     meet via electromigration guidelines, although oversized Metal1 output
+     pins do not necessarily require multiple vias. The number of vias
+     required to meet electromigration guidelines is design dependent, and the
+     chip designer must use an appropriate number of vias and wire width when
+     routing from an output pin.
+
+  3. The internal layouts of the standard cells have been designed and
+     verified to comply with the manufacturer's electromigration guidelines
+     under normal usage. Normal usage is defined as follows:
+
+     o The current required by the cell does not exceed the maximum current
+       that can be supplied by the Metal1 power buses.
+
+     o The output transition times (measured using 10% & 90% thresholds), for
+       a cell outside the clock tree network, must be no greater than 20% of
+       the total cycle time, or must be no greater than 10% of the cycle time
+       for any of the output pins of that particular cell. Limiting the output
+       transition time has the effect of limiting the load driven by the cell
+       which will reduce the cell's current draw, making it comply with
+       electromigration guidelines. Ratios larger than 20% are not appropriate
+       for commonly used design flows and are unlikely to be encountered in
+       normal designs.
+
+     o For a cell in the clock tree network, transition times must not exceed
+       10% of the total cycle time for that cell.

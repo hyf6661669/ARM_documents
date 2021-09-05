@@ -1,0 +1,2267 @@
+F:/Cortex_M0
+©À©¤AR085-DA-70000-r0p0-02rel0
+©¦  ©¸©¤doc
+©¦      ©¸©¤ARMv6-M_architecture
+©¦              DDI0419B_arm_architecture_v6m_reference_manual.pdf
+©¦              
+©À©¤AR085-DC-11001-r0p0-02rel0
+©¦  ©¸©¤doc
+©¦      ©¸©¤errata
+©¦              ARMv6-M_Architecture_Errata_List.pdf
+©¦              DDI0419B_arm_architecture_v6m_reference_manual_errata_markup_1_0.pdf
+©¦              
+©À©¤AT510-BU-50000-r0p0-02rel0
+©¦  ©¦  ARM_Cortex-M0_r0p0-02rel0_AT510_ReleaseNote.pdf
+©¦  ©¦  
+©¦  ©À©¤doc
+©¦  ©¦  ©¦  Cortex-M0_Integration+ImplementationManualRevA_DII0238A_r0p0-00rel0.pdf
+©¦  ©¦  ©¦  Cortex-M0_TechnicalReferenceManualRevB_DDI0432_r0p0-01rel0.pdf
+©¦  ©¦  ©¦  Cortex-M0_UserGuideReferenceMaterialRevA_DUI0467B_r0p0-01rel0.pdf
+©¦  ©¦  ©¦  
+©¦  ©¦  ©À©¤Cortex-M0_TechnicalReferenceManual_Frame
+©¦  ©¦  ©¦  ©¦  DDI0432.book
+©¦  ©¦  ©¦  ©¦  DDI0432LOF.fm
+©¦  ©¦  ©¦  ©¦  DDI0432LOT.fm
+©¦  ©¦  ©¦  ©¦  DDI0432TOC.fm
+©¦  ©¦  ©¦  ©¦  TRM_bookinfo.fm
+©¦  ©¦  ©¦  ©¦  TRM_debug.fm
+©¦  ©¦  ©¦  ©¦  TRM_functional_description.fm
+©¦  ©¦  ©¦  ©¦  TRM_glossary.fm
+©¦  ©¦  ©¦  ©¦  TRM_introduction.fm
+©¦  ©¦  ©¦  ©¦  TRM_nvic.fm
+©¦  ©¦  ©¦  ©¦  TRM_preface.fm
+©¦  ©¦  ©¦  ©¦  TRM_programmers_model.fm
+©¦  ©¦  ©¦  ©¦  TRM_revisions.fm
+©¦  ©¦  ©¦  ©¦  TRM_system_control.fm
+©¦  ©¦  ©¦  ©¦  
+©¦  ©¦  ©¦  ©¸©¤graphics
+©¦  ©¦  ©¦          coresight_discovery.svg
+©¦  ©¦  ©¦          coresight_discovery.vsd
+©¦  ©¦  ©¦          cpuid_register_bit_assignments.svg
+©¦  ©¦  ©¦          cpuid_register_bit_assignments.vsd
+©¦  ©¦  ©¦          functional_block_diagram.svg
+©¦  ©¦  ©¦          functional_block_diagram.vsd
+©¦  ©¦  ©¦          
+©¦  ©¦  ©À©¤Cortex-M0_UserGuideReferenceMaterial_Frame
+©¦  ©¦  ©¦  ©¦  DUI0467.book
+©¦  ©¦  ©¦  ©¦  DUI0467TOC.fm
+©¦  ©¦  ©¦  ©¦  UG_bookinfo.fm
+©¦  ©¦  ©¦  ©¦  UG_cortex_m0_instruction_set.fm
+©¦  ©¦  ©¦  ©¦  UG_cortex_m0_peripherals.fm
+©¦  ©¦  ©¦  ©¦  UG_cortex_m0_processor.fm
+©¦  ©¦  ©¦  ©¦  UG_glossary.fm
+©¦  ©¦  ©¦  ©¦  UG_introduction.fm
+©¦  ©¦  ©¦  ©¦  UG_preface.fm
+©¦  ©¦  ©¦  ©¦  
+©¦  ©¦  ©¦  ©¸©¤graphics
+©¦  ©¦  ©¦          aircr_bit_assignments.svg
+©¦  ©¦  ©¦          aircr_bit_assignments.vsd
+©¦  ©¦  ©¦          apsr_ipsr_epsr_bit_assignments.svg
+©¦  ©¦  ©¦          apsr_ipsr_epsr_bit_assignments.vsd
+©¦  ©¦  ©¦          asr.svg
+©¦  ©¦  ©¦          asr.vsd
+©¦  ©¦  ©¦          byte_invariant_big_endian_format.svg
+©¦  ©¦  ©¦          byte_invariant_big_endian_format.vsd
+©¦  ©¦  ©¦          ccr_bit_assignments.svg
+©¦  ©¦  ©¦          ccr_bit_assignments.vsd
+©¦  ©¦  ©¦          control_register_bit_assignments.svg
+©¦  ©¦  ©¦          control_register_bit_assignments.vsd
+©¦  ©¦  ©¦          cpuid_register_bit_assignments.svg
+©¦  ©¦  ©¦          cpuid_register_bit_assignments.vsd
+©¦  ©¦  ©¦          exception_entry_stack_contents.svg
+©¦  ©¦  ©¦          exception_entry_stack_contents.vsd
+©¦  ©¦  ©¦          icer_bit_assignments.svg
+©¦  ©¦  ©¦          icer_bit_assignments.vsd
+©¦  ©¦  ©¦          icpr_bit_assignments.svg
+©¦  ©¦  ©¦          icpr_bit_assignments.vsd
+©¦  ©¦  ©¦          icsr_bit_assignments.svg
+©¦  ©¦  ©¦          icsr_bit_assignments.vsd
+©¦  ©¦  ©¦          ipr_bit_assignments.svg
+©¦  ©¦  ©¦          ipr_bit_assignments.vsd
+©¦  ©¦  ©¦          iser_bit_assignments.svg
+©¦  ©¦  ©¦          iser_bit_assignments.vsd
+©¦  ©¦  ©¦          ispr_bit_assignments.svg
+©¦  ©¦  ©¦          ispr_bit_assignments.vsd
+©¦  ©¦  ©¦          little_endian_format.svg
+©¦  ©¦  ©¦          little_endian_format.vsd
+©¦  ©¦  ©¦          lsl.svg
+©¦  ©¦  ©¦          lsl.vsd
+©¦  ©¦  ©¦          lsr.svg
+©¦  ©¦  ©¦          lsr.vsd
+©¦  ©¦  ©¦          memory_map.svg
+©¦  ©¦  ©¦          memory_map.vsd
+©¦  ©¦  ©¦          memory_ordering_restrictions.svg
+©¦  ©¦  ©¦          memory_ordering_restrictions.vsd
+©¦  ©¦  ©¦          primask_register_bit_assigments.svg
+©¦  ©¦  ©¦          primask_register_bit_assigments.vsd
+©¦  ©¦  ©¦          processor_core_register_set.svg
+©¦  ©¦  ©¦          processor_core_register_set.vsd
+©¦  ©¦  ©¦          ror.svg
+©¦  ©¦  ©¦          ror.vsd
+©¦  ©¦  ©¦          scr_bit_assignments.svg
+©¦  ©¦  ©¦          scr_bit_assignments.vsd
+©¦  ©¦  ©¦          shpr2_register_bit_assignments.svg
+©¦  ©¦  ©¦          shpr2_register_bit_assignments.vsd
+©¦  ©¦  ©¦          shpr3_register_bit_assignments.svg
+©¦  ©¦  ©¦          shpr3_register_bit_assignments.vsd
+©¦  ©¦  ©¦          syst_calib_register_bit_assignments.svg
+©¦  ©¦  ©¦          syst_calib_register_bit_assignments.vsd
+©¦  ©¦  ©¦          syst_csr_bit_assignments.svg
+©¦  ©¦  ©¦          syst_csr_bit_assignments.vsd
+©¦  ©¦  ©¦          syst_cvr_bit_assignments.svg
+©¦  ©¦  ©¦          syst_cvr_bit_assignments.vsd
+©¦  ©¦  ©¦          syst_rvr_bit_assignments.svg
+©¦  ©¦  ©¦          syst_rvr_bit_assignments.vsd
+©¦  ©¦  ©¦          typical_cortex_m0_implementation.svg
+©¦  ©¦  ©¦          typical_cortex_m0_implementation.vsd
+©¦  ©¦  ©¦          vector_table.svg
+©¦  ©¦  ©¦          vector_table.vsd
+©¦  ©¦  ©¦          
+©¦  ©¦  ©¸©¤Cortex-M0_UserGuideReferenceMaterial_XML
+©¦  ©¦      ©¦  DUI0467.xml
+©¦  ©¦      ©¦  UG_bookinfo.e01
+©¦  ©¦      ©¦  UG_cortex_m0_instruction_set.e01
+©¦  ©¦      ©¦  UG_cortex_m0_peripherals.e01
+©¦  ©¦      ©¦  UG_cortex_m0_processor.e01
+©¦  ©¦      ©¦  UG_glossary.e01
+©¦  ©¦      ©¦  UG_introduction.e01
+©¦  ©¦      ©¦  UG_preface.e01
+©¦  ©¦      ©¦  
+©¦  ©¦      ©¸©¤graphics
+©¦  ©¦              aircr_bit_assignments.svg
+©¦  ©¦              apsr_ipsr_epsr_bit_assignments.svg
+©¦  ©¦              asr.svg
+©¦  ©¦              byte_invariant_big_endian_format.svg
+©¦  ©¦              ccr_bit_assignments.svg
+©¦  ©¦              control_register_bit_assignments.svg
+©¦  ©¦              cpuid_register_bit_assignments.svg
+©¦  ©¦              exception_entry_stack_contents.svg
+©¦  ©¦              icer_bit_assignments.svg
+©¦  ©¦              icpr_bit_assignments.svg
+©¦  ©¦              icsr_bit_assignments.svg
+©¦  ©¦              ipr_bit_assignments.svg
+©¦  ©¦              iser_bit_assignments.svg
+©¦  ©¦              ispr_bit_assignments.svg
+©¦  ©¦              little_endian_format.svg
+©¦  ©¦              lsl.svg
+©¦  ©¦              lsr.svg
+©¦  ©¦              memory_map.svg
+©¦  ©¦              memory_ordering_restrictions.svg
+©¦  ©¦              primask_register_bit_assigments.svg
+©¦  ©¦              processor_core_register_set.svg
+©¦  ©¦              ror.svg
+©¦  ©¦              scr_bit_assignments.svg
+©¦  ©¦              shpr2_register_bit_assignments.svg
+©¦  ©¦              shpr3_register_bit_assignments.svg
+©¦  ©¦              syst_calib_register_bit_assignments.svg
+©¦  ©¦              syst_csr_bit_assignments.svg
+©¦  ©¦              syst_cvr_bit_assignments.svg
+©¦  ©¦              syst_rvr_bit_assignments.svg
+©¦  ©¦              typical_cortex_m0_implementation.svg
+©¦  ©¦              vector_table.svg
+©¦  ©¦              
+©¦  ©À©¤implementation
+©¦  ©¦  ©¸©¤vectors
+©¦  ©¦      ©¦  dotcshrc
+©¦  ©¦      ©¦  
+©¦  ©¦      ©À©¤CORTEXM0IMP
+©¦  ©¦      ©¦  ©À©¤crf
+©¦  ©¦      ©¦  ©¦      CORTEXM0IMP.ctrm
+©¦  ©¦      ©¦  ©¦      
+©¦  ©¦      ©¦  ©À©¤srpg
+©¦  ©¦      ©¦  ©¦      archpro.ini
+©¦  ©¦      ©¦  ©¦      CORTEXM0IMP.cpf
+©¦  ©¦      ©¦  ©¦      CORTEXM0IMP.upf
+©¦  ©¦      ©¦  ©¦      
+©¦  ©¦      ©¦  ©¸©¤tbench
+©¦  ©¦      ©¦      ©¦  CORTEXM0IMP_Replay_tb.v
+©¦  ©¦      ©¦      ©¦  netlist.vc
+©¦  ©¦      ©¦      ©¦  tbench.vc
+©¦  ©¦      ©¦      ©¦  
+©¦  ©¦      ©¦      ©¸©¤logs
+©¦  ©¦      ©À©¤CORTEXM0INTEGRATIONIMP
+©¦  ©¦      ©¦  ©À©¤crf
+©¦  ©¦      ©¦  ©¦      CORTEXM0INTEGRATIONIMP.ctrm
+©¦  ©¦      ©¦  ©¦      
+©¦  ©¦      ©¦  ©À©¤srpg
+©¦  ©¦      ©¦  ©¦      archpro.ini
+©¦  ©¦      ©¦  ©¦      CORTEXM0INTEGRATIONIMP.cpf
+©¦  ©¦      ©¦  ©¦      CORTEXM0INTEGRATIONIMP.upf
+©¦  ©¦      ©¦  ©¦      
+©¦  ©¦      ©¦  ©¸©¤tbench
+©¦  ©¦      ©¦      ©¦  CORTEXM0INTEGRATIONIMP_Replay_tb.v
+©¦  ©¦      ©¦      ©¦  netlist.vc
+©¦  ©¦      ©¦      ©¦  tbench.vc
+©¦  ©¦      ©¦      ©¦  
+©¦  ©¦      ©¦      ©¸©¤logs
+©¦  ©¦      ©¸©¤tools
+©¦  ©¦          ©¦  Crf2Vrf
+©¦  ©¦          ©¦  Replay
+©¦  ©¦          ©¦  
+©¦  ©¦          ©¸©¤VerilogCrf
+©¦  ©¦                  Ctrm.pm
+©¦  ©¦                  
+©¦  ©À©¤integration_kit
+©¦  ©¦  ©À©¤logical
+©¦  ©¦  ©¦  ©À©¤cm0ikmcu
+©¦  ©¦  ©¦  ©¦  ©¸©¤verilog
+©¦  ©¦  ©¦  ©¦          CM0IKMCU.v
+©¦  ©¦  ©¦  ©¦          cm0ik_ahb_def_slv.v
+©¦  ©¦  ©¦  ©¦          cm0ik_ahb_interconnect.v
+©¦  ©¦  ©¦  ©¦          cm0ik_ahb_sram_bridge.v
+©¦  ©¦  ©¦  ©¦          cm0ik_clk_gen.v
+©¦  ©¦  ©¦  ©¦          cm0ik_cortexm0integration_timing.v
+©¦  ©¦  ©¦  ©¦          cm0ik_cortexm0_timing.v
+©¦  ©¦  ©¦  ©¦          cm0ik_gpio.v
+©¦  ©¦  ©¦  ©¦          cm0ik_input_delay.v
+©¦  ©¦  ©¦  ©¦          cm0ik_misc.v
+©¦  ©¦  ©¦  ©¦          cm0ik_misc_delay.v
+©¦  ©¦  ©¦  ©¦          cm0ik_rom.v
+©¦  ©¦  ©¦  ©¦          cm0ik_sram.v
+©¦  ©¦  ©¦  ©¦          cm0ik_stclken_gen.v
+©¦  ©¦  ©¦  ©¦          cm0ik_sys.v
+©¦  ©¦  ©¦  ©¦          cm0ik_system_rom_table.v
+©¦  ©¦  ©¦  ©¦          cm0ik_v6m_rom_table.v
+©¦  ©¦  ©¦  ©¦          
+©¦  ©¦  ©¦  ©¸©¤tbench
+©¦  ©¦  ©¦      ©¸©¤verilog
+©¦  ©¦  ©¦              cm0ik_clk_src.v
+©¦  ©¦  ©¦              cm0ik_cortexm0imp_capture.v
+©¦  ©¦  ©¦              cm0ik_cortexm0integrationimp_capture.v
+©¦  ©¦  ©¦              cm0ik_debug_driver.v
+©¦  ©¦  ©¦              cm0ik_defs.v
+©¦  ©¦  ©¦              cm0ik_poreset.v
+©¦  ©¦  ©¦              dsm.vc
+©¦  ©¦  ©¦              netlist.vc
+©¦  ©¦  ©¦              rtl.vc
+©¦  ©¦  ©¦              tbench.v
+©¦  ©¦  ©¦              tbench.vc
+©¦  ©¦  ©¦              
+©¦  ©¦  ©¸©¤validation
+©¦  ©¦      ©¦  dsmdotcshrc
+©¦  ©¦      ©¦  RunIK
+©¦  ©¦      ©¦  simulator_mti.cmds
+©¦  ©¦      ©¦  simulator_nc.cmds
+©¦  ©¦      ©¦  simulator_vcs.cmds
+©¦  ©¦      ©¦  
+©¦  ©¦      ©À©¤glogs
+©¦  ©¦      ©¦      config_check_mti.log
+©¦  ©¦      ©¦      debug_mti.log
+©¦  ©¦      ©¦      dhry_mti.log
+©¦  ©¦      ©¦      hellow_mti.log
+©¦  ©¦      ©¦      interrupt_mti.log
+©¦  ©¦      ©¦      max_power_mti.log
+©¦  ©¦      ©¦      reset_mti.log
+©¦  ©¦      ©¦      romtable_mti.log
+©¦  ©¦      ©¦      sleep_mti.log
+©¦  ©¦      ©¦      speed_indicative_mti.log
+©¦  ©¦      ©¦      
+©¦  ©¦      ©À©¤logs
+©¦  ©¦      ©À©¤mdk
+©¦  ©¦      ©¦      config_check.Uv2
+©¦  ©¦      ©¦      debug.Uv2
+©¦  ©¦      ©¦      debugdriver.Uv2
+©¦  ©¦      ©¦      dhry.Uv2
+©¦  ©¦      ©¦      hellow.Uv2
+©¦  ©¦      ©¦      IntegrationKit.mpw
+©¦  ©¦      ©¦      interrupt.Uv2
+©¦  ©¦      ©¦      max_power.Uv2
+©¦  ©¦      ©¦      reset.Uv2
+©¦  ©¦      ©¦      romtable.Uv2
+©¦  ©¦      ©¦      sleep.Uv2
+©¦  ©¦      ©¦      speed_indicative.Uv2
+©¦  ©¦      ©¦      
+©¦  ©¦      ©À©¤srpg
+©¦  ©¦      ©¦      archpro.ini
+©¦  ©¦      ©¦      CM0IKMCU.cpf
+©¦  ©¦      ©¦      CM0IKMCU.upf
+©¦  ©¦      ©¦      CM0IKMCU_integration.cpf
+©¦  ©¦      ©¦      CM0IKMCU_integration.upf
+©¦  ©¦      ©¦      
+©¦  ©¦      ©À©¤tests
+©¦  ©¦      ©¦  ©¦  boot.c
+©¦  ©¦      ©¦  ©¦  boot_debugdriver.c
+©¦  ©¦      ©¦  ©¦  cm0ikdebugdriver.h
+©¦  ©¦      ©¦  ©¦  cm0ikmcu.h
+©¦  ©¦      ©¦  ©¦  config_check.c
+©¦  ©¦      ©¦  ©¦  debug.c
+©¦  ©¦      ©¦  ©¦  debugdriver.c
+©¦  ©¦      ©¦  ©¦  debugdriver.h
+©¦  ©¦      ©¦  ©¦  debugdriver_functions.h
+©¦  ©¦      ©¦  ©¦  dhry.h
+©¦  ©¦      ©¦  ©¦  dhry_1.c
+©¦  ©¦      ©¦  ©¦  dhry_2.c
+©¦  ©¦      ©¦  ©¦  hellow.c
+©¦  ©¦      ©¦  ©¦  IKConfig.h
+©¦  ©¦      ©¦  ©¦  IKtests.c
+©¦  ©¦      ©¦  ©¦  IKtests.h
+©¦  ©¦      ©¦  ©¦  interrupt.c
+©¦  ©¦      ©¦  ©¦  Makefile
+©¦  ©¦      ©¦  ©¦  max_power.c
+©¦  ©¦      ©¦  ©¦  reset.c
+©¦  ©¦      ©¦  ©¦  retarget_cm0ikdebugdriver.c
+©¦  ©¦      ©¦  ©¦  retarget_cm0ikmcu.c
+©¦  ©¦      ©¦  ©¦  romtable.c
+©¦  ©¦      ©¦  ©¦  sleep.c
+©¦  ©¦      ©¦  ©¦  speed_indicative.c
+©¦  ©¦      ©¦  ©¦  system_cm0ikdebugdriver.c
+©¦  ©¦      ©¦  ©¦  system_cm0ikdebugdriver.h
+©¦  ©¦      ©¦  ©¦  system_cm0ikmcu.c
+©¦  ©¦      ©¦  ©¦  system_cm0ikmcu.h
+©¦  ©¦      ©¦  ©¦  
+©¦  ©¦      ©¦  ©¸©¤CMSIS
+©¦  ©¦      ©¦      ©¸©¤Core
+©¦  ©¦      ©¦          ©À©¤CM0
+©¦  ©¦      ©¦          ©¦      core_cm0.c
+©¦  ©¦      ©¦          ©¦      core_cm0.h
+©¦  ©¦      ©¦          ©¦      
+©¦  ©¦      ©¦          ©¸©¤Documentation
+©¦  ©¦      ©¦                  CMSIS_Core.htm
+©¦  ©¦      ©¦                  
+©¦  ©¦      ©¸©¤vectors
+©¦  ©À©¤ipxact
+©¦  ©¦  ©¦  README_IPXACT
+©¦  ©¦  ©¦  
+©¦  ©¦  ©À©¤busdefs
+©¦  ©¦  ©¦  ©À©¤amba.com
+©¦  ©¦  ©¦  ©¦  ©¸©¤AMBA3
+©¦  ©¦  ©¦  ©¦          AHBLite.xml
+©¦  ©¦  ©¦  ©¦          
+©¦  ©¦  ©¦  ©¸©¤arm.com
+©¦  ©¦  ©¦      ©À©¤CoreSight
+©¦  ©¦  ©¦      ©¦      Onchip_SWJDP_Interface.xml
+©¦  ©¦  ©¦      ©¦      SerialWire_and_JTAG_Interface.xml
+©¦  ©¦  ©¦      ©¦      
+©¦  ©¦  ©¦      ©À©¤Cortex-M0
+©¦  ©¦  ©¦      ©¦      cm0_debug_slave.xml
+©¦  ©¦  ©¦      ©¦      cm0_free_running_clk.xml
+©¦  ©¦  ©¦      ©¦      cm0_proc_wicinterface.xml
+©¦  ©¦  ©¦      ©¦      cm0_smp.xml
+©¦  ©¦  ©¦      ©¦      cm0_system_clk.xml
+©¦  ©¦  ©¦      ©¦      
+©¦  ©¦  ©¦      ©¸©¤CortexMCores
+©¦  ©¦  ©¦              dbg_pwr_bus.xml
+©¦  ©¦  ©¦              dbg_trigger_bus.xml
+©¦  ©¦  ©¦              sleep_bus.xml
+©¦  ©¦  ©¦              srpg_bus.xml
+©¦  ©¦  ©¦              
+©¦  ©¦  ©À©¤channels
+©¦  ©¦  ©¦  ©¸©¤arm.com
+©¦  ©¦  ©¦      ©¸©¤Cortex-M0
+©¦  ©¦  ©¦          ©¦  cm0_debugslave_channel.xml
+©¦  ©¦  ©¦          ©¦  
+©¦  ©¦  ©¦          ©¸©¤rtl
+©¦  ©¦  ©¦                  cm0_debugslave_channel.v
+©¦  ©¦  ©¦                  
+©¦  ©¦  ©¸©¤components
+©¦  ©¦      ©¸©¤arm.com
+©¦  ©¦          ©¸©¤Cortex-M0
+©¦  ©¦                  CORTEXM0.xml
+©¦  ©¦                  CORTEXM0INTEGRATION.xml
+©¦  ©¦                  
+©¦  ©¸©¤logical
+©¦      ©À©¤cortexm0
+©¦      ©¦  ©¸©¤verilog
+©¦      ©¦          cm0_core.v
+©¦      ©¦          cm0_core_alu.v
+©¦      ©¦          cm0_core_ctl.v
+©¦      ©¦          cm0_core_dec.v
+©¦      ©¦          cm0_core_gpr.v
+©¦      ©¦          cm0_core_mul.v
+©¦      ©¦          cm0_core_pfu.v
+©¦      ©¦          cm0_core_psr.v
+©¦      ©¦          cm0_core_spu.v
+©¦      ©¦          cm0_dbg_bpu.v
+©¦      ©¦          cm0_dbg_ctl.v
+©¦      ©¦          cm0_dbg_dwt.v
+©¦      ©¦          cm0_dbg_if.v
+©¦      ©¦          cm0_dbg_sel.v
+©¦      ©¦          cm0_matrix.v
+©¦      ©¦          cm0_matrix_sel.v
+©¦      ©¦          cm0_nvic.v
+©¦      ©¦          cm0_nvic_main.v
+©¦      ©¦          cm0_nvic_reg.v
+©¦      ©¦          cm0_tarmac.v
+©¦      ©¦          cm0_top.v
+©¦      ©¦          cm0_top_clk.v
+©¦      ©¦          cm0_top_dbg.v
+©¦      ©¦          cm0_top_sys.v
+©¦      ©¦          CORTEXM0.v
+©¦      ©¦          
+©¦      ©À©¤cortexm0_dap
+©¦      ©¦  ©¸©¤verilog
+©¦      ©¦          cm0_dap_ap.v
+©¦      ©¦          cm0_dap_ap_cdc.v
+©¦      ©¦          cm0_dap_ap_mast.v
+©¦      ©¦          cm0_dap_ap_mast_defs.v
+©¦      ©¦          cm0_dap_dp.v
+©¦      ©¦          cm0_dap_dp_cdc.v
+©¦      ©¦          cm0_dap_dp_jtag.v
+©¦      ©¦          cm0_dap_dp_jtag_defs.v
+©¦      ©¦          cm0_dap_dp_pwr.v
+©¦      ©¦          cm0_dap_dp_sw.v
+©¦      ©¦          cm0_dap_dp_sw_defs.v
+©¦      ©¦          CORTEXM0DAP.v
+©¦      ©¦          
+©¦      ©À©¤cortexm0_integration
+©¦      ©¦  ©¸©¤verilog
+©¦      ©¦          CORTEXM0INTEGRATION.v
+©¦      ©¦          cortexm0_pmu.v
+©¦      ©¦          cortexm0_rst_ctl.v
+©¦      ©¦          cortexm0_wic.v
+©¦      ©¦          
+©¦      ©À©¤models
+©¦      ©¦  ©À©¤cells
+©¦      ©¦  ©¦      cm0_acg.v
+©¦      ©¦  ©¦      cm0_dap_cdc_capt_sync.v
+©¦      ©¦  ©¦      cm0_dap_cdc_comb_and.v
+©¦      ©¦  ©¦      cm0_dap_cdc_comb_and_addr.v
+©¦      ©¦  ©¦      cm0_dap_cdc_comb_and_data.v
+©¦      ©¦  ©¦      cm0_dap_cdc_send.v
+©¦      ©¦  ©¦      cm0_dap_cdc_send_addr.v
+©¦      ©¦  ©¦      cm0_dap_cdc_send_data.v
+©¦      ©¦  ©¦      cm0_dap_cdc_send_reset.v
+©¦      ©¦  ©¦      cm0_dap_jt_cdc_comb_and.v
+©¦      ©¦  ©¦      cm0_dap_sw_cdc_capt_reset.v
+©¦      ©¦  ©¦      cm0_dbg_reset_sync.v
+©¦      ©¦  ©¦      cm0_pmu_acg.v
+©¦      ©¦  ©¦      cm0_pmu_cdc_send_reset.v
+©¦      ©¦  ©¦      cm0_pmu_cdc_send_set.v
+©¦      ©¦  ©¦      cm0_pmu_sync_reset.v
+©¦      ©¦  ©¦      cm0_pmu_sync_set.v
+©¦      ©¦  ©¦      cm0_rst_send_set.v
+©¦      ©¦  ©¦      cm0_rst_sync.v
+©¦      ©¦  ©¦      
+©¦      ©¦  ©À©¤cpf
+©¦      ©¦  ©¦      CORTEXM0IMP.cpf
+©¦      ©¦  ©¦      CORTEXM0INTEGRATIONIMP.cpf
+©¦      ©¦  ©¦      
+©¦      ©¦  ©À©¤upf
+©¦      ©¦  ©¦      CORTEXM0IMP.upf
+©¦      ©¦  ©¦      CORTEXM0INTEGRATIONIMP.upf
+©¦      ©¦  ©¦      
+©¦      ©¦  ©¸©¤wrappers
+©¦      ©¦          CORTEXM0IMP.v
+©¦      ©¦          CORTEXM0INTEGRATIONIMP.v
+©¦      ©¦          
+©¦      ©¸©¤ualdis
+©¦          ©¸©¤verilog
+©¦                  ualdis.v
+©¦                  ual_dec_t16.v
+©¦                  ual_dec_t32.v
+©¦                  ual_fun_big_decimal.v
+©¦                  ual_fun_cond_field.v
+©¦                  ual_fun_decimal.v
+©¦                  ual_fun_expand_imm.v
+©¦                  ual_fun_hex.v
+©¦                  ual_fun_imm_shift.v
+©¦                  ual_fun_reg_list.v
+©¦                  ual_fun_reg_name.v
+©¦                  ual_fun_tab_align.v
+©¦                  ual_t16_add_sp.v
+©¦                  ual_t16_add_sub.v
+©¦                  ual_t16_add_sub_sp.v
+©¦                  ual_t16_adr.v
+©¦                  ual_t16_b.v
+©¦                  ual_t16_bkpt.v
+©¦                  ual_t16_bx_blx.v
+©¦                  ual_t16_b_cond.v
+©¦                  ual_t16_cbz.v
+©¦                  ual_t16_cps.v
+©¦                  ual_t16_dp_hi_reg.v
+©¦                  ual_t16_dp_imm.v
+©¦                  ual_t16_dp_reg.v
+©¦                  ual_t16_extend.v
+©¦                  ual_t16_hints.v
+©¦                  ual_t16_it.v
+©¦                  ual_t16_ldm_stm.v
+©¦                  ual_t16_literal.v
+©¦                  ual_t16_ls_h_imm.v
+©¦                  ual_t16_ls_imm.v
+©¦                  ual_t16_ls_reg.v
+©¦                  ual_t16_ls_sp.v
+©¦                  ual_t16_prefix_t32.v
+©¦                  ual_t16_push_pop.v
+©¦                  ual_t16_rev.v
+©¦                  ual_t16_setend.v
+©¦                  ual_t16_shift_imm.v
+©¦                  ual_t16_svc.v
+©¦                  ual_t16_undefined.v
+©¦                  ual_t16_unpredictable.v
+©¦                  ual_t32_b_bl.v
+©¦                  ual_t32_b_cond.v
+©¦                  ual_t32_dsb_dmb_isb.v
+©¦                  ual_t32_hints.v
+©¦                  ual_t32_mrs.v
+©¦                  ual_t32_msr.v
+©¦                  ual_t32_opcode_t16.v
+©¦                  ual_t32_undefined.v
+©¦                  
+©À©¤AT510-DC-11001-r0p0-00rel0
+©¦      Cortex-M0_Errata_v1.0.pdf
+©¦      
+©À©¤AT510-MS-26607-r0p0-00rel0
+©¦  ©¸©¤CORTEXM0_dsm_VCS_Linux_r0p0-00rel0
+©¦      ©¦  install.csh
+©¦      ©¦  install.notes
+©¦      ©¦  LICENCE.txt
+©¦      ©¦  ModelPackage
+©¦      ©¦  
+©¦      ©¸©¤decrypter
+©¦              decrypter_Linux.exe
+©¦              decrypter_SunOS.exe
+©¦              
+©À©¤AT510-MS-26610-r0p0-00rel0
+©¦  ©¸©¤CORTEXM0_dsm_VCS_Linux-64_r0p0-00rel0
+©¦      ©¦  install.csh
+©¦      ©¦  install.notes
+©¦      ©¦  LICENCE.txt
+©¦      ©¦  ModelPackage
+©¦      ©¦  
+©¦      ©¸©¤decrypter
+©¦              decrypter_Linux.exe
+©¦              decrypter_SunOS.exe
+©¦              
+©À©¤AT510-MS-28607-r0p0-00rel0
+©¦  ©¸©¤CORTEXM0_dsm_NcVerilog_Linux_r0p0-00rel0
+©¦      ©¦  install.csh
+©¦      ©¦  install.notes
+©¦      ©¦  LICENCE.txt
+©¦      ©¦  ModelPackage
+©¦      ©¦  
+©¦      ©¸©¤decrypter
+©¦              decrypter_Linux.exe
+©¦              decrypter_SunOS.exe
+©¦              
+©À©¤AT510-MS-28610-r0p0-00rel0
+©¦  ©¸©¤CORTEXM0_dsm_NcVerilog_Linux-64_r0p0-00rel0
+©¦      ©¦  install.csh
+©¦      ©¦  install.notes
+©¦      ©¦  LICENCE.txt
+©¦      ©¦  ModelPackage
+©¦      ©¦  
+©¦      ©¸©¤decrypter
+©¦              decrypter_Linux.exe
+©¦              decrypter_SunOS.exe
+©¦              
+©À©¤AT510-RM-00002-r0p0-00rel0
+©¦  ©À©¤doc
+©¦  ©¦  ©¸©¤implementation_reference_methodology
+©¦  ©¦          SNPS_CORTEXM0_Release_Notes_2008_09.pdf
+©¦  ©¦          SNPS_CORTEXM0_User_Guide_ICC_2008_09.pdf
+©¦  ©¦          
+©¦  ©¸©¤implementation_tsmc90_g_lowk
+©¦      ©À©¤cortexm0
+©¦      ©¦  ©À©¤misc
+©¦      ©¦  ©¦  ©À©¤cells
+©¦      ©¦  ©¦  ©¦  ©¸©¤fe_tsmc090g_sc-adv_v10_2007q4v2
+©¦      ©¦  ©¦  ©¦          cm0_acg.v
+©¦      ©¦  ©¦  ©¦          
+©¦      ©¦  ©¦  ©¸©¤wrappers
+©¦      ©¦  ©¦      ©¸©¤fe_tsmc090g_sc-adv_v10_2007q4v2
+©¦      ©¦  ©¦              CORTEXM0IMP.v
+©¦      ©¦  ©¦              
+©¦      ©¦  ©¸©¤synopsys
+©¦      ©¦      ©¸©¤build_dir
+©¦      ©¦          ©¦  Makefile
+©¦      ©¦          ©¦  
+©¦      ©¦          ©À©¤floorplan
+©¦      ©¦          ©¦      cortexm0imp_pins.tdf
+©¦      ©¦          ©¦      
+©¦      ©¦          ©¸©¤scripts
+©¦      ©¦                  core_config.tcl
+©¦      ©¦                  cortexm0imp_clock_opt.tcl
+©¦      ©¦                  cortexm0imp_compile.tcl
+©¦      ©¦                  cortexm0imp_config.tcl
+©¦      ©¦                  cortexm0imp_constraints.tcl
+©¦      ©¦                  cortexm0imp_design_planning.tcl
+©¦      ©¦                  cortexm0imp_dmsa.tcl
+©¦      ©¦                  cortexm0imp_dmsa_constraints.tcl
+©¦      ©¦                  cortexm0imp_dmsa_link_design.tcl
+©¦      ©¦                  cortexm0imp_dmsa_read_netlist.tcl
+©¦      ©¦                  cortexm0imp_dmsa_write_reports.tcl
+©¦      ©¦                  cortexm0imp_etm.tcl
+©¦      ©¦                  cortexm0imp_export.tcl
+©¦      ©¦                  cortexm0imp_fm.tcl
+©¦      ©¦                  cortexm0imp_mcmm_scenarios.tcl
+©¦      ©¦                  cortexm0imp_mcmm_testmode_constraints.tcl
+©¦      ©¦                  cortexm0imp_netSwitching.scm
+©¦      ©¦                  cortexm0imp_place_opt.tcl
+©¦      ©¦                  cortexm0imp_powerSupply.scm
+©¦      ©¦                  cortexm0imp_ptpx.tcl
+©¦      ©¦                  cortexm0imp_qual.tcl
+©¦      ©¦                  cortexm0imp_rail.tcl
+©¦      ©¦                  cortexm0imp_route_opt.tcl
+©¦      ©¦                  cortexm0imp_sta.tcl
+©¦      ©¦                  cortexm0imp_star_bc.scm
+©¦      ©¦                  cortexm0imp_star_brc.scm
+©¦      ©¦                  cortexm0imp_star_typ.scm
+©¦      ©¦                  cortexm0imp_star_wc.scm
+©¦      ©¦                  cortexm0imp_star_wrc.scm
+©¦      ©¦                  cortexm0imp_tech.tcl
+©¦      ©¦                  cortexm0imp_testmode_sta.tcl
+©¦      ©¦                  cortexm0imp_tmax.tcl
+©¦      ©¦                  cortexm0imp_verilog.tcl
+©¦      ©¦                  
+©¦      ©À©¤cortexm0_integration
+©¦      ©¦  ©À©¤misc
+©¦      ©¦  ©¦  ©À©¤cells
+©¦      ©¦  ©¦  ©¦  ©¸©¤fe_tsmc090g_sc-adv_v10_2007q4v2
+©¦      ©¦  ©¦  ©¦          cm0_acg.v
+©¦      ©¦  ©¦  ©¦          cm0_dap_cdc_capt_sync.v
+©¦      ©¦  ©¦  ©¦          cm0_dap_cdc_comb_and.v
+©¦      ©¦  ©¦  ©¦          cm0_dap_cdc_comb_and_addr.v
+©¦      ©¦  ©¦  ©¦          cm0_dap_cdc_comb_and_data.v
+©¦      ©¦  ©¦  ©¦          cm0_dap_cdc_send.v
+©¦      ©¦  ©¦  ©¦          cm0_dap_cdc_send_addr.v
+©¦      ©¦  ©¦  ©¦          cm0_dap_cdc_send_data.v
+©¦      ©¦  ©¦  ©¦          cm0_dap_cdc_send_reset.v
+©¦      ©¦  ©¦  ©¦          cm0_dap_jt_cdc_comb_and.v
+©¦      ©¦  ©¦  ©¦          cm0_dap_sw_cdc_capt_reset.v
+©¦      ©¦  ©¦  ©¦          cm0_dbg_reset_sync.v
+©¦      ©¦  ©¦  ©¦          
+©¦      ©¦  ©¦  ©¸©¤wrappers
+©¦      ©¦  ©¦      ©¸©¤fe_tsmc090g_sc-adv_v10_2007q4v2
+©¦      ©¦  ©¦              CORTEXM0INTEGRATIONIMP.v
+©¦      ©¦  ©¦              
+©¦      ©¦  ©¸©¤synopsys
+©¦      ©¦      ©¸©¤build_dir
+©¦      ©¦          ©¦  Makefile
+©¦      ©¦          ©¦  
+©¦      ©¦          ©À©¤floorplan
+©¦      ©¦          ©¦      cortexm0integrationimp_pins.tdf
+©¦      ©¦          ©¦      
+©¦      ©¦          ©¸©¤scripts
+©¦      ©¦                  core_config.tcl
+©¦      ©¦                  cortexm0integrationimp_clock_opt.tcl
+©¦      ©¦                  cortexm0integrationimp_compile.tcl
+©¦      ©¦                  cortexm0integrationimp_config.tcl
+©¦      ©¦                  cortexm0integrationimp_constraints.tcl
+©¦      ©¦                  cortexm0integrationimp_design_planning.tcl
+©¦      ©¦                  cortexm0integrationimp_dmsa.tcl
+©¦      ©¦                  cortexm0integrationimp_dmsa_constraints.tcl
+©¦      ©¦                  cortexm0integrationimp_dmsa_link_design.tcl
+©¦      ©¦                  cortexm0integrationimp_dmsa_read_netlist.tcl
+©¦      ©¦                  cortexm0integrationimp_dmsa_write_reports.tcl
+©¦      ©¦                  cortexm0integrationimp_etm.tcl
+©¦      ©¦                  cortexm0integrationimp_export.tcl
+©¦      ©¦                  cortexm0integrationimp_fm.tcl
+©¦      ©¦                  cortexm0integrationimp_mcmm_scenarios.tcl
+©¦      ©¦                  cortexm0integrationimp_mcmm_testmode_constraints.tcl
+©¦      ©¦                  cortexm0integrationimp_netSwitching.scm
+©¦      ©¦                  cortexm0integrationimp_place_opt.tcl
+©¦      ©¦                  cortexm0integrationimp_powerSupply.scm
+©¦      ©¦                  cortexm0integrationimp_ptpx.tcl
+©¦      ©¦                  cortexm0integrationimp_qual.tcl
+©¦      ©¦                  cortexm0integrationimp_rail.tcl
+©¦      ©¦                  cortexm0integrationimp_route_opt.tcl
+©¦      ©¦                  cortexm0integrationimp_sta.tcl
+©¦      ©¦                  cortexm0integrationimp_star_bc.scm
+©¦      ©¦                  cortexm0integrationimp_star_brc.scm
+©¦      ©¦                  cortexm0integrationimp_star_typ.scm
+©¦      ©¦                  cortexm0integrationimp_star_wc.scm
+©¦      ©¦                  cortexm0integrationimp_star_wrc.scm
+©¦      ©¦                  cortexm0integrationimp_tech.tcl
+©¦      ©¦                  cortexm0integrationimp_testmode_sta.tcl
+©¦      ©¦                  cortexm0integrationimp_tmax.tcl
+©¦      ©¦                  cortexm0integrationimp_verilog.tcl
+©¦      ©¦                  
+©¦      ©¸©¤design_kits
+©¦          ©À©¤arm
+©¦          ©¦  ©À©¤fe_tsmc090g-hvt_sc-adv_v10_2007q4v1
+©¦          ©¦  ©¦  ©¦  README.copyright
+©¦          ©¦  ©¦  ©¦  README.fe_license
+©¦          ©¦  ©¦  ©¦  README.tsmc090g-hvt_1p0v_sc-adv_v10_2007q4v1
+©¦          ©¦  ©¦  ©¦  README.tsmc090g-hvt_sc-adv_v10_2007q4v1
+©¦          ©¦  ©¦  ©¦  
+©¦          ©¦  ©¦  ©¸©¤aci
+©¦          ©¦  ©¦      ©¸©¤sc-ad
+©¦          ©¦  ©¦          ©¦  cell_list
+©¦          ©¦  ©¦          ©¦  
+©¦          ©¦  ©¦          ©À©¤astro
+©¦          ©¦  ©¦          ©¦  ©¦  defineTracks.cmd
+©¦          ©¦  ©¦          ©¦  ©¦  gds2InLayer.map
+©¦          ©¦  ©¦          ©¦  ©¦  gds2OutLayer.map
+©¦          ©¦  ©¦          ©¦  ©¦  README
+©¦          ©¦  ©¦          ©¦  ©¦  
+©¦          ©¦  ©¦          ©¦  ©À©¤tf
+©¦          ©¦  ©¦          ©¦  ©¦      tsmc090adghvt_7lm_1thick.tf
+©¦          ©¦  ©¦          ©¦  ©¦      
+©¦          ©¦  ©¦          ©¦  ©¸©¤tsmc090adghvt_fram
+©¦          ©¦  ©¦          ©¦      ©¦  .lock
+©¦          ©¦  ©¦          ©¦      ©¦  lib
+©¦          ©¦  ©¦          ©¦      ©¦  lib_1
+©¦          ©¦  ©¦          ©¦      ©¦  lib_2
+©¦          ©¦  ©¦          ©¦      ©¦  lib_bck
+©¦          ©¦  ©¦          ©¦      ©¦  
+©¦          ©¦  ©¦          ©¦      ©À©¤CEL
+©¦          ©¦  ©¦          ©¦      ©¦      FILL2ADTH5wwywwwww3z2iu0y_1
+©¦          ©¦  ©¦          ©¦      ©¦      FILL2ADTH5wwywwwww3z2iu0y_2
+©¦          ©¦  ©¦          ©¦      ©¦      FILL2ADTH_1
+©¦          ©¦  ©¦          ©¦      ©¦      unitTile_1
+©¦          ©¦  ©¦          ©¦      ©¦      unitTile_2
+©¦          ©¦  ©¦          ©¦      ©¦      
+©¦          ©¦  ©¦          ©¦      ©¸©¤FRAM
+©¦          ©¦  ©¦          ©¦              ACCSHCINX2ADTH_1
+©¦          ©¦  ©¦          ©¦              ACCSHCINX4ADTH_1
+©¦          ©¦  ©¦          ©¦              ACCSHCONX2ADTH_1
+©¦          ©¦  ©¦          ©¦              ACCSHCONX4ADTH_1
+©¦          ©¦  ©¦          ©¦              ACCSIHCONX2ADTH_1
+©¦          ©¦  ©¦          ©¦              ACCSIHCONX4ADTH_1
+©¦          ©¦  ©¦          ©¦              ACHCINX2ADTH_1
+©¦          ©¦  ©¦          ©¦              ACHCINX4ADTH_1
+©¦          ©¦  ©¦          ©¦              ACHCONX2ADTH_1
+©¦          ©¦  ©¦          ©¦              ACHCONX4ADTH_1
+©¦          ©¦  ©¦          ©¦              ADDFHX1ADTH_1
+©¦          ©¦  ©¦          ©¦              ADDFHX2ADTH_1
+©¦          ©¦  ©¦          ©¦              ADDFHX4ADTH_1
+©¦          ©¦  ©¦          ©¦              ADDFHXLADTH_1
+©¦          ©¦  ©¦          ©¦              ADDFX1ADTH_1
+©¦          ©¦  ©¦          ©¦              ADDFX2ADTH_1
+©¦          ©¦  ©¦          ©¦              ADDFX4ADTH_1
+©¦          ©¦  ©¦          ©¦              ADDFXLADTH_1
+©¦          ©¦  ©¦          ©¦              ADDHX1ADTH_1
+©¦          ©¦  ©¦          ©¦              ADDHX2ADTH_1
+©¦          ©¦  ©¦          ©¦              ADDHX4ADTH_1
+©¦          ©¦  ©¦          ©¦              ADDHXLADTH_1
+©¦          ©¦  ©¦          ©¦              AFCSHCINX2ADTH_1
+©¦          ©¦  ©¦          ©¦              AFCSHCINX4ADTH_1
+©¦          ©¦  ©¦          ©¦              AFCSHCONX2ADTH_1
+©¦          ©¦  ©¦          ©¦              AFCSHCONX4ADTH_1
+©¦          ©¦  ©¦          ©¦              AFCSIHCONX2ADTH_1
+©¦          ©¦  ©¦          ©¦              AFCSIHCONX4ADTH_1
+©¦          ©¦  ©¦          ©¦              AFHCINX2ADTH_1
+©¦          ©¦  ©¦          ©¦              AFHCINX4ADTH_1
+©¦          ©¦  ©¦          ©¦              AFHCONX2ADTH_1
+©¦          ©¦  ©¦          ©¦              AFHCONX4ADTH_1
+©¦          ©¦  ©¦          ©¦              AHCSHCINX2ADTH_1
+©¦          ©¦  ©¦          ©¦              AHCSHCINX4ADTH_1
+©¦          ©¦  ©¦          ©¦              AHCSHCONX2ADTH_1
+©¦          ©¦  ©¦          ©¦              AHCSHCONX4ADTH_1
+©¦          ©¦  ©¦          ©¦              AHHCINX2ADTH_1
+©¦          ©¦  ©¦          ©¦              AHHCINX4ADTH_1
+©¦          ©¦  ©¦          ©¦              AHHCONX2ADTH_1
+©¦          ©¦  ©¦          ©¦              AHHCONX4ADTH_1
+©¦          ©¦  ©¦          ©¦              AND2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AND2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AND2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AND2X6ADTH_1
+©¦          ©¦  ©¦          ©¦              AND2X8ADTH_1
+©¦          ©¦  ©¦          ©¦              AND2XLADTH_1
+©¦          ©¦  ©¦          ©¦              AND3X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AND3X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AND3X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AND3X6ADTH_1
+©¦          ©¦  ©¦          ©¦              AND3X8ADTH_1
+©¦          ©¦  ©¦          ©¦              AND3XLADTH_1
+©¦          ©¦  ©¦          ©¦              AND4X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AND4X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AND4X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AND4X6ADTH_1
+©¦          ©¦  ©¦          ©¦              AND4X8ADTH_1
+©¦          ©¦  ©¦          ©¦              AND4XLADTH_1
+©¦          ©¦  ©¦          ©¦              ANTENNAADTH_1
+©¦          ©¦  ©¦          ©¦              AO21X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AO21X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AO21X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AO21XLADTH_1
+©¦          ©¦  ©¦          ©¦              AO22X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AO22X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AO22X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AO22XLADTH_1
+©¦          ©¦  ©¦          ©¦              AO2B2BX1ADTH_1
+©¦          ©¦  ©¦          ©¦              AO2B2BX2ADTH_1
+©¦          ©¦  ©¦          ©¦              AO2B2BX4ADTH_1
+©¦          ©¦  ©¦          ©¦              AO2B2BXLADTH_1
+©¦          ©¦  ©¦          ©¦              AO2B2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AO2B2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AO2B2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AO2B2XLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI211X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI211X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI211X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI211XLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI21BX1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI21BX2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI21BX4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI21BXLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI21X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI21X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI21X3ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI21X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI21X6ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI21X8ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI21XLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI221X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI221X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI221X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI221XLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI222X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI222X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI222X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI222XLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI22X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI22X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI22X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI22XLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2B1X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2B1X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2B1X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2B1XLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2BB1X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2BB1X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2BB1X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2BB1XLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2BB2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2BB2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2BB2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI2BB2XLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI31X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI31X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI31X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI31XLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI32X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI32X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI32X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI32XLADTH_1
+©¦          ©¦  ©¦          ©¦              AOI33X1ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI33X2ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI33X4ADTH_1
+©¦          ©¦  ©¦          ©¦              AOI33XLADTH_1
+©¦          ©¦  ©¦          ©¦              BENCX1ADTH_1
+©¦          ©¦  ©¦          ©¦              BENCX2ADTH_1
+©¦          ©¦  ©¦          ©¦              BENCX4ADTH_1
+©¦          ©¦  ©¦          ©¦              BMXIX2ADTH_1
+©¦          ©¦  ©¦          ©¦              BMXIX4ADTH_1
+©¦          ©¦  ©¦          ©¦              BMXX2ADTH_1
+©¦          ©¦  ©¦          ©¦              BMXX4ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX10ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX12ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX14ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX16ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX18ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX20ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX2ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX3ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX4ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX5ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX6ADTH_1
+©¦          ©¦  ©¦          ©¦              BUFX8ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKAND2X12ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKAND2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKAND2X3ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKAND2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKAND2X6ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKAND2X8ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX12ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX16ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX1ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX20ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX24ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX2ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX32ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX3ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX40ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX4ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX6ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKBUFX8ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX12ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX16ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX1ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX20ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX24ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX2ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX32ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX3ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX40ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX4ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX6ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKINVX8ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKMX2X12ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKMX2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKMX2X3ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKMX2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKMX2X6ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKMX2X8ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKNAND2X12ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKNAND2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKNAND2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKNAND2X8ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKXOR2X12ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKXOR2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKXOR2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKXOR2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              CLKXOR2X8ADTH_1
+©¦          ©¦  ©¦          ©¦              CMPR42X1ADTH_1
+©¦          ©¦  ©¦          ©¦              CMPR42X2ADTH_1
+©¦          ©¦  ©¦          ©¦              CMPR42X4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFHX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFHX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFHX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFHX8ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFNHX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFNHX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFNHX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFNHX8ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFNSRHX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFNSRHX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFNSRHX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFNSRHX8ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFQXLADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRQXLADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFRXLADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSQXLADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSRHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSRHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSRHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSRHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSRX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSRX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSRX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSRXLADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFSXLADTH_1
+©¦          ©¦  ©¦          ©¦              DFFTRX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFTRX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFTRX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFTRXLADTH_1
+©¦          ©¦  ©¦          ©¦              DFFX1ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFX4ADTH_1
+©¦          ©¦  ©¦          ©¦              DFFXLADTH_1
+©¦          ©¦  ©¦          ©¦              DFFYQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              DLY1X1ADTH_1
+©¦          ©¦  ©¦          ©¦              DLY1X4ADTH_1
+©¦          ©¦  ©¦          ©¦              DLY2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              DLY2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              DLY3X1ADTH_1
+©¦          ©¦  ©¦          ©¦              DLY3X4ADTH_1
+©¦          ©¦  ©¦          ©¦              DLY4X1ADTH_1
+©¦          ©¦  ©¦          ©¦              DLY4X4ADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFTRX1ADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFTRX2ADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFTRX4ADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFTRXLADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFX1ADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFX2ADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFX4ADTH_1
+©¦          ©¦  ©¦          ©¦              EDFFXLADTH_1
+©¦          ©¦  ©¦          ©¦              FILL16ADTH_1
+©¦          ©¦  ©¦          ©¦              FILL1ADTH_1
+©¦          ©¦  ©¦          ©¦              FILL2ADTH_1
+©¦          ©¦  ©¦          ©¦              FILL2ADTH_2
+©¦          ©¦  ©¦          ©¦              FILL32ADTH_1
+©¦          ©¦  ©¦          ©¦              FILL4ADTH_1
+©¦          ©¦  ©¦          ©¦              FILL64ADTH_1
+©¦          ©¦  ©¦          ©¦              FILL8ADTH_1
+©¦          ©¦  ©¦          ©¦              FILLCAP16ADTH_1
+©¦          ©¦  ©¦          ©¦              FILLCAP32ADTH_1
+©¦          ©¦  ©¦          ©¦              FILLCAP3ADTH_1
+©¦          ©¦  ©¦          ©¦              FILLCAP4ADTH_1
+©¦          ©¦  ©¦          ©¦              FILLCAP64ADTH_1
+©¦          ©¦  ©¦          ©¦              FILLCAP8ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX10ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX12ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX14ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX16ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX18ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX1ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX20ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX2ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX3ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX4ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX5ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX6ADTH_1
+©¦          ©¦  ©¦          ©¦              INVX8ADTH_1
+©¦          ©¦  ©¦          ©¦              INVXLADTH_1
+©¦          ©¦  ©¦          ©¦              MDFFHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              MDFFHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              MDFFHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              MDFFHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              MX2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              MX2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              MX2X3ADTH_1
+©¦          ©¦  ©¦          ©¦              MX2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              MX2X6ADTH_1
+©¦          ©¦  ©¦          ©¦              MX2X8ADTH_1
+©¦          ©¦  ©¦          ©¦              MX2XLADTH_1
+©¦          ©¦  ©¦          ©¦              MX3X1ADTH_1
+©¦          ©¦  ©¦          ©¦              MX3X2ADTH_1
+©¦          ©¦  ©¦          ©¦              MX3X4ADTH_1
+©¦          ©¦  ©¦          ©¦              MX3XLADTH_1
+©¦          ©¦  ©¦          ©¦              MX4X1ADTH_1
+©¦          ©¦  ©¦          ©¦              MX4X2ADTH_1
+©¦          ©¦  ©¦          ©¦              MX4X4ADTH_1
+©¦          ©¦  ©¦          ©¦              MX4XLADTH_1
+©¦          ©¦  ©¦          ©¦              MXI2DX1ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI2DX2ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI2DX4ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI2DXLADTH_1
+©¦          ©¦  ©¦          ©¦              MXI2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI2X3ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI2X6ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI2X8ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI2XLADTH_1
+©¦          ©¦  ©¦          ©¦              MXI3X1ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI3X2ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI3X4ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI3XLADTH_1
+©¦          ©¦  ©¦          ©¦              MXI4X1ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI4X2ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI4X4ADTH_1
+©¦          ©¦  ©¦          ©¦              MXI4XLADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2BX1ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2BX2ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2BX4ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2BX8ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2BXLADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2X3ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2X5ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2X6ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2X8ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND2XLADTH_1
+©¦          ©¦  ©¦          ©¦              NAND3BX1ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND3BX2ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND3BX4ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND3BXLADTH_1
+©¦          ©¦  ©¦          ©¦              NAND3X1ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND3X2ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND3X3ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND3X4ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND3X6ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND3X8ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND3XLADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4BBX1ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4BBX2ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4BBX4ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4BBXLADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4BX1ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4BX2ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4BX4ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4BXLADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4X1ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4X2ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4X4ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4X6ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4X8ADTH_1
+©¦          ©¦  ©¦          ©¦              NAND4XLADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2BX1ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2BX2ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2BX4ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2BX8ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2BXLADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2X3ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2X5ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2X6ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2X8ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR2XLADTH_1
+©¦          ©¦  ©¦          ©¦              NOR3BX1ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR3BX2ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR3BX4ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR3BXLADTH_1
+©¦          ©¦  ©¦          ©¦              NOR3X1ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR3X2ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR3X4ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR3X6ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR3X8ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR3XLADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4BBX1ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4BBX2ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4BBX4ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4BBXLADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4BX1ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4BX2ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4BX4ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4BXLADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4X1ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4X2ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4X4ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4X6ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4X8ADTH_1
+©¦          ©¦  ©¦          ©¦              NOR4XLADTH_1
+©¦          ©¦  ©¦          ©¦              OA21X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OA21X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OA21X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OA21XLADTH_1
+©¦          ©¦  ©¦          ©¦              OA22X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OA22X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OA22X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OA22XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI211X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI211X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI211X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI211XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI21BX1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI21BX2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI21BX4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI21BXLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI21X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI21X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI21X3ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI21X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI21X6ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI21X8ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI21XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI221X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI221X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI221X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI221XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI222X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI222X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI222X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI222XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI22X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI22X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI22X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI22XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B11X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B11X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B11X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B11XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B1X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B1X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B1X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B1XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2B2XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2BB1X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2BB1X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2BB1X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2BB1XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2BB2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2BB2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2BB2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI2BB2XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI31X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI31X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI31X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI31XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI32X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI32X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI32X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI32XLADTH_1
+©¦          ©¦  ©¦          ©¦              OAI33X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI33X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI33X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OAI33XLADTH_1
+©¦          ©¦  ©¦          ©¦              OR2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OR2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OR2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OR2X6ADTH_1
+©¦          ©¦  ©¦          ©¦              OR2X8ADTH_1
+©¦          ©¦  ©¦          ©¦              OR2XLADTH_1
+©¦          ©¦  ©¦          ©¦              OR3X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OR3X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OR3X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OR3X6ADTH_1
+©¦          ©¦  ©¦          ©¦              OR3X8ADTH_1
+©¦          ©¦  ©¦          ©¦              OR3XLADTH_1
+©¦          ©¦  ©¦          ©¦              OR4X1ADTH_1
+©¦          ©¦  ©¦          ©¦              OR4X2ADTH_1
+©¦          ©¦  ©¦          ©¦              OR4X4ADTH_1
+©¦          ©¦  ©¦          ©¦              OR4X6ADTH_1
+©¦          ©¦  ©¦          ©¦              OR4X8ADTH_1
+©¦          ©¦  ©¦          ©¦              OR4XLADTH_1
+©¦          ©¦  ©¦          ©¦              RF1R1WX1ADTH_1
+©¦          ©¦  ©¦          ©¦              RF2R1WX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFHX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFHX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFHX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFHX8ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFNHX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFNHX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFNHX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFNHX8ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFNSRHX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFNSRHX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFNSRHX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFNSRHX8ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFQXLADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRQXLADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFRXLADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSQXLADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSRHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSRHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSRHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSRHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSRX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSRX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSRX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSRXLADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFSXLADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFTRX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFTRX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFTRX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFTRXLADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFXLADTH_1
+©¦          ©¦  ©¦          ©¦              SDFFYQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFTRX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFTRX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFTRX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFTRXLADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SEDFFXLADTH_1
+©¦          ©¦  ©¦          ©¦              SMDFFHQX1ADTH_1
+©¦          ©¦  ©¦          ©¦              SMDFFHQX2ADTH_1
+©¦          ©¦  ©¦          ©¦              SMDFFHQX4ADTH_1
+©¦          ©¦  ©¦          ©¦              SMDFFHQX8ADTH_1
+©¦          ©¦  ©¦          ©¦              TBUFX12ADTH_1
+©¦          ©¦  ©¦          ©¦              TBUFX16ADTH_1
+©¦          ©¦  ©¦          ©¦              TBUFX1ADTH_1
+©¦          ©¦  ©¦          ©¦              TBUFX20ADTH_1
+©¦          ©¦  ©¦          ©¦              TBUFX2ADTH_1
+©¦          ©¦  ©¦          ©¦              TBUFX3ADTH_1
+©¦          ©¦  ©¦          ©¦              TBUFX4ADTH_1
+©¦          ©¦  ©¦          ©¦              TBUFX6ADTH_1
+©¦          ©¦  ©¦          ©¦              TBUFX8ADTH_1
+©¦          ©¦  ©¦          ©¦              TBUFXLADTH_1
+©¦          ©¦  ©¦          ©¦              TIEHIADTH_1
+©¦          ©¦  ©¦          ©¦              TIELOADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNCAX12ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNCAX16ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNCAX20ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNCAX2ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNCAX3ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNCAX4ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNCAX6ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNCAX8ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNSRX1ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNSRX2ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNSRX4ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNSRXLADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNTSCAX12ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNTSCAX16ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNTSCAX20ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNTSCAX2ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNTSCAX3ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNTSCAX4ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNTSCAX6ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNTSCAX8ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNX1ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNX2ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNX4ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATNXLADTH_1
+©¦          ©¦  ©¦          ©¦              TLATSRX1ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATSRX2ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATSRX4ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATSRXLADTH_1
+©¦          ©¦  ©¦          ©¦              TLATX1ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATX2ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATX4ADTH_1
+©¦          ©¦  ©¦          ©¦              TLATXLADTH_1
+©¦          ©¦  ©¦          ©¦              XNOR2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              XNOR2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              XNOR2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              XNOR2XLADTH_1
+©¦          ©¦  ©¦          ©¦              XNOR3X1ADTH_1
+©¦          ©¦  ©¦          ©¦              XNOR3X2ADTH_1
+©¦          ©¦  ©¦          ©¦              XNOR3X4ADTH_1
+©¦          ©¦  ©¦          ©¦              XNOR3XLADTH_1
+©¦          ©¦  ©¦          ©¦              XOR2X1ADTH_1
+©¦          ©¦  ©¦          ©¦              XOR2X2ADTH_1
+©¦          ©¦  ©¦          ©¦              XOR2X3ADTH_1
+©¦          ©¦  ©¦          ©¦              XOR2X4ADTH_1
+©¦          ©¦  ©¦          ©¦              XOR2X8ADTH_1
+©¦          ©¦  ©¦          ©¦              XOR2XLADTH_1
+©¦          ©¦  ©¦          ©¦              XOR3X1ADTH_1
+©¦          ©¦  ©¦          ©¦              XOR3X2ADTH_1
+©¦          ©¦  ©¦          ©¦              XOR3X4ADTH_1
+©¦          ©¦  ©¦          ©¦              XOR3XLADTH_1
+©¦          ©¦  ©¦          ©¦              
+©¦          ©¦  ©¦          ©À©¤doc
+©¦          ©¦  ©¦          ©¦      tsmc090adghvt.pdf
+©¦          ©¦  ©¦          ©¦      
+©¦          ©¦  ©¦          ©À©¤synopsys
+©¦          ©¦  ©¦          ©¦      build_db.tcl
+©¦          ©¦  ©¦          ©¦      README
+©¦          ©¦  ©¦          ©¦      scadv_tsmc_cln90g_hvt_ff_1p1v_m40c.db
+©¦          ©¦  ©¦          ©¦      scadv_tsmc_cln90g_hvt_ff_1p1v_m40c.lib
+©¦          ©¦  ©¦          ©¦      scadv_tsmc_cln90g_hvt_ss_0p9v_125c.db
+©¦          ©¦  ©¦          ©¦      scadv_tsmc_cln90g_hvt_ss_0p9v_125c.lib
+©¦          ©¦  ©¦          ©¦      scadv_tsmc_cln90g_hvt_tt_1p0v_25c.db
+©¦          ©¦  ©¦          ©¦      scadv_tsmc_cln90g_hvt_tt_1p0v_25c.lib
+©¦          ©¦  ©¦          ©¦      
+©¦          ©¦  ©¦          ©¸©¤verilog
+©¦          ©¦  ©¦                  README
+©¦          ©¦  ©¦                  tsmc090adghvt.v
+©¦          ©¦  ©¦                  
+©¦          ©¦  ©¸©¤fe_tsmc090g_sc-adv_v10_2007q4v2
+©¦          ©¦      ©¦  README.copyright
+©¦          ©¦      ©¦  README.fe_license
+©¦          ©¦      ©¦  README.tsmc090g_1p0v_sc-adv_v10_2007q4v2
+©¦          ©¦      ©¦  README.tsmc090g_sc-adv_v10_2007q4v2
+©¦          ©¦      ©¦  
+©¦          ©¦      ©¸©¤aci
+©¦          ©¦          ©¸©¤sc-ad
+©¦          ©¦              ©¦  cell_list
+©¦          ©¦              ©¦  
+©¦          ©¦              ©À©¤astro
+©¦          ©¦              ©¦  ©¦  defineTracks.cmd
+©¦          ©¦              ©¦  ©¦  gds2Arcs.map
+©¦          ©¦              ©¦  ©¦  gds2InLayer.map
+©¦          ©¦              ©¦  ©¦  gds2OutLayer.map
+©¦          ©¦              ©¦  ©¦  README
+©¦          ©¦              ©¦  ©¦  
+©¦          ©¦              ©¦  ©À©¤tf
+©¦          ©¦              ©¦  ©¦      tsmc090adgrvt_4lm_1thick.tf
+©¦          ©¦              ©¦  ©¦      tsmc090adgrvt_4lm_2thick.tf
+©¦          ©¦              ©¦  ©¦      tsmc090adgrvt_5lm_1thick.tf
+©¦          ©¦              ©¦  ©¦      tsmc090adgrvt_5lm_2thick.tf
+©¦          ©¦              ©¦  ©¦      tsmc090adgrvt_6lm_1thick.tf
+©¦          ©¦              ©¦  ©¦      tsmc090adgrvt_6lm_2thick.tf
+©¦          ©¦              ©¦  ©¦      tsmc090adgrvt_7lm_1thick.tf
+©¦          ©¦              ©¦  ©¦      tsmc090adgrvt_7lm_2thick.tf
+©¦          ©¦              ©¦  ©¦      tsmc090adgrvt_8lm_1thick.tf
+©¦          ©¦              ©¦  ©¦      tsmc090adgrvt_8lm_2thick.tf
+©¦          ©¦              ©¦  ©¦      tsmc090adgrvt_9lm_2thick.tf
+©¦          ©¦              ©¦  ©¦      
+©¦          ©¦              ©¦  ©¸©¤tsmc090adg_fram
+©¦          ©¦              ©¦      ©¦  .lock
+©¦          ©¦              ©¦      ©¦  lib
+©¦          ©¦              ©¦      ©¦  lib_1
+©¦          ©¦              ©¦      ©¦  lib_2
+©¦          ©¦              ©¦      ©¦  lib_bck
+©¦          ©¦              ©¦      ©¦  
+©¦          ©¦              ©¦      ©À©¤CEL
+©¦          ©¦              ©¦      ©¦      FILL2AD5wwywwwwwqfe3b7y_1
+©¦          ©¦              ©¦      ©¦      FILL2AD5wwywwwwwqfe3b7y_2
+©¦          ©¦              ©¦      ©¦      FILL2AD_1
+©¦          ©¦              ©¦      ©¦      unitTile_1
+©¦          ©¦              ©¦      ©¦      unitTile_2
+©¦          ©¦              ©¦      ©¦      
+©¦          ©¦              ©¦      ©¸©¤FRAM
+©¦          ©¦              ©¦              ACCSHCINX2AD_1
+©¦          ©¦              ©¦              ACCSHCINX4AD_1
+©¦          ©¦              ©¦              ACCSHCONX2AD_1
+©¦          ©¦              ©¦              ACCSHCONX4AD_1
+©¦          ©¦              ©¦              ACCSIHCONX2AD_1
+©¦          ©¦              ©¦              ACCSIHCONX4AD_1
+©¦          ©¦              ©¦              ACHCINX2AD_1
+©¦          ©¦              ©¦              ACHCINX4AD_1
+©¦          ©¦              ©¦              ACHCONX2AD_1
+©¦          ©¦              ©¦              ACHCONX4AD_1
+©¦          ©¦              ©¦              ADDFHX1AD_1
+©¦          ©¦              ©¦              ADDFHX2AD_1
+©¦          ©¦              ©¦              ADDFHX4AD_1
+©¦          ©¦              ©¦              ADDFHXLAD_1
+©¦          ©¦              ©¦              ADDFX1AD_1
+©¦          ©¦              ©¦              ADDFX2AD_1
+©¦          ©¦              ©¦              ADDFX4AD_1
+©¦          ©¦              ©¦              ADDFXLAD_1
+©¦          ©¦              ©¦              ADDHX1AD_1
+©¦          ©¦              ©¦              ADDHX2AD_1
+©¦          ©¦              ©¦              ADDHX4AD_1
+©¦          ©¦              ©¦              ADDHXLAD_1
+©¦          ©¦              ©¦              AFCSHCINX2AD_1
+©¦          ©¦              ©¦              AFCSHCINX4AD_1
+©¦          ©¦              ©¦              AFCSHCONX2AD_1
+©¦          ©¦              ©¦              AFCSHCONX4AD_1
+©¦          ©¦              ©¦              AFCSIHCONX2AD_1
+©¦          ©¦              ©¦              AFCSIHCONX4AD_1
+©¦          ©¦              ©¦              AFHCINX2AD_1
+©¦          ©¦              ©¦              AFHCINX4AD_1
+©¦          ©¦              ©¦              AFHCONX2AD_1
+©¦          ©¦              ©¦              AFHCONX4AD_1
+©¦          ©¦              ©¦              AHCSHCINX2AD_1
+©¦          ©¦              ©¦              AHCSHCINX4AD_1
+©¦          ©¦              ©¦              AHCSHCONX2AD_1
+©¦          ©¦              ©¦              AHCSHCONX4AD_1
+©¦          ©¦              ©¦              AHHCINX2AD_1
+©¦          ©¦              ©¦              AHHCINX4AD_1
+©¦          ©¦              ©¦              AHHCONX2AD_1
+©¦          ©¦              ©¦              AHHCONX4AD_1
+©¦          ©¦              ©¦              AND2X1AD_1
+©¦          ©¦              ©¦              AND2X2AD_1
+©¦          ©¦              ©¦              AND2X4AD_1
+©¦          ©¦              ©¦              AND2X6AD_1
+©¦          ©¦              ©¦              AND2X8AD_1
+©¦          ©¦              ©¦              AND2XLAD_1
+©¦          ©¦              ©¦              AND3X1AD_1
+©¦          ©¦              ©¦              AND3X2AD_1
+©¦          ©¦              ©¦              AND3X4AD_1
+©¦          ©¦              ©¦              AND3X6AD_1
+©¦          ©¦              ©¦              AND3X8AD_1
+©¦          ©¦              ©¦              AND3XLAD_1
+©¦          ©¦              ©¦              AND4X1AD_1
+©¦          ©¦              ©¦              AND4X2AD_1
+©¦          ©¦              ©¦              AND4X4AD_1
+©¦          ©¦              ©¦              AND4X6AD_1
+©¦          ©¦              ©¦              AND4X8AD_1
+©¦          ©¦              ©¦              AND4XLAD_1
+©¦          ©¦              ©¦              ANTENNAAD_1
+©¦          ©¦              ©¦              AO21X1AD_1
+©¦          ©¦              ©¦              AO21X2AD_1
+©¦          ©¦              ©¦              AO21X4AD_1
+©¦          ©¦              ©¦              AO21XLAD_1
+©¦          ©¦              ©¦              AO22X1AD_1
+©¦          ©¦              ©¦              AO22X2AD_1
+©¦          ©¦              ©¦              AO22X4AD_1
+©¦          ©¦              ©¦              AO22XLAD_1
+©¦          ©¦              ©¦              AO2B2BX1AD_1
+©¦          ©¦              ©¦              AO2B2BX2AD_1
+©¦          ©¦              ©¦              AO2B2BX4AD_1
+©¦          ©¦              ©¦              AO2B2BXLAD_1
+©¦          ©¦              ©¦              AO2B2X1AD_1
+©¦          ©¦              ©¦              AO2B2X2AD_1
+©¦          ©¦              ©¦              AO2B2X4AD_1
+©¦          ©¦              ©¦              AO2B2XLAD_1
+©¦          ©¦              ©¦              AOI211X1AD_1
+©¦          ©¦              ©¦              AOI211X2AD_1
+©¦          ©¦              ©¦              AOI211X4AD_1
+©¦          ©¦              ©¦              AOI211XLAD_1
+©¦          ©¦              ©¦              AOI21BX1AD_1
+©¦          ©¦              ©¦              AOI21BX2AD_1
+©¦          ©¦              ©¦              AOI21BX4AD_1
+©¦          ©¦              ©¦              AOI21BXLAD_1
+©¦          ©¦              ©¦              AOI21X1AD_1
+©¦          ©¦              ©¦              AOI21X2AD_1
+©¦          ©¦              ©¦              AOI21X3AD_1
+©¦          ©¦              ©¦              AOI21X4AD_1
+©¦          ©¦              ©¦              AOI21X6AD_1
+©¦          ©¦              ©¦              AOI21X8AD_1
+©¦          ©¦              ©¦              AOI21XLAD_1
+©¦          ©¦              ©¦              AOI221X1AD_1
+©¦          ©¦              ©¦              AOI221X2AD_1
+©¦          ©¦              ©¦              AOI221X4AD_1
+©¦          ©¦              ©¦              AOI221XLAD_1
+©¦          ©¦              ©¦              AOI222X1AD_1
+©¦          ©¦              ©¦              AOI222X2AD_1
+©¦          ©¦              ©¦              AOI222X4AD_1
+©¦          ©¦              ©¦              AOI222XLAD_1
+©¦          ©¦              ©¦              AOI22X1AD_1
+©¦          ©¦              ©¦              AOI22X2AD_1
+©¦          ©¦              ©¦              AOI22X4AD_1
+©¦          ©¦              ©¦              AOI22XLAD_1
+©¦          ©¦              ©¦              AOI2B1X1AD_1
+©¦          ©¦              ©¦              AOI2B1X2AD_1
+©¦          ©¦              ©¦              AOI2B1X4AD_1
+©¦          ©¦              ©¦              AOI2B1XLAD_1
+©¦          ©¦              ©¦              AOI2BB1X1AD_1
+©¦          ©¦              ©¦              AOI2BB1X2AD_1
+©¦          ©¦              ©¦              AOI2BB1X4AD_1
+©¦          ©¦              ©¦              AOI2BB1XLAD_1
+©¦          ©¦              ©¦              AOI2BB2X1AD_1
+©¦          ©¦              ©¦              AOI2BB2X2AD_1
+©¦          ©¦              ©¦              AOI2BB2X4AD_1
+©¦          ©¦              ©¦              AOI2BB2XLAD_1
+©¦          ©¦              ©¦              AOI31X1AD_1
+©¦          ©¦              ©¦              AOI31X2AD_1
+©¦          ©¦              ©¦              AOI31X4AD_1
+©¦          ©¦              ©¦              AOI31XLAD_1
+©¦          ©¦              ©¦              AOI32X1AD_1
+©¦          ©¦              ©¦              AOI32X2AD_1
+©¦          ©¦              ©¦              AOI32X4AD_1
+©¦          ©¦              ©¦              AOI32XLAD_1
+©¦          ©¦              ©¦              AOI33X1AD_1
+©¦          ©¦              ©¦              AOI33X2AD_1
+©¦          ©¦              ©¦              AOI33X4AD_1
+©¦          ©¦              ©¦              AOI33XLAD_1
+©¦          ©¦              ©¦              BENCX1AD_1
+©¦          ©¦              ©¦              BENCX2AD_1
+©¦          ©¦              ©¦              BENCX4AD_1
+©¦          ©¦              ©¦              BMXIX2AD_1
+©¦          ©¦              ©¦              BMXIX4AD_1
+©¦          ©¦              ©¦              BMXX2AD_1
+©¦          ©¦              ©¦              BMXX4AD_1
+©¦          ©¦              ©¦              BUFX10AD_1
+©¦          ©¦              ©¦              BUFX12AD_1
+©¦          ©¦              ©¦              BUFX14AD_1
+©¦          ©¦              ©¦              BUFX16AD_1
+©¦          ©¦              ©¦              BUFX18AD_1
+©¦          ©¦              ©¦              BUFX20AD_1
+©¦          ©¦              ©¦              BUFX2AD_1
+©¦          ©¦              ©¦              BUFX3AD_1
+©¦          ©¦              ©¦              BUFX4AD_1
+©¦          ©¦              ©¦              BUFX5AD_1
+©¦          ©¦              ©¦              BUFX6AD_1
+©¦          ©¦              ©¦              BUFX8AD_1
+©¦          ©¦              ©¦              CLKAND2X12AD_1
+©¦          ©¦              ©¦              CLKAND2X2AD_1
+©¦          ©¦              ©¦              CLKAND2X3AD_1
+©¦          ©¦              ©¦              CLKAND2X4AD_1
+©¦          ©¦              ©¦              CLKAND2X6AD_1
+©¦          ©¦              ©¦              CLKAND2X8AD_1
+©¦          ©¦              ©¦              CLKBUFX12AD_1
+©¦          ©¦              ©¦              CLKBUFX16AD_1
+©¦          ©¦              ©¦              CLKBUFX1AD_1
+©¦          ©¦              ©¦              CLKBUFX20AD_1
+©¦          ©¦              ©¦              CLKBUFX24AD_1
+©¦          ©¦              ©¦              CLKBUFX2AD_1
+©¦          ©¦              ©¦              CLKBUFX32AD_1
+©¦          ©¦              ©¦              CLKBUFX3AD_1
+©¦          ©¦              ©¦              CLKBUFX40AD_1
+©¦          ©¦              ©¦              CLKBUFX4AD_1
+©¦          ©¦              ©¦              CLKBUFX6AD_1
+©¦          ©¦              ©¦              CLKBUFX8AD_1
+©¦          ©¦              ©¦              CLKINVX12AD_1
+©¦          ©¦              ©¦              CLKINVX16AD_1
+©¦          ©¦              ©¦              CLKINVX1AD_1
+©¦          ©¦              ©¦              CLKINVX20AD_1
+©¦          ©¦              ©¦              CLKINVX24AD_1
+©¦          ©¦              ©¦              CLKINVX2AD_1
+©¦          ©¦              ©¦              CLKINVX32AD_1
+©¦          ©¦              ©¦              CLKINVX3AD_1
+©¦          ©¦              ©¦              CLKINVX40AD_1
+©¦          ©¦              ©¦              CLKINVX4AD_1
+©¦          ©¦              ©¦              CLKINVX6AD_1
+©¦          ©¦              ©¦              CLKINVX8AD_1
+©¦          ©¦              ©¦              CLKMX2X12AD_1
+©¦          ©¦              ©¦              CLKMX2X2AD_1
+©¦          ©¦              ©¦              CLKMX2X3AD_1
+©¦          ©¦              ©¦              CLKMX2X4AD_1
+©¦          ©¦              ©¦              CLKMX2X6AD_1
+©¦          ©¦              ©¦              CLKMX2X8AD_1
+©¦          ©¦              ©¦              CLKNAND2X12AD_1
+©¦          ©¦              ©¦              CLKNAND2X2AD_1
+©¦          ©¦              ©¦              CLKNAND2X4AD_1
+©¦          ©¦              ©¦              CLKNAND2X8AD_1
+©¦          ©¦              ©¦              CLKXOR2X12AD_1
+©¦          ©¦              ©¦              CLKXOR2X1AD_1
+©¦          ©¦              ©¦              CLKXOR2X2AD_1
+©¦          ©¦              ©¦              CLKXOR2X4AD_1
+©¦          ©¦              ©¦              CLKXOR2X8AD_1
+©¦          ©¦              ©¦              CMPR42X1AD_1
+©¦          ©¦              ©¦              CMPR42X2AD_1
+©¦          ©¦              ©¦              CMPR42X4AD_1
+©¦          ©¦              ©¦              DFFHQX1AD_1
+©¦          ©¦              ©¦              DFFHQX2AD_1
+©¦          ©¦              ©¦              DFFHQX4AD_1
+©¦          ©¦              ©¦              DFFHQX8AD_1
+©¦          ©¦              ©¦              DFFHX1AD_1
+©¦          ©¦              ©¦              DFFHX2AD_1
+©¦          ©¦              ©¦              DFFHX4AD_1
+©¦          ©¦              ©¦              DFFHX8AD_1
+©¦          ©¦              ©¦              DFFNHX1AD_1
+©¦          ©¦              ©¦              DFFNHX2AD_1
+©¦          ©¦              ©¦              DFFNHX4AD_1
+©¦          ©¦              ©¦              DFFNHX8AD_1
+©¦          ©¦              ©¦              DFFNSRHX1AD_1
+©¦          ©¦              ©¦              DFFNSRHX2AD_1
+©¦          ©¦              ©¦              DFFNSRHX4AD_1
+©¦          ©¦              ©¦              DFFNSRHX8AD_1
+©¦          ©¦              ©¦              DFFQX1AD_1
+©¦          ©¦              ©¦              DFFQX2AD_1
+©¦          ©¦              ©¦              DFFQX4AD_1
+©¦          ©¦              ©¦              DFFQXLAD_1
+©¦          ©¦              ©¦              DFFRHQX1AD_1
+©¦          ©¦              ©¦              DFFRHQX2AD_1
+©¦          ©¦              ©¦              DFFRHQX4AD_1
+©¦          ©¦              ©¦              DFFRHQX8AD_1
+©¦          ©¦              ©¦              DFFRQX1AD_1
+©¦          ©¦              ©¦              DFFRQX2AD_1
+©¦          ©¦              ©¦              DFFRQX4AD_1
+©¦          ©¦              ©¦              DFFRQXLAD_1
+©¦          ©¦              ©¦              DFFRX1AD_1
+©¦          ©¦              ©¦              DFFRX2AD_1
+©¦          ©¦              ©¦              DFFRX4AD_1
+©¦          ©¦              ©¦              DFFRXLAD_1
+©¦          ©¦              ©¦              DFFSHQX1AD_1
+©¦          ©¦              ©¦              DFFSHQX2AD_1
+©¦          ©¦              ©¦              DFFSHQX4AD_1
+©¦          ©¦              ©¦              DFFSHQX8AD_1
+©¦          ©¦              ©¦              DFFSQX1AD_1
+©¦          ©¦              ©¦              DFFSQX2AD_1
+©¦          ©¦              ©¦              DFFSQX4AD_1
+©¦          ©¦              ©¦              DFFSQXLAD_1
+©¦          ©¦              ©¦              DFFSRHQX1AD_1
+©¦          ©¦              ©¦              DFFSRHQX2AD_1
+©¦          ©¦              ©¦              DFFSRHQX4AD_1
+©¦          ©¦              ©¦              DFFSRHQX8AD_1
+©¦          ©¦              ©¦              DFFSRX1AD_1
+©¦          ©¦              ©¦              DFFSRX2AD_1
+©¦          ©¦              ©¦              DFFSRX4AD_1
+©¦          ©¦              ©¦              DFFSRXLAD_1
+©¦          ©¦              ©¦              DFFSX1AD_1
+©¦          ©¦              ©¦              DFFSX2AD_1
+©¦          ©¦              ©¦              DFFSX4AD_1
+©¦          ©¦              ©¦              DFFSXLAD_1
+©¦          ©¦              ©¦              DFFTRX1AD_1
+©¦          ©¦              ©¦              DFFTRX2AD_1
+©¦          ©¦              ©¦              DFFTRX4AD_1
+©¦          ©¦              ©¦              DFFTRXLAD_1
+©¦          ©¦              ©¦              DFFX1AD_1
+©¦          ©¦              ©¦              DFFX2AD_1
+©¦          ©¦              ©¦              DFFX4AD_1
+©¦          ©¦              ©¦              DFFXLAD_1
+©¦          ©¦              ©¦              DFFYQX2AD_1
+©¦          ©¦              ©¦              DLY1X1AD_1
+©¦          ©¦              ©¦              DLY1X4AD_1
+©¦          ©¦              ©¦              DLY2X1AD_1
+©¦          ©¦              ©¦              DLY2X4AD_1
+©¦          ©¦              ©¦              DLY3X1AD_1
+©¦          ©¦              ©¦              DLY3X4AD_1
+©¦          ©¦              ©¦              DLY4X1AD_1
+©¦          ©¦              ©¦              DLY4X4AD_1
+©¦          ©¦              ©¦              EDFFHQX1AD_1
+©¦          ©¦              ©¦              EDFFHQX2AD_1
+©¦          ©¦              ©¦              EDFFHQX4AD_1
+©¦          ©¦              ©¦              EDFFHQX8AD_1
+©¦          ©¦              ©¦              EDFFTRX1AD_1
+©¦          ©¦              ©¦              EDFFTRX2AD_1
+©¦          ©¦              ©¦              EDFFTRX4AD_1
+©¦          ©¦              ©¦              EDFFTRXLAD_1
+©¦          ©¦              ©¦              EDFFX1AD_1
+©¦          ©¦              ©¦              EDFFX2AD_1
+©¦          ©¦              ©¦              EDFFX4AD_1
+©¦          ©¦              ©¦              EDFFXLAD_1
+©¦          ©¦              ©¦              FILL16AD_1
+©¦          ©¦              ©¦              FILL1AD_1
+©¦          ©¦              ©¦              FILL2AD_1
+©¦          ©¦              ©¦              FILL2AD_2
+©¦          ©¦              ©¦              FILL32AD_1
+©¦          ©¦              ©¦              FILL4AD_1
+©¦          ©¦              ©¦              FILL64AD_1
+©¦          ©¦              ©¦              FILL8AD_1
+©¦          ©¦              ©¦              FILLCAP16AD_1
+©¦          ©¦              ©¦              FILLCAP32AD_1
+©¦          ©¦              ©¦              FILLCAP3AD_1
+©¦          ©¦              ©¦              FILLCAP4AD_1
+©¦          ©¦              ©¦              FILLCAP64AD_1
+©¦          ©¦              ©¦              FILLCAP8AD_1
+©¦          ©¦              ©¦              INVX10AD_1
+©¦          ©¦              ©¦              INVX12AD_1
+©¦          ©¦              ©¦              INVX14AD_1
+©¦          ©¦              ©¦              INVX16AD_1
+©¦          ©¦              ©¦              INVX18AD_1
+©¦          ©¦              ©¦              INVX1AD_1
+©¦          ©¦              ©¦              INVX20AD_1
+©¦          ©¦              ©¦              INVX2AD_1
+©¦          ©¦              ©¦              INVX3AD_1
+©¦          ©¦              ©¦              INVX4AD_1
+©¦          ©¦              ©¦              INVX5AD_1
+©¦          ©¦              ©¦              INVX6AD_1
+©¦          ©¦              ©¦              INVX8AD_1
+©¦          ©¦              ©¦              INVXLAD_1
+©¦          ©¦              ©¦              MDFFHQX1AD_1
+©¦          ©¦              ©¦              MDFFHQX2AD_1
+©¦          ©¦              ©¦              MDFFHQX4AD_1
+©¦          ©¦              ©¦              MDFFHQX8AD_1
+©¦          ©¦              ©¦              MX2X1AD_1
+©¦          ©¦              ©¦              MX2X2AD_1
+©¦          ©¦              ©¦              MX2X3AD_1
+©¦          ©¦              ©¦              MX2X4AD_1
+©¦          ©¦              ©¦              MX2X6AD_1
+©¦          ©¦              ©¦              MX2X8AD_1
+©¦          ©¦              ©¦              MX2XLAD_1
+©¦          ©¦              ©¦              MX3X1AD_1
+©¦          ©¦              ©¦              MX3X2AD_1
+©¦          ©¦              ©¦              MX3X4AD_1
+©¦          ©¦              ©¦              MX3XLAD_1
+©¦          ©¦              ©¦              MX4X1AD_1
+©¦          ©¦              ©¦              MX4X2AD_1
+©¦          ©¦              ©¦              MX4X4AD_1
+©¦          ©¦              ©¦              MX4XLAD_1
+©¦          ©¦              ©¦              MXI2DX1AD_1
+©¦          ©¦              ©¦              MXI2DX2AD_1
+©¦          ©¦              ©¦              MXI2DX4AD_1
+©¦          ©¦              ©¦              MXI2DXLAD_1
+©¦          ©¦              ©¦              MXI2X1AD_1
+©¦          ©¦              ©¦              MXI2X2AD_1
+©¦          ©¦              ©¦              MXI2X3AD_1
+©¦          ©¦              ©¦              MXI2X4AD_1
+©¦          ©¦              ©¦              MXI2X6AD_1
+©¦          ©¦              ©¦              MXI2X8AD_1
+©¦          ©¦              ©¦              MXI2XLAD_1
+©¦          ©¦              ©¦              MXI3X1AD_1
+©¦          ©¦              ©¦              MXI3X2AD_1
+©¦          ©¦              ©¦              MXI3X4AD_1
+©¦          ©¦              ©¦              MXI3XLAD_1
+©¦          ©¦              ©¦              MXI4X1AD_1
+©¦          ©¦              ©¦              MXI4X2AD_1
+©¦          ©¦              ©¦              MXI4X4AD_1
+©¦          ©¦              ©¦              MXI4XLAD_1
+©¦          ©¦              ©¦              NAND2BX1AD_1
+©¦          ©¦              ©¦              NAND2BX2AD_1
+©¦          ©¦              ©¦              NAND2BX4AD_1
+©¦          ©¦              ©¦              NAND2BX8AD_1
+©¦          ©¦              ©¦              NAND2BXLAD_1
+©¦          ©¦              ©¦              NAND2X1AD_1
+©¦          ©¦              ©¦              NAND2X2AD_1
+©¦          ©¦              ©¦              NAND2X3AD_1
+©¦          ©¦              ©¦              NAND2X4AD_1
+©¦          ©¦              ©¦              NAND2X5AD_1
+©¦          ©¦              ©¦              NAND2X6AD_1
+©¦          ©¦              ©¦              NAND2X8AD_1
+©¦          ©¦              ©¦              NAND2XLAD_1
+©¦          ©¦              ©¦              NAND3BX1AD_1
+©¦          ©¦              ©¦              NAND3BX2AD_1
+©¦          ©¦              ©¦              NAND3BX4AD_1
+©¦          ©¦              ©¦              NAND3BXLAD_1
+©¦          ©¦              ©¦              NAND3X1AD_1
+©¦          ©¦              ©¦              NAND3X2AD_1
+©¦          ©¦              ©¦              NAND3X3AD_1
+©¦          ©¦              ©¦              NAND3X4AD_1
+©¦          ©¦              ©¦              NAND3X6AD_1
+©¦          ©¦              ©¦              NAND3X8AD_1
+©¦          ©¦              ©¦              NAND3XLAD_1
+©¦          ©¦              ©¦              NAND4BBX1AD_1
+©¦          ©¦              ©¦              NAND4BBX2AD_1
+©¦          ©¦              ©¦              NAND4BBX4AD_1
+©¦          ©¦              ©¦              NAND4BBXLAD_1
+©¦          ©¦              ©¦              NAND4BX1AD_1
+©¦          ©¦              ©¦              NAND4BX2AD_1
+©¦          ©¦              ©¦              NAND4BX4AD_1
+©¦          ©¦              ©¦              NAND4BXLAD_1
+©¦          ©¦              ©¦              NAND4X1AD_1
+©¦          ©¦              ©¦              NAND4X2AD_1
+©¦          ©¦              ©¦              NAND4X4AD_1
+©¦          ©¦              ©¦              NAND4X6AD_1
+©¦          ©¦              ©¦              NAND4X8AD_1
+©¦          ©¦              ©¦              NAND4XLAD_1
+©¦          ©¦              ©¦              NOR2BX1AD_1
+©¦          ©¦              ©¦              NOR2BX2AD_1
+©¦          ©¦              ©¦              NOR2BX4AD_1
+©¦          ©¦              ©¦              NOR2BX8AD_1
+©¦          ©¦              ©¦              NOR2BXLAD_1
+©¦          ©¦              ©¦              NOR2X1AD_1
+©¦          ©¦              ©¦              NOR2X2AD_1
+©¦          ©¦              ©¦              NOR2X3AD_1
+©¦          ©¦              ©¦              NOR2X4AD_1
+©¦          ©¦              ©¦              NOR2X5AD_1
+©¦          ©¦              ©¦              NOR2X6AD_1
+©¦          ©¦              ©¦              NOR2X8AD_1
+©¦          ©¦              ©¦              NOR2XLAD_1
+©¦          ©¦              ©¦              NOR3BX1AD_1
+©¦          ©¦              ©¦              NOR3BX2AD_1
+©¦          ©¦              ©¦              NOR3BX4AD_1
+©¦          ©¦              ©¦              NOR3BXLAD_1
+©¦          ©¦              ©¦              NOR3X1AD_1
+©¦          ©¦              ©¦              NOR3X2AD_1
+©¦          ©¦              ©¦              NOR3X4AD_1
+©¦          ©¦              ©¦              NOR3X6AD_1
+©¦          ©¦              ©¦              NOR3X8AD_1
+©¦          ©¦              ©¦              NOR3XLAD_1
+©¦          ©¦              ©¦              NOR4BBX1AD_1
+©¦          ©¦              ©¦              NOR4BBX2AD_1
+©¦          ©¦              ©¦              NOR4BBX4AD_1
+©¦          ©¦              ©¦              NOR4BBXLAD_1
+©¦          ©¦              ©¦              NOR4BX1AD_1
+©¦          ©¦              ©¦              NOR4BX2AD_1
+©¦          ©¦              ©¦              NOR4BX4AD_1
+©¦          ©¦              ©¦              NOR4BXLAD_1
+©¦          ©¦              ©¦              NOR4X1AD_1
+©¦          ©¦              ©¦              NOR4X2AD_1
+©¦          ©¦              ©¦              NOR4X4AD_1
+©¦          ©¦              ©¦              NOR4X6AD_1
+©¦          ©¦              ©¦              NOR4X8AD_1
+©¦          ©¦              ©¦              NOR4XLAD_1
+©¦          ©¦              ©¦              OA21X1AD_1
+©¦          ©¦              ©¦              OA21X2AD_1
+©¦          ©¦              ©¦              OA21X4AD_1
+©¦          ©¦              ©¦              OA21XLAD_1
+©¦          ©¦              ©¦              OA22X1AD_1
+©¦          ©¦              ©¦              OA22X2AD_1
+©¦          ©¦              ©¦              OA22X4AD_1
+©¦          ©¦              ©¦              OA22XLAD_1
+©¦          ©¦              ©¦              OAI211X1AD_1
+©¦          ©¦              ©¦              OAI211X2AD_1
+©¦          ©¦              ©¦              OAI211X4AD_1
+©¦          ©¦              ©¦              OAI211XLAD_1
+©¦          ©¦              ©¦              OAI21BX1AD_1
+©¦          ©¦              ©¦              OAI21BX2AD_1
+©¦          ©¦              ©¦              OAI21BX4AD_1
+©¦          ©¦              ©¦              OAI21BXLAD_1
+©¦          ©¦              ©¦              OAI21X1AD_1
+©¦          ©¦              ©¦              OAI21X2AD_1
+©¦          ©¦              ©¦              OAI21X3AD_1
+©¦          ©¦              ©¦              OAI21X4AD_1
+©¦          ©¦              ©¦              OAI21X6AD_1
+©¦          ©¦              ©¦              OAI21X8AD_1
+©¦          ©¦              ©¦              OAI21XLAD_1
+©¦          ©¦              ©¦              OAI221X1AD_1
+©¦          ©¦              ©¦              OAI221X2AD_1
+©¦          ©¦              ©¦              OAI221X4AD_1
+©¦          ©¦              ©¦              OAI221XLAD_1
+©¦          ©¦              ©¦              OAI222X1AD_1
+©¦          ©¦              ©¦              OAI222X2AD_1
+©¦          ©¦              ©¦              OAI222X4AD_1
+©¦          ©¦              ©¦              OAI222XLAD_1
+©¦          ©¦              ©¦              OAI22X1AD_1
+©¦          ©¦              ©¦              OAI22X2AD_1
+©¦          ©¦              ©¦              OAI22X4AD_1
+©¦          ©¦              ©¦              OAI22XLAD_1
+©¦          ©¦              ©¦              OAI2B11X1AD_1
+©¦          ©¦              ©¦              OAI2B11X2AD_1
+©¦          ©¦              ©¦              OAI2B11X4AD_1
+©¦          ©¦              ©¦              OAI2B11XLAD_1
+©¦          ©¦              ©¦              OAI2B1X1AD_1
+©¦          ©¦              ©¦              OAI2B1X2AD_1
+©¦          ©¦              ©¦              OAI2B1X4AD_1
+©¦          ©¦              ©¦              OAI2B1XLAD_1
+©¦          ©¦              ©¦              OAI2B2X1AD_1
+©¦          ©¦              ©¦              OAI2B2X2AD_1
+©¦          ©¦              ©¦              OAI2B2X4AD_1
+©¦          ©¦              ©¦              OAI2B2XLAD_1
+©¦          ©¦              ©¦              OAI2BB1X1AD_1
+©¦          ©¦              ©¦              OAI2BB1X2AD_1
+©¦          ©¦              ©¦              OAI2BB1X4AD_1
+©¦          ©¦              ©¦              OAI2BB1XLAD_1
+©¦          ©¦              ©¦              OAI2BB2X1AD_1
+©¦          ©¦              ©¦              OAI2BB2X2AD_1
+©¦          ©¦              ©¦              OAI2BB2X4AD_1
+©¦          ©¦              ©¦              OAI2BB2XLAD_1
+©¦          ©¦              ©¦              OAI31X1AD_1
+©¦          ©¦              ©¦              OAI31X2AD_1
+©¦          ©¦              ©¦              OAI31X4AD_1
+©¦          ©¦              ©¦              OAI31XLAD_1
+©¦          ©¦              ©¦              OAI32X1AD_1
+©¦          ©¦              ©¦              OAI32X2AD_1
+©¦          ©¦              ©¦              OAI32X4AD_1
+©¦          ©¦              ©¦              OAI32XLAD_1
+©¦          ©¦              ©¦              OAI33X1AD_1
+©¦          ©¦              ©¦              OAI33X2AD_1
+©¦          ©¦              ©¦              OAI33X4AD_1
+©¦          ©¦              ©¦              OAI33XLAD_1
+©¦          ©¦              ©¦              OR2X1AD_1
+©¦          ©¦              ©¦              OR2X2AD_1
+©¦          ©¦              ©¦              OR2X4AD_1
+©¦          ©¦              ©¦              OR2X6AD_1
+©¦          ©¦              ©¦              OR2X8AD_1
+©¦          ©¦              ©¦              OR2XLAD_1
+©¦          ©¦              ©¦              OR3X1AD_1
+©¦          ©¦              ©¦              OR3X2AD_1
+©¦          ©¦              ©¦              OR3X4AD_1
+©¦          ©¦              ©¦              OR3X6AD_1
+©¦          ©¦              ©¦              OR3X8AD_1
+©¦          ©¦              ©¦              OR3XLAD_1
+©¦          ©¦              ©¦              OR4X1AD_1
+©¦          ©¦              ©¦              OR4X2AD_1
+©¦          ©¦              ©¦              OR4X4AD_1
+©¦          ©¦              ©¦              OR4X6AD_1
+©¦          ©¦              ©¦              OR4X8AD_1
+©¦          ©¦              ©¦              OR4XLAD_1
+©¦          ©¦              ©¦              RF1R1WX1AD_1
+©¦          ©¦              ©¦              RF2R1WX1AD_1
+©¦          ©¦              ©¦              SDFFHQX1AD_1
+©¦          ©¦              ©¦              SDFFHQX2AD_1
+©¦          ©¦              ©¦              SDFFHQX4AD_1
+©¦          ©¦              ©¦              SDFFHQX8AD_1
+©¦          ©¦              ©¦              SDFFHX1AD_1
+©¦          ©¦              ©¦              SDFFHX2AD_1
+©¦          ©¦              ©¦              SDFFHX4AD_1
+©¦          ©¦              ©¦              SDFFHX8AD_1
+©¦          ©¦              ©¦              SDFFNHX1AD_1
+©¦          ©¦              ©¦              SDFFNHX2AD_1
+©¦          ©¦              ©¦              SDFFNHX4AD_1
+©¦          ©¦              ©¦              SDFFNHX8AD_1
+©¦          ©¦              ©¦              SDFFNSRHX1AD_1
+©¦          ©¦              ©¦              SDFFNSRHX2AD_1
+©¦          ©¦              ©¦              SDFFNSRHX4AD_1
+©¦          ©¦              ©¦              SDFFNSRHX8AD_1
+©¦          ©¦              ©¦              SDFFQX1AD_1
+©¦          ©¦              ©¦              SDFFQX2AD_1
+©¦          ©¦              ©¦              SDFFQX4AD_1
+©¦          ©¦              ©¦              SDFFQXLAD_1
+©¦          ©¦              ©¦              SDFFRHQX1AD_1
+©¦          ©¦              ©¦              SDFFRHQX2AD_1
+©¦          ©¦              ©¦              SDFFRHQX4AD_1
+©¦          ©¦              ©¦              SDFFRHQX8AD_1
+©¦          ©¦              ©¦              SDFFRQX1AD_1
+©¦          ©¦              ©¦              SDFFRQX2AD_1
+©¦          ©¦              ©¦              SDFFRQX4AD_1
+©¦          ©¦              ©¦              SDFFRQXLAD_1
+©¦          ©¦              ©¦              SDFFRX1AD_1
+©¦          ©¦              ©¦              SDFFRX2AD_1
+©¦          ©¦              ©¦              SDFFRX4AD_1
+©¦          ©¦              ©¦              SDFFRXLAD_1
+©¦          ©¦              ©¦              SDFFSHQX1AD_1
+©¦          ©¦              ©¦              SDFFSHQX2AD_1
+©¦          ©¦              ©¦              SDFFSHQX4AD_1
+©¦          ©¦              ©¦              SDFFSHQX8AD_1
+©¦          ©¦              ©¦              SDFFSQX1AD_1
+©¦          ©¦              ©¦              SDFFSQX2AD_1
+©¦          ©¦              ©¦              SDFFSQX4AD_1
+©¦          ©¦              ©¦              SDFFSQXLAD_1
+©¦          ©¦              ©¦              SDFFSRHQX1AD_1
+©¦          ©¦              ©¦              SDFFSRHQX2AD_1
+©¦          ©¦              ©¦              SDFFSRHQX4AD_1
+©¦          ©¦              ©¦              SDFFSRHQX8AD_1
+©¦          ©¦              ©¦              SDFFSRX1AD_1
+©¦          ©¦              ©¦              SDFFSRX2AD_1
+©¦          ©¦              ©¦              SDFFSRX4AD_1
+©¦          ©¦              ©¦              SDFFSRXLAD_1
+©¦          ©¦              ©¦              SDFFSX1AD_1
+©¦          ©¦              ©¦              SDFFSX2AD_1
+©¦          ©¦              ©¦              SDFFSX4AD_1
+©¦          ©¦              ©¦              SDFFSXLAD_1
+©¦          ©¦              ©¦              SDFFTRX1AD_1
+©¦          ©¦              ©¦              SDFFTRX2AD_1
+©¦          ©¦              ©¦              SDFFTRX4AD_1
+©¦          ©¦              ©¦              SDFFTRXLAD_1
+©¦          ©¦              ©¦              SDFFX1AD_1
+©¦          ©¦              ©¦              SDFFX2AD_1
+©¦          ©¦              ©¦              SDFFX4AD_1
+©¦          ©¦              ©¦              SDFFXLAD_1
+©¦          ©¦              ©¦              SDFFYQX2AD_1
+©¦          ©¦              ©¦              SEDFFHQX1AD_1
+©¦          ©¦              ©¦              SEDFFHQX2AD_1
+©¦          ©¦              ©¦              SEDFFHQX4AD_1
+©¦          ©¦              ©¦              SEDFFHQX8AD_1
+©¦          ©¦              ©¦              SEDFFTRX1AD_1
+©¦          ©¦              ©¦              SEDFFTRX2AD_1
+©¦          ©¦              ©¦              SEDFFTRX4AD_1
+©¦          ©¦              ©¦              SEDFFTRXLAD_1
+©¦          ©¦              ©¦              SEDFFX1AD_1
+©¦          ©¦              ©¦              SEDFFX2AD_1
+©¦          ©¦              ©¦              SEDFFX4AD_1
+©¦          ©¦              ©¦              SEDFFXLAD_1
+©¦          ©¦              ©¦              SMDFFHQX1AD_1
+©¦          ©¦              ©¦              SMDFFHQX2AD_1
+©¦          ©¦              ©¦              SMDFFHQX4AD_1
+©¦          ©¦              ©¦              SMDFFHQX8AD_1
+©¦          ©¦              ©¦              TBUFX12AD_1
+©¦          ©¦              ©¦              TBUFX16AD_1
+©¦          ©¦              ©¦              TBUFX1AD_1
+©¦          ©¦              ©¦              TBUFX20AD_1
+©¦          ©¦              ©¦              TBUFX2AD_1
+©¦          ©¦              ©¦              TBUFX3AD_1
+©¦          ©¦              ©¦              TBUFX4AD_1
+©¦          ©¦              ©¦              TBUFX6AD_1
+©¦          ©¦              ©¦              TBUFX8AD_1
+©¦          ©¦              ©¦              TBUFXLAD_1
+©¦          ©¦              ©¦              TIEHIAD_1
+©¦          ©¦              ©¦              TIELOAD_1
+©¦          ©¦              ©¦              TLATNCAX12AD_1
+©¦          ©¦              ©¦              TLATNCAX16AD_1
+©¦          ©¦              ©¦              TLATNCAX20AD_1
+©¦          ©¦              ©¦              TLATNCAX2AD_1
+©¦          ©¦              ©¦              TLATNCAX3AD_1
+©¦          ©¦              ©¦              TLATNCAX4AD_1
+©¦          ©¦              ©¦              TLATNCAX6AD_1
+©¦          ©¦              ©¦              TLATNCAX8AD_1
+©¦          ©¦              ©¦              TLATNSRX1AD_1
+©¦          ©¦              ©¦              TLATNSRX2AD_1
+©¦          ©¦              ©¦              TLATNSRX4AD_1
+©¦          ©¦              ©¦              TLATNSRXLAD_1
+©¦          ©¦              ©¦              TLATNTSCAX12AD_1
+©¦          ©¦              ©¦              TLATNTSCAX16AD_1
+©¦          ©¦              ©¦              TLATNTSCAX20AD_1
+©¦          ©¦              ©¦              TLATNTSCAX2AD_1
+©¦          ©¦              ©¦              TLATNTSCAX3AD_1
+©¦          ©¦              ©¦              TLATNTSCAX4AD_1
+©¦          ©¦              ©¦              TLATNTSCAX6AD_1
+©¦          ©¦              ©¦              TLATNTSCAX8AD_1
+©¦          ©¦              ©¦              TLATNX1AD_1
+©¦          ©¦              ©¦              TLATNX2AD_1
+©¦          ©¦              ©¦              TLATNX4AD_1
+©¦          ©¦              ©¦              TLATNXLAD_1
+©¦          ©¦              ©¦              TLATSRX1AD_1
+©¦          ©¦              ©¦              TLATSRX2AD_1
+©¦          ©¦              ©¦              TLATSRX4AD_1
+©¦          ©¦              ©¦              TLATSRXLAD_1
+©¦          ©¦              ©¦              TLATX1AD_1
+©¦          ©¦              ©¦              TLATX2AD_1
+©¦          ©¦              ©¦              TLATX4AD_1
+©¦          ©¦              ©¦              TLATXLAD_1
+©¦          ©¦              ©¦              XNOR2X1AD_1
+©¦          ©¦              ©¦              XNOR2X2AD_1
+©¦          ©¦              ©¦              XNOR2X4AD_1
+©¦          ©¦              ©¦              XNOR2XLAD_1
+©¦          ©¦              ©¦              XNOR3X1AD_1
+©¦          ©¦              ©¦              XNOR3X2AD_1
+©¦          ©¦              ©¦              XNOR3X4AD_1
+©¦          ©¦              ©¦              XNOR3XLAD_1
+©¦          ©¦              ©¦              XOR2X1AD_1
+©¦          ©¦              ©¦              XOR2X2AD_1
+©¦          ©¦              ©¦              XOR2X3AD_1
+©¦          ©¦              ©¦              XOR2X4AD_1
+©¦          ©¦              ©¦              XOR2X8AD_1
+©¦          ©¦              ©¦              XOR2XLAD_1
+©¦          ©¦              ©¦              XOR3X1AD_1
+©¦          ©¦              ©¦              XOR3X2AD_1
+©¦          ©¦              ©¦              XOR3X4AD_1
+©¦          ©¦              ©¦              XOR3XLAD_1
+©¦          ©¦              ©¦              
+©¦          ©¦              ©À©¤doc
+©¦          ©¦              ©¦      tsmc090adgrvt.pdf
+©¦          ©¦              ©¦      
+©¦          ©¦              ©À©¤synopsys
+©¦          ©¦              ©¦      build_db.tcl
+©¦          ©¦              ©¦      README
+©¦          ©¦              ©¦      scadv_tsmc_cln90g_rvt_ff_1p1v_m40c.db
+©¦          ©¦              ©¦      scadv_tsmc_cln90g_rvt_ff_1p1v_m40c.lib
+©¦          ©¦              ©¦      scadv_tsmc_cln90g_rvt_ss_0p9v_125c.db
+©¦          ©¦              ©¦      scadv_tsmc_cln90g_rvt_ss_0p9v_125c.lib
+©¦          ©¦              ©¦      scadv_tsmc_cln90g_rvt_tt_1p0v_25c.db
+©¦          ©¦              ©¦      scadv_tsmc_cln90g_rvt_tt_1p0v_25c.lib
+©¦          ©¦              ©¦      
+©¦          ©¦              ©¸©¤verilog
+©¦          ©¦                      README
+©¦          ©¦                      tsmc090adgrvt.v
+©¦          ©¦                      
+©¦          ©¸©¤tsmc
+©¦              ©¸©¤star-rcxt
+©¦                      README
+©¦                      tsmc90g_tf2itf.map
+©¦                      
+©¸©¤AT510-RM-70000-r0p0-00rel0
+    ©À©¤doc
+    ©¦  ©¸©¤implementation_reference_methodology
+    ©¦          CDN_CortexM0Iintegration_Release_Notes_2009_03.pdf
+    ©¦          CDN_CortexM0Iintegration_User_Guide_2009_03.pdf
+    ©¦          CDN_CortexM0_Release_Notes_2009_03.pdf
+    ©¦          CDN_CortexM0_User_Guide_2009_03.pdf
+    ©¦          
+    ©¸©¤implementation_tsmc90_g_lowk
+        ©À©¤cortexm0
+        ©¦  ©À©¤cadence
+        ©¦  ©¦  ©¸©¤build_dir
+        ©¦  ©¦      ©¦  makefile
+        ©¦  ©¦      ©¦  
+        ©¦  ©¦      ©À©¤data
+        ©¦  ©¦      ©À©¤floorplan
+        ©¦  ©¦      ©¦      cortexm0.def
+        ©¦  ©¦      ©¦      cortexm0.fp
+        ©¦  ©¦      ©¦      cortexm0.fp.spr
+        ©¦  ©¦      ©¦      
+        ©¦  ©¦      ©À©¤logs
+        ©¦  ©¦      ©À©¤reports
+        ©¦  ©¦      ©¦  ©À©¤models
+        ©¦  ©¦      ©¦  ©À©¤postroute
+        ©¦  ©¦      ©¦  ©À©¤preroute
+        ©¦  ©¦      ©¦  ©À©¤signoff
+        ©¦  ©¦      ©¦  ©¸©¤synthesis
+        ©¦  ©¦      ©À©¤scripts
+        ©¦  ©¦      ©¦      cortexm0_atpg.config
+        ©¦  ©¦      ©¦      cortexm0_atpg.sh
+        ©¦  ©¦      ©¦      cortexm0_atpg_config_update.tcl
+        ©¦  ©¦      ©¦      cortexm0_config.tcl
+        ©¦  ©¦      ©¦      cortexm0_constraints_default_mode.sdc
+        ©¦  ©¦      ©¦      cortexm0_create_vs_cmdfile.tcl
+        ©¦  ©¦      ©¦      cortexm0_cts.tcl
+        ©¦  ©¦      ©¦      cortexm0_excl.txt
+        ©¦  ©¦      ©¦      cortexm0_fe.conf
+        ©¦  ©¦      ©¦      cortexm0_floorplan.tcl
+        ©¦  ©¦      ©¦      cortexm0_generate_timing.tcl
+        ©¦  ©¦      ©¦      cortexm0_gen_vsrc_from_encounter.pl
+        ©¦  ©¦      ©¦      cortexm0_placement.tcl
+        ©¦  ©¦      ©¦      cortexm0_pre_cts_latency_best_case_default.sdc
+        ©¦  ©¦      ©¦      cortexm0_pre_cts_latency_typical_case_default.sdc
+        ©¦  ©¦      ©¦      cortexm0_pre_cts_latency_worst_case_default.sdc
+        ©¦  ©¦      ©¦      cortexm0_propagate.sdc
+        ©¦  ©¦      ©¦      cortexm0_qrc.tcl
+        ©¦  ©¦      ©¦      cortexm0_route.tcl
+        ©¦  ©¦      ©¦      cortexm0_run_ampkg.csh
+        ©¦  ©¦      ©¦      cortexm0_signoff_bc.tcl
+        ©¦  ©¦      ©¦      cortexm0_signoff_typ.tcl
+        ©¦  ©¦      ©¦      cortexm0_signoff_wc.tcl
+        ©¦  ©¦      ©¦      cortexm0_si_fixing.tcl
+        ©¦  ©¦      ©¦      cortexm0_synthesis.tcl
+        ©¦  ©¦      ©¦      cortexm0_update_clock_insertion.tcl
+        ©¦  ©¦      ©¦      cortexm0_validate_timing.tcl
+        ©¦  ©¦      ©¦      cortexm0_verilog.tcl
+        ©¦  ©¦      ©¦      cortexm0_vstorm_analysis.tcl
+        ©¦  ©¦      ©¦      cortexm0_vstorm_models.em
+        ©¦  ©¦      ©¦      
+        ©¦  ©¦      ©¸©¤work
+        ©¦  ©¸©¤misc
+        ©¦      ©À©¤cells
+        ©¦      ©¦  ©¸©¤fe_tsmc090g_sc-adv_v10_2007q4v2
+        ©¦      ©¦          cm0_acg.v
+        ©¦      ©¦          
+        ©¦      ©¸©¤wrappers
+        ©¦          ©¸©¤fe_tsmc090g_sc-adv_v10_2007q4v2
+        ©¦                  CORTEXM0IMP.v
+        ©¦                  
+        ©À©¤cortexm0_integration
+        ©¦  ©À©¤cadence
+        ©¦  ©¦  ©¸©¤build_dir
+        ©¦  ©¦      ©¦  makefile
+        ©¦  ©¦      ©¦  
+        ©¦  ©¦      ©À©¤data
+        ©¦  ©¦      ©À©¤floorplan
+        ©¦  ©¦      ©¦      cortexm0integration.def
+        ©¦  ©¦      ©¦      cortexm0integration.fp
+        ©¦  ©¦      ©¦      cortexm0integration.fp.spr
+        ©¦  ©¦      ©¦      
+        ©¦  ©¦      ©À©¤logs
+        ©¦  ©¦      ©À©¤reports
+        ©¦  ©¦      ©¦  ©À©¤models
+        ©¦  ©¦      ©¦  ©À©¤postroute
+        ©¦  ©¦      ©¦  ©À©¤preroute
+        ©¦  ©¦      ©¦  ©À©¤signoff
+        ©¦  ©¦      ©¦  ©¸©¤synthesis
+        ©¦  ©¦      ©À©¤scripts
+        ©¦  ©¦      ©¦      cortexm0integration_atpg.config
+        ©¦  ©¦      ©¦      cortexm0integration_atpg.sh
+        ©¦  ©¦      ©¦      cortexm0integration_atpg_config_update.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_config.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_constraints_default_mode.sdc
+        ©¦  ©¦      ©¦      cortexm0integration_create_vs_cmdfile.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_cts.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_excl.txt
+        ©¦  ©¦      ©¦      cortexm0integration_fe.conf
+        ©¦  ©¦      ©¦      cortexm0integration_floorplan.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_generate_timing.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_gen_vsrc_from_encounter.pl
+        ©¦  ©¦      ©¦      cortexm0integration_placement.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_pre_cts_latency_best_case_default.sdc
+        ©¦  ©¦      ©¦      cortexm0integration_pre_cts_latency_typical_case_default.sdc
+        ©¦  ©¦      ©¦      cortexm0integration_pre_cts_latency_worst_case_default.sdc
+        ©¦  ©¦      ©¦      cortexm0integration_propagate.sdc
+        ©¦  ©¦      ©¦      cortexm0integration_qrc.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_route.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_run_ampkg.csh
+        ©¦  ©¦      ©¦      cortexm0integration_signoff_bc.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_signoff_typ.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_signoff_wc.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_si_fixing.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_synthesis.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_update_clock_insertion.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_validate_timing.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_verilog.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_vstorm_analysis.tcl
+        ©¦  ©¦      ©¦      cortexm0integration_vstorm_models.em
+        ©¦  ©¦      ©¦      
+        ©¦  ©¦      ©¸©¤work
+        ©¦  ©¸©¤misc
+        ©¦      ©À©¤cells
+        ©¦      ©¦  ©¸©¤fe_tsmc090g_sc-adv_v10_2007q4v2
+        ©¦      ©¦          cm0_acg.v
+        ©¦      ©¦          cm0_dap_cdc_capt_sync.v
+        ©¦      ©¦          cm0_dap_cdc_comb_and.v
+        ©¦      ©¦          cm0_dap_cdc_comb_and_addr.v
+        ©¦      ©¦          cm0_dap_cdc_comb_and_data.v
+        ©¦      ©¦          cm0_dap_cdc_send.v
+        ©¦      ©¦          cm0_dap_cdc_send_addr.v
+        ©¦      ©¦          cm0_dap_cdc_send_data.v
+        ©¦      ©¦          cm0_dap_cdc_send_reset.v
+        ©¦      ©¦          cm0_dap_jt_cdc_comb_and.v
+        ©¦      ©¦          cm0_dap_sw_cdc_capt_reset.v
+        ©¦      ©¦          cm0_dbg_reset_sync.v
+        ©¦      ©¦          
+        ©¦      ©¸©¤wrappers
+        ©¦          ©¸©¤fe_tsmc090g_sc-adv_v10_2007q4v2
+        ©¦                  CORTEXM0INTEGRATIONIMP.v
+        ©¦                  
+        ©¸©¤design_kits
+            ©À©¤arm
+            ©¦  ©¸©¤fe_tsmc090g_sc-adv_v10_2007q4v2
+            ©¦      ©¦  README.copyright
+            ©¦      ©¦  README.fe_license
+            ©¦      ©¦  README.tsmc090g_sc-adv_v10_2007q4v2
+            ©¦      ©¦  
+            ©¦      ©¸©¤aci
+            ©¦          ©¸©¤sc-ad
+            ©¦              ©¦  cell_list
+            ©¦              ©¦  
+            ©¦              ©À©¤doc
+            ©¦              ©¦      tsmc090adgrvt.pdf
+            ©¦              ©¦      
+            ©¦              ©À©¤lef
+            ©¦              ©¦      README
+            ©¦              ©¦      tsmc090adgrvt_9lm_2thick_tech.lef
+            ©¦              ©¦      tsmc090adgrvt_macros.lef
+            ©¦              ©¦      
+            ©¦              ©À©¤synopsys
+            ©¦              ©¦      README
+            ©¦              ©¦      scadv_tsmc_cln90g_rvt_ff_1p1v_m40c.lib
+            ©¦              ©¦      scadv_tsmc_cln90g_rvt_ss_0p9v_125c.lib
+            ©¦              ©¦      scadv_tsmc_cln90g_rvt_tt_1p0v_25c.lib
+            ©¦              ©¦      
+            ©¦              ©¸©¤verilog
+            ©¦                      README
+            ©¦                      tsmc090adgrvt.v
+            ©¦                      
+            ©À©¤cadence_compiled
+            ©¦  ©¸©¤fe_tsmc090g_sc-adv_v10_2007q4v2
+            ©¦      ©¦  scadv_tsmc_cln90g_rvt_ff_1p1v_m40c.cdB
+            ©¦      ©¦  scadv_tsmc_cln90g_rvt_ss_0p9v_125c.cdB
+            ©¦      ©¦  scadv_tsmc_cln90g_rvt_tt_1p0v_25c.cdB
+            ©¦      ©¦  
+            ©¦      ©¸©¤scadv_tsmc_cln90g_rvt_tt_1p0v_25c_dv.cl
+            ©¦              cells_1.geo
+            ©¦              cells_1.nls
+            ©¦              cells_1.pwr
+            ©¦              index.cli
+            ©¦              Libgen.net
+            ©¦              README.TXT
+            ©¦              rulesets
+            ©¦              VERSION.TXT
+            ©¦              vias_1.geo
+            ©¦              XTC.net
+            ©¦              
+            ©¸©¤tsmc
+                ©¸©¤t-n90-lo-sp-002-f1_1_6a_20060914
+                    ©¸©¤6X2Z
+                        ©¦  corner.defs
+                        ©¦  
+                        ©À©¤cbest
+                        ©À©¤cworst
+                        ©¸©¤typical

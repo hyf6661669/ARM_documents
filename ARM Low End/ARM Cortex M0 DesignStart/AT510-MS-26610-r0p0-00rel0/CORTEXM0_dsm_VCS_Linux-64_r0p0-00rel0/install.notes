@@ -1,0 +1,84 @@
+===================================================================
+
+ This confidential and proprietary software may be used only as
+ authorised by a licensing agreement from ARM Limited
+   (c) COPYRIGHT 1999-2009 ARM Limited
+       ALL RIGHTS RESERVED
+ The entire notice above must be reproduced on all authorised
+ copies and copies may only be made to the extent permitted
+ by a licensing agreement from ARM Limited.
+
+===================================================================
+
+
+=================================
+Contents of the current directory
+=================================
+
+install.notes - this file
+LICENCE.txt   - the models end-user licence agreement
+ModelPackage  - encrypted model source.
+decrypter     - directory contains decrypter for different platforms.
+	        These decrypters are only for this model source.
+install.csh   - shell script to install the model source
+
+===============================
+How to install the model source
+===============================
+
+Run the shell script from any directory (for example, <ARM_IP_install_area>)
+
+% cd <ARM_IP_install_area>
+% <path_contains_this_install_notes>/install.csh
+
+Then the model source will be installed into 
+
+     <ARM_IP_install_area>/
+      |
+      |--> simulation_models/
+                |
+                |--> DSM/
+                |     |
+                |     |--> synopsys_vcs_verilog_Linux-64/
+                |             |
+                |             |--> CORTEXM0_unlicensed_r0p0-00rel0/
+                |                       CORTEXM0/
+                |                       testing/
+                |                       docs/
+                |                       README 
+                |                       setup.csh
+                |                       setup.sh
+                |                       ...
+                |	 		
+                |--> LMC_HOME/
+                |
+                |--> ModelManager/
+                |        <MM_version>/
+                |               Linux-64/
+                |                     MM/
+                |                       synopsys_vcs_verilog/
+                |                       <lib files>
+                |
+                |--> flexlm/  (for licensed model only)
+                         <Flexlm_version>/
+                                SunOS/
+                                   <lm* files>
+                                HP-UX/
+                                   <lm* files>
+                                Linux/
+                                   <lm* files>
+
+If you don't have csh or the path to csh is not correct, 
+you can edit this script accordingly.
+
+You must read the LICENCE.txt file and accept the agreement 
+during installing process.
+
+After installing successfully, you will get the model source tree in 
+"<ARM_IP_install_area>/simulation_models/DSM/...".  You can then test the 
+model installation by following the README in directory 
+
+   <ARM_IP_install_area>/simulation_models/DSM/synopsys_vcs_verilog_Linux-64/CORTEXM0_unlicensed_r0p0-00rel0
+
+
+Any problems, email support-models@arm.com

@@ -1,0 +1,399 @@
+#!/usr/bin/perl
+#################################################################################
+#
+# The confidential and proprietary information contained in this file may
+# only be used by a person authorised under and to the extent permitted
+# by a subsisting licensing agreement from ARM Limited.
+#
+#                 (C) COPYRIGHT 2009 ARM Limited.
+#                       ALL RIGHTS RESERVED
+#
+# This entire notice must be reproduced on all copies of this file
+# and copies of this file may only be made by a person if such person is
+# permitted to do so under the terms of a subsisting license agreement
+# from ARM Limited.
+#
+#              Cortex-M0 Integration Kit Validation Script
+#              ===========================================
+#
+#      SVN Information
+#
+#      Checked In          : $Date: $
+#
+#      Revision            : $Revision: $
+#
+#      Release Information : Cortex-M0-AT510-r0p0-01rel0
+#
+################################################################################
+# Script Usage: RunIK <options> <testname>
+################################################################################
+# RunIK takes the following options
+# -h          : prints options usage
+# -mti        : use mti simulator (default)
+# -nc         : use nc simulator
+# -vcs        : use vcs simulator
+# -make       : use make to compile tests in the tests directory
+# -build      : build the RTL or netlist
+# -netlist    : use netlist
+#               <installation_dir>/integration_kit/logical/tbench/verilog/netlist.vc
+#               should point to netlist file and technology libraries
+#               if -sdf option is not used, zero-delays are assumed
+# -sdf <sdf>  : use SDF timing annotation with netlist
+#               <sdf> can be "max" or "min" in uppercase or lowercase
+#               this option only works with -netlist option
+#               <installation_dir>/integration_kit/validation/CORTEMOINTEGRATIONIMP.sdf.gz
+#               or <installation_dir>/integration_kit/validation/CORTEMOIMP.sdf.gz should
+#               link to appropriate gzipped sdf file
+# -dsm        : use the DSM for CORTEXM0
+#               <installation_dir>/integration_kit/logical/tbench/verilog/dsm.vc
+#               should point to DSM CORTEXM0
+# -upf        : uses power_file for simulation
+#               power_file points to either srpg/CORTEXM0INTEGRATONIMP.upf
+#               or srpg/CORTEXM0IMP.upf 
+# -cpf        : uses power_file for simulation
+#               power_file points to either srpg/CORTEXM0INTEGRATONIMP.cpf
+#               or srpg/CORTEXM0IMP.cpf 
+# -all        : run all tests in the perl array @testlist
+#               <testname> ignored
+#               -make with -all results in "make all". So ensure the "all" in
+#               Makefile includes all tests in @testlist
+#               -build with -all builds RTL/netlist only once 
+#
+################################################################################
+
+$^W=1; # enable warnings (same as perl -w)
+
+use Cwd;
+use Getopt::Long;
+use File::Basename;
+use File::Copy;
+
+my @testlist = qw (dhry hellow max_power speed_indicative config_check interrupt reset sleep debug romtable); #Add tests to this array
+my $prog = basename($0);
+my $help;
+my $make = 0;
+my $build = 0;
+my $level = 0;
+my $netlist = 0;
+my $sdf;
+my $sdfset = 0;
+my $dsm = 0;
+my $upf = 0;
+my $cpf = 0;
+my $runall = 0;
+my $testname;
+my $default_simulator = "mti";
+my $simulator;
+my $cwd = cwd(); # Get current directory
+my $testdir = $cwd."/tests";
+my $vectdir = $cwd."/vectors";
+my $logsdir = $cwd."/logs";
+my $srpgdir = $cwd."/srpg";
+my $rtldir = $cwd."/../../logical";
+my $tbenchdir = $cwd."/../logical/tbench/verilog";
+my $rundir;
+my $buildopts = "";
+my $ncelabopts = "-ACCESS rwc";
+my $simopts = "";
+my $simopts_cov = "";
+my $gui = 0;
+my $coverage = 0;
+my $cov_mod = "cm_hier.mod";
+my $dsmsetup = 1;
+my $power_file = $cwd."/power_file"; #power_file must point to upf/cpf file at correct level
+my $list = 0;
+my $dsmlibopt = "";
+my $upfopt = "";
+my $vcs64 = "";
+my $usage="
+USAGE: $prog <options> <testname>
+
+Description:
+ where <options> are:
+ -h[elp]                           : print usage
+ -mti                              : use mti simulator (default)
+ -nc                               : use nc  simulator
+ -vcs                              : use vcs simulator
+ -make                             : call make to compile test(s)
+ -build                            : build before running
+ -net[list]                        : use netlist
+ -sdf <delay type>                 : use sdf with netlist
+                                     choose delay type from min:max
+                                     if switch not used, zero delay used
+ -dsm                              : use DSM model for CORTEXM0
+ -upf                              : use UPF for simulation
+ -cpf                              : use CPF for simulation
+ -all                              : run all tests specified in perl array \@testlist
+\n";
+
+# Get the multi-character command line options
+if (!GetOptions(
+           "h|help|?"                         => \$help,
+	   "mti"                              => sub { $simulator="mti"; },
+	   "nc"                               => sub { $simulator="nc";  },
+	   "vcs"                              => sub { $simulator="vcs"; },
+	   "make"                             => \$make,
+           "build"                            => \$build,
+           "netlist"                          => \$netlist,
+           "sdf=s"                            => \$sdf,
+           "dsm"                              => \$dsm,
+           "upf"                              => \$upf,
+           "cpf"                              => \$cpf,
+           "all"                              => \$runall,
+           "list"                             => \$list,
+           "cov"                              => \$coverage,
+           "gui"                              => \$gui)
+           or $help) {
+           print $usage;
+           exit;
+           }
+
+if ((@ARGV == 0) and ($runall == 0) and ($list == 0)) { print $usage; exit; }
+
+# Get The Test Name from the commandline
+$testname = shift @ARGV;
+$testname = "" unless defined $testname;
+
+# Exit if there are still arguments left to parse
+die "Unrecognised arguments still remain: @ARGV" if @ARGV != 0;
+
+# Print perl array testlist and exit
+if ($list == 1) {
+    print "\@testlist has following tests: @testlist\n";
+    print "Modify \@testlist in RunIK script to add or remove tests\n";
+    exit;
+}
+
+# Exit if DSM and Netlist simulation requested simultaneously
+die "DSM and netlist can't be run together" if (($dsm == 1) and ($netlist == 1));
+
+if (defined $sdf) {
+# Lower case $sdf
+    $sdf = lc($sdf);
+    if (($sdf eq "min") or ($sdf eq "max")) {
+        $sdfset = 1;
+    } else {
+        die "Unrecognized argument for -sdf option";
+    }
+}
+
+# Exit if sdf requested without netlist
+die "SDF timing annotation can only be used with netlist" if (($sdfset == 1) and ($netlist == 0));
+
+# call Make if needed
+if ($make == 1) {
+# cd to Tests directory
+   chdir $testdir or die ("cd to $testdir failed");
+  print "Compiling...\n";
+   if ($runall == 1) {
+     $make = "make all";
+   } else {
+     $make = "make $testname";
+   }
+
+   die "Make failed\n" if(system "$make");
+
+# change back to cwd
+chdir $cwd;
+}
+
+# Check simulator
+if (not defined $simulator)  {
+    print "Using default simulator: $default_simulator\n";
+    $simulator = $default_simulator;
+};
+
+# Exit if UPF/CPF requested with DSM
+die "UPF/CPF simulation cannot be run with DSM" if (($dsm == 1) and (($upf ==1) or ($cpf == 1)));
+
+# Exit if CPF is not requested with NC
+die "CPF simulation only available for NC" if (($cpf == 1) and ($simulator ne "nc"));
+
+# Check for Simulator directory
+$_ = uc($simulator);
+$rundir = $cwd."/".$_;
+# delete run directory if one existed
+system "rm -rf $rundir" if ($build == 1);
+# make run directory
+system "mkdir $rundir" if !(-d $rundir);
+# cd to Simulator directory
+chdir $rundir or die ("cd to $rundir failed");
+ 
+# Symbolic link to RTL
+system "rm -f verilog";
+symlink($rtldir,"verilog");
+
+# Check if environment is setup up for DSM; Make sure the variables are set
+# correctly as script does not check that
+if ($dsm == 1) {
+     if (not defined($ENV{"MG_LIB"})) { print "Environment variable MG_LIB not defined\n"; $dsmsetup = 0; }
+     if (not defined($ENV{"LD_LIBRARY_PATH"})) { print "Environment variable LD_LIBRARY_PATH not defined\n"; $dsmsetup = 0; }
+     if (not defined($ENV{"DIR_CORTEXM0"})) { print "Environment variable DIR_CORTEXM0 not defined\n"; $dsmsetup = 0; }
+     if (not defined($ENV{"LMC_HOME"})) { print "Environment variable LMC_HOME not defined\n"; $dsmsetup = 0; }
+     die "DSM not setup correctly" unless ($dsmsetup == 1);
+}
+
+# Set environment for UPF simulation
+    system "cp $srpgdir/archpro.ini $rundir/." if ($upf == 1);
+
+# Set build options
+#$buildopts .= " +define+ARM_CM0_IK_SDF" if ($sdfset == 1); #Now set in netlist.vc
+$buildopts .= " +nospecify" if (($netlist == 1) and ($sdfset == 0));
+$buildopts .= " +delay_mode_zero" if (($netlist == 1) and ($sdfset == 0) and ($simulator ne "nc"));
+$buildopts .= " +tetramax" if (($netlist == 1) and ($sdfset == 0) and ($simulator eq "vcs"));
+$ncelabopts .= "  -SEQ_UDP_DELAY 1" if (($netlist == 1) and ($sdfset == 0) and ($simulator eq "nc"));
+$buildopts .= " +${sdf}delays" if (($sdfset == 1) and ($simulator eq "vcs"));
+$buildopts .= " -P \${DIR_CORTEXM0}/pli.tab -LDFLAGS \"-L\${MG_LIB}/synopsys_vcs_verilog\" -lmgmm -ldl" if (($dsm == 1) and $simulator eq "vcs"); 
+$dsmlibopt = " -loadpli1 \${MG_LIB}/cadence_nc_verilog/mm_nc_dynamic:mgboot_nc" if (($dsm == 1) and ($simulator eq "nc")); 
+# For UPF simulation with VCS
+if (($simulator eq "vcs") and ($upf == 1)) {
+    $buildopts .= " +vpi -load '\${ARCHPRO_ROOT}/lib/libmvsim-vcs.so:mvsimInit'";
+    $buildopts .= " -P \${ARCHPRO_ROOT}/templates/mvsim_vcs.tab";
+    $buildopts .= " -Mupdate -debug -f $rundir/apdb/ev/vcs_options_1 -f $rundir/apdb/ev/cmdfile_1";
+}
+# For coverage
+if (($simulator eq "vcs") and ($coverage == 1)) {
+    # Point to correct file for coverage
+    #$cov_mod = "cm_hier_int.mod"; #For Integration level
+    $buildopts .= " -Mupdate -cm line+tgl -cm_tgl portsonly -cm_hier ../$cov_mod -cm_libs yv -cm_noconst +v2k";
+}
+
+# Set simulation options
+$simopts .= " -gui" if ((($simulator eq "mti") or ($simulator eq "nc")) and ($gui == 1)); #Don't use do file in MTI Interactive mode
+$simopts .= " -c -do $cwd/simulator_mti.cmds" if (($simulator eq "mti") and ($gui == 0));
+$simopts .= " -t ps" if (($simulator eq "mti") and ($sdfset == 1)); #For Netlist - mti
+$simopts .= " +${sdf}delays" if (($simulator ne "nc") and ($sdfset == 1)); #For Netlist - mti and vcs
+$simopts .= " +nc${sdf}delays" if  (($simulator eq "nc") and ($sdfset == 1)); #For Netlist - nc
+$simopts .= " -pli \${MG_LIB}//mti_modelsim_verilog/libmgmm.so" if (($simulator eq "mti") and ($dsm == 1));
+# For UPF simulation with MTI
+if (($simulator eq "mti") and ($upf == 1)) {
+    $simopts .= " -foreign \"mvsimInit \${ARCHPRO_ROOT}/lib/libmvsim-mti.so\"";
+}
+# For UPF simulation with NC
+if (($simulator eq "nc") and ($upf == 1)) {
+    $upfopt .= " -loadvpi \${ARCHPRO_ROOT}/lib/libmvsim-ncmx.so:mvsimInit -expand";
+}
+
+# set common vc file and simulation-specific vc file
+$_vc1 =  $tbenchdir."/tbench.vc";
+if ($netlist == 1) {
+  $_vc2 = $tbenchdir."/netlist.vc";
+} elsif ($dsm == 1) {
+  $_vc2 = $tbenchdir."/dsm.vc";
+} else {
+  $_vc2 = $tbenchdir."/rtl.vc";
+}
+# set top-level file
+$_v = $tbenchdir."/tbench.v";
+
+if ($build == 1) {
+  # set compile log
+  $_lg = $logsdir."/".$simulator."_compile.log";
+  # Build
+  print "Building...\n";
+  BuildRTL($simulator);
+}
+
+# Put $testname into $testlist for single test
+@testlist = $testname unless ($runall == 1);
+
+  foreach (@testlist) {
+
+    # Check if test exists
+    die "Error! Test $_.bin not found in $cwd/tests\n" unless (-e $testdir."/".$_.".bin");
+
+    print "Running test $_\n";
+
+    # Remove any unnecessary old files from the rundir
+    system "rm -f tarmac.log";
+    system "rm -f vsim.wlf";
+    system "rm -f transcript";
+
+    # Create symlink to test binary
+    $_bn = $testdir."/".$_.".bin";
+    $_drv_bn = $testdir."/debugdriver.bin";
+    $_lg = $logsdir."/".$_."_".$simulator.".log";
+    # Remove old image.bin & debugdriver.bin
+    system "rm -f image.bin debugdriver.bin";
+    # Symbolic link to <testname>.bin
+    symlink($_bn,"image.bin");
+    # Symbolic link to debugdriver.bin
+    symlink($_drv_bn,"debugdriver.bin");
+    
+    #Simulation options for Coverage. Use -cm_name testname
+    $simopts_cov = " -cm line+tgl -cm_name $_" if (($simulator eq "vcs") and ($coverage == 1)); 
+    
+    RunSimulation($simulator);
+
+    # Move crfs to vectors directory
+    move($rundir."/CORTEXM0IMP_vectors.crf",$vectdir."/".$_."_CORTEXM0IMP.crf") if (-e $rundir."/CORTEXM0IMP_vectors.crf");
+    move($rundir."/CORTEXM0INTEGRATIONIMP_vectors.crf",$vectdir."/".$_."_CORTEXM0INTEGRATIONIMP.crf") if ($rundir."/CORTEXM0INTEGRATIONIMP_vectors.crf");
+  }
+
+#cd back to cwd
+chdir $cwd;
+
+exit;
+
+
+sub BuildRTL($)
+  {
+    my ($simulator) = @_;
+
+    if ($upf == 1) {
+        system "mvcmp -upf $power_file | tee $_lg";
+        system "mvcmp -f $_vc1 -f $_vc2 $_v | tee -a $_lg";
+        system "mvdbgen -top tbench | tee -a $_lg";
+    }
+
+    if($simulator eq "mti")
+      {
+        # remove any existing one
+	system "rm -rf work";
+        
+        system "vlib work | tee -a $_lg";
+        system "vlog -work work -incr -f $_vc1 -f $_vc2 $_v $buildopts | tee -a $_lg";
+      }
+    elsif($simulator eq "nc")
+      {
+        system "ncprep +overwrite $buildopts -f $_vc1 -f $_vc2 $_v | tee -a $_lg";
+        system "echo '-LPS_CPF $power_file' >> ncelab.args | tee -a $_lg" if ($cpf == 1);
+        system "ncvlog -f ncvlog.args | tee -a $_lg";
+        system "ncelab $dsmlibopt $upfopt -mess -f ncelab.args $ncelabopts | tee -a $_lg";
+      }
+    elsif($simulator eq "vcs")
+      {
+        # Uncomment below line if using VCS in 64-bit
+        #$vcs64 = "-full64";
+	system "vcs $vcs64 +vcs+lic+wait +v2k -cc gcc -cpp g++ -CFLAGS \"-O4 -I\${VCS_HOME}/include\" $buildopts | tee -a $_lg" if ($upf == 1);
+	system "vcs +vcs+lic+wait +v2k -cc gcc -cpp g++ -CFLAGS \"-O4 -I\${VCS_HOME}/include\" $buildopts -f $_vc1 -f $_vc2 $_v | tee -a $_lg" unless ($upf == 1);
+      }
+    else
+      {
+	die "Unrecognised simulator $simulator when trying to build RTL/Netlist.";
+      }
+  }
+
+
+sub RunSimulation($)
+  {
+    my ($simulator) = @_;
+
+    if($simulator eq "mti")
+      {
+        system "vsim -novopt $simopts -lib work tbench | tee $_lg";
+      }
+    elsif($simulator eq "nc")
+      {
+        system "ncsim -unbuffered -status -LICQUEUE -f ncsim.args -cdslib cds.lib -hdlvar hdl.var -NBASYNC $simopts | tee $_lg";
+      }
+    elsif($simulator eq "vcs")
+      {
+	system "./simv +vcs+lic+wait $simopts $simopts_cov +vcs+flush+log < $cwd/simulator_vcs.cmds | tee $_lg";
+      }
+    else
+      {
+	die "Unrecognised simulator $simulator when trying to run simulation.";
+      }
+  }
+

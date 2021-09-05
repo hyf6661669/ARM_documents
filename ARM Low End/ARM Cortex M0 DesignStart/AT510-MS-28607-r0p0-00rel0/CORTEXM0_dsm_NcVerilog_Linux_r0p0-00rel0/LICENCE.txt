@@ -1,0 +1,273 @@
+End User Licence Agreement for Commercial and Evaluation Use of the
+Models 
+
+IMPORTANT: READ CAREFULLY PRIOR TO ANY INSTALLATION OR USE OF THE
+MODELS. 
+
+You are in possession of, or about to install or download, certain
+Models (as defined below). The Models are owned by ARM Limited ("ARM")
+or its licensors and are protected by copyright laws and international
+copyright treaties as well as other intellectual property laws and
+treaties. The Models are licensed not sold. ARM IS WILLING TO LICENCE
+THE MODELS TO YOU UPON THE CONDITION THAT YOU ACCEPT ALL OF THE TERMS
+CONTAINED IN THIS LICENCE. ANY USE BY YOU OF THE MODELS ARE REGULATED
+BY THE TERMS AND CONDITIONS OF THIS LICENCE AGREEMENT ("AGREEMENT"). 
+
+THIS LICENCE WILL OVERRIDE THE TERMS OF ANY OTHER LICENCES ENCLOSED
+WITH THE SOFTWARE. 
+
+ACCEPTANCE 
+
+If you agree with and accept the terms and conditions of this Agreement
+it shall become a legally binding agreement between you and ARM and you
+may proceed to install, copy and use (as the case may be) the Models in
+accordance with the terms and conditions of the Agreement. 
+
+REJECTION AND RIGHT TO A REFUND 
+
+If you do not agree with or do not wish to be bound by the terms and
+conditions of this Agreement you may NOT install, copy or use the
+Models and should promptly return the Models to the person who provided
+it to you for a full refund (if you purchased the Models). 
+
+TERMS AND CONDITIONS 
+
+THE PARTIES HEREBY AGREE AS FOLLOWS: 
+
+1. Definitions 
+
+1.1 "ARM Based Product" means an integrated circuit incorporating a CPU
+manufactured under licence from ARM. 
+
+1.2 "Models" means the object code of the programs you are in
+possession of, installing or downloading with this Agreement, together
+with any Updates thereto delivered to You. 
+
+1.3 "Confidential Information" means (i) any trade secrets and know-how
+embodied in or relating to the Models; (ii) any information designated
+in writing by ARM as confidential and any information which if
+disclosed orally by ARM, is identified as confidential at the time of
+disclosure and is reduced to writing and sent to You within thirty (30)
+days after its oral disclosure; and (iii) the terms and conditions of
+this Agreement. 
+
+1.4 "Intellectual Property" means any patents, patent rights, trade
+marks, service marks, registered designs, applications for any of the
+foregoing, copyright, unregistered design right and any other similar
+protected rights in any country. 
+
+1.5 "Key Server(s)" means a computer system that is owned or controlled
+by You at the location specified in Your applicable purchase order and
+designated as the computer system on which the Models will be used. 
+
+1.6 "Licence Key" means a document (in physical or electronic format)
+or an activation key provided by ARM to You which reflects Your
+applicable purchase order and which may identify (i) the Models,
+including version number, number of seats licensed to You and any
+relevant restrictions on use; (ii) the Key Server(s); (iii) the
+duration of any licence granted to you; and (iv) the codes which You
+must input to initialise use of Models on the Key Server(s). 
+
+1.7 "Updates" means any (i) error corrections developed by or for ARM;
+and (ii) functional enhancements or other modifications developed by or
+for ARM (which ARM in its discretion decides does not constitute a new
+product or model), together with any Intellectual Property embodied
+therein. 
+
+2. Licence 
+
+Commercial Use Licence 
+
+2.1 ARM hereby grants to You (subject to termination and the payment of
+appropriate licence fees), a non-exclusive, non-transferable, licence
+to use and copy, the Models and related documentation solely: (a) for
+your internal business purposes; (b) in accordance with the relevant
+License Key issued to you and any associated licence management
+software provided as part of, or used in connection with the Models;
+and (c) for the purpose of developing ARM Based Products. 
+
+Evaluation Use Licence 
+
+2.2 If Your Licence Key provides only for evaluation use of the Models,
+ARM hereby grants to You (subject to termination and the payment of
+appropriate licence fees), a non-exclusive, non-transferable, licence
+for the period of thirty (30) days from Your acceptance of this
+Agreement (the "Term"), to use and copy, the Models and related
+documentation solely: (a) for your internal testing and evaluation; (b)
+in accordance with the relevant License Key issued to you and any
+associated licence management software provided as part of, or used in
+connection with the Models; and (c) for the actual or intended purpose
+of developing ARM Based Products. 
+
+2.3 You shall reproduce and not remove or obscure any notice
+incorporated by ARM in the Models to protect ARM's Intellectual
+Property therein. You shall incorporate corresponding notices and such
+other markings and notifications as ARM may reasonably require on all
+copies of the whole or any part of the Models made by You. 
+
+2.4 You acquire no right, title or interest in the Models or any
+Intellectual Property therein. In no event shall the licences granted
+in Clause 2.1 and 2.2 be construed as granting You expressly or by
+implication, estoppel or otherwise, licences to any ARM technology
+other than the Models. 
+
+2.5 No right is granted to You to sublicence, assign or transfer the
+rights granted to You under this Agreement. 
+
+2.6 Except to the extent that such activity is permitted by applicable
+law you shall not reverse engineer, decompile or disassemble any of the
+Software. If the Software was provided to you in Europe you shall not
+reverse engineer, decompile or disassemble any of the Software for the
+purposes of error correction. You shall not include the Software or any
+part thereof in a collective work. 
+
+3. Support 
+
+3.1 If you purchased the Software directly from ARM, you are entitled
+to reasonable telephone and e-mail support for the Software for the
+period of twelve (12) months, commencing from the day of purchase; such
+support to be prioritised at ARM's discretion. Support supplied by ARM
+may not be used as a substitute for training nor as additional resource
+for your programming projects. 
+
+If you did not purchase the Software directly from ARM then you are not
+entitled to any support for the Software from ARM under this Agreement.
+The vendor of the Software may or may not offer support to you for the
+Software. 
+
+Details of how to obtain support from your supplier, whether ARM or
+another vendor, can be found in the Technical Support area of http://
+www.arm.com. 
+
+3.2 You agree that any written or oral evaluations or feedback provided
+to ARM and all inventions, product improvements, modifications or
+developments that ARM conceives or made during or subsequent to this
+Agreement and relating to the Models, including those based partly or
+wholly on your written or oral evaluations or feedback, will be the
+exclusive property of ARM. ARM will have exclusive rights, title and
+interest in all such property. 
+
+4. Confidentiality 
+
+You acknowledge that the Models and associated documentation contain
+confidential and highly sensitive material. Accordingly you agree to
+maintain in confidence the Confidential Information and apply security
+measures no less stringent than the measures which you apply to protect
+your own like information, but not less than a reasonable degree of
+care, to prevent unauthorised disclosure and use of the Confidential
+Information. Subject to any restrictions imposed by applicable law, the
+period of confidentiality shall be indefinite. You agree that you shall
+not use any of the Confidential Information other than pursuant to and
+in accordance with the exercise of any of the licences granted under
+this Agreement. 
+
+5. Warranties 
+
+5.1 THE MODELS ARE LICENSED "AS IS" AND ARM EXPRESSLY DISCLAIMS ALL
+REPRESENTATIONS, WARRANTIES, CONDITIONS OR OTHER TERMS, EXPRESS IMPLIED
+OR STATUTORY, INCLUDING WITHOUT LIMITATION THE IMPLIED WARRANTIES OF
+NON-INFRINGEMENT, SATISFACTORY QUALITY, AND FITNESS FOR A PARTICULAR
+PURPOSE. 
+
+If provided for in Your Licence Key, ARM warrants that for the period
+of ninety (90) days from the date of purchase by You of the Models, ARM
+warrants to You that: 
+
+(i) the media on which the Models is provided shall be free from
+defects in materials and workmanship under normal use; and 
+
+(ii) the Models will perform substantially in accordance with the
+Documentation (if any). 
+
+6. Limitation of Liability 
+
+6.1 IN NO EVENT SHALL ARM BE LIABLE FOR ANY INDIRECT, SPECIAL,
+INCIDENTAL OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO THE
+COST OF REMOVAL AND REINSTALLATION OF GOODS, LOSS OF GOODWILL, LOSS OF
+PROFITS, LOSS OF USE OF DATA, INTERRUPTION OF BUSINESS OR OTHER
+ECONOMIC LOSS) WHETHER SUCH DAMAGES ARE ALLEGED AS A RESULT OF TORTIOUS
+CONDUCT OR BREACH OF CONTRACT OR OTHERWISE EVEN IF THE OTHER PARTY HAS
+BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THE MODELS ARE NOT
+FAULT-TOLERANT AND ARE NOT DESIGNED, MANUFACTURED OR INTENDED FOR USE
+OR RESALE AS ON-LINE CONTROL EQUIPMENT IN HAZARDOUS ENVIRONMENTS
+REQUIRING FAIL-SAFE PERFORMANCE, SUCH AS IN THE OPERATION OF NUCLEAR
+FACILITIES, AIRCRAFT NAVIGATION OR COMMUNICATION SYSTEMS, AIR TRAFFIC
+CONTROL, DIRECT LIFE SUPPORT MACHINES, OR WEAPONS SYSTEMS, IN WHICH THE
+FAILURE OF THE MODELS COULD LEAD DIRECTLY TO DEATH, PERSONAL INJURY, OR
+SEVERE PHYSICAL OR ENVIRONMENTAL DAMAGE ("HIGH RISK ACTIVITIES").
+ACCORDINGLY, ARM AND ITS SUPPLIERS SPECIFICALLY DISCLAIM ANY EXPRESS OR
+IMPLIED WARRANTY OF FITNESS FOR HIGH RISK ACTIVITIES. YOU AGREE THAT
+ARM AND ITS SUPPLIERS WILL NOT BE LIABLE FOR ANY CLAIMS OR DAMAGES
+ARISING FROM THE USE OF THE MODELS IN SUCH APPLICATIONS AND THAT YOU
+SHALL INDEMNIFY ARM FOR ANY LIABILITY IT INCURS HOWEVER ARISING OUT OF
+YOUR USE OF THE MODELS IN SUCH APPLICATIONS. 
+
+6.2 NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED IN THIS
+AGREEMENT, THE MAXIMUM LIABILITY OF ARM TO YOU IN AGGREGATE FOR ALL
+CLAIMS MADE AGAINST ARM IN CONTRACT TORT OR OTHERWISE UNDER OR IN
+CONNECTION WITH THE SUBJECT MATTER OF THIS AGREEMENT SHALL NOT EXCEED
+THE TOTAL OF SUMS PAID BY YOU TO ARM UNDER THIS AGREEMENT. IN THE CASE
+WHERE NO AMOUNT WAS PAID, ARM AND ITS LICENSORS SHALL HAVE NO LIABILITY
+TO YOU FOR ANY DAMAGES WHATSOEVER. 
+
+6.3 NOTHING IN THIS CLAUSE 6 SHALL OPERATE TO EXCLUDE LIABILITY FOR
+DEATH OR PERSONAL INJURY RESULTING FROM EITHER PARTY'S NEGLIGENCE. 
+
+7. Term and Termination 
+
+7.1 This Agreement remains effective until expiration or unless sooner
+terminated in accordance with the provisions of Clause 7.2. If the
+Models were provided to You for limited term use (as set out in Your
+License Key), this Agreement will automatically expire at the end of
+the authorised term. If the Models were provided to You under an
+Evaluation Use Licence, this Agreement shall remain in force for the
+Term. 
+
+7.2 Without prejudice to any of its other rights, if you are in breach
+of any of the terms and conditions of this Agreement, then ARM may
+terminate the Agreement immediately upon giving written notice to You. 
+
+Upon any termination or expiration, you agree to cease all use of the
+Models and return them to ARM or certify deletion and destruction of
+the Models, including all copies, to ARM's reasonable satisfaction. 
+
+Without limitation to the survival of other terms as expressly set out
+elsewhere under the terms of this Agreement, upon expiration or sooner
+termination of this Agreement, the provisions of Clauses 1, 3.2, 4, 6,
+7 and 8 shall survive such termination. 
+
+8. General 
+
+This Agreement is governed by English Law. 
+
+This is the only agreement between you and ARM relating to the Software
+and it may only be modified by written agreement between you and ARM.
+This Agreement may not be modified by purchase orders, advertising or
+other representation by any person. 
+
+If any Clause in this Agreement is held by a court of law to be illegal
+or unenforceable the remaining provisions of the Agreement shall not be
+affected thereby. 
+
+The failure by ARM to enforce any of the provisions of this Agreement,
+unless waived in writing, shall not constitute a waiver of ARM's rights
+to enforce such provision or any other provision of the Agreement in
+the future. 
+
+Use, copying or disclosure by the US Government is subject to the
+restrictions set out in subparagraph (c)(1)(ii) of the Rights in
+Technical Data and Computer Software clause at DFARS 252.227-7013 or
+subparagraphs (c)(1) and (2) of the Commercial Computer Software,
+Restricted Rights at 48 C.F.R. 52.227-19, as applicable. 
+
+You agree to comply with all export laws and restrictions and
+regulations of the United States or foreign agencies or authorities,
+and not to export or re-export the Models or any direct product thereof
+in violation of any such restrictions, laws or regulations, or without
+all necessary approvals. As applicable, each party shall obtain and
+bear all expenses relating to any necessary licenses and/or exemptions
+with respect to its own export of the Models from the U.S. 
+
+8 September, 2003 Confidential LEC-ELA-00035-V3.0 
+
+TB/JC 1 of 4 ARM/End Users 

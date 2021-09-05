@@ -1,0 +1,146 @@
+<?Fm Document UG_introduction.fm?>
+<chapter id = "CHDEIEHE">
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green NO_OVERRIDE show?>
+
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red NO_OVERRIDE hide?>
+
+
+<?Fm BoolCondExpr "" State 0?>
+
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_ON_FINAL?>
+
+
+<title>Introduction<phrase condition = "Configurable">, Reference
+Material</phrase></title>
+<para><phrase condition = "Configurable">The following sections
+are the reference material for the introduction to a Cortex-M0 User
+Guide</phrase>:<itemizedlist spacing = "normal"><listitem><para><xref
+    xrefstyle = "TitleLong" linkend = "CHDEFDJB"/>.<phrase
+    condition = "Configurable"> An ARM document includes this information in
+the document preface.</phrase></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CHDCHEAG"/>.<phrase
+    condition = "Configurable"> An ARM document includes this information
+in chapter 1 of the document.</phrase></para></listitem></itemizedlist></para>
+<sect1 id = "CHDEFDJB"><title>About this document</title>
+<para condition = "Configurable">This document provides the information
+required for application and system-level software development.
+It does not provide information on debug components, features, or
+operation.</para>
+<para condition = "Configurable">This material is for microcontroller
+software and hardware engineers, including those who have no experience
+of ARM products.</para>
+<sect2 id = "CHDEEJIB"><title>Typographical conventions</title>
+<para>The typographical conventions used in this document are:<variablelist
+    role = "wide"><varlistentry><term><emphasis>italic</emphasis></term>
+<listitem><para>Highlights important notes, introduces special terminology, denotes
+internal cross-references, and citations.</para></listitem></varlistentry>
+<varlistentry><term><interface>bold</interface></term><listitem><para><phrase
+    condition = "Optional">Highlights interface elements, such as
+menu names. </phrase><phrase condition = "Optional">Denotes signal
+names. </phrase>Used for terms in descriptive lists, where appropriate.</para></listitem></varlistentry>
+<varlistentry><term><literal>monospace</literal></term><listitem><para>Denotes
+text that you can enter at the keyboard, such as commands, file
+and program names, and source code.</para></listitem></varlistentry>
+<varlistentry condition = "Optional"><term><literal><userinput>mono</userinput>space</literal></term>
+<listitem><para>Denotes a permitted abbreviation for a command or
+option. You can enter the underlined text instead of the full command
+or option name.</para></listitem></varlistentry>
+<varlistentry><term><literal><replaceable>monospace italic</replaceable></literal></term>
+<listitem><para>Denotes arguments to monospace text where the argument
+is to be replaced by a specific value.</para></listitem></varlistentry>
+<varlistentry condition = "Optional"><term><type>monospace</type> <type>bold</type></term>
+<listitem><para>Denotes language keywords when used outside example
+code.</para></listitem></varlistentry>
+<varlistentry condition = "Optional"><term> &lt; and ></term><listitem>
+<para>Enclose replaceable terms for assembler syntax where they
+appear in code or code fragments. For example:</para>
+<programlisting>
+<code>CMP</code> <code><replaceable>Rn</replaceable></code><code>, </code><code>&lt;<replaceable>Rm</replaceable>|#<replaceable>imm</replaceable>></code>
+</programlisting></listitem></varlistentry></variablelist></para></sect2></sect1>
+<sect1 id = "CHDCHEAG"><title>About the <phrase
+    condition = "Configurable">Cortex-M0 processor</phrase> and
+core peripherals</title>
+<para>The <phrase condition = "Configurable"><trademark class = "trade">Cortex</trademark>-M0
+processor</phrase> is an entry-level 32-bit ARM Cortex processor
+designed for a broad range of embedded applications. It offers significant
+benefits to developers, including:<itemizedlist spacing = "compact">
+<listitem><para>a simple architecture that is easy to learn and
+program</para></listitem>
+<listitem><para>ultra-low power, energy efficient operation</para></listitem>
+<listitem><para>excellent code density</para></listitem>
+<listitem><para>deterministic, high-performance interrupt handling</para></listitem>
+<listitem><para>upward compatibility with Cortex-M processor family.</para></listitem></itemizedlist></para>
+<figure><title><phrase condition = "Configurable">Cortex-M0</phrase> implementation</title><mediaobject><imageobject><imagedata fileref = "graphics/typical_cortex_m0_implementation.svg" format = "SVG" contentdepth = "229" contentwidth = "600"/></imageobject></mediaobject></figure>
+<para>The Cortex-M0 processor is built on a highly area and power
+optimized 32-bit processor core, with a 3-stage pipeline von Neumann
+architecture. The processor delivers exceptional energy efficiency
+through a small but powerful instruction set and extensively optimized
+design, providing high-end processing hardware <phrase
+    condition = "Optional">including a single-cycle multiplier</phrase>.</para>
+<para>The Cortex-M0 processor implements the ARMv6-M architecture,
+which is based on the 16-bit Thumb<trademark class = "registered"></trademark> instruction
+set and includes Thumb-2 technology. This provides the exceptional
+performance expected of a modern 32-bit architecture, with a higher
+code density than other 8-bit and 16-bit microcontrollers.</para>
+<para>The Cortex-M0 processor closely integrates a configurable <emphasis>Nested
+Vectored Interrupt Controlle</emphasis>r (NVIC), to deliver industry-leading
+interrupt performance. The NVIC:<itemizedlist spacing = "compact">
+<listitem><para>includes a <emphasis>non-maskable interrupt</emphasis> (NMI)</para></listitem>
+<listitem><para>provides zero jitter interrupt option</para></listitem>
+<listitem><para>provides four interrupt priority levels.</para></listitem></itemizedlist>The
+tight integration of the processor core and NVIC provides fast execution
+of <emphasis>interrupt service routines</emphasis> (ISRs), dramatically
+reducing the interrupt latency. This is achieved through the hardware
+stacking of registers, and the ability to abandon and restart load-multiple
+and store-multiple operations. Interrupt handlers do not require any
+assembler wrapper code, removing any code overhead from the ISRs.
+Tail-chaining optimization also significantly reduces the overhead
+when switching from one ISR to another.</para>
+<para>To optimize low-power designs, the NVIC integrates with the
+sleep modes<phrase condition = "Optional">, that include a deep
+sleep function that enables the entire device to be rapidly powered
+down</phrase>.</para>
+<sect2><title>System-level interface</title>
+<para>The Cortex-M0 processor provides a single system-level interface
+using <trademark class = "registered">AMBA</trademark> technology
+to provide high speed, low latency memory accesses.</para></sect2>
+<sect2><title condition = "Optional">Integrated configurable debug</title>
+<para condition = "Optional">The Cortex-M0 processor implements
+a complete hardware debug solution, with extensive hardware breakpoint
+and watchpoint options. This provides high system visibility of
+the processor, memory and peripherals through a &lt;JTAG port or
+a 2-pin <emphasis>Serial Wire Debug</emphasis> (SWD) port> that
+is ideal for microcontrollers and other small package devices.<phrase
+    condition = "Configurable"> The MCU vendor determines the debug
+feature configuration and therefore this can differ across different
+devices and families.</phrase></para></sect2>
+<sect2><title>Cortex-M0 processor features summary</title>
+<para><itemizedlist spacing = "compact"><listitem><para>high code
+density with 32-bit performance</para></listitem>
+<listitem><para>tools and binary upwards compatible with Cortex-M
+processor family</para></listitem>
+<listitem><para>integrated ultra low-power sleep mode<phrase
+    condition = "Optional">s</phrase></para></listitem>
+<listitem><para>efficient code execution permits slower processor
+clock or increases sleep mode time</para></listitem>
+<listitem><para condition = "Optional">single-cycle 32-bit hardware multiplier</para></listitem>
+<listitem><para>zero jitter interrupt handling</para></listitem>
+<listitem><para>extensive debug capabilities.</para></listitem></itemizedlist></para></sect2>
+<sect2><title>Cortex-M0 core peripherals</title>
+<para>These are:</para>
+<variablelist spacing = "normal"><varlistentry role = "break"><term>NVIC</term>
+<listitem><para>The NVIC is an embedded interrupt controller that
+supports low latency interrupt processing.</para></listitem></varlistentry>
+<varlistentry role = "break"><term>System Control Block</term>
+<listitem><para>The <emphasis>System Control Block</emphasis> (SCB) is
+the programmers model interface to the processor. It provides system
+implementation information and system control, including configuration,
+control, and reporting of system exceptions.</para></listitem></varlistentry>
+<varlistentry condition = "Optional" role = "break"><term>System
+timer</term><listitem><para>The system timer, SysTick, is a 24-bit
+count-down timer. Use this as a Real Time Operating System (RTOS)
+tick timer or as a simple counter.</para></listitem></varlistentry></variablelist></sect2></sect1></chapter>

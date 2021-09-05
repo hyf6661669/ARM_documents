@@ -1,0 +1,1360 @@
+<?Fm Document UG_cortex_m0_processor.fm?>
+<chapter id = "CACGADBH">
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green NO_OVERRIDE show?>
+
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red NO_OVERRIDE hide?>
+
+
+<?Fm BoolCondExpr "" State 0?>
+
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_ON_FINAL?>
+
+
+<title>The Cortex-M0 Processor<phrase condition = "Configurable">,
+Reference Material</phrase></title>
+<para><phrase condition = "Configurable">The following sections
+are the reference material for the Cortex-M0 processor description
+in a User Guide</phrase>:<itemizedlist spacing = "compact"><listitem>
+<para><xref xrefstyle = "TitleLong" linkend = "BABFJDHA"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CHDBIJJE"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABEHHHB"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "Babcefea"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CHDJJHJI"/>.</para></listitem></itemizedlist></para>
+<sect1 id = "BABFJDHA"><title>Programmers model</title>
+<para>This section describes the Cortex-M0 programmers model. In
+addition to the individual core register descriptions, it contains
+information about the processor modes and stacks.</para>
+<sect2 id = "CHDIGFCA"><title>Processor modes</title>
+<para>The processor <emphasis>modes</emphasis> are:<variablelist
+    role = "wide"><varlistentry><term>Thread mode</term><listitem>
+<para>Used to execute application software. The processor enters Thread
+mode when it comes out of reset.</para></listitem></varlistentry>
+<varlistentry><term>Handler mode</term><listitem><para>Used to handle
+exceptions. The processor returns to Thread mode when it has finished all
+exception processing.</para></listitem></varlistentry></variablelist></para></sect2>
+<sect2 id = "BABDGADF"><title>Stacks</title>
+<para>The processor uses a full descending stack. This means the
+stack pointer indicates the last stacked item on the stack memory.
+When the processor pushes a new item onto the stack, it decrements
+the stack pointer and then writes the item to the new memory location.
+The processor implements two stacks, the <emphasis>main stack</emphasis> and
+the <emphasis>process stack</emphasis>, with independent copies
+of the stack pointer, see <xref xrefstyle = "TitleLong"
+    linkend = "BABJJHGA"/>.</para>
+<para>In Thread mode, the CONTROL register controls whether the
+processor uses the main stack or the process stack, see <xref
+    xrefstyle = "TitleLong" linkend = "BABIFGGB"/>. In Handler mode,
+the processor always uses the main stack. The options for processor
+operations are:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "BABEHBDE">
+<title>Summary of processor mode and stack use options</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.847in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.165in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "1.611in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Processor
+mode</entry>
+<entry colname = "2">Used to
+execute</entry>
+<entry colname = "3">Stack used</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">Thread</entry>
+<entry colname = "2">Applications</entry>
+<entry colname = "3">Main stack or process stack<footnote
+    id = "BABGGJAC"><para>See <xref xrefstyle = "TitleLong"
+    linkend = "BABIFGGB"/></para></footnote></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">Handler</entry>
+<entry colname = "2">Exception handlers</entry>
+<entry colname = "3">Main stack</entry>
+</row>
+</tbody>
+</tgroup></table></sect2>
+<sect2 id = "CHDBIBGJ"><title>Core registers </title>
+<para>The processor core registers are:</para><mediaobject><imageobject><imagedata fileref = "graphics/processor_core_register_set.svg" format = "SVG" contentdepth = "297" contentwidth = "470"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "BABJCGBI">
+<title>Core register set summary</title>
+<tgroup cols = "4" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.764in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.514in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "0.945in" colsep = "0"/>
+<colspec colnum = "4" colname = "4" colwidth = "2.639in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Name</entry>
+<entry colname = "2">Type <footnote><para>Describes access type
+during program execution in thread mode and Handler mode. Debug access
+can differ.</para></footnote></entry>
+<entry colname = "3"><para>Reset value</para></entry>
+<entry colname = "4">Description</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">R0-R12</entry>
+<entry colname = "2">RW</entry>
+<entry colname = "3">Unknown</entry>
+<entry colname = "4"><xref xrefstyle = "TitleLong" linkend = "BABEDAFE"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">MSP</entry>
+<entry colname = "2">RW</entry>
+<entry colname = "3">See description</entry>
+<entry colname = "4"><xref xrefstyle = "TitleLong" linkend = "BABJJHGA"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">PSP</entry>
+<entry colname = "2">RW</entry>
+<entry colname = "3">Unknown</entry>
+<entry colname = "4"><xref xrefstyle = "TitleLong" linkend = "BABJJHGA"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">LR</entry>
+<entry colname = "2">RW</entry>
+<entry colname = "3">Unknown</entry>
+<entry colname = "4"><xref xrefstyle = "TitleLong" linkend = "BABJDJCA"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">PC</entry>
+<entry colname = "2">RW</entry>
+<entry colname = "3">See description</entry>
+<entry colname = "4"><xref xrefstyle = "TitleLong" linkend = "BABHAAFA"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">PSR</entry>
+<entry colname = "2">RW</entry>
+<entry colname = "3">Unknown<footnote id = "BABGBHDF"><para>Bit[24]
+is the T-bit and is loaded from bit[0] of the reset vector.</para></footnote></entry>
+<entry colname = "4"><xref xrefstyle = "TitleLong" linkend = "CHDDIAFA"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">APSR</entry>
+<entry colname = "2">RW</entry>
+<entry colname = "3">Unknown </entry>
+<entry colname = "4"><xref xrefstyle = "TitleLong" linkend = "BABDDCIA"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">IPSR</entry>
+<entry colname = "2">RO</entry>
+<entry colname = "3"><literal>0x00000000</literal></entry>
+<entry colname = "4"><xref xrefstyle = "TitleLong" linkend = "BABGBIBI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">EPSR</entry>
+<entry colname = "2">RO</entry>
+<entry colname = "3">Unknown <footnoteref linkend = "BABGBHDF"/> </entry>
+<entry colname = "4"><xref xrefstyle = "TitleLong" linkend = "BABFBEDJ"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">PRIMASK</entry>
+<entry colname = "2">RW</entry>
+<entry colname = "3"><literal>0x00000000</literal></entry>
+<entry colname = "4"><xref xrefstyle = "TitleLong" linkend = "BABBBGEA"/></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">CONTROL</entry>
+<entry colname = "2">RW</entry>
+<entry colname = "3"><literal>0x00000000</literal></entry>
+<entry colname = "4"><xref xrefstyle = "TitleLong" linkend = "BABIFGGB"/></entry>
+</row>
+</tbody>
+</tgroup></table>
+<sect3 id = "BABEDAFE"><title>General-purpose registers</title>
+<para>R0-R12 are 32-bit general-purpose registers for data operations.</para></sect3>
+<sect3 id = "BABJJHGA"><title>Stack Pointer</title>
+<para>The <emphasis>Stack Pointer</emphasis> (SP) is register R13.
+In Thread mode, bit[1] of the CONTROL register indicates the stack
+pointer to use:<itemizedlist spacing = "compact"><listitem><para>0
+= <emphasis>Main Stack Pointer</emphasis> (MSP). This is the reset
+value.</para></listitem>
+<listitem><para>1 = <emphasis>Process Stack Pointer</emphasis> (PSP).</para></listitem></itemizedlist>On
+reset, the processor loads the MSP with the value from address <literal>0x00000000</literal>.</para></sect3>
+<sect3 id = "BABJDJCA"><title>	Link Register</title>
+<para>The <emphasis>Link Register</emphasis> (LR) is register R14.
+It stores the return information for subroutines, function calls,
+and exceptions. On reset, the LR value is <phrase>Unknown</phrase>.</para></sect3>
+<sect3 id = "BABHAAFA"><title>Program Counter</title>
+<para>The <emphasis>Program Counter</emphasis> (PC) is register
+R15. It contains the current program address. On reset, the processor
+loads the PC with the value of the reset vector, which is at address <literal>0x00000004</literal>.
+Bit[0] of the value is loaded into the EPSR T-bit at reset and must
+be 1.</para></sect3>
+<sect3 id = "CHDDIAFA"><title>Program Status Register</title>
+<para>The <emphasis>Program Status Register</emphasis> (PSR) combines:<itemizedlist
+    spacing = "compact"><listitem><para><emphasis>Application Program
+Status Register</emphasis> (APSR)</para></listitem>
+<listitem><para><emphasis>Interrupt Program Status Register</emphasis> (IPSR)</para></listitem>
+<listitem><para><emphasis>Execution Program Status Register</emphasis> (EPSR).</para></listitem></itemizedlist></para>
+<para>These registers are mutually exclusive bitfields in the 32-bit
+PSR. The PSR bit assignments are:</para><mediaobject><imageobject><imagedata fileref = "graphics/apsr_ipsr_epsr_bit_assignments.svg" format = "SVG" contentdepth = "131" contentwidth = "528"/></imageobject></mediaobject>
+<para>Access these registers individually or as a combination of
+any two or all three registers, using the register name as an argument
+to the <code>MSR</code> or <code>MRS</code> instructions. For example:<itemizedlist
+    spacing = "compact"><listitem><para>read all of the registers
+using <code>PSR</code> with the <literal>MRS</literal> instruction</para></listitem>
+<listitem><para>write to the APSR using <code>APSR</code> with the <literal>MSR</literal> instruction.</para></listitem></itemizedlist></para>
+<para>The PSR combinations and attributes are:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "BABICHGF">
+<title>PSR register combinations</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.667in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.500in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "1.389in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Register</entry>
+<entry colname = "2">Type</entry>
+<entry colname = "3">Combination</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">PSR</entry>
+<entry colname = "2">RW<footnote id = "CEGFEEIJ"><para>The processor
+ignores writes to the IPSR bits.</para></footnote><superscript>, </superscript><footnote
+    id = "CEGGIJDA"><para>Reads of the EPSR bits return zero, and
+the processor ignores writes to the these bits</para></footnote></entry>
+<entry colname = "3">APSR, EPSR, and IPSR</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">IEPSR</entry>
+<entry colname = "2">RO</entry>
+<entry colname = "3">EPSR and IPSR</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">IAPSR</entry>
+<entry colname = "2">RW<footnoteref linkend = "CEGFEEIJ"/></entry>
+<entry colname = "3">APSR and IPSR</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">EAPSR</entry>
+<entry colname = "2">RW<footnoteref linkend = "CEGGIJDA"/></entry>
+<entry colname = "3">APSR and EPSR</entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>See the instruction descriptions <xref xrefstyle = "TitleLong"
+    linkend = "BABGIDDI"/> and <xref xrefstyle = "TitleLong"
+    linkend = "BABEEJCI"/> for more information about how to access
+the program status registers.</para>
+<sect4 id = "BABDDCIA"><title>	Application Program Status Register</title>
+<para>The APSR contains the current state of the condition flags,
+from previous instruction executions. See the register summary in <xref
+    xrefstyle = "TableNumPage" linkend = "BABJCGBI"/> for its attributes.
+The bit assignments are:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CHDDHDFA">
+<title>APSR bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.473in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.514in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "1.250in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31]</entry>
+<entry colname = "2">N</entry>
+<entry colname = "3"><para>Negative flag</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[30]</entry>
+<entry colname = "2">Z</entry>
+<entry colname = "3"><para>Zero flag</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[29]</entry>
+<entry colname = "2">C</entry>
+<entry colname = "3"><para>Carry or borrow flag</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[28]</entry>
+<entry colname = "2">V</entry>
+<entry colname = "3"><para>Overflow flag</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[27:0]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved</entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>See <xref xrefstyle = "TitleLong" linkend = "CHDHDBFC"/> for
+more information about the APSR negative, zero, carry or borrow,
+and overflow flags.</para></sect4>
+<sect4 id = "BABGBIBI"><title>Interrupt Program Status Register</title>
+<para>The IPSR contains the exception number of the current <emphasis>Interrupt
+Service Routine</emphasis> (ISR). See the register summary in <xref
+    xrefstyle = "TableNumPage" linkend = "BABJCGBI"/> for its attributes.
+The bit assignments are:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CHDBFIBD">
+<title>IPSR bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.473in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.098in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "2.945in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:6]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[5:0]</entry>
+<entry colname = "2">Exception number</entry>
+<entry colname = "3"><para>This is the number of the current exception:</para><para>0
+= Thread mode</para><para>1 = Reserved</para><para>2 = NMI</para><para>3
+= HardFault</para><para>4-10 = Reserved11 = SVCall</para><para>12,
+13 = Reserved</para><para>14 = PendSV</para><para>15 = <phrase
+    condition = "Optional">SysTick | Reserved</phrase></para><para>16
+= IRQ0. </para><para>. </para><para>. </para><para
+    condition = "Configurable">47 = IRQ31</para><para>48-63 = Reserved.</para><para>see <xref
+    xrefstyle = "TitleLong" linkend = "BABBGBEC"/> for more information.</para></entry>
+</row>
+</tbody>
+</tgroup></table></sect4>
+<sect4 id = "BABFBEDJ"><title>	Execution Program Status Register</title>
+<para>The EPSR contains the Thumb state bit.</para>
+<para>See the register summary in <xref xrefstyle = "TableNumPage"
+    linkend = "BABJCGBI"/> for the EPSR attributes. The bit assignments
+are:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CHDBBFDH">
+<title>EPSR bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.542in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.514in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "0.959in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:25]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[24]</entry>
+<entry colname = "2">T</entry>
+<entry colname = "3">Thumb state bit</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[23:0]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved</entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>Attempts by application software to read the EPSR directly using
+the <code>MRS</code> instruction always return zero. Attempts to
+write the EPSR using the <code>MSR</code> instruction are ignored. Fault
+handlers can examine the EPSR value in the stacked PSR to determine
+the cause of the fault. See <xref xrefstyle = "TitleLong"
+    linkend = "Babefdjc"/>. The following can clear the T bit to
+0:<itemizedlist spacing = "compact"><listitem><para>instructions <code>BLX</code>, <code>BX</code> and <code>POP{PC}</code> </para></listitem>
+<listitem><para>restoration from the stacked xPSR value on an exception
+return</para></listitem>
+<listitem><para>bit[0] of the vector value on an exception entry. </para></listitem></itemizedlist></para>
+<para>Attempting to execute instructions when the T bit is 0 results
+in a HardFault or lockup. See <xref xrefstyle = "TitleLong"
+    linkend = "BABDCDHA"/> for more information.</para></sect4>
+<sect4 id = "BABHBEJA"><title>Interruptible-restartable instructions</title>
+<para>The interruptible-restartable instructions are <code>LDM</code> and <code>STM</code><phrase
+    condition = "Optional">, and the multiply instruction &lt;if
+32-cycle multiplier is used></phrase>. When an interrupt occurs
+during the execution of one of these instructions, the processor
+abandons execution of the instruction.After servicing the interrupt,
+the processor restarts execution of the instruction from the beginning.</para></sect4></sect3>
+<sect3 id = "BABCHBFJ"><title>Exception mask register</title>
+<para>The exception mask register disables the handling of exceptions
+by the processor. Disable exceptions where they might impact on
+timing critical tasks or code sequences requiring atomicity. </para>
+<para>To disable or re-enable exceptions, use the <code>MSR</code> and <code>MRS</code> instructions,
+or the <code>CPS</code> instruction, to change the value of PRIMASK.
+See <xref xrefstyle = "TitleLong" linkend = "BABGIDDI"/>, <xref
+    xrefstyle = "TitleLong" linkend = "BABEEJCI"/>, and <xref
+    xrefstyle = "TitleLong" linkend = "BABHBAAB"/> for more information.</para>
+<sect4 id = "BABBBGEA"><title>Priority Mask Register</title>
+<para>The PRIMASK register prevents activation of all exceptions
+with configurable priority. See the register summary in <xref
+    xrefstyle = "TableNumPage" linkend = "BABJCGBI"/> for its attributes.
+The bit assignments are:</para><mediaobject><imageobject><imagedata fileref = "graphics/primask_register_bit_assigments.svg" format = "SVG" contentdepth = "71" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE">
+<title>PRIMASK register bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.472in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.722in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "3.681in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:1]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved </entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[0]</entry>
+<entry colname = "2">PRIMASK</entry>
+<entry colname = "3"><para>0 = no effect</para><para>1 = prevents
+the activation of all exceptions with configurable priority.</para></entry>
+</row>
+</tbody>
+</tgroup></table></sect4></sect3>
+<sect3 id = "BABIFGGB"><title>CONTROL register</title>
+<para>The CONTROL register controls the stack used when the processor
+is in Thread mode. See the register summary in <xref
+    xrefstyle = "TableNumPage" linkend = "BABJCGBI"/> for its attributes.
+The bit assignments are:</para><mediaobject><imageobject><imagedata fileref = "graphics/control_register_bit_assignments.svg" format = "SVG" contentdepth = "92" contentwidth = "486"/></imageobject></mediaobject>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Chdjhfcb">
+<title>CONTROL register bit assignments</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.472in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.569in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "3.042in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Bits</entry>
+<entry colname = "2">Name</entry>
+<entry colname = "3">Function</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">[31:2]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">[1]</entry>
+<entry colname = "2">Active stack pointer</entry>
+<entry colname = "3"><para>Defines the current stack:</para><para>0
+= MSP is the current stack pointer</para><para>1 = PSP is the current
+stack pointer.</para><para>In Handler mode this bit reads as zero
+and ignores writes.</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">[0]</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved.</entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>Handler mode always uses the MSP, so the processor ignores
+explicit writes to the active stack pointer bit of the CONTROL register
+when in Handler mode. The exception entry and return mechanisms
+update the CONTROL register.</para>
+<para>In an OS environment, it is recommended that threads running
+in Thread mode use the process stack and the kernel and exception
+handlers use the main stack.</para>
+<para>By default, Thread mode uses the MSP. To switch the stack
+pointer used in Thread mode to the PSP, use the <literal>MSR</literal> instruction
+to set the Active stack pointer bit to 1, see <xref
+    xrefstyle = "TitleLong" linkend = "BABGIDDI"/>.</para>
+<note>
+<para>When changing the stack pointer, software must use an <code>ISB</code> instruction
+immediately after the <code>MSR</code> instruction. This ensures
+that instructions after the ISB execute using the new stack pointer.
+See <xref xrefstyle = "TitleLong" linkend = "CHDEBIEG"/>.</para>
+</note></sect3></sect2>
+<sect2 id = "CHDIIGCI"><title>Exceptions and interrupts</title>
+<para>The Cortex-M0 processor supports interrupts and system exceptions.
+The processor and the <emphasis>Nested Vectored Interrupt Controller</emphasis> (NVIC)
+prioritize and handle all exceptions. An interrupt or exception
+changes the normal flow of software control. The processor uses
+handler mode to handle all exceptions except for reset. See <xref
+    xrefstyle = "TitleLong" linkend = "BABDBGGA"/> and <xref
+    xrefstyle = "TitleLong" linkend = "BABDBEII"/> for more information. </para>
+<para>The NVIC registers control interrupt handling. See <xref
+    xrefstyle = "TitleLong" linkend = "CIHIGCIF"/> for more information.</para></sect2>
+<sect2 id = "CHDIJJHE"><title>Data types</title>
+<para>The processor:<itemizedlist spacing = "normal"><listitem><para>supports
+the following data types:<itemizedlist spacing = "compact"><listitem>
+<para>32-bit words</para></listitem>
+<listitem><para>16-bit halfwords</para></listitem>
+<listitem><para>8-bit bytes</para></listitem></itemizedlist></para></listitem>
+<listitem><para>manages all data memory accesses as <phrase
+    condition = "Configurable">little-endian or big-endian. Instruction memory
+and <emphasis>Private Peripheral Bus</emphasis> (PPB) accesses are
+always little-endian</phrase>. See <xref xrefstyle = "TitleLong"
+    linkend = "CIHGEIID"/> for more information.</para></listitem></itemizedlist></para></sect2>
+<sect2 id = "BABIJGJA"><title>The Cortex Microcontroller Software
+Interface Standard</title>
+<para>ARM provides the <emphasis>Cortex Microcontroller Software
+Interface Standard</emphasis> (CMSIS) for programming Cortex-M0
+microcontrollers. The CMSIS is an integrated part of the device
+driver library. For a Cortex-M0 microcontroller system, CMSIS defines:<itemizedlist
+    spacing = "compact"><listitem><para>a common way to:<itemizedlist
+    spacing = "compact"><listitem><para>access peripheral registers</para></listitem>
+<listitem><para>define exception vectors</para></listitem></itemizedlist></para></listitem>
+<listitem><para>the names of:<itemizedlist spacing = "compact">
+<listitem><para>the registers of the core peripherals</para></listitem>
+<listitem><para>the core exception vectors</para></listitem></itemizedlist></para></listitem>
+<listitem><para>a device-independent interface for RTOS kernels.</para></listitem></itemizedlist></para>
+<para>The CMSIS includes address definitions and data structures
+for the core peripherals in the Cortex-M0 processor. It also includes
+optional interfaces for middleware components comprising a TCP/IP
+stack and a Flash file system.</para>
+<para>The CMSIS simplifies software development by enabling the
+reuse of template code, and the combination of CMSIS-compliant software
+components from various middleware vendors. Software vendors can
+expand the CMSIS to include their peripheral definitions and access
+functions for those peripherals.</para>
+<para>This document includes the register names defined by the CMSIS,
+and gives short descriptions of the CMSIS functions that address
+the processor core and the core peripherals.</para>
+<note>
+<para>This document uses the register short names defined by the
+CMSIS. In a few cases these differ from the architectural short
+names that might be used in other documents.</para>
+</note>
+<para>The following sections give more information about the CMSIS:<itemizedlist
+    spacing = "compact"><listitem><para><xref xrefstyle = "TitleLong"
+    linkend = "BABHGFDF"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CIHCAEJD"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CIHJGJDC"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CIHIDJBC"/>.</para></listitem></itemizedlist></para></sect2></sect1>
+<sect1 id = "CHDBIJJE"><title>Memory model</title>
+<para>This section describes the processor memory map and the behavior
+of memory accesses. The processor has a fixed memory map that provides
+up to 4GB of addressable memory. The memory map is:</para><mediaobject><imageobject><imagedata fileref = "graphics/memory_map.svg" format = "SVG" contentdepth = "520" contentwidth = "245"/></imageobject></mediaobject>
+<para>The processor reserves regions of the <emphasis>Private peripheral
+bus</emphasis> (PPB) address range for core peripheral registers,
+see <xref xrefstyle = "TitleLong" linkend = "CHDCHEAG"/>. </para>
+<sect2 id = "CIHGEIID"><title>Memory regions, types and attributes</title>
+<para>The memory map is split into regions. Each region has a defined
+memory type, and some regions have additional memory attributes.
+The memory type and attributes determine the behavior of accesses
+to the region.</para>
+<para>The memory types are:</para>
+<variablelist role = "wide"><varlistentry><term>Normal</term><listitem>
+<para>The processor can re-order transactions for efficiency, or
+perform speculative reads.</para></listitem></varlistentry>
+<varlistentry><term>Device</term><listitem><para>The processor preserves
+transaction order relative to other transactions to Device or Strongly-ordered
+memory.</para></listitem></varlistentry>
+<varlistentry><term>Strongly-ordered</term><listitem><para>The processor
+preserves transaction order relative to all other transactions.</para></listitem></varlistentry></variablelist>
+<para>The different ordering requirements for Device and Strongly-ordered
+memory mean that the memory system can buffer a write to Device
+memory, but must not buffer a write to Strongly-ordered memory.</para>
+<para>The additional memory attributes include. </para>
+<para><variablelist role = "wide"><varlistentry condition = "Optional">
+<term>Shareable</term><listitem><para>For a shareable memory region,
+the memory system provides data synchronization between bus masters
+in a system with multiple bus masters, for example, a processor
+with a DMA controller.</para>
+<para>Strongly-ordered memory is always shareable.</para>
+<para>If multiple bus masters can access a non-shareable memory region,
+software must ensure data coherency between the bus masters.</para>
+<para>&lt;This description is required only if the device is likely
+to be used in systems where memory is shared between multiple processors.></para></listitem></varlistentry>
+<varlistentry role = "break"><term><emphasis>Execute Never</emphasis> (XN)</term>
+<listitem><para>Means the processor prevents instruction accesses.
+A HardFault exception is generated on executing an instruction fetched
+from an XN region of memory.</para></listitem></varlistentry></variablelist></para></sect2>
+<sect2 id = "BABBBICA"><title>Memory system ordering of memory accesses</title>
+<para>For most memory accesses caused by explicit memory access
+instructions, the memory system does not guarantee that the order
+in which the accesses complete matches the program order of the
+instructions, providing any re-ordering does not affect the behavior of
+the instruction sequence. Normally, if correct program execution
+depends on two memory accesses completing in program order, software
+must insert a memory barrier instruction between the memory access
+instructions, see <xref xrefstyle = "TitleLong" linkend = "CHDHHFCC"/>.</para>
+<para>However, the memory system does guarantee some ordering of
+accesses to Device and Strongly-ordered memory. For two memory access
+instructions A1 and A2, if A1 occurs before A2 in program order,
+the ordering of the memory accesses caused by two instructions is:</para><mediaobject><imageobject><imagedata fileref = "graphics/memory_ordering_restrictions.svg" format = "SVG" contentdepth = "138" contentwidth = "463"/></imageobject></mediaobject>
+<para>Where:<variablelist spacing = "normal"><varlistentry><term>-</term>
+<listitem><para>Means that the memory system does not guarantee
+the ordering of the accesses.</para></listitem></varlistentry>
+<varlistentry><term>&lt;</term><listitem><para>Means that accesses
+are observed in program order, that is, A1 is always observed before
+A2.</para></listitem></varlistentry></variablelist></para></sect2>
+<sect2 id = "CIHDHAEF" role = "break"><title>Behavior of memory
+accesses </title>
+<para>The behavior of accesses to each region in the memory map
+is:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CHDBJAJD">
+<title>Memory access behavior</title>
+<tgroup cols = "5" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.783in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.917in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "0.653in" colsep = "0"/>
+<colspec colnum = "4" colname = "4" colwidth = "0.403in" colsep = "0"/>
+<colspec colnum = "5" colname = "5" colwidth = "3.434in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Address
+range</entry>
+<entry colname = "2">Memory
+region</entry>
+<entry colname = "3">Memory
+type <footnote id = "BABEEIBB"><para>See <xref xrefstyle = "TitleLong"
+    linkend = "CIHGEIID"/> for more information.</para></footnote></entry>
+<entry colname = "4">XN <footnoteref linkend = "BABEEIBB"/></entry>
+<entry colname = "5">Description</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0x00000000</literal>- <literal>0x1FFFFFFF</literal></para></entry>
+<entry colname = "2">Code</entry>
+<entry colname = "3"><para>Normal</para></entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">Executable region for program code. You can
+also put data here.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0x20000000</literal>- <literal>0x3FFFFFFF</literal></para></entry>
+<entry colname = "2">SRAM</entry>
+<entry colname = "3"><para>Normal</para></entry>
+<entry colname = "4">-</entry>
+<entry colname = "5"><para>Executable region for data. You can also
+put code here.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0x40000000</literal>- <literal>0x5FFFFFFF</literal></para></entry>
+<entry colname = "2">Peripheral</entry>
+<entry colname = "3"><para>Device</para></entry>
+<entry colname = "4">XN</entry>
+<entry colname = "5">External device memory.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0x60000000</literal>- <literal>0x9FFFFFFF</literal></para></entry>
+<entry colname = "2">External
+RAM</entry>
+<entry colname = "3"><para>Normal</para></entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">Executable region for data.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0xA0000000</literal>- <literal>0xDFFFFFFF</literal></para></entry>
+<entry colname = "2">External
+device </entry>
+<entry colname = "3"><para>Device</para></entry>
+<entry colname = "4">XN</entry>
+<entry colname = "5">External device memory.</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0xE0000000</literal>- <literal>0xE00FFFFF</literal></para></entry>
+<entry colname = "2">Private Peripheral Bus</entry>
+<entry colname = "3"><para>Strongly- ordered</para></entry>
+<entry colname = "4">XN</entry>
+<entry colname = "5"><para>This region includes the NVIC, System
+timer, and System Control Block. Only word accesses can be used
+in this region.</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><para><literal>0xE0100000</literal>- <literal>0xFFFFFFFF</literal></para></entry>
+<entry colname = "2">Device</entry>
+<entry colname = "3">Device</entry>
+<entry colname = "4">XN</entry>
+<entry colname = "5"><para condition = "Configurable">Vendor specific.</para></entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>The Code, SRAM, and external RAM regions can hold programs.</para>
+<sect3 condition = "Optional"><title>Additional memory access constraints
+for caches and shared memory</title>
+<para>When a system includes caches or shared memory, some memory
+regions have additional access constraints, and some regions are
+subdivided, as <xref xrefstyle = "TableNum" linkend = "BABJFIAH"/> shows: </para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "BABJFIAH">
+<title>Memory region shareability and cache policies<?Fm Condstart FM8_TRACK_CHANGES_ADDED?><?Fm Condend FM8_TRACK_CHANGES_ADDED?></title>
+<tgroup cols = "5" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "1.354in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "1.361in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "1.163in" colsep = "0"/>
+<colspec colnum = "4" colname = "4" colwidth = "0.959in" colsep = "0"/>
+<colspec colnum = "5" colname = "5" colwidth = "1.032in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Address range</entry>
+<entry colname = "2">Memory region</entry>
+<entry colname = "3">Memory type <footnote id = "BABFEDHF"><para>See <xref
+    xrefstyle = "TitleLong" linkend = "CIHGEIID"/> for more information.</para></footnote></entry>
+<entry colname = "4">Shareability <footnoteref linkend = "BABFEDHF"/></entry>
+<entry colname = "5">Cache policy <footnote><para>WT = Write through,
+no write allocate. WBWA = Write back, write allocate. See the <emphasis>Glossary</emphasis> for
+more information.</para></footnote></entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0x00000000</literal>- <literal>0x1FFFFFFF</literal></para></entry>
+<entry colname = "2">Code</entry>
+<entry colname = "3"><para>Normal</para></entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">WT</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0x20000000</literal>- <literal>0x3FFFFFFF</literal></para></entry>
+<entry colname = "2">SRAM</entry>
+<entry colname = "3"><para>Normal</para></entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">WBWA</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0x40000000</literal>- <literal>0x5FFFFFFF</literal></para></entry>
+<entry colname = "2">Peripheral </entry>
+<entry colname = "3"><para>Device</para></entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">-</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0x60000000</literal>- <literal>0x7FFFFFFF</literal></para></entry>
+<entry colname = "2" morerows = "1">External RAM</entry>
+<entry colname = "3" morerows = "1"><para>Normal</para></entry>
+<entry colname = "4" morerows = "1">-</entry>
+<entry colname = "5">WBWA</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0x80000000</literal>- <literal>0x9FFFFFFF</literal></para></entry>
+<entry colname = "5">WT</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0xA0000000</literal>- <literal>0xBFFFFFFF</literal></para></entry>
+<entry colname = "2" morerows = "1">External device </entry>
+<entry colname = "3" morerows = "1"><para>Device</para></entry>
+<entry colname = "4">Shareable</entry>
+<entry colname = "5" morerows = "1">-</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xC0000000</literal>- <literal>0xDFFFFFFF</literal></entry>
+<entry colname = "4">Non-shareable</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><para><literal>0xE0000000</literal>- <literal>0xE00FFFFF</literal></para></entry>
+<entry colname = "2">Private Peripheral Bus</entry>
+<entry colname = "3"><para>Strongly- ordered</para></entry>
+<entry colname = "4">Shareable</entry>
+<entry colname = "5">-</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1"><para><literal>0xE0100000</literal>- <literal>0xFFFFFFFF</literal></para></entry>
+<entry colname = "2">Device</entry>
+<entry colname = "3"><para>Device</para></entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">-</entry>
+</row>
+</tbody>
+</tgroup></table></sect3></sect2>
+<sect2 id = "CHDHHFCC"><title>Software ordering of memory accesses</title>
+<para>The order of instructions in the program flow does not always
+guarantee the order of the corresponding memory transactions. This
+is because:<itemizedlist spacing = "normal"><listitem><para>the
+processor can reorder some memory accesses to improve efficiency,
+providing this does not affect the behavior of the instruction sequence</para></listitem>
+<listitem><para>memory or devices in the memory map might have different
+wait states</para></listitem>
+<listitem><para>some memory accesses are buffered or speculative.</para></listitem></itemizedlist></para>
+<para><xref xrefstyle = "TitleLong" linkend = "BABBBICA"/> describes
+the cases where the memory system guarantees the order of memory
+accesses. Otherwise, if the order of memory accesses is critical,
+software must include memory barrier instructions to force that
+ordering. The processor provides the following memory barrier instructions:<variablelist
+    role = "wide"><varlistentry role = "standard"><term><code>DMB</code> </term>
+<listitem><para>The <emphasis>Data Memory Barrier</emphasis> (DMB)
+instruction ensures that outstanding memory transactions complete
+before subsequent memory transactions. See <xref xrefstyle = "TitleLong"
+    linkend = "BABDFABI"/>.</para></listitem></varlistentry>
+<varlistentry role = "standard"><term><code>DSB</code> </term>
+<listitem><para>The <emphasis>Data Synchronization Barrier</emphasis> (DSB)
+instruction ensures that outstanding memory transactions complete
+before subsequent instructions execute. See <xref
+    xrefstyle = "TitleLong" linkend = "CHDDGICF"/>.</para></listitem></varlistentry>
+<varlistentry role = "standard"><term><code>ISB</code></term><listitem>
+<para>The <emphasis>Instruction Synchronization Barrier</emphasis> (ISB)
+ensures that the effect of all completed memory transactions is
+recognizable by subsequent instructions. See <xref
+    xrefstyle = "TitleLong" linkend = "CHDEBIEG"/>.</para></listitem></varlistentry></variablelist></para>
+<para>The following are examples of using memory barrier instructions:<variablelist
+    role = "wide"><varlistentry><term>Vector table</term><listitem>
+<para>If the program changes an entry in the vector table, and then enables
+the corresponding exception, use a <code>DMB</code> instruction between
+the operations. This ensures that if the exception is taken immediately
+after being enabled the processor uses the new exception vector.</para></listitem></varlistentry>
+<varlistentry role = "break"><term>Self-modifying code</term><listitem>
+<para>If a program contains self-modifying code, use an <code>ISB</code> instruction immediately
+after the code modification in the program. This ensures subsequent
+instruction execution uses the updated program.</para></listitem></varlistentry>
+<varlistentry role = "break"><term>Memory map switching</term>
+<listitem><para>If the system contains a memory map switching mechanism,
+use a <code>DSB</code> instruction after switching the memory map. This
+ensures subsequent instruction execution uses the updated memory
+map.</para></listitem></varlistentry></variablelist>Memory accesses
+to Strongly-ordered memory, such as the System Control Block, do not
+require the use of <code>DMB</code> instructions.</para></sect2>
+<sect2 id = "I1835"><title>Memory endianness</title>
+<para>The processor views memory as a linear collection of bytes
+numbered in ascending order from zero. For example, bytes 0-3 hold
+the first stored word, and bytes 4-7 hold the second stored word. <phrase
+    condition = "Configurable"><xref xrefstyle = "TitleLong"
+    linkend = "I1844"/></phrase><phrase condition = "Configurable"> or </phrase><phrase
+    condition = "Configurable"><xref xrefstyle = "TitleLong"
+    linkend = "I43478"/></phrase> describes how words of data are
+stored in memory.</para>
+<sect3 id = "I1844" condition = "Optional"><title>Byte-invariant
+big-endian format</title>
+<para>In byte-invariant big-endian format, the processor stores
+the <emphasis>most significant byte</emphasis> (msbyte) of a word
+at the lowest-numbered byte, and the <emphasis>least significant
+byte</emphasis> (lsbyte) at the highest-numbered byte. For example:</para><mediaobject><imageobject><imagedata fileref = "graphics/byte_invariant_big_endian_format.svg" format = "SVG" contentdepth = "172" contentwidth = "365"/></imageobject></mediaobject></sect3>
+<sect3 id = "I43478" condition = "Optional" role = "standard"><title>Little-endian
+format</title>
+<para>In little-endian format, the processor stores the <emphasis>least
+significant byte</emphasis> (lsbyte) of a word at the lowest-numbered
+byte, and the <emphasis>most significant byte</emphasis> (msbyte)
+at the highest-numbered byte. For example:</para><mediaobject><imageobject><imagedata fileref = "graphics/little_endian_format.svg" format = "SVG" contentdepth = "172" contentwidth = "358"/></imageobject></mediaobject></sect3></sect2></sect1>
+<sect1 id = "BABEHHHB"><title>Exception model</title>
+<para>This section describes the exception model.</para>
+<sect2 id = "BABGBBGG"><title>Exception states</title>
+<para>Each exception is in one of the following states:<variablelist
+    role = "wide"><varlistentry><term>Inactive</term><listitem><para>The
+exception is not active and not pending.</para></listitem></varlistentry>
+<varlistentry><term>Pending</term><listitem><para>The exception
+is waiting to be serviced by the processor.</para>
+<para>An interrupt request from a peripheral or from software can change
+the state of the corresponding interrupt to pending.</para></listitem></varlistentry>
+<varlistentry><term>Active</term><listitem><para>An exception that
+is being serviced by the processor but has not completed.</para>
+<note>
+<para>An exception handler can interrupt the execution of another exception
+handler. In this case both exceptions are in the active state.</para>
+</note></listitem></varlistentry>
+<varlistentry role = "break"><term>Active and pending</term><listitem>
+<para>The exception is being serviced by the processor and there
+is a pending exception from the same source.</para></listitem></varlistentry></variablelist></para></sect2>
+<sect2 id = "BABBGBEC" role = "standard"><title>Exception types</title>
+<para>The exception types are:<variablelist role = "wide">
+<varlistentry><term>Reset</term><listitem><para>Reset is invoked
+on power up or a warm reset. The exception model treats reset as
+a special form of exception. When reset is asserted, the operation
+of the processor stops, potentially at any point in an instruction.
+When reset is deasserted, execution restarts from the address provided
+by the reset entry in the vector table. Execution restarts in Thread
+mode.</para></listitem></varlistentry>
+<varlistentry role = "standard"><term>NMI</term><listitem><para>A <emphasis>NonMaskable
+Interrupt </emphasis>(NMI) can be signalled by a peripheral or triggered
+by software. This is the highest priority exception other than reset.
+It is permanently enabled and has a fixed priority of -2. NMIs cannot
+be:<itemizedlist spacing = "compact"><listitem><para>masked or prevented
+from activation by any other exception</para></listitem>
+<listitem><para>preempted by any exception other than Reset.</para></listitem></itemizedlist></para></listitem></varlistentry>
+<varlistentry><term>HardFault</term><listitem><para>A HardFault
+is an exception that occurs because of an error during normal or
+exception processing. HardFaults have a fixed priority of -1, meaning
+they have higher priority than any exception with configurable priority.</para></listitem></varlistentry>
+<varlistentry><term>SVCall</term><listitem><para>A <emphasis>supervisor
+call</emphasis> (SVC) is an exception that is triggered by the <code>SVC</code> instruction.
+In an OS environment, applications can use <code>SVC</code> instructions
+to access OS kernel functions and device drivers.</para></listitem></varlistentry>
+<varlistentry><term>PendSV</term><listitem><para>PendSV is an interrupt-driven
+request for system-level service. In an OS environment, use PendSV
+for context switching when no other exception is active.</para></listitem></varlistentry>
+<varlistentry condition = "Optional" role = "standard"><term>SysTick</term>
+<listitem><para>A SysTick exception is an exception the system timer
+generates when it reaches zero. Software can also generate a SysTick exception.
+In an OS environment, the processor can use this exception as system
+tick.</para></listitem></varlistentry>
+<varlistentry><term>Interrupt (IRQ)</term><listitem><para>An interrupt,
+or IRQ, is an exception signalled by a peripheral, or generated
+by a software request. All interrupts are asynchronous to instruction
+execution. In the system, peripherals use interrupts to communicate
+with the processor.</para></listitem></varlistentry></variablelist></para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "CHDICFAA">
+<title>Properties of the different exception types</title>
+<tgroup cols = "6" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "0.764in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.694in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "1.125in" colsep = "0"/>
+<colspec colnum = "4" colname = "4" colwidth = "0.889in" colsep = "0"/>
+<colspec colnum = "5" colname = "5" colwidth = "1.069in" colsep = "0"/>
+<colspec colnum = "6" colname = "6" colwidth = "0.889in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1"><para>Exception
+number <footnote id = "BABEEGGE"><para>To simplify the software
+layer, the CMSIS only uses IRQ numbers and therefore uses negative
+values for exceptions other than interrupts. The IPSR returns the
+Exception number, see <xref xrefstyle = "TitleLong" linkend = "BABGBIBI"/>.</para></footnote></para></entry>
+<entry colname = "2">IRQ
+number <footnoteref linkend = "BABEEGGE"/></entry>
+<entry colname = "3">Exception
+type</entry>
+<entry colname = "4">Priority</entry>
+<entry colname = "5">Vector address <footnote><para>See <xref
+    xrefstyle = "TitleShort" linkend = "BABIFJFG"/> for more information.</para></footnote></entry>
+<entry colname = "6">Activation</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">1</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reset</entry>
+<entry colname = "4"><para>-3, the highest</para></entry>
+<entry colname = "5"><literal>0x00000004</literal></entry>
+<entry colname = "6">Asynchronous</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">2</entry>
+<entry colname = "2">-14</entry>
+<entry colname = "3">NMI</entry>
+<entry colname = "4">-2</entry>
+<entry colname = "5"><literal>0x00000008</literal></entry>
+<entry colname = "6">Asynchronous</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">3</entry>
+<entry colname = "2">-13</entry>
+<entry colname = "3">HardFault</entry>
+<entry colname = "4">-1</entry>
+<entry colname = "5"><literal>0x0000000C</literal></entry>
+<entry colname = "6">Synchronous</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">4-10</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">-</entry>
+<entry colname = "6">-</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">11</entry>
+<entry colname = "2">-5</entry>
+<entry colname = "3">SVCall</entry>
+<entry colname = "4"><para>Configurable <footnoteref
+    linkend = "BABIDAJB"/></para></entry>
+<entry colname = "5"><literal>0x0000002C</literal></entry>
+<entry colname = "6">Synchronous</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">12-13</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3">Reserved</entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">-</entry>
+<entry colname = "6">-</entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">14</entry>
+<entry colname = "2">-2</entry>
+<entry colname = "3">PendSV</entry>
+<entry colname = "4"><para>Configurable <footnoteref
+    linkend = "BABIDAJB"/></para></entry>
+<entry colname = "5"><literal>0x00000038</literal></entry>
+<entry colname = "6">Asynchronous</entry>
+</row>
+<row rowsep = "1" condition = "Optional">
+<entry colname = "1">15</entry>
+<entry colname = "2">-1</entry>
+<entry colname = "3"><para><phrase condition = "Optional">SysTick</phrase></para></entry>
+<entry colname = "4"><para>Configurable <footnoteref
+    linkend = "BABIDAJB"/></para></entry>
+<entry colname = "5"><literal>0x0000003C</literal> </entry>
+<entry colname = "6">Asynchronous</entry>
+</row>
+<row rowsep = "1" condition = "Optional">
+<entry colname = "1">15</entry>
+<entry colname = "2">-</entry>
+<entry colname = "3"><para><phrase condition = "Optional">Reserved</phrase></para></entry>
+<entry colname = "4">-</entry>
+<entry colname = "5">-</entry>
+<entry colname = "6">-</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">16<phrase condition = "Configurable"> and above</phrase></entry>
+<entry colname = "2">0<phrase condition = "Configurable"> and above</phrase></entry>
+<entry colname = "3"><para>Interrupt (IRQ)</para></entry>
+<entry colname = "4"><para>Configurable <footnote id = "BABIDAJB">
+<para>See <xref xrefstyle = "TitleLong" linkend = "Cihgjeed"/>.</para></footnote></para></entry>
+<entry colname = "5"><literal>0x00000040</literal><phrase
+    condition = "Configurable"> and above <footnote><para>Increasing
+in steps of 4.</para></footnote></phrase></entry>
+<entry colname = "6">Asynchronous</entry>
+</row>
+</tbody>
+</tgroup></table>
+<para>For an asynchronous exception, other than reset, the processor
+can execute additional instructions between when the exception is
+triggered and when the processor enters the exception handler.</para>
+<para>Privileged software can disable the exceptions that <xref
+    xrefstyle = "TableNumPage" linkend = "CHDICFAA"/> shows as having
+configurable priority, see <xref xrefstyle = "TitleLong"
+    linkend = "Cihbiadi"/>.</para>
+<para>For more information about HardFaults, see <xref
+    xrefstyle = "TitleLong" linkend = "Babcefea"/>.</para></sect2>
+<sect2 id = "BABBFABJ"><title>Exception handlers</title>
+<para>The processor handles exceptions using:</para>
+<variablelist role = "wide"><varlistentry role = "break"><term>Interrupt
+Service Routines (ISRs)</term><listitem><para>Interrupts IRQ0 to <phrase
+    condition = "Configurable">IRQ31</phrase> are the exceptions
+handled by ISRs.</para></listitem></varlistentry>
+<varlistentry><term>Fault handler</term><listitem><para>HardFault
+is the only exception handled by the fault handler.</para></listitem></varlistentry>
+<varlistentry><term>System handlers</term><listitem><para>NMI, PendSV,
+SVCall SysTick, and HardFault are all system exceptions handled
+by system handlers.</para></listitem></varlistentry></variablelist></sect2>
+<sect2 id = "BABIFJFG"><title>Vector table</title>
+<para>The vector table contains the reset value of the stack pointer,
+and the start addresses, also called exception vectors, for all
+exception handlers. <xref xrefstyle = "FigureNumPage"
+    linkend = "BABHAEIC"/> shows the order of the exception vectors
+in the vector table. The least-significant bit of each vector must
+be 1, indicating that the exception handler is written in Thumb
+code. </para>
+<figure id = "BABHAEIC"><title>Vector table</title><mediaobject><imageobject><imagedata fileref = "graphics/vector_table.svg" format = "SVG" contentdepth = "467" contentwidth = "342"/></imageobject></mediaobject></figure>
+<para>The vector table is fixed at address <literal>0x00000000</literal>.</para></sect2>
+<sect2 id = "BABICDEB"><title>Exception priorities</title>
+<para>As <xref xrefstyle = "TableNumPage" linkend = "CHDICFAA"/> shows,
+all exceptions have an associated priority, with:<itemizedlist
+    spacing = "compact"><listitem><para>a lower priority value indicating
+a higher priority</para></listitem>
+<listitem><para>configurable priorities for all exceptions except
+Reset, HardFault, and NMI.</para></listitem></itemizedlist></para>
+<para>If software does not configure any priorities, then all exceptions
+with a configurable priority have a priority of 0. For information
+about configuring exception priorities see <itemizedlist
+    spacing = "compact"><listitem><para><xref xrefstyle = "TitleLong"
+    linkend = "CIAGECDD"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "Cihgjeed"/>. </para></listitem></itemizedlist></para>
+<note>
+<para>Configurable priority values are in the range 0-192, in steps
+of 64. The Reset, HardFault, and NMI exceptions, with fixed negative
+priority values, always have higher priority than any other exception.</para>
+</note>
+<para>Assigning a higher priority value to IRQ[0] and a lower priority
+value to IRQ[1] means that IRQ[1] has higher priority than IRQ[0].
+If both IRQ[1] and IRQ[0] are asserted, IRQ[1] is processed before
+IRQ[0].</para>
+<para>If multiple pending exceptions have the same priority, the
+pending exception with the lowest exception number takes precedence.
+For example, if both IRQ[0] and IRQ[1] are pending and have the
+same priority, then IRQ[0] is processed before IRQ[1].</para>
+<para>When the processor is executing an exception handler, the
+exception handler is preempted if a higher priority exception occurs.
+If an exception occurs with the same priority as the exception being
+handled, the handler is not preempted, irrespective of the exception
+number. However, the status of the new interrupt changes to pending.</para></sect2>
+<sect2 id = "Babefdjc"><title>Exception entry and return</title>
+<para>Descriptions of exception handling use the following terms:</para>
+<para><variablelist role = "wide"><varlistentry><term>Preemption</term>
+<listitem><para>When the processor is executing an exception handler,
+an exception can preempt the exception handler if its priority is higher
+than the priority of the exception being handled.</para>
+<para>When one exception preempts another, the exceptions are called nested
+exceptions. See <xref xrefstyle = "TitleLong" linkend = "BABDBGGA"/> for more information. </para></listitem></varlistentry>
+<varlistentry><term>Return</term><listitem><para>This occurs when
+the exception handler is completed, and:<itemizedlist spacing = "normal">
+<listitem><para>there is no pending exception with sufficient priority
+to be serviced</para></listitem>
+<listitem><para>the completed exception handler was not handling
+a late-arriving exception.</para></listitem></itemizedlist></para>
+<para>The processor pops the stack and restores the processor state
+to the state it had before the interrupt occurred. See <xref
+    xrefstyle = "TitleLong" linkend = "BABDBEII"/> for more information.</para></listitem></varlistentry>
+<varlistentry><term>Tail-chaining</term><listitem><para>This mechanism
+speeds up exception servicing. On completion of an exception handler,
+if there is a pending exception that meets the requirements for
+exception entry, the stack pop is skipped and control transfers
+to the new exception handler.</para></listitem></varlistentry>
+<varlistentry><term>Late-arriving</term><listitem><para>This mechanism
+speeds up preemption. If a higher priority exception occurs during
+state saving for a previous exception, the processor switches to
+handle the higher priority exception and initiates the vector fetch
+for that exception. State saving is not affected by late arrival
+because the state saved would be the same for both exceptions. On
+return from the exception handler of the late-arriving exception,
+the normal tail-chaining rules apply.</para></listitem></varlistentry></variablelist></para>
+<sect3 id = "BABDBGGA"><title>Exception entry</title>
+<para>Exception entry occurs when there is a pending exception with
+sufficient priority and either:<itemizedlist spacing = "normal">
+<listitem><para>the processor is in Thread mode</para></listitem>
+<listitem><para>the new exception is of higher priority than the
+exception being handled, in which case the new exception preempts
+the exception being handled.</para></listitem></itemizedlist></para>
+<para>When one exception preempts another, the exceptions are nested.</para>
+<para>Sufficient priority means the exception has greater priority
+than any limit set by the mask register, see <xref
+    xrefstyle = "TitleLong" linkend = "BABCHBFJ"/>. An exception
+with less priority than this is pending but is not handled by the
+processor.</para>
+<para>When the processor takes an exception, unless the exception
+is a tail-chained or a late-arriving exception, the processor pushes
+information onto the current stack. This operation is referred to as <emphasis>stacking</emphasis> and
+the structure of eight data words is referred as a <emphasis>stack
+frame</emphasis>. The stack frame contains the following information:</para><mediaobject><imageobject><imagedata fileref = "graphics/exception_entry_stack_contents.svg" format = "SVG" contentdepth = "148" contentwidth = "354"/></imageobject></mediaobject>
+<para>Immediately after stacking, the stack pointer indicates the
+lowest address in the stack frame. The stack frame is aligned to
+a double-word address.</para>
+<para>The stack frame includes the return address. This is the address
+of the next instruction in the interrupted program. This value is
+restored to the PC at exception return so that the interrupted program
+resumes.</para>
+<para>The processor performs a vector fetch that reads the exception
+handler start address from the vector table. When stacking is complete,
+the processor starts executing the exception handler. At the same
+time, the processor writes an EXC_RETURN value to the LR. This indicates
+which stack pointer corresponds to the stack frame and what operation
+mode the processor was in before the entry occurred.</para>
+<para>If no higher priority exception occurs during exception entry,
+the processor starts executing the exception handler and automatically
+changes the status of the corresponding pending interrupt to active. </para>
+<para>If another higher priority exception occurs during exception
+entry, the processor starts executing the exception handler for
+this exception and does not change the pending status of the earlier
+exception. This is the late arrival case.</para></sect3>
+<sect3 id = "BABDBEII"><title>Exception return</title>
+<para>Exception return occurs when the processor is in Handler mode
+and execution of one of the following instructions attempts to set
+the PC to an EXC_RETURN value:<itemizedlist spacing = "compact">
+<listitem><para>a <literal>POP</literal> instruction that loads
+the PC</para></listitem>
+<listitem><para>a <literal>BX</literal> instruction using any register.</para></listitem></itemizedlist></para>
+<para>The processor saves an EXC_RETURN value to the LR on exception
+entry. The exception mechanism relies on this value to detect when
+the processor has completed an exception handler. Bits[31:4] of
+an EXC_RETURN value are <literal>0xFFFFFFF</literal>. When the processor
+loads a value matching this pattern to the PC it detects that the
+operation is a not a normal branch operation and, instead, that
+the exception is complete. Therefore, it starts the exception return
+sequence. Bits[3:0] of the EXC_RETURN value indicate the required
+return stack and processor mode, as <xref xrefstyle = "TableNumPage"
+    linkend = "Ciheciad"/> shows.</para>
+<para> </para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE"
+    id = "Ciheciad">
+<title>Exception return behavior</title>
+<tgroup cols = "2" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "1.278in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "2.556in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">EXC_RETURN</entry>
+<entry colname = "2">Description</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xFFFFFFF1</literal></entry>
+<entry colname = "2"><para>Return to Handler mode.</para><para>Exception
+return gets state from the main stack.</para><para>Execution uses
+MSP after return.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xFFFFFFF9</literal></entry>
+<entry colname = "2"><para>Return to Thread mode.</para><para>Exception
+return gets state from MSP.</para><para>Execution uses MSP after
+return.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1"><literal>0xFFFFFFFD</literal></entry>
+<entry colname = "2"><para>Return to Thread mode.</para><para>Exception
+return gets state from PSP.</para><para>Execution uses PSP after
+return.</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">All other values</entry>
+<entry colname = "2">Reserved.</entry>
+</row>
+</tbody>
+</tgroup></table></sect3></sect2></sect1>
+<sect1 id = "Babcefea"><title>Fault handling</title>
+<para>Faults are a subset of exceptions, see <xref
+    xrefstyle = "TitleLong" linkend = "BABEHHHB"/>. All faults result
+in the HardFault exception being taken or cause lockup if they occur
+in the NMI or HardFault handler. The faults are:</para>
+<itemizedlist spacing = "compact"><listitem><para>execution of an <code>SVC</code> instruction
+at a priority equal or higher than SVCall</para></listitem>
+<listitem><para>execution of a <code>BKPT</code> instruction without
+a debugger attached</para></listitem>
+<listitem><para>a system-generated bus error on a load or store</para></listitem>
+<listitem><para>execution of an instruction from an XN memory address</para></listitem>
+<listitem><para>execution of an instruction from a location for
+which the system generates a bus fault</para></listitem>
+<listitem><para>a system-generated bus error on a vector fetch</para></listitem>
+<listitem><para>execution of an Undefined instruction</para></listitem>
+<listitem><para>execution of an instruction when not in Thumb-State
+as a result of the T-bit being previously cleared to 0</para></listitem>
+<listitem><para>an attempted load or store to an unaligned address.</para></listitem></itemizedlist>
+<note>
+<para>Only Reset and NMI can preempt the fixed priority HardFault handler.
+A HardFault can preempt any exception other than Reset, NMI, or
+another hard fault.</para>
+</note>
+<sect2 id = "BABDCDHA"><title>Lockup</title>
+<para>The processor enters a lockup state if a fault occurs when
+executing the NMI or HardFault handlers, or if the system generates
+a bus error when unstacking the PSR on an exception return using
+the MSP. When the processor is in lockup state it does not execute
+any instructions. The processor remains in lockup state until one
+of the following occurs:<itemizedlist spacing = "compact"><listitem>
+<para>it is reset</para></listitem>
+<listitem><para>a debugger halts it</para></listitem>
+<listitem><para>an NMI occurs and the current lockup is in the HardFault
+handler.</para></listitem></itemizedlist></para>
+<note>
+<para>If lockup state occurs in the NMI handler a subsequent NMI
+does not cause the processor to leave lockup state.</para>
+</note></sect2></sect1>
+<sect1 id = "CHDJJHJI"><title>Power management</title>
+<para>The Cortex-M0 processor sleep modes reduce power consumption:<itemizedlist>
+<listitem><para condition = "Configurable">a sleep mode, that stops
+the processor clock</para></listitem>
+<listitem><para condition = "Configurable">a deep sleep mode, that
+stops the system clock and switches off the PLL and flash memory. </para></listitem></itemizedlist></para>
+<para condition = "Configurable">The SLEEPDEEP bit of the SCR selects
+which sleep mode is used, see <xref xrefstyle = "TitleLong"
+    linkend = "Cihhjgdh"/>. For more information about the behavior
+of the sleep modes see &lt;insert reference to your description
+of wakeup latency, and any other relevant information>.</para>
+<para>This section describes the mechanisms for entering sleep mode,
+and the conditions for waking up from sleep mode.</para>
+<sect2 id = "BABHHGEB"><title>Entering sleep mode</title>
+<para>This section describes the mechanisms software can use to
+put the processor into sleep mode.</para>
+<para>The system can generate spurious wakeup events, for example
+a debug operation wakes up the processor. Therefore software must
+be able to put the processor back into sleep mode after such an
+event. A program might have an idle loop to put the processor back in to
+sleep mode. </para>
+<sect3><title>Wait for interrupt</title>
+<para>The Wait For Interrupt instruction, <code>WFI</code>, causes
+immediate entry to sleep mode. When the processor executes a <code>WFI</code> instruction
+it stops executing instructions and enters sleep mode. See <xref
+    xrefstyle = "TitleLong" linkend = "BABFEFIG"/> for more information.</para></sect3>
+<sect3 id = "BABCDDFE"><title>Wait for event</title>
+<para>The Wait For Event instruction, <code>WFE</code>, causes entry
+to sleep mode conditional on the value of a one-bit event register.
+When the processor executes a <code>WFE</code> instruction, it checks
+the value of the event register:<variablelist><varlistentry><term>0</term>
+<listitem><para>The processor stops executing instructions and enters
+sleep mode</para></listitem></varlistentry>
+<varlistentry><term>1</term><listitem><para>The processor sets the
+register to zero and continues executing instructions without entering
+sleep mode.</para></listitem></varlistentry></variablelist></para>
+<para>See <xref xrefstyle = "TitleLong" linkend = "CHDEAAHJ"/> for
+more information.</para>
+<para>If the event register is 1, this indicates that the processor
+must not enter sleep mode on execution of a <code>WFE</code> instruction.
+Typically, this is because <phrase condition = "Configurable">of
+the assertion of an external event</phrase><phrase
+    condition = "Optional">, or because another processor in the
+system has executed a <code>SEV</code> instruction, see <xref
+    xrefstyle = "TitleLong" linkend = "CHDJIEAG"/></phrase>. Software
+cannot access this register directly.</para></sect3>
+<sect3 id = "BABEJHEE"><title>Sleep-on-exit</title>
+<para>If the SLEEPONEXIT bit of the SCR is set to 1, when the processor
+completes the execution of an exception handler and returns to Thread
+mode it immediately enters sleep mode. Use this mechanism in applications
+that only require the processor to run when an interrupt occurs.</para></sect3></sect2>
+<sect2 id = "BABGGICD"><title>Wakeup from sleep mode</title>
+<para>The conditions for the processor to wakeup depend on the mechanism
+that caused it to enter sleep mode.</para>
+<sect3><title>Wakeup from WFI or sleep-on-exit</title>
+<para>Normally, the processor wakes up only when it detects an exception
+with sufficient priority to cause exception entry.</para>
+<para>Some embedded systems might have to execute system restore
+tasks after the processor wakes up, and before it executes an interrupt
+handler. To achieve this set the PRIMASK bit to 1. If an interrupt
+arrives that is enabled and has a higher priority than current exception
+priority, the processor wakes up but does not execute the interrupt
+handler until the processor sets PRIMASK to zero. For more information
+about PRIMASK, see <xref xrefstyle = "TitleLong" linkend = "BABCHBFJ"/>.</para></sect3>
+<sect3><title>Wakeup from WFE</title>
+<para>The processor wakes up if:<itemizedlist><listitem><para>it
+detects an exception with sufficient priority to cause exception
+entry</para></listitem>
+<listitem condition = "Optional"><para>it detects <phrase
+    condition = "Configurable">an external event</phrase> signal,
+see <xref xrefstyle = "TitleLong" linkend = "BABJGCDF"/></para></listitem>
+<listitem condition = "Optional"><para>in a multiprocessor system,
+another processor in the system executes a <code>SEV</code> instruction.</para></listitem></itemizedlist></para>
+<para>	In addition, if the SEVONPEND bit in the SCR is set to 1,
+any new pending interrupt triggers an event and wakes up the processor,
+even if the interrupt is disabled or has insufficient priority to
+cause exception entry. For more information about the SCR see <xref
+    xrefstyle = "TitleLong" linkend = "Cihhjgdh"/>.</para></sect3></sect2>
+<sect2 id = "BABGGCHI" condition = "Optional"><title>The Wakeup
+Interrupt Controller</title>
+<para>The <emphasis>Wakeup Interrupt Controller</emphasis> (WIC)
+is a peripheral that can detect an interrupt and wake the processor
+from deep sleep mode. The WIC is enabled only when the DEEPSLEEP
+bit in the SCR is set to 1, see <xref xrefstyle = "TitleLong"
+    linkend = "Cihhjgdh"/>.</para>
+<para>The WIC is not programmable, and does not have any registers
+or user interface. It operates entirely from hardware signals.</para>
+<para>When the WIC is enabled and the processor enters deep sleep
+mode, the power management unit in the system can power down most
+of the Cortex-M0 processor. This has the side effect of stopping
+the SysTick timer. When the WIC receives an interrupt, it takes
+a number of clock cycles to wakeup the processor and restore its
+state, before it can process the interrupt. This means interrupt
+latency is increased in deep sleep mode.</para></sect2>
+<sect2 id = "BABJGCDF" condition = "Optional"><title>The external
+event input</title>
+<para>The processor provides an external event input signal. <phrase
+    condition = "Configurable">This signal can be generated by peripherals.
+Tie this signal LOW if it is not used</phrase>.</para>
+<para><phrase condition = "Configurable">This signal</phrase> can
+wakeup the processor from WFE, or set the internal WFE event register to
+one to indicate that the processor must not enter sleep mode on
+a later <code>WFE</code> instruction, see <xref xrefstyle = "TitleLong"
+    linkend = "BABCDDFE"/>.</para></sect2>
+<sect2 id = "BABHGFDF"><title>Power management programming hints</title>
+<para>ISO/IEC C cannot directly generate the<code> WFI</code>, <code>WFE</code>,
+and <code>SEV</code> instructions. The CMSIS provides the following
+intrinsic functions for these instructions:</para>
+<programlisting>
+void __WFE(void) 	// Wait for Event
+</programlisting>
+<programlisting>
+void __WFI(void) 	// Wait for Interrupt
+</programlisting>
+<programlisting>
+void __SEV(void) // Send Event
+</programlisting></sect2></sect1></chapter>

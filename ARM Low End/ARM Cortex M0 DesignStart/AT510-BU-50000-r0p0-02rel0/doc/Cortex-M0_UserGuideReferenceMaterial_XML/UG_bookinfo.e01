@@ -1,0 +1,69 @@
+<?Fm Document UG_bookinfo.fm?>
+<title>Cortex<trademark class = "trade"></trademark>-M0 User Guide Reference
+Material</title><subtitle></subtitle><bookinfo>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green NO_OVERRIDE show?>
+
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red NO_OVERRIDE hide?>
+
+
+<?Fm BoolCondExpr "" State 0?>
+
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_ON_FINAL?>
+
+<copyright><year>2009</year><holder>ARM Limited</holder></copyright><revhistory><revision><revnumber>A</revnumber><date>14
+July 2009</date><revremark>Issue A</revremark></revision><revision><revnumber>B</revnumber><date>17 August
+2009</date><revremark>Issue B, re-issued with minor corrections</revremark></revision></revhistory>
+<legalnotice><title>Proprietary Notice</title>
+<para>Words and logos marked with<trademark class = "registered"></trademark> or <trademark
+    class = "trade"></trademark> are registered trademarks or trademarks
+of <trademark class = "registered">ARM</trademark> Limited in the
+EU and other countries, except as otherwise stated below in this
+proprietary notice. Other brands and names mentioned herein may
+be the trademarks of their respective owners.</para>
+<para>Neither the whole nor any part of the information contained
+in, or the product described in, this document may be adapted or
+reproduced in any material form except with the prior written permission
+of the copyright holder.</para>
+<para>The product described in this document is subject to continuous
+developments and improvements. All particulars of the product and
+its use contained in this document are given by ARM in good faith.
+However, all warranties implied or expressed, including but not
+limited to implied warranties of merchantability, or fitness for
+purpose, are excluded.</para>
+<para>This document is intended only to assist the reader in the
+use of the product. ARM Limited shall not be liable for any loss
+or damage arising from the use of any information in this document,
+or any error or omission in such information, or any incorrect use
+of the product.</para></legalnotice><legalnotice><title>Confidentiality
+Status</title>
+<para>This document is Non-Confidential. The right to use, copy
+and disclose this document may be subject to license restrictions
+in accordance with the terms of the agreement entered into by ARM
+and the party that ARM delivered this document to.</para><para>Restricted
+Access is an ARM internal classification.</para></legalnotice>
+<legalnotice><title>Product Status</title>
+<para>The information in this document is final, that is for a developed
+product.</para></legalnotice><keywordset><keyword>ARM</keyword><keyword>Cortex-M0</keyword><keyword>Microcontroller</keyword><keyword>User
+Guide</keyword><keyword>Reference Material</keyword><keyword>MCU</keyword><keyword>Thumb</keyword><keyword>Instruction
+Set</keyword><keyword>32-bit</keyword><keyword>processor</keyword><keyword>CPU</keyword><keyword>microprocessor</keyword><keyword>sleep
+mode</keyword><keyword>wakeup interrupt controller</keyword><keyword>WIC</keyword><keyword>low
+power</keyword><keyword>core peripherals</keyword><keyword>Nested
+Vector Interrupt Controller</keyword><keyword>NVIC</keyword><keyword>Real
+Time Operating System</keyword><keyword>RTOS</keyword><keyword>Memory
+Protection Unit</keyword><keyword>MPU</keyword><keyword>SysTick</keyword></keywordset><abstract><para>User
+Guide reference data for the ARM Cortex-M0 processor, intended for
+silicon partners to configure for their own documentation. The processor
+implements a von-Neumann architecture with a flat 4GB unified memory
+address space. The document includes details of the Thumb instruction
+set. This processor is a highly deterministic low-end 32-bit MCU
+implementing the ARMv6-M architecture with zero deviation instruction
+determinism and zero jitter interrupts for constant wait-state memory
+systems. The microprocessor includes a Wakeup interrupt controller
+(WIC) for wakeup from low-power mode, and sleep modes for power-saving.
+Integrated core peripherals comprise a Nested Vectored Interrupt
+Controller (NVIC), and an integrated system timer (SysTick) for
+Real Time Operating System (RTOS).</para></abstract></bookinfo>

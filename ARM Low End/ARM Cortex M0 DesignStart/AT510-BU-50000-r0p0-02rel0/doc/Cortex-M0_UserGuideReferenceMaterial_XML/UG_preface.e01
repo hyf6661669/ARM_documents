@@ -1,0 +1,385 @@
+<?Fm Document UG_preface.fm?>
+<preface>
+<?Fm Condition FM8_SYSTEM_HIDEELEMENT AsIs NO_OVERRIDE hide?>
+
+<?Fm Condition FM8_TRACK_CHANGES_ADDED Forest%20Green NO_OVERRIDE show?>
+
+<?Fm Condition FM8_TRACK_CHANGES_DELETED Red NO_OVERRIDE hide?>
+
+
+<?Fm BoolCondExpr "" State 0?>
+
+
+
+<?Fm TrackChange Off PreviewState PREVIEW_ON_FINAL?>
+
+<title>Preface</title>
+<para>This preface introduces the <citetitle>Reference Material
+for a Cortex-M0 User Guide</citetitle>. It contains the following
+sections:<itemizedlist spacing = "compact"><listitem><para><xref
+    xrefstyle = "TitleLong" linkend = "Chdeagaa"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABIAJGD"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABGJIHB"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABEGBEE"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "Chdddidb"/>.</para></listitem></itemizedlist></para>
+<sect1 id = "Chdeagaa"><title>About the reference material</title>
+<para>This document provides reference material that you, as an
+ARM partner, can configure and include in a <emphasis>User Guide</emphasis> for
+an ARM Cortex-M0 processor. Typically:<itemizedlist><listitem><para>each
+chapter in this reference material might correspond to a section
+in the User Guide</para></listitem>
+<listitem><para>each top-level section in this reference material
+might correspond to a chapter in the User Guide.</para></listitem></itemizedlist></para>
+<para>However, you can organize this material in any way, subject
+to the conditions of the licence agreement under which ARM supplied
+the material and subject to the incorporation of the following ARM
+copyright notice to any section or chapter taken from the User Guide
+Reference material ‘Copyright © 2009 ARM Limited’.</para>
+<note>
+<para>ARM suggest User Guide as a suitable title for a book based
+on this material, but partners can choose a different name for their
+document.</para>
+</note>
+<para>Figures in the reference material are in <filename>.svg</filename> format,
+and ARM supplies a source and an object file for each figure. The
+graphics filenames match the title of the corresponding figure.</para>
+<sect2 condition = "Optional"><title>Revisions</title>
+<para>This section describes changes between issues of this book.</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE">
+<title>Differences between issue A and issue B</title>
+<tgroup cols = "2" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "3.167in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "3.036in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Change</entry>
+<entry colname = "2">Location</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1"><para>Updated descriptions of implementation
+options for:<itemizedlist><listitem><para>Number of interrupts</para></listitem>
+<listitem><para>Inclusion of the WIC</para></listitem></itemizedlist></para></entry>
+<entry colname = "2"><xref xrefstyle = "TitleLong" linkend = "BABBDEBC"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Corrected formatting of all <literal>monospace</literal> entries</entry>
+<entry colname = "2"><para><xref xrefstyle = "TitleLong"
+    linkend = "CHDEEJIB"/></para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Corrected APSR name, added footnote about EPSR
+reset value</entry>
+<entry colname = "2"><xref xrefstyle = "TableNumPage"
+    linkend = "BABJCGBI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Corrected HardFault exception name</entry>
+<entry colname = "2"><xref xrefstyle = "TableNumPage"
+    linkend = "CHDBFIBD"/>, <xref xrefstyle = "TableNumPage"
+    linkend = "CHDICFAA"/>, <xref xrefstyle = "FigureNumPage"
+    linkend = "BABHAEIC"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Clarified description of interruptible-restartable
+instructions</entry>
+<entry colname = "2"><xref xrefstyle = "TitleLong" linkend = "BABHBEJA"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Updated memory map diagram</entry>
+<entry colname = "2"><xref xrefstyle = "TitleLong" linkend = "CHDBIJJE"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Simplified use of footnotes</entry>
+<entry colname = "2"><xref xrefstyle = "TableNumPage"
+    linkend = "CHDBJAJD"/> and <xref xrefstyle = "TableNumPage"
+    linkend = "BABJFIAH"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Clarified use of msbyte and lsbyte abbreviations
+and made diagrams more consistent</entry>
+<entry colname = "2"><xref xrefstyle = "TitleLong" linkend = "I1835"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Corrected list formatting</entry>
+<entry colname = "2"><xref xrefstyle = "TitleLong" linkend = "CHDJJHJI"/></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Clarifications in descriptions of sleep effects</entry>
+<entry colname = "2"><para><itemizedlist spacing = "compact"><listitem>
+<para><xref xrefstyle = "TitleLong" linkend = "BABCDDFE"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABEJHEE"/></para></listitem></itemizedlist></para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">Corrected CCR reset value</entry>
+<entry colname = "2"><xref xrefstyle = "TableNumPage"
+    linkend = "CHDCFECB"/></entry>
+</row>
+</tbody>
+</tgroup></table></sect2></sect1>
+<sect1 id = "BABIAJGD"><title>Cortex-M0 options</title>
+<para>You must customize the information in this document to produce
+your own user documentation, as the following sections describe:<itemizedlist
+    spacing = "compact"><listitem><para><xref xrefstyle = "TitleShort"
+    linkend = "BABBDEBC"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABJDHAE"/>.</para></listitem></itemizedlist></para>
+<para>In addition, you might want to re-title your customized document,
+and replace references to <emphasis>Cortex-M0</emphasis> to refer
+to your product name.</para>
+<para><xref xrefstyle = "TitleLong" linkend = "BABGJIHB"/> describes
+how this document indicates material that is optional or that you
+must configure.</para>
+<sect2 id = "BABBDEBC"><title>Cortex-M0 implementation options</title>
+<para>This table shows the Cortex-M0 implementation options:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE">
+<title>Effects of the Cortex-M0 implementation options</title>
+<tgroup cols = "3" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "1.017in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "0.101in" colsep = "0"/>
+<colspec colnum = "3" colname = "3" colwidth = "5.093in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Option</entry>
+<entry namest = "2" nameend = "3">Description, and affected documentation</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1" morerows = "1">Number of interrupts</entry>
+<entry namest = "2" nameend = "3" rowsep = "0"><para>You must decide
+how many interrupts your Cortex-M0 implementation supports, in the
+range 1-32. This affects:</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "2"></entry>
+<entry colname = "3"><para>The maximum value of exception number
+in <xref xrefstyle = "TableNumPage" linkend = "CHDBFIBD"/></para><para>Entries
+in the last row of <xref xrefstyle = "TableNumPage" linkend = "CHDICFAA"/>,
+particularly if you implement only one interrupt.</para><para>The
+maximum interrupt number, and associated information where appropriate,
+in:<itemizedlist spacing = "compact"><listitem><para><xref
+    xrefstyle = "TitleLong" linkend = "BABBFABJ"/></para></listitem>
+<listitem><para><xref xrefstyle = "FigureNumPage" linkend = "BABHAEIC"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "CIHIGCIF"/>.</para></listitem></itemizedlist></para><para></para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1" morerows = "1">Inclusion of the WIC </entry>
+<entry namest = "2" nameend = "3" rowsep = "0"><para>You can implement
+the Cortex-M0 with or without a <emphasis>Wakeup interrupt Controller</emphasis> (WIC).
+This affects references to the WIC in <xref xrefstyle = "TitleLong"
+    linkend = "CHDCHEAG"/>.</para></entry>
+</row>
+<row rowsep = "1">
+<entry namest = "2" nameend = "3"><para>Also, include or omit:<itemizedlist>
+<listitem><para>The description of deep sleep mode and the selection
+of the sleep mode in the introduction to the section <xref
+    xrefstyle = "TitleLong" linkend = "CHDJJHJI"/></para></listitem>
+<listitem><para>The value visible in the SYST_CALIB register, see <xref
+    xrefstyle = "TitleLong" linkend = "Bhcjegci"/></para></listitem>
+<listitem><para>The section <xref xrefstyle = "TitleLong"
+    linkend = "BABGGCHI"/>.</para></listitem></itemizedlist></para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Sleep mode power-saving</entry>
+<entry namest = "2" nameend = "3"><para>You must decide the power-saving
+implemented in the sleep modes. This means you must add a description
+of the implemented sleep modes in the section <xref
+    xrefstyle = "TitleLong" linkend = "CHDJJHJI"/>, and reference
+this information from the introduction to this section.</para><para>Sleep
+mode power saving might also affect SysTick behavior, and you might
+need to revise the description in <xref xrefstyle = "TitleLong"
+    linkend = "BABIDIGI"/>.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1" morerows = "1">Endianness</entry>
+<entry namest = "2" nameend = "3" rowsep = "0"><para>The memory
+system can be either little-endian or big-endian. This affects:</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "2"></entry>
+<entry colname = "3"><para>Description of endianness in:<itemizedlist
+    spacing = "compact"><listitem><para><xref xrefstyle = "TitleLong"
+    linkend = "CHDIJJHE"/></para></listitem>
+<listitem><para>The introductory paragraph in <xref
+    xrefstyle = "TitleLong" linkend = "I1835"/>. Include one but
+not both of:<itemizedlist spacing = "compact"><listitem><para><xref
+    xrefstyle = "TitleLong" linkend = "I1844"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "I43478"/>.</para></listitem></itemizedlist></para></listitem></itemizedlist></para><para>Description
+of the ENDIANNESS bit in <xref xrefstyle = "TableNumPage"
+    linkend = "Cihfbgig"/>.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1" morerows = "1">Memory features</entry>
+<entry namest = "2" nameend = "3" rowsep = "0"><para>Some features
+of the memory system are implementation-specific. This affects details
+of vendor-specific memory in <xref xrefstyle = "TitleLong"
+    linkend = "CHDBIJJE"/>, including:</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "2"></entry>
+<entry colname = "3"><para><itemizedlist spacing = "compact"><listitem>
+<para>the figure in that section</para></listitem>
+<listitem><para>information in <xref xrefstyle = "TableNumPage"
+    linkend = "CHDBJAJD"/>.</para></listitem></itemizedlist></para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1" morerows = "1">SysTick timer</entry>
+<entry namest = "2" nameend = "3" rowsep = "0"><para>The SysTick
+timer and its SYST_CALIB register are implementation defined. This
+means you must configure the description of the Systick timer and
+its SYST_CALIB register according to your implementation, or omit
+the description if you believe it is not useful to your customers.
+This affects:</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "2"></entry>
+<entry colname = "3"><para><itemizedlist><listitem><para><xref
+    xrefstyle = "TitleLong" linkend = "Babieigh"/></para></listitem>
+<listitem><para>The entry for SYST_CALIB in <xref
+    xrefstyle = "TableNumPage" linkend = "CHDEGGAE"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "Bhcjegci"/>.</para></listitem></itemizedlist></para></entry>
+</row>
+</tbody>
+</tgroup></table></sect2>
+<sect2 id = "BABJDHAE"><title>Microcontroller system-level configuration
+options</title>
+<para>The Cortex-M0 includes a number of system-level implementation
+options that are determined by the silicon vendor. In general, ARM
+cannot document these options. ARM recommends that the following
+information is added to the manual:</para>
+<table frame = "topbot" colsep = "0" rowsep = "0" tabstyle = "TABLE">
+<title></title>
+<tgroup cols = "2" colsep = "0" rowsep = "0">
+<colspec colnum = "1" colname = "1" colwidth = "1.208in" colsep = "0"/>
+<colspec colnum = "2" colname = "2" colwidth = "5.001in" colsep = "0"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "1">Option</entry>
+<entry colname = "2">Description</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "1">Interrupt assignment</entry>
+<entry colname = "2"><para>Add details of the assignment of interrupts.
+You might add this in the section <xref xrefstyle = "TitleLong"
+    linkend = "BABEHHHB"/> possibly in <xref xrefstyle = "TableNumPage"
+    linkend = "CHDICFAA"/>.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Interrupt type</entry>
+<entry colname = "2"><para>Define the assigned interrupts as <emphasis>level-sensitive</emphasis> or <emphasis>pulse</emphasis>.
+You might include this with your interrupt assignment information.
+Configure <xref xrefstyle = "TitleLong" linkend = "Bhchgeei"/> to reference
+this information.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">NMI assignment</entry>
+<entry colname = "2"><para>Add details of the assignment of the <emphasis>Non-maskable
+interrupt</emphasis> (NMI). You might add this in the section <xref
+    xrefstyle = "TitleLong" linkend = "BABEHHHB"/>, in <xref
+    xrefstyle = "TableNumPage" linkend = "CHDICFAA"/>.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Event input</entry>
+<entry colname = "2"><para>Add details of the assignment of the
+Event input, possibly in the section <xref xrefstyle = "TitleLong"
+    linkend = "BABJGCDF"/>. This can also affect references to the
+external event in:<itemizedlist spacing = "compact"><listitem><para><xref
+    xrefstyle = "TitleLong" linkend = "BABHHGEB"/></para></listitem>
+<listitem><para><xref xrefstyle = "TitleLong" linkend = "BABGGICD"/>.</para></listitem></itemizedlist></para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">Event output</entry>
+<entry colname = "2"><para>Executing an <code>SEV</code> instruction
+can generate a pulse on the <emphasis role = "bold">TXEV</emphasis> output.
+However, use of this signal is implementation defined, Add a description
+of the use of this signal if required. You might add this to the
+section <xref xrefstyle = "TitleLong" linkend = "CHDJJHJI"/>.</para></entry>
+</row>
+<row rowsep = "1">
+<entry colname = "1">System reset request output</entry>
+<entry colname = "2"><para>The description of the SYSRESETREQ bit,
+in <xref xrefstyle = "TitleLong" linkend = "Cihehdge"/>, indicates
+that there is a system reset request signal. Configure this description according
+to your implementation. You might add more information about the
+use of this signal in your implementation.</para></entry>
+</row>
+<row rowsep = "0">
+<entry colname = "1">SysTick <emphasis role = "bold">STCALIB</emphasis> input</entry>
+<entry colname = "2"><para>Use of this signal is implementation
+defined and therefore it is not described in the documentation. It affects:<itemizedlist>
+<listitem><para>The reset value of the CLKSOURCE bit of the SYST_CSR, see <xref
+    xrefstyle = "TitleLong" linkend = "Bhccjgga"/>. This might affect
+the reset value of the SYST_CSR in <xref xrefstyle = "TableNumPage"
+    linkend = "CHDEGGAE"/>.</para></listitem>
+<listitem><para>SysTick register descriptions, in the section <xref
+    xrefstyle = "TitleLong" linkend = "Babieigh"/>, and register
+reset values in <xref xrefstyle = "TableNumPage" linkend = "CHDEGGAE"/>.</para></listitem></itemizedlist></para></entry>
+</row>
+</tbody>
+</tgroup></table></sect2></sect1>
+<sect1 id = "BABGJIHB"><title>Conventions used in the reference
+material</title>
+<para>Information that you must configure is highlighted as:<variablelist>
+<varlistentry condition = "Configurable" role = "break"><term>Configurable</term>
+<listitem><para condition = "Configurable">Identifies text that
+describes a value or feature of the processor that you can configure
+at the implementation stage. Sometimes the reference material includes
+multiple sentences highlighted as configurable and you can choose
+the sentence that corresponds to your implementation.</para>
+<para condition = "Configurable">In a few cases, configurable text
+includes an indication of the required configuration, enclosed in
+angle brackets, &lt; >.</para></listitem></varlistentry>
+<varlistentry condition = "Optional"><term>Optional</term><listitem>
+<para condition = "Optional">Identifies text that describes an optional
+feature of the processor that you can choose whether to implement.</para></listitem></varlistentry></variablelist></para>
+<para>In the FrameMaker source files this highlighting is applied
+either:<itemizedlist><listitem><para>by assigning the value <emphasis>Configurable</emphasis> or <emphasis>Optional</emphasis> to
+the <emphasis>Condition</emphasis> attribute of a FrameMaker element</para></listitem>
+<listitem><para>by wrapping the required text in the <emphasis>Phrase</emphasis> element,
+and then assigning the required value to the <emphasis>Condition</emphasis> attribute
+of that element.</para></listitem></itemizedlist></para>
+<para>Where features in a figure are colored to identify them as
+configurable or optional, you must update the source file to correspond
+to your implementation, and then regenerate the <filename>.svg</filename> object
+file by resaving the file as <filename>.svg</filename>.</para>
+<para>All ARM documents include all the information in <xref
+    xrefstyle = "TitleLong" linkend = "CHDEEJIB"/> in the preface.
+However, some of these conventions are not used in this reference
+material, and these are marked as Optional.</para></sect1>
+<sect1 id = "BABEGBEE"><title>Using this material</title>
+<para>This book is organized into the following chapters:<variablelist>
+<varlistentry role = "break"><term><xref xrefstyle = "ChapterAppendix"
+    linkend = "CHDEIEHE"/></term><listitem><para>Use information
+from this chapter in the introductory material for your document.
+This chapter includes:<itemizedlist spacing = "compact"><listitem>
+<para>a description of conventions used in the supplied material</para></listitem>
+<listitem><para>an overview of the Cortex-M0 processor.</para></listitem></itemizedlist></para></listitem></varlistentry>
+<varlistentry role = "break"><term><xref xrefstyle = "ChapterAppendix"
+    linkend = "CACGADBH"/></term><listitem><para>Configure the information
+in this chapter to provide your description of the processor.</para></listitem></varlistentry>
+<varlistentry role = "break"><term><xref xrefstyle = "ChapterAppendix"
+    linkend = "CIHJJEIH"/></term><listitem><para>Configure the information
+in this chapter to provide your description of the instruction set
+supported by the processor.</para></listitem></varlistentry>
+<varlistentry role = "break"><term><xref xrefstyle = "ChapterAppendix"
+    linkend = "CIHFADFF"/></term><listitem><para>Configure the information
+in this chapter to provide your description of the peripherals that
+are integrated with the processor.</para></listitem></varlistentry>
+<varlistentry role = "standard"><term><xref
+    xrefstyle = "ChapterAppendix" linkend = "CBAIFDIB"/></term>
+<listitem><para>The Glossary defines terms that have a particular
+meaning when describing the processor. ARM recommends you include
+these definitions in your user documentation.</para></listitem></varlistentry></variablelist></para></sect1>
+<sect1 id = "Chdddidb"><title>Feedback</title>
+<para>ARM welcomes feedback on this product and its documentation.</para>
+<sect2><title>Feedback on this book</title>
+<para>If you have any comments on this book, send an e-mail to <literal>errata@arm.com</literal>.
+Give:<itemizedlist spacing = "compact"><listitem><para>the title</para></listitem>
+<listitem><para>the number</para></listitem>
+<listitem><para>the relevant page number(s) to which your comments
+apply</para></listitem>
+<listitem><para>a concise explanation of your comments.</para></listitem></itemizedlist></para>
+<para>ARM also welcomes general suggestions for additions and improvements.</para></sect2></sect1></preface>

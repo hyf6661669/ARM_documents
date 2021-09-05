@@ -1,0 +1,114 @@
+### uVision2 Project, (C) Keil Software
+### Do not modify !
+
+Target (CM0IKMCU - Cortex-M0), 0x0004 // Tools: 'ARM-ADS'
+
+Group (Boot Files)
+Group (CMSIS Files)
+Group (Test Support Files)
+Group (Test)
+
+File 1,1,<..\tests\boot.c><boot.c>
+File 2,5,<..\tests\CMSIS\Core\CM0\core_cm0.h><core_cm0.h>
+File 2,1,<..\tests\CMSIS\Core\CM0\core_cm0.c><core_cm0.c>
+File 2,5,<..\tests\cm0ikmcu.h><cm0ikmcu.h>
+File 2,5,<..\tests\system_cm0ikmcu.h><system_cm0ikmcu.h>
+File 2,1,<..\tests\system_cm0ikmcu.c><system_cm0ikmcu.c>
+File 3,1,<..\tests\retarget_cm0ikmcu.c><retarget_cm0ikmcu.c>
+File 3,5,<..\tests\IKConfig.h><IKConfig.h>
+File 3,5,<..\tests\IKtests.h><IKtests.h>
+File 3,1,<..\tests\IKtests.c><IKtests.c>
+File 3,5,<..\tests\debugdriver_functions.h><debugdriver_functions.h>
+File 4,1,<..\tests\interrupt.c><interrupt.c>
+
+
+Options 1,0,0  // Target 'CM0IKMCU - Cortex-M0'
+ Device (Cortex-M0)
+ Vendor (ARM)
+ Cpu (CLOCK(12000000) CPUTYPE("Cortex-M0"))
+ FlashUt ()
+ StupF ()
+ FlashDR ()
+ DevID (4803)
+ Rgf ()
+ Mem ()
+ C ()
+ A ()
+ RL ()
+ OH ()
+ DBC_IFX ()
+ DBC_CMS ()
+ DBC_AMS ()
+ DBC_LMS ()
+ UseEnv=0
+ EnvBin ()
+ EnvInc ()
+ EnvLib ()
+ EnvReg ()
+ OrgReg ()
+ TgStat=16
+ OutDir (.\)
+ OutName (interrupt)
+ GenApp=1
+ GenLib=0
+ GenHex=0
+ Debug=1
+ Browse=1
+ LstDir (.\)
+ HexSel=1
+ MG32K=0
+ TGMORE=0
+ RunUsr 0 1 <fromelf --bin --output ../tests/interrupt.bin interrupt.axf>
+ RunUsr 1 0 <>
+ BrunUsr 0 0 <>
+ BrunUsr 1 0 <>
+ CrunUsr 0 0 <>
+ CrunUsr 1 0 <>
+ SVCSID <>
+ GLFLAGS=1790
+ ADSFLGA { 243,31,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ACPUTYP ("Cortex-M0")
+ RVDEV ()
+ ADSTFLGA { 0,0,64,0,160,0,64,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSOCM { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ OCMADSIRAM { 0,0,0,0,0,0,0,0,0 }
+ OCMADSIROM { 0,0,0,0,0,0,0,0,0 }
+ OCMADSXRAM { 0,0,0,0,0,0,0,0,0 }
+ OCR_RVCT { 1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ RV_STAVEC ()
+ ADSCCFLG { 5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSCMISC ()
+ ADSCDEFN ()
+ ADSCUDEF ()
+ ADSCINCD (..\tests;..\tests\CMSIS\Core\CM0)
+ ADSASFLG { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSAMISC ()
+ ADSADEFN ()
+ ADSAUDEF ()
+ ADSAINCD ()
+ PropFld { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ IncBld=1
+ AlwaysBuild=0
+ GenAsm=0
+ AsmAsm=0
+ PublicsOnly=0
+ StopCode=3
+ CustArgs ()
+ LibMods ()
+ ADSLDFG { 16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+ ADSLDTA (0x00000000)
+ ADSLDDA (0x20000000)
+ ADSLDSC ()
+ ADSLDIB ()
+ ADSLDIC ()
+ ADSLDMC ()
+ ADSLDIF ()
+ ADSLDDW ()
+  OPTDL (SARMCM3.DLL)()(DARMCM1.DLL)()(SARMCM3.DLL)()(TARMCM1.DLL)()
+  OPTDBG 48125,-1,()()()()()()()()()() ()()()()
+ FLASH1 { 1,0,0,0,0,0,0,0,255,255,255,255,0,0,0,0,0,0,0,0 }
+ FLASH2 ()
+ FLASH3 ("" ())
+ FLASH4 ()
+EndOpt
+
